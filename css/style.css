@@ -619,7 +619,7 @@ textarea.field { resize: none; }
 /* Greeting-style hero (distinct from the old centered statement hero) */
 .hero-greet {
   position: relative;
-  min-height: 100svh;
+  min-height: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
@@ -709,26 +709,6 @@ textarea.field { resize: none; }
   }
   .hero-portrait { justify-self: end; width: min(100%, 27rem); }
 }
-.hero-scrollcue {
-  position: absolute;
-  bottom: 40px;
-  left: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.75rem;
-  color: var(--ink-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-@media (min-width: 768px) { .hero-scrollcue { left: 48px; } }
-.hero-scrollcue .line {
-  width: 32px;
-  height: 1px;
-  background: var(--ink-muted);
-  animation: scrollcue-grow 1.8s ease-in-out infinite;
-  transform-origin: left;
-}
 
 /* ===== About ===== */
 .about-intro {
@@ -749,11 +729,6 @@ textarea.field { resize: none; }
   }
   .about-portrait { justify-self: end; }
 }
-@keyframes scrollcue-grow {
-  0%, 100% { transform: scaleX(1); opacity: 0.6; }
-  50% { transform: scaleX(1.6); opacity: 1; }
-}
-
 /* Project rows — numbered list, cursor-preview compatible (image hidden in-row on desktop) */
 .row-list { margin-top: 2.5rem; }
 .row-item {
