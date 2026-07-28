@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Shubham Waza</title>
+  <meta name="description" content="Experience, education, skills and certifications for Shubham Waza." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main style="padding-top:160px; padding-bottom:128px;">
+    <section class="container reveal" style="display:flex; flex-direction:column; gap:32px;">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:32px;">
+        <div>
+          <p class="eyebrow">Resume</p>
+          <h1 class="display-lg text-balance" style="max-width:40rem;">Experience, education, and skills.</h1>
+        </div>
+        <a href="resume/shubham-waza-cv.pdf" class="btn btn-solid" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download CV</a>
+      </div>
+    </section>
+
+    <section class="container block">
+      <p class="eyebrow reveal">Experience</p>
+      <div id="expList" style="margin-top:24px;"></div>
+    </section>
+
+    <section class="container block two-col">
+      <div>
+        <p class="eyebrow reveal">Education</p>
+        <div id="eduList" class="hairline-top" style="padding-top:24px; margin-top:32px;"></div>
+      </div>
+      <div>
+        <p class="eyebrow reveal">Certifications</p>
+        <ul id="certList" class="hairline-top" style="padding-top:24px; margin-top:32px;"></ul>
+      </div>
+    </section>
+
+    <section class="container block">
+      <p class="eyebrow reveal">Skills</p>
+      <div class="chip-row" id="skillChips" style="margin-top:24px;"></div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const experience = [
+        { role: "Independent Creative & Brand Strategist", org: "Freelance", period: "2025 — Present", points: [
+          "Leading brand identity and UX strategy across multiple client ventures spanning real estate, gaming, and relocation services.",
+          "Running end-to-end design sprints — affinity mapping, personas, and Crazy 8's — for a hospitality staffing platform."
+        ]},
+        { role: "Graphic Designer & UI/UX Designer", org: "Agency & Client Engagements", period: "2023 — 2025", points: [
+          "Delivered brand and campaign creative for clients including Shivalik Ventures, Philips, and Bluestar.",
+          "Designed marketing and social systems for e-commerce and consumer electronics clients."
+        ]}
+      ];
+      document.getElementById("expList").innerHTML = experience.map(e => `
+        <div class="exp-row reveal">
+          <p class="exp-period">${e.period}</p>
+          <div>
+            <h3 class="exp-role">${e.role}</h3>
+            <p class="exp-org">${e.org}</p>
+            <ul class="exp-points">${e.points.map(p => `<li>— ${p}</li>`).join("")}</ul>
+          </div>
+        </div>
+      `).join("");
+
+      document.getElementById("eduList").innerHTML = `
+        <h3 style="font-size:1.125rem;">Design Foundations</h3>
+        <p class="muted" style="margin-top:4px; font-size:0.9rem;">Design Education · Completed</p>
+      `;
+
+      const certs = ["UI/UX Design Fundamentals", "Google Analytics", "Meta Social Media Marketing"];
+      document.getElementById("certList").innerHTML = certs.map(c => `<li class="muted" style="font-size:0.9rem; margin-bottom:12px;">${c}</li>`).join("");
+
+      const skills = ["Figma", "Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Tableau", "Power BI", "SQL"];
+      document.getElementById("skillChips").innerHTML = skills.map(s => `<span class="chip">${s}</span>`).join("");
+
+      initReveal();
+    });
+  </script>
+</body>
+</html>

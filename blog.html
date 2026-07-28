@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Shubham Waza</title>
+  <meta name="description" content="Notes on design, branding, and product strategy from Shubham Waza." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main style="padding-top:160px; padding-bottom:128px;">
+    <section class="container">
+      <div class="reveal">
+        <p class="eyebrow">Blog</p>
+        <h1 class="display-lg text-balance" style="max-width:48rem;">Notes on design, branding, and process.</h1>
+      </div>
+    </section>
+
+    <section class="container block">
+      <div class="blog-grid" id="blogGrid"></div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("blogGrid").innerHTML = POSTS.map(post => {
+        const date = new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+        return `
+          <a href="blog/post.html?slug=${post.slug}" class="blog-card reveal">
+            <div class="blog-thumb"><img src="${post.coverImage}" alt="${escapeHtml(post.title)}" loading="lazy" /></div>
+            <p class="blog-meta">${post.category} · ${date} · ${post.readingTime}</p>
+            <h2>${escapeHtml(post.title)}</h2>
+            <p class="blog-excerpt">${escapeHtml(post.excerpt)}</p>
+          </a>
+        `;
+      }).join("");
+      initReveal();
+    });
+  </script>
+</body>
+</html>

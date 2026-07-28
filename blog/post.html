@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Blog Post — Shubham Waza</title>
+  <meta name="description" id="pageDesc" content="" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="postRoot" style="padding-top:160px; padding-bottom:128px;"></main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function fixNavDepth() {
+      document.querySelectorAll("#nav-placeholder a, #mobileMenu a, #footer-placeholder a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("../")) {
+          a.setAttribute("href", "../" + href);
+        }
+      });
+    }
+
+    function renderPost() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("slug");
+      const post = POSTS.find(p => p.slug === slug);
+      const root = document.getElementById("postRoot");
+
+      if (!post) {
+        root.innerHTML = `
+          <section class="container notfound reveal in-view">
+            <p class="eyebrow">Not Found</p>
+            <h1 class="display-md">We couldn't find that post.</h1>
+            <a href="../blog.html" class="btn btn-solid" style="margin-top:32px;">Back to Blog</a>
+          </section>
+        `;
+        return;
+      }
+
+      document.getElementById("pageTitle").textContent = `${post.title} — Shubham Waza`;
+      document.getElementById("pageDesc").setAttribute("content", post.excerpt);
+
+      root.innerHTML = `
+        <article class="container reveal in-view" style="max-width:48rem;">
+          <a href="../blog.html" class="link-arrow" style="margin-bottom:40px; display:inline-flex;">${ICON_BACK} All posts</a>
+          <p class="eyebrow">${post.category} · ${post.readingTime}</p>
+          <h1 class="display-lg text-balance">${escapeHtml(post.title)}</h1>
+
+          <div class="cs-hero-image" style="margin-top:48px;">
+            <img src="../${post.coverImage}" alt="${escapeHtml(post.title)}" />
+          </div>
+
+          <p class="muted" style="margin-top:48px; font-size:1.125rem; line-height:1.7;">${escapeHtml(post.excerpt)}</p>
+          <p class="muted" style="margin-top:24px; line-height:1.7;">${escapeHtml(post.body)}</p>
+        </article>
+      `;
+
+      initReveal();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fixNavDepth();
+      renderPost();
+    });
+  </script>
+</body>
+</html>

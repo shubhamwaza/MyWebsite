@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Shubham Waza</title>
+  <meta name="description" content="Brand identity, UI/UX design, web design, and marketing creative services offered by Shubham Waza." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main style="padding-top:160px; padding-bottom:128px;">
+    <section class="container">
+      <div class="reveal">
+        <p class="eyebrow">Services</p>
+        <h1 class="display-lg text-balance" style="max-width:48rem;">Where I can help your brand move forward.</h1>
+      </div>
+    </section>
+
+    <section class="container block" id="servicesDetail" style="display:flex; flex-direction:column; gap:96px;"></section>
+
+    <section class="container block">
+      <p class="eyebrow reveal">Frequently Asked</p>
+      <div id="faqList" style="max-width:42rem; margin-top:40px;"></div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const services = [
+        { title: "Brand Identity", overview: "A complete visual identity system — logo, colour, type, and voice — built to scale across every touchpoint.", process: ["Discovery & positioning", "Concept exploration", "Identity system design", "Brand guidelines"], deliverables: ["Logo suite", "Colour & type system", "Brand guidelines", "Core templates"], pricing: "From ₹45,000" },
+        { title: "UI/UX Design", overview: "Research-led product design, from user flows and wireframes to a polished, testable interface.", process: ["User & competitor research", "Information architecture", "Wireframes & prototypes", "Visual design & handoff"], deliverables: ["User flows", "Wireframes", "High-fidelity UI", "Design system"], pricing: "From ₹60,000" },
+        { title: "Web Design", overview: "Editorial, fast, and responsive websites designed to represent a brand at its best on every device.", process: ["Content & sitemap", "Wireframing", "Visual design", "Dev handoff / build"], deliverables: ["Responsive design", "Component library", "SEO-ready structure"], pricing: "From ₹55,000" },
+        { title: "Marketing Design", overview: "Campaign creative for paid, social, and print, built to perform without losing brand consistency.", process: ["Campaign brief", "Concept & messaging", "Creative production", "Channel adaptation"], deliverables: ["Key visuals", "Social creatives", "Ad variants", "Print collateral"], pricing: "Project-based" }
+      ];
+      document.getElementById("servicesDetail").innerHTML = services.map(s => `
+        <div class="service-detail reveal">
+          <div>
+            <h2>${s.title}</h2>
+            <p class="muted" style="margin-top:16px; line-height:1.7;">${s.overview}</p>
+            <p class="price">${s.pricing}</p>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:16px;">Process</p>
+            <ul>${s.process.map(p => `<li>${p}</li>`).join("")}</ul>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:16px;">Deliverables</p>
+            <ul>${s.deliverables.map(d => `<li>${d}</li>`).join("")}</ul>
+          </div>
+        </div>
+      `).join("");
+
+      const faqs = [
+        { q: "How do you structure pricing?", a: "Most projects are scoped and quoted individually based on deliverables and timeline. The figures above are starting points, not fixed rates." },
+        { q: "What's your typical turnaround?", a: "A brand identity typically takes 3–5 weeks; UI/UX and web projects vary from 4–8 weeks depending on scope." },
+        { q: "Do you work with international clients?", a: "Yes — most engagements happen remotely with async updates and scheduled review calls." }
+      ];
+      document.getElementById("faqList").innerHTML = faqs.map(f => `
+        <div class="faq-item reveal">
+          <h3>${f.q}</h3>
+          <p>${f.a}</p>
+        </div>
+      `).join("");
+
+      initReveal();
+    });
+  </script>
+</body>
+</html>

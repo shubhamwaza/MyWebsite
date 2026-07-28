@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Project — Shubham Waza</title>
+  <meta name="description" id="pageDesc" content="Project by Shubham Waza." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main id="csRoot" style="padding-top:160px; padding-bottom:128px;">
+    <!-- Populated by JS -->
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    // Nav links point to root pages, but this page lives one folder deep — fix hrefs after render.
+    function fixNavDepth() {
+      document.querySelectorAll("#nav-placeholder a, #mobileMenu a, #footer-placeholder a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("../") && !href.startsWith("#")) {
+          a.setAttribute("href", "../" + href);
+        }
+      });
+    }
+
+    function renderCaseStudySections(project) {
+      return `
+        <dl class="cs-meta-grid">
+          <div><dt>Client</dt><dd>${escapeHtml(project.client)}</dd></div>
+          <div><dt>Industry</dt><dd>${escapeHtml(project.industry)}</dd></div>
+          <div><dt>Year</dt><dd>${escapeHtml(project.year)}</dd></div>
+          <div><dt>Deliverables</dt><dd>${project.deliverables.join(", ")}</dd></div>
+        </dl>
+
+        <div class="cs-hero-image" style="margin-top:64px;">
+          <img src="../${project.heroImage}" alt="${escapeHtml(project.title)}" />
+        </div>
+
+        <div class="cs-sections">
+          ${project.caseStudy.map(s => `
+            <div class="cs-section reveal">
+              <h2>${s.heading}</h2>
+              <p>${s.body}</p>
+            </div>
+          `).join("")}
+        </div>
+
+        ${project.gallery && project.gallery.length ? `
+        <div class="cs-gallery reveal" style="margin-top:32px;">
+          ${project.gallery.map(img => `
+            <div class="cs-gallery-item"><img src="../${img}" alt="${escapeHtml(project.title)}" /></div>
+          `).join("")}
+        </div>` : ""}
+      `;
+    }
+
+    function renderCarouselSections(project) {
+      return `
+        <div class="carousel-wrap reveal in-view">
+          <div class="carousel-track">
+            ${project.carouselImages.map((img, i) => `
+              <div class="carousel-slide" style="aspect-ratio: ${project.carouselRatio || "5 / 4"};">
+                <img src="../${img}" alt="${escapeHtml(project.title)} — slide ${i + 1}" loading="lazy" />
+              </div>
+            `).join("")}
+          </div>
+        </div>
+        <p class="carousel-hint">Scroll or swipe to see all ${project.carouselImages.length} creatives →</p>
+      `;
+    }
+
+    function renderMultiCarouselSections(project) {
+      return project.clients.map((client, ci) => `
+        <div class="cs-section reveal" style="${ci === 0 ? "border-top:none; padding-top:0;" : ""}">
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <h2 style="margin:0;">${escapeHtml(client.name)}</h2>
+            ${(client.badges || []).map(b => `<span class="chip" style="font-size:0.75rem; padding:5px 12px;">${escapeHtml(b)}</span>`).join("")}
+          </div>
+          ${client.description ? `<p class="muted" style="margin-top:14px; max-width:36rem; line-height:1.6;">${escapeHtml(client.description)}</p>` : ""}
+          <div class="carousel-wrap" style="margin-top:24px;">
+            <div class="carousel-track">
+              ${client.images.map((img, i) => `
+                <div class="carousel-slide" style="aspect-ratio: ${client.carouselRatio || "5 / 4"};">
+                  <img src="../${img}" alt="${escapeHtml(client.name)} — slide ${i + 1}" loading="lazy" />
+                </div>
+              `).join("")}
+            </div>
+          </div>
+          <p class="carousel-hint">Scroll or swipe to see all ${client.images.length} creatives →</p>
+        </div>
+      `).join("");
+    }
+
+    function renderCaseStudy() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("slug");
+      const project = PROJECTS.find(p => p.slug === slug);
+      const root = document.getElementById("csRoot");
+
+      if (!project) {
+        root.innerHTML = `
+          <section class="container notfound reveal in-view">
+            <p class="eyebrow">Not Found</p>
+            <h1 class="display-md">We couldn't find that project.</h1>
+            <p class="muted" style="margin-top:16px;">It may have been moved or renamed.</p>
+            <a href="../work.html" class="btn btn-solid" style="margin-top:32px;">Back to Work</a>
+          </section>
+        `;
+        return;
+      }
+
+      document.getElementById("pageTitle").textContent = `${project.title} — Shubham Waza`;
+      document.getElementById("pageDesc").setAttribute("content", project.description || project.title);
+
+      const currentIndex = PROJECTS.findIndex(p => p.slug === project.slug);
+      const next = PROJECTS[(currentIndex + 1) % PROJECTS.length];
+      const isCarousel = project.type === "carousel";
+      const isMultiCarousel = project.type === "multi-carousel";
+
+      let body;
+      if (isMultiCarousel) {
+        body = `<div class="cs-sections" style="max-width:none;">${renderMultiCarouselSections(project)}</div>`;
+      } else if (isCarousel) {
+        body = renderCarouselSections(project);
+      } else {
+        body = renderCaseStudySections(project);
+      }
+
+      root.innerHTML = `
+        <section class="container reveal in-view">
+          <a href="../work.html" class="link-arrow" style="margin-bottom:40px; display:inline-flex;">${ICON_BACK} All work</a>
+          <p class="eyebrow">${project.categories.join(" · ")}</p>
+          <h1 class="display-lg text-balance" style="max-width:56rem;">${escapeHtml(project.title)}</h1>
+          ${project.description ? `<p class="muted" style="margin-top:24px; max-width:40rem; font-size:1.125rem; line-height:1.7;">${escapeHtml(project.description)}</p>` : ""}
+        </section>
+
+        <section class="container">
+          ${body}
+        </section>
+
+        <section class="container" style="padding-top:112px;">
+          <div class="cs-next reveal">
+            <a href="case-study.html?slug=${next.slug}" class="cs-next-row">
+              <div>
+                <p class="eyebrow">Next Project</p>
+                <h3 class="display-md">${escapeHtml(next.title)}</h3>
+              </div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+        </section>
+      `;
+
+      initReveal();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fixNavDepth();
+      renderCaseStudy();
+    });
+  </script>
+</body>
+</html>

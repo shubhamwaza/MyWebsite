@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Shubham Waza</title>
+  <meta name="description" content="Selected UI/UX and social media design work by Shubham Waza, visual artist and brand storyteller." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main style="padding-top:160px; padding-bottom:128px;">
+    <section class="container">
+      <div class="reveal">
+        <p class="eyebrow">Work</p>
+        <h1 class="display-lg text-balance" style="max-width:48rem;">A small, deliberate body of work.</h1>
+      </div>
+    </section>
+
+    <section class="container block">
+      <div class="filter-row" id="filterRow"></div>
+      <div class="eyebrow-counted" style="margin-bottom:0.5rem;">
+        <span class="count" id="workListCount"></span>
+      </div>
+      <div class="row-list" id="workList"></div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let activeCategory = "All";
+
+    function renderList() {
+      const list = document.getElementById("workList");
+      const filtered = activeCategory === "All"
+        ? PROJECTS
+        : PROJECTS.filter(p => p.categories.includes(activeCategory));
+
+      document.getElementById("workListCount").textContent = `(${filtered.length})`;
+
+      if (filtered.length === 0) {
+        list.innerHTML = `<p class="muted" style="text-align:center; padding:64px 0;">No projects in this category yet — check back soon.</p>`;
+        return;
+      }
+
+      list.innerHTML = filtered.map((p, i) => `
+        <a href="work/case-study.html?slug=${p.slug}" class="row-item reveal in-view" data-preview="${p.coverImage}" style="flex-direction:column; align-items:stretch;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; width:100%;">
+            <div class="row-left">
+              <span class="row-num">${String(i + 1).padStart(2, "0")}</span>
+              <h3 class="row-title">${escapeHtml(p.title)}</h3>
+            </div>
+            <div class="row-tags">${p.categories.map(c => `<span>${c}</span>`).join("")}</div>
+          </div>
+          <div class="row-thumb-mobile"><img src="${p.coverImage}" alt="${escapeHtml(p.title)}" loading="lazy" /></div>
+        </a>
+      `).join("");
+
+      initCursorPreview("#workList .row-item");
+    }
+
+    function renderFilters() {
+      const row = document.getElementById("filterRow");
+      const cats = ["All", ...ALL_CATEGORIES];
+      row.innerHTML = cats.map(c => `<button class="filter-btn ${c === activeCategory ? "active" : ""}" data-cat="${c}">${c}</button>`).join("");
+      row.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeCategory = btn.dataset.cat;
+          renderFilters();
+          renderList();
+        });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderFilters();
+      renderList();
+    });
+  </script>
+</body>
+</html>

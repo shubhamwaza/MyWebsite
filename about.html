@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Shubham Waza, Visual Artist</title>
+  <meta name="description" content="Learn about Shubham Waza's story, creative philosophy, skills, and experience as a visual artist and brand storyteller based in Mumbai." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main style="padding-top:160px; padding-bottom:128px;">
+    <section class="container">
+      <div class="reveal">
+        <p class="eyebrow">About</p>
+        <h1 class="display-lg text-balance" style="max-width:48rem;">My Story</h1>
+        <p class="muted" style="margin-top:32px; max-width:40rem; font-size:1.125rem; line-height:1.7;">
+          I'm Shubham Waza, a visual artist and brand storyteller based in Mumbai. My work moves
+          between branding, marketing creative, and UI/UX design — helping businesses turn ideas into
+          experiences people actually remember. I care as much about the thinking behind a decision
+          as the pixel it produces.
+        </p>
+      </div>
+    </section>
+
+    <section class="container block">
+      <div class="reveal">
+        <p class="eyebrow">Creative Philosophy</p>
+        <h2 class="display-md text-balance" style="max-width:36rem;">Good design earns attention. It doesn't demand it.</h2>
+        <p class="muted" style="margin-top:24px; max-width:40rem; line-height:1.7;">
+          Every project starts with a question, not a template: what does this brand need to say,
+          and to whom? Strategy comes before style. I'd rather ship a considered, simple solution
+          than a clever one that doesn't hold up under real use.
+        </p>
+      </div>
+    </section>
+
+    <section class="container block">
+      <p class="eyebrow reveal">Skills</p>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <section class="container block">
+      <p class="eyebrow reveal">Experience &amp; Education</p>
+      <div class="timeline" id="timeline" style="margin-top:40px;"></div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const skills = {
+        Design: ["Photoshop", "Illustrator", "InDesign", "Figma", "After Effects", "Premiere Pro"],
+        Analytics: ["Tableau", "Power BI", "SQL"],
+        Marketing: ["Social Media", "Branding", "Meta Ads"]
+      };
+      document.getElementById("skillsGrid").innerHTML = Object.entries(skills).map(([cat, items]) => `
+        <div class="reveal">
+          <h3>${cat}</h3>
+          <ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>
+        </div>
+      `).join("");
+
+      const timeline = [
+        { year: "2025 — Present", title: "Independent Creative & Brand Strategist", org: "Freelance / Multiple Ventures", body: "Running design and strategy across brand identity, UX research and marketing for clients spanning real estate, gaming, and relocation services." },
+        { year: "2023 — 2025", title: "Graphic Designer & UI/UX Designer", org: "Agency & Client Work", body: "Delivered brand identity, campaign creative, and product design work for clients including Shivalik Ventures, Philips, and Bluestar." },
+        { year: "Earlier", title: "Design Foundations", org: "Education & Early Practice", body: "Built a foundation across visual design, typography, and design systems that now underpins every brand and product engagement." }
+      ];
+      document.getElementById("timeline").innerHTML = timeline.map(t => `
+        <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <p class="timeline-year">${t.year}</p>
+          <h3 style="font-size:1.5rem;">${t.title}</h3>
+          <p class="timeline-org">${t.org}</p>
+          <p class="timeline-body">${t.body}</p>
+        </div>
+      `).join("");
+
+      initReveal();
+    });
+  </script>
+</body>
+</html>

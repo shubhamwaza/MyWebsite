@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubham Waza — Visual Artist &amp; Brand Storyteller</title>
+  <meta name="description" content="Shubham Waza is a visual artist and brand storyteller based in Mumbai, shaping identities, campaigns, and digital experiences with a designer's eye." />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-greet container">
+      <div class="grain"></div>
+      <p class="kicker reveal in-view"><span class="dot"></span>Visual Artist · Brand Storyteller · Mumbai, India</p>
+      <h1 class="reveal in-view">Hey, I'm Shubham.</h1>
+      <p class="sub reveal in-view">
+        I shape brands and visual worlds that feel considered, not templated — moving between
+        identity, campaign, and interface with the same eye for detail.
+      </p>
+      <div class="hero-actions reveal in-view" style="margin-top:40px;">
+        <a href="work.html" class="btn btn-solid magnetic">View Work <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+        <a href="contact.html" class="btn btn-outline magnetic">Let's Connect</a>
+      </div>
+      <div class="hero-scrollcue"><span class="line"></span>Scroll</div>
+    </section>
+
+    <!-- Selected Work -->
+    <section class="container block">
+      <div class="reveal">
+        <div class="section-head">
+          <div class="eyebrow-counted" style="margin-bottom:1.5rem;">
+            <p class="eyebrow" style="margin:0;">Selected Work</p>
+            <span class="count" id="workCount"></span>
+          </div>
+        </div>
+        <h2 class="display-md text-balance">A couple of projects worth a closer look.</h2>
+      </div>
+      <div class="row-list" id="homeProjectList"></div>
+      <div style="margin-top:40px;">
+        <a href="work.html" class="link-arrow">View all work <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+      </div>
+    </section>
+
+    <!-- Worked With -->
+    <section class="container block">
+      <div class="eyebrow-counted reveal">
+        <p class="eyebrow" style="margin:0;">Worked With</p>
+        <span class="count" id="workedCount"></span>
+      </div>
+      <div class="worked-list" id="workedList"></div>
+    </section>
+
+    <!-- Services -->
+    <section class="container block">
+      <div class="reveal">
+        <p class="eyebrow">Services</p>
+        <h2 class="display-md text-balance" style="max-width:36rem;">Where I can help.</h2>
+      </div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="container block">
+      <p class="eyebrow reveal">What Clients Say</p>
+      <div class="testi-grid" id="testiGrid"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container block">
+      <div class="cta-box reveal">
+        <h2 class="display-md text-balance" style="max-width:32rem; margin:0 auto;">Let's create something exceptional together.</h2>
+        <p>Currently taking on a limited number of new projects for late 2026.</p>
+        <a href="contact.html" class="btn btn-solid magnetic">Start a Project <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Selected work — row-list style with cursor-follow preview + mobile thumbnail
+      const list = document.getElementById("homeProjectList");
+      document.getElementById("workCount").textContent = `(${PROJECTS.length})`;
+      list.innerHTML = PROJECTS.map((p, i) => `
+        <a href="work/case-study.html?slug=${p.slug}" class="row-item reveal in-view" data-preview="${p.coverImage}" style="flex-direction:column; align-items:stretch;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px; width:100%;">
+            <div class="row-left">
+              <span class="row-num">${String(i + 1).padStart(2, "0")}</span>
+              <h3 class="row-title">${escapeHtml(p.title)}</h3>
+            </div>
+            <div class="row-tags">${p.categories.map(c => `<span>${c}</span>`).join("")}</div>
+          </div>
+          <div class="row-thumb-mobile"><img src="${p.coverImage}" alt="${escapeHtml(p.title)}" loading="lazy" /></div>
+        </a>
+      `).join("");
+
+      initCursorPreview("#homeProjectList .row-item");
+
+      // Worked With
+      document.getElementById("workedCount").textContent = `(${WORKED_WITH.length})`;
+      document.getElementById("workedList").innerHTML = WORKED_WITH.map(w => `
+        <div class="worked-row reveal">
+          <div class="worked-logo">
+            ${w.logo ? `<img src="${w.logo}" alt="${escapeHtml(w.name)}" loading="lazy" />` : `<span>${escapeHtml(w.name.slice(0,2).toUpperCase())}</span>`}
+          </div>
+          <span class="worked-name">${escapeHtml(w.name)}</span>
+          <span class="worked-role">${escapeHtml(w.role)}</span>
+          <span class="worked-meta">
+            <span>${escapeHtml(w.period)}</span>
+            <span>${escapeHtml(w.location)}</span>
+          </span>
+        </div>
+      `).join("");
+
+      const services = [
+        { title: "Brand Identity", desc: "Naming, logo systems, and visual identity built to last beyond a single campaign." },
+        { title: "Social Media Design", desc: "Content systems that keep a brand consistent, fast to produce, and worth stopping for." },
+        { title: "UI/UX Design", desc: "Research-led product design — from user flows to polished, testable interfaces." },
+        { title: "Web Design", desc: "Editorial, fast-loading websites that hold up on every screen and every connection." },
+        { title: "Creative Strategy", desc: "Positioning and messaging frameworks that give a brand a clear point of view." },
+        { title: "Marketing Design", desc: "Campaign creative built to perform across paid, social, and print touchpoints." }
+      ];
+      document.getElementById("servicesGrid").innerHTML = services.map((s, i) => `
+        <div class="service-card reveal">
+          <span class="service-num">${String(i + 1).padStart(2, "0")}</span>
+          <h3>${s.title}</h3>
+          <p>${s.desc}</p>
+        </div>
+      `).join("");
+
+      const testimonials = [
+        { quote: "Shubham has a rare ability to translate a vague brief into a brand system that feels obvious in hindsight.", name: "Client Name", role: "Placeholder — add role/company" },
+        { quote: "He thinks in systems, not just screens — every deliverable we got could be extended without needing to go back and ask questions.", name: "Client Name", role: "Placeholder — add role/company" },
+        { quote: "Fast, precise, and genuinely invested in getting the strategy right before touching visuals.", name: "Client Name", role: "Placeholder — add role/company" }
+      ];
+      document.getElementById("testiGrid").innerHTML = testimonials.map(t => `
+        <figure class="testi-card reveal">
+          <blockquote class="testi-quote">"${escapeHtml(t.quote)}"</blockquote>
+          <figcaption>
+            <span class="testi-name">${escapeHtml(t.name)}</span>
+            <span class="testi-role">${escapeHtml(t.role)}</span>
+          </figcaption>
+        </figure>
+      `).join("");
+
+      initReveal();
+      initMagnetic();
+    });
+  </script>
+</body>
+</html>

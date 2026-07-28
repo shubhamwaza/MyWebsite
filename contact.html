@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Shubham Waza</title>
+  <meta name="description" content="Get in touch with Shubham Waza about your next brand or product project." />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main style="padding-top:160px; padding-bottom:128px;">
+    <section class="container contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h1 class="display-lg text-balance">Let's talk about your project.</h1>
+        <p class="muted" style="margin-top:24px; max-width:24rem; line-height:1.7;">
+          Based in Mumbai, working with clients everywhere. Fill out the form or reach out
+          directly — I typically reply within two business days.
+        </p>
+        <ul style="margin-top:56px; display:flex; flex-direction:column; gap:12px;">
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="muted" style="font-size:0.9rem;">LinkedIn</a></li>
+          <li><a href="https://behance.net" target="_blank" rel="noopener" class="muted" style="font-size:0.9rem;">Behance</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener" class="muted" style="font-size:0.9rem;">Instagram</a></li>
+          <li><a href="mailto:hello@shubhamwaza.com" class="muted" style="font-size:0.9rem;">Email</a></li>
+        </ul>
+      </div>
+
+      <div class="reveal" id="formWrap">
+        <form id="contactForm">
+          <div class="form-row form-group">
+            <div>
+              <label class="field-label" for="name">Name</label>
+              <input class="field" id="name" name="name" required placeholder="Your full name" />
+            </div>
+            <div>
+              <label class="field-label" for="email">Email</label>
+              <input class="field" type="email" id="email" name="email" required placeholder="you@company.com" />
+            </div>
+            <div>
+              <label class="field-label" for="company">Company</label>
+              <input class="field" id="company" name="company" placeholder="Optional" />
+            </div>
+            <div>
+              <label class="field-label" for="projectType">Project Type</label>
+              <select class="field" id="projectType" name="projectType">
+                <option value="" selected disabled>Select one</option>
+                <option>Brand Identity</option>
+                <option>UI/UX Design</option>
+                <option>Web Design</option>
+                <option>Marketing Campaign</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label class="field-label" for="budget">Budget</label>
+              <select class="field" id="budget" name="budget">
+                <option value="" selected disabled>Select a range</option>
+                <option>Under ₹50k</option>
+                <option>₹50k – ₹1.5L</option>
+                <option>₹1.5L – ₹5L</option>
+                <option>₹5L+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="message">Message</label>
+            <textarea class="field" id="message" name="message" rows="4" required placeholder="Tell me a little about your project"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-solid">Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+      const wrap = document.getElementById("formWrap");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // This is a UI-only form. Wire it up to an email/API endpoint of your
+        // choice (Formspree, Resend, a serverless function, etc.) to actually send it.
+        wrap.innerHTML = `
+          <div class="form-success">
+            <span class="success-icon">${ICON_CHECK}</span>
+            <h3 style="font-size:1.5rem;">Message sent.</h3>
+            <p class="muted" style="margin-top:12px;">Thanks for reaching out — I'll get back to you within a couple of business days.</p>
+          </div>
+        `;
+      });
+      initReveal();
+    });
+  </script>
+</body>
+</html>
