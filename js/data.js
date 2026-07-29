@@ -116,7 +116,7 @@ const PROJECTS = [
           "images/projects/makeo-carousel-2.png",
           "images/projects/makeo-carousel-3.png",
           "images/projects/makeo-carousel-4.png",
-          "images/projects/makeo-carousel-5.png"
+          "images/projects/makeo-carousel-5.png",
         ]
       }
     ]
