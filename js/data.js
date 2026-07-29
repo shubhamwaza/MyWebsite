@@ -74,12 +74,12 @@ const PROJECTS = [
         description: "Placeholder — add a short line about the AOC social content: platform focus, content style, or campaign goal.",
         carouselRatio: "1080 / 1350",
         images: [
-  "images/projects/philips-carousel-1.jpg",
-  "images/projects/philips-carousel-2.jpg",
-  "images/projects/philips-carousel-3.jpg",
-  "images/projects/philips-carousel-4.webp",
-  "images/projects/philips-carousel-5.webp",
-]
+         "images/projects/aoc-carousel-1.jpg",
+         "images/projects/aoc-carousel-2.jpg",
+         "images/projects/aoc-carousel-3.jpg",
+         "images/projects/aoc-carousel-4.webp",
+         "images/projects/aoc-carousel-5.webp"
+        ]
       },
       {
         name: "Blue Star",
