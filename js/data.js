@@ -40,8 +40,8 @@ const PROJECTS = [
     type: "multi-carousel",
     categories: ["Social Media"],
     year: "2026",
-    description: "A cross-sector selection of social-first campaigns and always-on content systems—built to turn brand stories, product benefits, and cultural moments into clear, engaging creative.",
-    coverImage: "images/projects/phy-carousel-1.svg",
+    description: "A cross-sector selection of social-first campaigns and always-on content systems built to turn brand stories, product benefits, and cultural moments into clear, engaging creative.",
+    coverImage: "images/projects/phy-carousel-1.png",
     clients: [
       {
         name: "PHY",
