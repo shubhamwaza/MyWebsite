@@ -140,6 +140,30 @@ function initMagnetic(selector = ".magnetic") {
   });
 }
 
+// ===== Orange gradient hover =====
+// Adds a cursor-positioned accent glow to interactive surfaces on pointer devices.
+function initOrangeHover() {
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  const selector = ".btn, .row-item, .project-card, .service-card, .worked-row, .client-cell, .filter-btn, .blog-card, .cs-next-row, .back-to-top, .link-arrow";
+
+  document.addEventListener("pointermove", (event) => {
+    const target = event.target.closest(selector);
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    target.classList.add("orange-hover");
+    target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
+    target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
+  }, { passive: true });
+
+  document.addEventListener("pointerout", (event) => {
+    const target = event.target.closest(selector);
+    if (!target || target.contains(event.relatedTarget)) return;
+    target.classList.remove("orange-hover");
+  }, { passive: true });
+}
+
 // ===== Cursor-follow image preview =====
 // Attach to any set of elements with a data-preview="path/to/image.jpg" attribute.
 // A single floating box follows the cursor and swaps its image per hovered row.
@@ -193,4 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFooter();
   initReveal();
   initMagnetic();
+  initOrangeHover();
 });

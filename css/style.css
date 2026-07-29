@@ -808,6 +808,40 @@ textarea.field { resize: none; }
 /* Magnetic hover wrapper — nav links / buttons nudge toward the cursor */
 .magnetic { display: inline-block; will-change: transform; transition: transform .2s var(--ease-editorial); }
 
+/* Cursor-positioned orange glow for interactive surfaces on desktop pointers. */
+@media (hover: hover) and (pointer: fine) {
+  .orange-hover {
+    background-image: radial-gradient(
+      13rem circle at var(--hover-x, 50%) var(--hover-y, 50%),
+      rgba(249, 115, 22, 0.24) 0%,
+      rgba(249, 115, 22, 0.08) 34%,
+      transparent 72%
+    );
+    border-color: rgba(249, 115, 22, 0.42);
+    box-shadow: 0 18px 38px rgba(249, 115, 22, 0.10);
+    transition: border-color .22s var(--ease-editorial), box-shadow .22s var(--ease-editorial);
+  }
+
+  .btn.orange-hover.btn-solid {
+    background-color: var(--ink);
+    color: var(--bg);
+  }
+
+  .btn.orange-hover.btn-outline,
+  .filter-btn.orange-hover:not(.active) {
+    color: var(--ink);
+  }
+
+  .row-item.orange-hover .row-title,
+  .project-card.orange-hover .project-cta,
+  .blog-card.orange-hover h2,
+  .cs-next-row.orange-hover h3,
+  .link-arrow.orange-hover,
+  .back-to-top.orange-hover {
+    color: var(--accent);
+  }
+}
+
 /* "Worked With" text list */
 .worked-list { margin-top: 2rem; }
 .worked-row {
