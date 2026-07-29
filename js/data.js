@@ -48,11 +48,11 @@ const PROJECTS = [
         description: "Placeholder — add a short line about the PHY social content: platform focus, content style, or campaign goal.",
         carouselRatio: "1080 / 1350",
         images: [
-          "images/projects/phy-carousel-1.svg",
-          "images/projects/phy-carousel-2.svg",
-          "images/projects/phy-carousel-3.svg",
-          "images/projects/phy-carousel-4.svg",
-          "images/projects/phy-carousel-5.svg"
+          "images/projects/phy-carousel-1.jpg",
+          "images/projects/phy-carousel-2.webp",
+          "images/projects/phy-carousel-3.jpg",
+          "images/projects/phy-carousel-4.webp",
+          "images/projects/phy-carousel-5.jpg"
         ]
       },
       {
@@ -61,11 +61,11 @@ const PROJECTS = [
         description: "Placeholder — add a short line about the Philips social content: platform focus, content style, or campaign goal.",
         carouselRatio: "1080 / 1350",
         images: [
-          "images/projects/philips-carousel-1.svg",
-          "images/projects/philips-carousel-2.svg",
-          "images/projects/philips-carousel-3.svg",
-          "images/projects/philips-carousel-4.svg",
-          "images/projects/philips-carousel-5.svg"
+          "images/projects/philips-carousel-1.jpg",
+          "images/projects/philips-carousel-2.webp",
+          "images/projects/philips-carousel-3.jpg",
+          "images/projects/philips-carousel-4.webp",
+          "images/projects/philips-carousel-5.jpg"
         ]
       },
       {
@@ -82,29 +82,28 @@ const PROJECTS = [
         ]
       },
       {
-        name: "Blue Star",
-        badges: ["Social Media Design"],
-        description: "Placeholder — add a short line about the Blue Star social content: platform focus, content style, or campaign goal.",
-        carouselRatio: "1080 / 1350",
-        images: [
-          "images/projects/bluestar-carousel-1.svg",
-          "images/projects/bluestar-carousel-2.svg",
-          "images/projects/bluestar-carousel-3.svg",
-          "images/projects/bluestar-carousel-4.svg",
-          "images/projects/bluestar-carousel-5.svg"
-        ]
-      },
-      {
         name: "ITPL",
         badges: ["Social Media Design"],
         description: "Placeholder — add a short line about the ITPL social content: platform focus, content style, or campaign goal.",
+        carouselRatio: "1080 / 1080",
+        images: [
+          "images/projects/itpl-carousel-1.jpeg",
+          "images/projects/itpl-carousel-2.jpeg",
+          "images/projects/itpl-carousel-3.jpeg",
+          "images/projects/itpl-carousel-4.jpeg",
+          "images/projects/itpl-carousel-5.jpeg"
+        ]
+      },
+      {
+        name: "OnlyGaming",
+        badges: ["Social Media Design"],
+        description: "Placeholder — add a short line about the OnlyGaming social content: platform focus, content style, or campaign goal.",
         carouselRatio: "1080 / 1350",
         images: [
-          "images/projects/itpl-carousel-1.svg",
-          "images/projects/itpl-carousel-2.svg",
-          "images/projects/itpl-carousel-3.svg",
-          "images/projects/itpl-carousel-4.svg",
-          "images/projects/itpl-carousel-5.svg"
+          "images/projects/OnlyGaming-1.png",
+          "images/projects/OnlyGaming-2.png",
+          "images/projects/OnlyGaming-3.png",
+          "images/projects/OnlyGaming-4.png"
         ]
       },
       {
@@ -113,11 +112,11 @@ const PROJECTS = [
         description: "Placeholder — add a short line about the MakeO work: social content plus push notification design, platform focus, or goal.",
         carouselRatio: "1080 / 540",
         images: [
-          "images/projects/makeo-carousel-1.svg",
-          "images/projects/makeo-carousel-2.svg",
-          "images/projects/makeo-carousel-3.svg",
-          "images/projects/makeo-carousel-4.svg",
-          "images/projects/makeo-carousel-5.svg"
+          "images/projects/makeo-carousel-1.png",
+          "images/projects/makeo-carousel-2.png",
+          "images/projects/makeo-carousel-3.png",
+          "images/projects/makeo-carousel-4.png",
+          "images/projects/makeo-carousel-5.png"
         ]
       }
     ]
