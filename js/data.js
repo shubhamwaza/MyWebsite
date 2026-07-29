@@ -45,7 +45,7 @@ const PROJECTS = [
       {
         name: "PHY",
         badges: ["Social Media Design"],
-        description: "Placeholder — add a short line about the PHY social content: platform focus, content style, or campaign goal.",
+        description: "A social content system for PHY Men’s Care that brings a sharper, more self-assured voice to everyday grooming. The creative balances product-led messaging with clean visual hierarchy and campaign moments built to stand out in a fast-moving feed..,
         carouselRatio: "1080 / 1350",
         images: [
           "images/projects/phy-carousel-1.jpg",
@@ -58,7 +58,7 @@ const PROJECTS = [
       {
         name: "Philips",
         badges: ["Social Media Design"],
-        description: "Placeholder — add a short line about the Philips social content: platform focus, content style, or campaign goal.",
+        description: "A considered series of social assets for Philips, translating a people-first innovation story into clear, approachable creative. The work keeps product communication calm, useful, and human.",
         carouselRatio: "1080 / 1350",
         images: [
           "images/projects/philips-carousel-1.jpg",
@@ -71,7 +71,7 @@ const PROJECTS = [
       {
         name: "AOC",
         badges: ["Social Media Design"],
-        description: "Placeholder — add a short line about the AOC social content: platform focus, content style, or campaign goal.",
+        description: "A high-energy social series for AOC, designed to communicate display performance without losing visual impact. Bold composition, product close-ups, and game-ready cues turn technical benefits into quick, scroll-stopping content.",
         carouselRatio: "1080 / 1350",
         images: [
          "images/projects/aoc-carousel-1.jpg",
@@ -84,7 +84,7 @@ const PROJECTS = [
       {
         name: "ITPL",
         badges: ["Social Media Design"],
-        description: "Placeholder — add a short line about the ITPL social content: platform focus, content style, or campaign goal.",
+        description: "A social content series for IndianOil Total Pvt. Ltd. (ITPL), making road-infrastructure products easier to understand through clear, purposeful communication. The visuals support the brand’s focus on durable roads, safety, innovation, and sustainable mobility.,
         carouselRatio: "1080 / 1080",
         images: [
           "images/projects/itpl-carousel-1.jpeg",
@@ -97,7 +97,7 @@ const PROJECTS = [
       {
         name: "OnlyGaming",
         badges: ["Social Media Design"],
-        description: "Placeholder — add a short line about the OnlyGaming social content: platform focus, content style, or campaign goal.",
+        description: "A community-first set of gaming creatives designed to build excitement around play, culture, and shared moments. High-contrast graphics and platform-native storytelling keep the feed energetic, recognisable, and made for gamers.",
         carouselRatio: "1080 / 1350",
         images: [
           "images/projects/OnlyGaming-1.png",

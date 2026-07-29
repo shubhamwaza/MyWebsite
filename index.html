@@ -70,12 +70,6 @@
       <div class="services-grid" id="servicesGrid"></div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="container block">
-      <p class="eyebrow reveal">What Clients Say</p>
-      <div class="testi-grid" id="testiGrid"></div>
-    </section>
-
     <!-- CTA -->
     <section class="container block">
       <div class="cta-box reveal">
@@ -140,21 +134,6 @@
           <h3>${s.title}</h3>
           <p>${s.desc}</p>
         </div>
-      `).join("");
-
-      const testimonials = [
-        { quote: "Shubham has a rare ability to translate a vague brief into a brand system that feels obvious in hindsight.", name: "Client Name", role: "Placeholder — add role/company" },
-        { quote: "He thinks in systems, not just screens — every deliverable we got could be extended without needing to go back and ask questions.", name: "Client Name", role: "Placeholder — add role/company" },
-        { quote: "Fast, precise, and genuinely invested in getting the strategy right before touching visuals.", name: "Client Name", role: "Placeholder — add role/company" }
-      ];
-      document.getElementById("testiGrid").innerHTML = testimonials.map(t => `
-        <figure class="testi-card reveal">
-          <blockquote class="testi-quote">"${escapeHtml(t.quote)}"</blockquote>
-          <figcaption>
-            <span class="testi-name">${escapeHtml(t.name)}</span>
-            <span class="testi-role">${escapeHtml(t.role)}</span>
-          </figcaption>
-        </figure>
       `).join("");
 
       initReveal();
