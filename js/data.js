@@ -40,12 +40,13 @@ const PROJECTS = [
     type: "multi-carousel",
     categories: ["Social Media"],
     year: "2026",
+    description: "A cross-sector selection of social-first campaigns and always-on content systems—built to turn brand stories, product benefits, and cultural moments into clear, engaging creative.",
     coverImage: "images/projects/phy-carousel-1.svg",
     clients: [
       {
         name: "PHY",
         badges: ["Social Media Design"],
-        description: "A social content system for PHY Men’s Care that brings a sharper, more self-assured voice to everyday grooming. The creative balances product-led messaging with clean visual hierarchy and campaign moments built to stand out in a fast-moving feed..,
+        description: "A social content system for PHY Men's Care that brings a sharper, more self-assured voice to everyday grooming. The creative balances product-led messaging with clean visual hierarchy and campaign moments built to stand out in a fast-moving feed.",
         carouselRatio: "1080 / 1350",
         images: [
           "images/projects/phy-carousel-1.jpg",
@@ -84,7 +85,7 @@ const PROJECTS = [
       {
         name: "ITPL",
         badges: ["Social Media Design"],
-        description: "A social content series for IndianOil Total Pvt. Ltd. (ITPL), making road-infrastructure products easier to understand through clear, purposeful communication. The visuals support the brand’s focus on durable roads, safety, innovation, and sustainable mobility.,
+        description: "A social content series for IndianOil Total Pvt. Ltd. (ITPL), making road-infrastructure products easier to understand through clear, purposeful communication. The visuals support the brand's focus on durable roads, safety, innovation, and sustainable mobility.",
         carouselRatio: "1080 / 1080",
         images: [
           "images/projects/itpl-carousel-1.jpeg",
@@ -109,7 +110,7 @@ const PROJECTS = [
       {
         name: "MakeO",
         badges: ["Social Media Design", "Push Notifications"],
-        description: "Placeholder — add a short line about the MakeO work: social content plus push notification design, platform focus, or goal.",
+        description: "Social and push-notification creative for MakeO, designed to make oral and skin-care decisions feel approachable, personal, and action-oriented. The work translates a technology-led beauty and wellness offering into concise messages that encourage confident next steps.",
         carouselRatio: "1080 / 540",
         images: [
           "images/projects/makeo-carousel-1.png",
