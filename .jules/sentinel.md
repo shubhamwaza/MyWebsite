@@ -1,0 +1,4 @@
+## 2024-05-18 - [XSS] Incomplete HTML Escaping in escapeHtml using DOM textContent
+**Vulnerability:** The `escapeHtml` function in `js/main.js` used the DOM's `textContent` to encode strings, and retrieved it using `innerHTML` (`div.textContent = str; return div.innerHTML;`). This approach successfully escapes `<`, `>`, and `&`, but leaves double (`"`) and single (`'`) quotes unescaped. This allowed XSS when the escaped value was used inside HTML attributes like `<img alt="${escapeHtml(value)}">`.
+**Learning:** Using DOM-based escaping (`textContent` -> `innerHTML`) is dangerous because it doesn't escape quotes, making it unsafe for attribute injection. An attacker can break out of attributes with `" onerror="javascript_code"`.
+**Prevention:** Always use regex-based substitution for HTML escaping and ensure `&`, `<`, `>`, `"`, and `'` are explicitly encoded as HTML entities (`&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`).
