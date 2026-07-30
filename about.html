@@ -61,7 +61,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       const skills = {
         Design: ["Photoshop", "Illustrator", "InDesign", "Figma", "After Effects", "Premiere Pro"],
-        Analytics: ["Tableau", "Power BI", "SQL"],
+        Tools: ["Adobe Creative Cloud", "Microsoft 365"],
         Marketing: ["Social Media", "Branding", "Meta Ads"]
       };
       document.getElementById("skillsGrid").innerHTML = Object.entries(skills).map(([cat, items]) => `
@@ -72,9 +72,11 @@
       `).join("");
 
       const timeline = [
-        { year: "2025 — Present", title: "Independent Creative & Brand Strategist", org: "Freelance / Multiple Ventures", body: "Running design and strategy across brand identity, UX research and marketing for clients spanning real estate, gaming, and relocation services." },
-        { year: "2023 — 2025", title: "Graphic Designer & UI/UX Designer", org: "Agency & Client Work", body: "Delivered brand identity, campaign creative, and product design work for clients including Shivalik Ventures, Philips, and Bluestar." },
-        { year: "Earlier", title: "Design Foundations", org: "Education & Early Practice", body: "Built a foundation across visual design, typography, and design systems that now underpins every brand and product engagement." }
+        { year: "20 Months", title: "Graphic Designer", org: "The 4P Solutions", body: "Designed marketing materials for clients including Philips, AOC, ITPL (Indian Oil & Total Energies), Fujitec Lifts, MakeO, and Shivalik Ventures — driving measurable gains in campaign engagement, lead generation, and online traffic." },
+        { year: "3 Months", title: "Marketing Intern", org: "Pureplay Skin Sciences (Plum Goodness, PHY)", body: "Built content calendars, tracked social media algorithm changes, and presented monthly performance reports to stakeholders with actionable recommendations." },
+        { year: "18 Months", title: "Social Media Manager & Designer", org: "Alpesh Rane Designs (Food Industry Clients)", body: "Crafted content strategies integrating video, animation, and blog content for B2C audiences, boosting reach by 25% and conversions by 30%." },
+        { year: "Sept 2022 – Sept 2023", title: "MSc Business Intelligence & Digital Marketing", org: "Brunel University London", body: "" },
+        { year: "June 2019 – May 2022", title: "BA Multimedia & Mass Communication (Advertising)", org: "Mulund College of Commerce", body: "" }
       ];
       document.getElementById("timeline").innerHTML = timeline.map(t => `
         <div class="timeline-item reveal">
@@ -82,7 +84,7 @@
           <p class="timeline-year">${t.year}</p>
           <h3 style="font-size:1.5rem;">${t.title}</h3>
           <p class="timeline-org">${t.org}</p>
-          <p class="timeline-body">${t.body}</p>
+          ${t.body ? `<p class="timeline-body">${t.body}</p>` : ""}
         </div>
       `).join("");
 
