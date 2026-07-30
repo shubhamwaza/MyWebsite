@@ -817,8 +817,19 @@ textarea.field { resize: none; }
       rgba(249, 115, 22, 0.08) 34%,
       transparent 72%
     );
+  }
+
+  /* Only card-shaped elements get a soft shadow */
+  .service-card.orange-hover,
+  .client-cell.orange-hover,
+  .btn.orange-hover {
     box-shadow: 0 18px 38px rgba(249, 115, 22, 0.10);
-    transition: box-shadow .22s var(--ease-editorial);
+  }
+
+  /* Hide hairline borders on flat list items so they don't cut through the glow */
+  .row-item.orange-hover,
+  .worked-row.orange-hover {
+    border-color: transparent;
   }
 
   .btn.orange-hover.btn-solid {
