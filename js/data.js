@@ -130,12 +130,12 @@ const ALL_CATEGORIES = ["Branding", "Social Media", "UI/UX", "Web Design", "Moti
 // freely; logo is optional (falls back to initials if the path is missing).
 const WORKED_WITH = [
   { name: "UpCrew", role: "UI/UX Design", period: "2026", location: "Self-initiated", logo: "images/clients/UpCrew.png", link: "" },
-  { name: "Philips", role: "Design Support", period: "2024-2026", location: "The 4P Solutions", logo: "images/clients/Philips.png", link: "" },
-  { name: "Blue Star", role: "Design Support", period: "2024-2026", location: "The 4P Solutions", logo: "images/clients/Blue Star.png", link: "" },
-  { name: "AOC", role: "Design Support", period: "2024-2026", location: "The 4P Solutions", logo: "images/clients/AOC.png", link: "" },
-  { name: "ITPL", role: "Design Support", period: "2024-2026", location: "The 4P Solutions", logo: "images/clients/ITPL.png", link: "" },
-  { name: "MakeO", role: "Social Media Design", period: "2024-2026, location: "The 4P Solutions", logo: "images/clients/MakeO.png", link: "" }
-];
+  { name: "Philips", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/Philips.png", link: "" },
+  { name: "Blue Star", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/Blue Star.png", link: "" },
+  { name: "AOC", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/AOC.png", link: "" },
+  { name: "ITPL", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/ITPL.png", link: "" },
+  { name: "MakeO", role: "Social Media Design", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/MakeO.png", link: "" }
+  ];
 
 const CLIENTS = [
   { name: "Philips", logo: "images/clients/Philips.png" },
