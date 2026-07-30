@@ -817,9 +817,8 @@ textarea.field { resize: none; }
       rgba(249, 115, 22, 0.08) 34%,
       transparent 72%
     );
-    border-color: rgba(249, 115, 22, 0.42);
     box-shadow: 0 18px 38px rgba(249, 115, 22, 0.10);
-    transition: border-color .22s var(--ease-editorial), box-shadow .22s var(--ease-editorial);
+    transition: box-shadow .22s var(--ease-editorial);
   }
 
   .btn.orange-hover.btn-solid {
