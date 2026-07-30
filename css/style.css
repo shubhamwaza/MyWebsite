@@ -928,3 +928,170 @@ textarea.field { resize: none; }
   display: inline-flex;
   gap: 4px;
 }
+
+/* ===== Inner-page main padding (replaces inline styles) ===== */
+.page-main {
+  padding-top: 160px;
+  padding-bottom: 128px;
+}
+
+/* Services detail layout */
+.services-detail-col {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+/* ===== Mobile spacing overrides ===== */
+@media (max-width: 767px) {
+  /* Inner-page main padding */
+  .page-main {
+    padding-top: 100px;
+    padding-bottom: 72px;
+  }
+
+  /* Section gaps */
+  section.block {
+    padding-top: 64px;
+  }
+
+  /* Hero greeting */
+  .hero-greet {
+    padding-top: 96px;
+    padding-bottom: 56px;
+    gap: 32px;
+  }
+
+  /* Old-style hero */
+  .hero {
+    min-height: 80vh;
+  }
+  .hero-inner {
+    padding: 120px 0 48px;
+  }
+  .hero-meta {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    margin-top: 80px;
+  }
+  .footer-top {
+    padding: 36px 0;
+    gap: 28px;
+  }
+  .footer-copy {
+    padding-bottom: 24px;
+  }
+
+  /* CTA box */
+  .cta-box {
+    padding: 48px 20px;
+  }
+
+  /* Project cards */
+  .project-card {
+    padding: 24px 0;
+  }
+  .project-list {
+    margin-top: 2rem;
+  }
+
+  /* Row-list items */
+  .row-list {
+    margin-top: 1.5rem;
+  }
+  .row-item {
+    padding: 20px 0;
+  }
+
+  /* Services grid */
+  .services-grid {
+    margin-top: 2rem;
+  }
+  .services-detail-col {
+    gap: 48px;
+  }
+  .service-detail {
+    padding-top: 32px;
+  }
+
+  /* Worked-with list */
+  .worked-list {
+    margin-top: 1.25rem;
+  }
+
+  /* Testimonials */
+  .testi-grid {
+    margin-top: 1.5rem;
+    gap: 20px;
+  }
+
+  /* Case study */
+  .cs-hero-image {
+    margin-top: 32px;
+  }
+  .cs-sections {
+    margin-top: 56px;
+  }
+  .cs-section {
+    padding: 32px 0;
+  }
+  .cs-next {
+    margin-top: 64px;
+  }
+  .cs-meta-grid {
+    margin-top: 32px;
+    padding: 24px 0;
+    gap: 20px;
+  }
+
+  /* Carousel */
+  .carousel-wrap {
+    margin-top: 32px;
+  }
+
+  /* Blog */
+  .blog-grid {
+    margin-top: 2rem;
+  }
+
+  /* Skills */
+  .skills-grid {
+    gap: 28px;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    padding-bottom: 40px;
+  }
+
+  /* Experience rows */
+  .exp-row {
+    margin-bottom: 32px;
+    padding-top: 24px;
+  }
+
+  /* Filter row */
+  .filter-row {
+    margin-bottom: 32px;
+  }
+
+  /* 404 */
+  .notfound {
+    padding: 140px 0 100px;
+  }
+
+  /* Contact grid */
+  .contact-grid {
+    gap: 40px;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    gap: 40px;
+  }
+}
