@@ -51,7 +51,38 @@
   <script src="js/main.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      
+      const experience = [
+        {
+          role: "Graphic Designer",
+          org: "The 4P Solutions",
+          period: "20 Months",
+          points: [
+            "Designed visually compelling marketing materials for clients including Philips and AOC (D2C), achieving a 25% improvement in campaign engagement metrics.",
+            "Collaborated with cross-functional teams on targeted graphic solutions for ITPL (a joint venture of Indian Oil & Total Energies) and Fujitec Lifts (B2B), driving a 20% increase in lead generation.",
+            "Led creative efforts for MakeO (Cosmetics) and Shivalik Ventures (Real Estate) digital campaigns, achieving a 30% boost in online traffic and customer inquiries."
+          ]
+        },
+        {
+          role: "Marketing Intern",
+          org: "Pureplay Skin Sciences (Plum Goodness, PHY)",
+          period: "3 Months",
+          points: [
+            "Built and maintained a content calendar to align scheduling with marketing goals, boosting consistency by 40% and increasing audience retention and brand loyalty by 30%.",
+            "Stayed current on social media algorithm and ad policy changes to ensure compliance and maximize campaign effectiveness.",
+            "Presented monthly performance reports to stakeholders, highlighting key metrics, trends, and actionable recommendations."
+          ]
+        },
+        {
+          role: "Social Media Manager & Designer",
+          org: "Alpesh Rane Designs (Food Industry Clients)",
+          period: "18 Months",
+          points: [
+            "Crafted tailored content strategies integrating video, animation, and blog content for a B2C audience, boosting reach by 25% and increasing conversions by 30%.",
+            "Elevated brand visibility by 40% through planning and executing social media ad campaigns, driving a 25% increase in engagement.",
+            "Enhanced market positioning through competitive analysis, identifying content and messaging differentiators."
+          ]
+        }
+      ];
       document.getElementById("expList").innerHTML = experience.map(e => `
         <div class="exp-row reveal">
           <p class="exp-period">${e.period}</p>
@@ -64,11 +95,20 @@
       `).join("");
 
       document.getElementById("eduList").innerHTML = `
-        <h3 style="font-size:1.125rem;">Design Foundations</h3>
-        <p class="muted" style="margin-top:4px; font-size:0.9rem;">Design Education · Completed</p>
-      `
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1.125rem;">MSc Business Intelligence and Digital Marketing</h3>
+          <p class="muted" style="margin-top:4px; font-size:0.9rem;">Brunel University London · Sept 2022 – Sept 2023</p>
+        </div>
+        <div>
+          <h3 style="font-size:1.125rem;">BA Multimedia and Mass Communication (Major: Advertising)</h3>
+          <p class="muted" style="margin-top:4px; font-size:0.9rem;">Mulund College of Commerce · June 2019 – May 2022</p>
+        </div>
+      `;
 
-      const skills = ["Figma", "Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Tableau", "Power BI", "SQL"];
+      const certs = [];
+      document.getElementById("certList").innerHTML = certs.map(c => `<li class="muted" style="font-size:0.9rem; margin-bottom:12px;">${c}</li>`).join("");
+
+      const skills = ["Adobe Creative Cloud", "Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Figma", "Microsoft 365"];
       document.getElementById("skillChips").innerHTML = skills.map(s => `<span class="chip">${s}</span>`).join("");
 
       initReveal();
