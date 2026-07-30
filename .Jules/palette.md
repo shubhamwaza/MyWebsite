@@ -1,0 +1,3 @@
+## 2026-05-18 - Navigation ARIA Pattern
+**Learning:** Custom navigation components (mobile toggle and links) frequently miss `aria-expanded`, `aria-controls`, and `aria-current="page"`. Screen readers need these to announce the state correctly.
+**Action:** When adding or updating custom navigations, ensure `aria-current="page"` is dynamically updated for links and `aria-expanded`/`aria-label` are dynamically toggled on menu open/close.
