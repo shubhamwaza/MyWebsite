@@ -36,7 +36,7 @@ const PROJECTS = [
   },
   {
     slug: "social-media-creatives",
-    title: "Social Media Creatives",
+    title: "Graphic Design",
     type: "multi-carousel",
     categories: ["Social Media"],
     year: "2026",
