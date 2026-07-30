@@ -51,16 +51,7 @@
   <script src="js/main.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const experience = [
-        { role: "Independent Creative & Brand Strategist", org: "Freelance", period: "2025 — Present", points: [
-          "Leading brand identity and UX strategy across multiple client ventures spanning real estate, gaming, and relocation services.",
-          "Running end-to-end design sprints — affinity mapping, personas, and Crazy 8's — for a hospitality staffing platform."
-        ]},
-        { role: "Graphic Designer & UI/UX Designer", org: "Agency & Client Engagements", period: "2023 — 2025", points: [
-          "Delivered brand and campaign creative for clients including Shivalik Ventures, Philips, and Bluestar.",
-          "Designed marketing and social systems for e-commerce and consumer electronics clients."
-        ]}
-      ];
+      
       document.getElementById("expList").innerHTML = experience.map(e => `
         <div class="exp-row reveal">
           <p class="exp-period">${e.period}</p>
@@ -75,10 +66,7 @@
       document.getElementById("eduList").innerHTML = `
         <h3 style="font-size:1.125rem;">Design Foundations</h3>
         <p class="muted" style="margin-top:4px; font-size:0.9rem;">Design Education · Completed</p>
-      `;
-
-      const certs = ["UI/UX Design Fundamentals", "Google Analytics", "Meta Social Media Marketing"];
-      document.getElementById("certList").innerHTML = certs.map(c => `<li class="muted" style="font-size:0.9rem; margin-bottom:12px;">${c}</li>`).join("");
+      `
 
       const skills = ["Figma", "Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Tableau", "Power BI", "SQL"];
       document.getElementById("skillChips").innerHTML = skills.map(s => `<span class="chip">${s}</span>`).join("");
