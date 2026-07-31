@@ -1,0 +1,3 @@
+## 2024-03-24 - Pausing Continuous requestAnimationFrame Loops
+**Learning:** In codebases with smooth cursor or floating element tracking, developers often use a continuous `requestAnimationFrame` loop with asymptotic easing (e.g., `current += (target - current) * ease`). Because these floating point values theoretically never perfectly equal each other, the loop often runs forever at 60fps even when the user isn't interacting with the page. This causes permanent style thrashing and unnecessary CPU/battery drain.
+**Action:** Always pause `requestAnimationFrame` loops when the values are practically settled (e.g., `< 0.1` difference) and restart the loop using a state flag (`isRunning = true`) on interaction events like `mousemove` or `mouseenter`.
