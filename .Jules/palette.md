@@ -1,0 +1,3 @@
+## 2024-03-24 - Dynamic ARIA Attributes for Custom Toggles
+**Learning:** For custom menu toggles (like `#navToggle`), adding static `aria-label` is not enough for screen readers. Missing `aria-expanded` and `aria-controls` leaves assistive tech users unaware of the menu's state or relationship, leading to confusion when interacting with hamburger menus on mobile.
+**Action:** When implementing custom interactive components (like toggles, modals, or accordions) in this design system, always implement dynamic ARIA states (`aria-expanded`, contextual `aria-label`s) in JavaScript, and link elements using `aria-controls` in HTML.
