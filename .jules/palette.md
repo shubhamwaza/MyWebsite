@@ -1,0 +1,3 @@
+## 2026-08-05 - Hidden mobile menus require inert for keyboard accessibility
+**Learning:** In this project's mobile menu, `opacity: 0` and `transform` are used to visually hide the menu, and `pointer-events: none` prevents mouse clicks. However, this does not prevent keyboard focus (tabbing) from entering the visually hidden menu elements.
+**Action:** When hiding interactive containers visually using opacity, also apply the `inert` attribute (or `visibility: hidden`) to ensure screen readers and keyboard users do not focus on invisible elements. Toggle `inert` dynamically in JS alongside the visual transition classes.
