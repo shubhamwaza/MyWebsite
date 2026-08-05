@@ -119,10 +119,16 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Security enhancement: Fix XSS vulnerability
+// Prevents XSS when used in HTML attributes by escaping quotes
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
