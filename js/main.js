@@ -128,14 +128,28 @@ function escapeHtml(str) {
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
 function initMagnetic(selector = ".magnetic") {
   document.querySelectorAll(selector).forEach(el => {
-    el.addEventListener("mousemove", (e) => {
+    let cachedRect = null;
+
+    // Bolt Optimization: Cache document-relative bounding box to prevent layout thrashing
+    el.addEventListener("mouseenter", () => {
       const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+      cachedRect = {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY,
+        width: rect.width,
+        height: rect.height
+      };
+    });
+
+    el.addEventListener("mousemove", (e) => {
+      if (!cachedRect) return;
+      const x = e.pageX - cachedRect.left - cachedRect.width / 2;
+      const y = e.pageY - cachedRect.top - cachedRect.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
     });
     el.addEventListener("mouseleave", () => {
       el.style.transform = "translate(0, 0)";
+      cachedRect = null;
     });
   });
 }
@@ -146,21 +160,34 @@ function initOrangeHover() {
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   const selector = ".btn, .row-item, .project-card, .service-card, .worked-row, .client-cell, .filter-btn, .blog-card, .cs-next-row, .back-to-top, .link-arrow";
+  let cachedRect = null;
+  let currentTarget = null;
 
   document.addEventListener("pointermove", (event) => {
     const target = event.target.closest(selector);
     if (!target) return;
 
-    const rect = target.getBoundingClientRect();
-    target.classList.add("orange-hover");
-    target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
-    target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
+    // Bolt Optimization: Cache document-relative bounding rect for the active target
+    if (target !== currentTarget) {
+      currentTarget = target;
+      const rect = target.getBoundingClientRect();
+      cachedRect = {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+      };
+      target.classList.add("orange-hover");
+    }
+
+    target.style.setProperty("--hover-x", `${event.pageX - cachedRect.left}px`);
+    target.style.setProperty("--hover-y", `${event.pageY - cachedRect.top}px`);
   }, { passive: true });
 
   document.addEventListener("pointerout", (event) => {
     const target = event.target.closest(selector);
     if (!target || target.contains(event.relatedTarget)) return;
     target.classList.remove("orange-hover");
+    currentTarget = null;
+    cachedRect = null;
   }, { passive: true });
 }
 
@@ -182,19 +209,28 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let ticking = false; // Bolt Optimization: Stop animation loop when idle
 
   function loop() {
+    if (!active && Math.abs(targetX - curX) < 0.5 && Math.abs(targetY - curY) < 0.5) {
+      ticking = false;
+      return; // Stop looping when not active and close to target
+    }
+
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
     requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    if (!ticking) {
+       ticking = true;
+       requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,6 +240,10 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      if (!ticking) {
+         ticking = true;
+         requestAnimationFrame(loop);
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
