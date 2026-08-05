@@ -1,0 +1,3 @@
+## 2024-05-18 - Prevent Layout Thrashing in Continuous Events
+**Learning:** Calling `getBoundingClientRect()` within a rapid event listener like `mousemove` or `pointermove`, especially when followed immediately by setting inline styles (like `--hover-x` or `transform`), causes severe layout thrashing (forced synchronous layouts). This architecture was triggering these layouts continuously across the entire app for hover effects.
+**Action:** Always cache bounding rectangles on initial entry (`mouseenter` or tracking `currentTarget` changes) and read from the cache during the continuous event. Also, ensure continuous `requestAnimationFrame` loops (like `initCursorPreview`) are stopped (`ticking = false`) when idle to save CPU cycles.
