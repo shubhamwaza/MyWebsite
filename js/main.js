@@ -34,10 +34,10 @@ function renderNav() {
           ${NAV_LINKS.map(l => `<li><a href="${l.href}" class="${l.href === active ? "active" : ""}">${l.label}</a></li>`).join("")}
         </ul>
         <a href="contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">${ICON_MENU}</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">${ICON_MENU}</button>
       </div>
     </header>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" inert>
       <div class="container">
         <ul>
           ${NAV_LINKS.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}
@@ -58,12 +58,22 @@ function renderNav() {
     open = !open;
     menu.classList.toggle("open", open);
     toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+    toggle.setAttribute("aria-expanded", open.toString());
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (open) {
+      menu.removeAttribute("inert");
+    } else {
+      menu.setAttribute("inert", "");
+    }
     document.body.style.overflow = open ? "hidden" : "";
   });
   menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
     open = false;
     menu.classList.remove("open");
     toggle.innerHTML = ICON_MENU;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    menu.setAttribute("inert", "");
     document.body.style.overflow = "";
   }));
 }
