@@ -1,0 +1,4 @@
+## 2024-03-24 - [Fix XSS attribute injection vulnerability in escapeHtml]
+**Vulnerability:** XSS attribute injection via `escapeHtml`. The original implementation used `div.textContent = str; return div.innerHTML;` which does not escape quotes (`"`, `'`) or ampersands (`&`), allowing attackers to break out of HTML attributes and inject arbitrary scripts if `escapeHtml` is used inside attributes like `alt` or `href`.
+**Learning:** `textContent` to `innerHTML` conversion in the browser only escapes `<` and `>`, leaving other characters vulnerable if placed inside an HTML attribute string that is then concatenated into the DOM.
+**Prevention:** Always use regex replacement for HTML entities (`&`, `<`, `>`, `"`, `'`) when writing a custom escaping function, or use a robust library.
