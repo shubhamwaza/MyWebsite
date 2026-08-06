@@ -1,0 +1,3 @@
+## 2026-08-06 - Dynamic ARIA state on menu toggle
+**Learning:** Interactive toggles (like mobile hamburger menus) must dynamically update their `aria-expanded` and `aria-label` attributes to correctly announce their current state to screen readers. Leaving it as purely visual feedback makes it inaccessible.
+**Action:** Always verify that toggling UI elements updates the relevant ARIA attributes (`aria-expanded`, `aria-label`, etc.) dynamically via JavaScript when the visual state changes.
