@@ -1,0 +1,3 @@
+## 2026-08-07 - Dynamic ARIA attributes for custom toggles
+**Learning:** Custom toggle buttons like mobile menus need more than just an initial `aria-label`. They require `aria-controls` to associate them with the content they control, and dynamic `aria-expanded` and `aria-label` attributes that update based on their state to properly communicate the UI status to screen readers. Relying solely on visual changes (like icons) leaves screen reader users in the dark.
+**Action:** Always include `aria-expanded` and `aria-controls` on toggle elements and ensure their state, along with any descriptive `aria-label`, is updated dynamically via JavaScript when the state changes.
