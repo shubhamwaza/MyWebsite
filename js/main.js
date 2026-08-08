@@ -127,15 +127,32 @@ function escapeHtml(str) {
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
 function initMagnetic(selector = ".magnetic") {
-  document.querySelectorAll(selector).forEach(el => {
+  const elements = document.querySelectorAll(selector);
+
+  window.addEventListener("scroll", () => {
+    elements.forEach(el => {
+      if (el._magneticRect) {
+        el._magneticRect = null;
+      }
+    });
+  }, { passive: true });
+
+  elements.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      el._magneticRect = el.getBoundingClientRect();
+    });
+
     el.addEventListener("mousemove", (e) => {
-      const rect = el.getBoundingClientRect();
+      if (!el._magneticRect) el._magneticRect = el.getBoundingClientRect();
+      const rect = el._magneticRect;
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
     });
+
     el.addEventListener("mouseleave", () => {
       el.style.transform = "translate(0, 0)";
+      el._magneticRect = null;
     });
   });
 }
@@ -146,21 +163,49 @@ function initOrangeHover() {
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   const selector = ".btn, .row-item, .project-card, .service-card, .worked-row, .client-cell, .filter-btn, .blog-card, .cs-next-row, .back-to-top, .link-arrow";
+  let activeTarget = null;
+  let activeRect = null;
 
   document.addEventListener("pointermove", (event) => {
     const target = event.target.closest(selector);
-    if (!target) return;
 
-    const rect = target.getBoundingClientRect();
-    target.classList.add("orange-hover");
-    target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
-    target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
+    // Clear cache if we moved off the target
+    if (!target) {
+      if (activeTarget) {
+        activeTarget.classList.remove("orange-hover");
+        activeTarget = null;
+        activeRect = null;
+      }
+      return;
+    }
+
+    if (activeTarget !== target) {
+      activeTarget = target;
+      activeRect = target.getBoundingClientRect();
+      target.classList.add("orange-hover");
+    }
+
+    // fallback if rect is somehow lost
+    if (!activeRect) activeRect = target.getBoundingClientRect();
+
+    target.style.setProperty("--hover-x", `${event.clientX - activeRect.left}px`);
+    target.style.setProperty("--hover-y", `${event.clientY - activeRect.top}px`);
   }, { passive: true });
 
   document.addEventListener("pointerout", (event) => {
     const target = event.target.closest(selector);
     if (!target || target.contains(event.relatedTarget)) return;
     target.classList.remove("orange-hover");
+    if (activeTarget === target) {
+      activeTarget = null;
+      activeRect = null;
+    }
+  }, { passive: true });
+
+  window.addEventListener("scroll", () => {
+    if (activeTarget) {
+      activeRect = activeTarget.getBoundingClientRect();
+    }
   }, { passive: true });
 }
 
