@@ -1,0 +1,3 @@
+## 2026-10-15 - Dynamic ARIA state management in vanilla JS
+**Learning:** In vanilla JS setups, adding static ARIA attributes (like `aria-expanded="false"`) is not enough for interactive elements like mobile menu toggles. Screen readers rely on these attributes being dynamically updated via JavaScript (e.g., `setAttribute('aria-expanded', 'true')`) when the state changes to convey the current state to the user.
+**Action:** Always ensure event listeners for interactive elements (like menus, modals, or accordions) dynamically update their associated ARIA state attributes in tandem with visual changes.
