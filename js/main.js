@@ -125,17 +125,38 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// ⚡ Bolt: Use a single global version number for bounding box caches.
+// Instead of running expensive DOM queries to clear caches on scroll/resize,
+// we simply increment this integer. Event handlers will recalculate if their
+// cached version doesn't match the global version.
+let _boundingBoxVersion = 0;
+function invalidateBoundingBoxCaches() {
+  _boundingBoxVersion++;
+}
+window.addEventListener("scroll", invalidateBoundingBoxCaches, { passive: true });
+window.addEventListener("resize", invalidateBoundingBoxCaches, { passive: true });
+
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
 function initMagnetic(selector = ".magnetic") {
   document.querySelectorAll(selector).forEach(el => {
     el.addEventListener("mousemove", (e) => {
-      const rect = el.getBoundingClientRect();
+      // ⚡ Bolt: Cache bounding box to prevent layout thrashing on mousemove
+      if (!el._magneticRect || el._magneticVersion !== _boundingBoxVersion) {
+        // Temporarily remove transform to get an accurate, un-transformed bounding box
+        const originalTransform = el.style.transform;
+        el.style.transform = "none";
+        el._magneticRect = el.getBoundingClientRect();
+        el._magneticVersion = _boundingBoxVersion;
+        el.style.transform = originalTransform;
+      }
+      const rect = el._magneticRect;
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
     });
     el.addEventListener("mouseleave", () => {
       el.style.transform = "translate(0, 0)";
+      el._magneticRect = null; // Invalidate on leave just in case
     });
   });
 }
@@ -151,7 +172,12 @@ function initOrangeHover() {
     const target = event.target.closest(selector);
     if (!target) return;
 
-    const rect = target.getBoundingClientRect();
+    // ⚡ Bolt: Cache bounding box to prevent layout thrashing on pointermove
+    if (!target._orangeRect || target._orangeVersion !== _boundingBoxVersion) {
+      target._orangeRect = target.getBoundingClientRect();
+      target._orangeVersion = _boundingBoxVersion;
+    }
+    const rect = target._orangeRect;
     target.classList.add("orange-hover");
     target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
@@ -161,6 +187,7 @@ function initOrangeHover() {
     const target = event.target.closest(selector);
     if (!target || target.contains(event.relatedTarget)) return;
     target.classList.remove("orange-hover");
+    target._orangeRect = null; // Invalidate on leave
   }, { passive: true });
 }
 
