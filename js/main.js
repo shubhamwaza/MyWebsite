@@ -119,10 +119,17 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// SECURITY: Using regex to escape HTML entities instead of DOM `textContent` to `innerHTML`.
+// The DOM method fails to escape quotes (" and '), making it vulnerable to XSS
+// when the escaped output is used inside HTML attributes.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (typeof str !== 'string') return str;
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
