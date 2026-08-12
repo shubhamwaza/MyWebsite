@@ -1,0 +1,3 @@
+## 2026-05-18 - Fix missing ARIA attributes on mobile menu
+**Learning:** In vanilla JS apps, dynamic UI components like mobile menus often have CSS state changes (e.g. toggling the `.open` class) but fail to properly pair these with accessibility state updates like `aria-expanded` on the toggle button and `aria-hidden` on the menu itself. Similarly, active navigation items are visually highlighted but lack `aria-current="page"`.
+**Action:** When implementing or updating JS-rendered dynamic UI components (like navigation menus), ensure that ARIA attributes (e.g., `aria-expanded`, `aria-label`, `aria-controls`, `aria-current`) are toggled simultaneously with CSS classes or states in the JavaScript logic.
