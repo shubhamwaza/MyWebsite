@@ -16,6 +16,11 @@ const NAV_LINKS = [
   { href: "contact.html", label: "Contact" }
 ];
 
+// Global version for cached DOM measurements to avoid layout thrashing
+let _boundingBoxVersion = 0;
+window.addEventListener("scroll", () => _boundingBoxVersion++, { passive: true });
+window.addEventListener("resize", () => _boundingBoxVersion++, { passive: true });
+
 function currentPage() {
   const path = window.location.pathname.split("/").pop() || "index.html";
   return path;
@@ -129,7 +134,15 @@ function escapeHtml(str) {
 function initMagnetic(selector = ".magnetic") {
   document.querySelectorAll(selector).forEach(el => {
     el.addEventListener("mousemove", (e) => {
-      const rect = el.getBoundingClientRect();
+      // ⚡ Bolt: Cache measurement to avoid layout thrashing
+      if (el._rectVersion !== _boundingBoxVersion) {
+        const oldTransform = el.style.transform;
+        el.style.transform = "none";
+        el._cachedRect = el.getBoundingClientRect();
+        el.style.transform = oldTransform;
+        el._rectVersion = _boundingBoxVersion;
+      }
+      const rect = el._cachedRect;
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
@@ -151,7 +164,16 @@ function initOrangeHover() {
     const target = event.target.closest(selector);
     if (!target) return;
 
-    const rect = target.getBoundingClientRect();
+    // ⚡ Bolt: Cache measurement to avoid layout thrashing
+    if (target._rectVersion !== _boundingBoxVersion) {
+      const oldTransform = target.style.transform;
+      target.style.transform = "none";
+      target._cachedRect = target.getBoundingClientRect();
+      target.style.transform = oldTransform;
+      target._rectVersion = _boundingBoxVersion;
+    }
+    const rect = target._cachedRect;
+
     target.classList.add("orange-hover");
     target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
