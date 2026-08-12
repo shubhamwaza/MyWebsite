@@ -1,0 +1,3 @@
+## 2024-05-24 - Cache DOM measurements to prevent layout thrashing
+**Learning:** In high-frequency events like `mousemove`, calling `getBoundingClientRect()` forces synchronous layout reflows (layout thrashing) which degrades frame rates. Calling it when elements have active CSS transforms yields scaled/translated rects, which can cause math errors for position calculations.
+**Action:** Use a global version integer (e.g. `_boundingBoxVersion`) incremented on `scroll` and `resize` to invalidate element-level cached bounding rects. Temporarily remove `transform` styles (`el.style.transform = "none"`) before measuring and restore them after to get the raw un-transformed dimensions.
