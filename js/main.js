@@ -125,13 +125,29 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// Global version for cache invalidation of bounding rects
+let _boundingBoxVersion = 0;
+window.addEventListener("scroll", () => _boundingBoxVersion++, { passive: true });
+window.addEventListener("resize", () => _boundingBoxVersion++, { passive: true });
+
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
 function initMagnetic(selector = ".magnetic") {
   document.querySelectorAll(selector).forEach(el => {
+    let cachedRect = null;
+    let localVersion = -1;
+
     el.addEventListener("mousemove", (e) => {
-      const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+      if (localVersion !== _boundingBoxVersion || !cachedRect) {
+        // Temporarily remove transform for accurate measurement
+        const prevTransform = el.style.transform;
+        el.style.transform = "none";
+        cachedRect = el.getBoundingClientRect();
+        el.style.transform = prevTransform;
+        localVersion = _boundingBoxVersion;
+      }
+
+      const x = e.clientX - cachedRect.left - cachedRect.width / 2;
+      const y = e.clientY - cachedRect.top - cachedRect.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
     });
     el.addEventListener("mouseleave", () => {
@@ -146,12 +162,24 @@ function initOrangeHover() {
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   const selector = ".btn, .row-item, .project-card, .service-card, .worked-row, .client-cell, .filter-btn, .blog-card, .cs-next-row, .back-to-top, .link-arrow";
+  let rectCache = new WeakMap();
+  let localVersion = -1;
 
   document.addEventListener("pointermove", (event) => {
     const target = event.target.closest(selector);
     if (!target) return;
 
-    const rect = target.getBoundingClientRect();
+    if (localVersion !== _boundingBoxVersion) {
+      rectCache = new WeakMap();
+      localVersion = _boundingBoxVersion;
+    }
+
+    let rect = rectCache.get(target);
+    if (!rect) {
+      rect = target.getBoundingClientRect();
+      rectCache.set(target, rect);
+    }
+
     target.classList.add("orange-hover");
     target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
