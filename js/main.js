@@ -119,10 +119,23 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// SECURITY FIX: Replaced DOM-based escaping with regex-based escaping
+// DOM-based escaping fails to escape quotes (" and '), creating XSS vulnerabilities
+// when the output is used in HTML attributes.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (typeof str !== 'string') {
+    return str;
+  }
+  return str.replace(/[&<>"']/g, function(match) {
+    const escapeMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return escapeMap[match];
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
