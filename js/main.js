@@ -125,11 +125,25 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// Global version integer for caching bounding boxes to prevent layout thrashing
+let _boundingBoxVersion = 0;
+window.addEventListener('scroll', () => _boundingBoxVersion++, { passive: true });
+window.addEventListener('resize', () => _boundingBoxVersion++, { passive: true });
+
+function getCachedRect(el) {
+  if (el._rectVersion !== _boundingBoxVersion || !el._cachedRect) {
+    el._cachedRect = el.getBoundingClientRect();
+    el._rectVersion = _boundingBoxVersion;
+  }
+  return el._cachedRect;
+}
+
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
 function initMagnetic(selector = ".magnetic") {
   document.querySelectorAll(selector).forEach(el => {
     el.addEventListener("mousemove", (e) => {
-      const rect = el.getBoundingClientRect();
+      // Use cached rect to prevent layout thrashing
+      const rect = getCachedRect(el);
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
@@ -151,7 +165,8 @@ function initOrangeHover() {
     const target = event.target.closest(selector);
     if (!target) return;
 
-    const rect = target.getBoundingClientRect();
+    // Use cached rect to prevent layout thrashing
+    const rect = getCachedRect(target);
     target.classList.add("orange-hover");
     target.style.setProperty("--hover-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--hover-y", `${event.clientY - rect.top}px`);
