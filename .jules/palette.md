@@ -1,0 +1,3 @@
+## 2026-08-14 - Accessible Navigation Menus in Vanilla JS
+**Learning:** When building custom JS-rendered components like mobile menus, visual state changes (like adding an `.open` class) must be explicitly paired with ARIA state updates (like `aria-expanded`). Using a simple boolean variable to drive both the class toggle and the ARIA attributes ensures they stay perfectly synchronized.
+**Action:** When implementing or modifying interactive UI components in vanilla JS, always ask "does this visual state change need to be communicated to screen readers?" and bind ARIA attribute updates directly to the state toggle logic.
