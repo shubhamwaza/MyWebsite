@@ -1,0 +1,3 @@
+## 2024-05-24 - Pause idle requestAnimationFrame loop
+**Learning:** Continuous background animations (e.g., using `requestAnimationFrame`) that run indefinitely without an active condition waste CPU and battery, even when the animation's target position is already reached.
+**Action:** Ensure the animation loop pauses when the target position is reached and the animation is inactive, and restart it only when relevant events (like `mousemove` or hover events) occur.
