@@ -119,10 +119,50 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Security: Use regex-based replacement to properly escape all HTML special characters.
+// Using `div.textContent = str; return div.innerHTML` fails to escape quotes (', "),
+// creating XSS vulnerabilities when injected into HTML attributes.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (typeof str !== 'string') return str;
+  const matchHtmlRegExp = /["'&<>]/;
+  const match = matchHtmlRegExp.exec(str);
+  if (!match) {
+    return str;
+  }
+  let escape;
+  let html = '';
+  let index = 0;
+  let lastIndex = 0;
+
+  for (index = match.index; index < str.length; index++) {
+    switch (str.charCodeAt(index)) {
+      case 34: // "
+        escape = '&quot;';
+        break;
+      case 38: // &
+        escape = '&amp;';
+        break;
+      case 39: // '
+        escape = '&#39;';
+        break;
+      case 60: // <
+        escape = '&lt;';
+        break;
+      case 62: // >
+        escape = '&gt;';
+        break;
+      default:
+        continue;
+    }
+    if (lastIndex !== index) {
+      html += str.substring(lastIndex, index);
+    }
+    lastIndex = index + 1;
+    html += escape;
+  }
+  return lastIndex !== index
+    ? html + str.substring(lastIndex, index)
+    : html;
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
