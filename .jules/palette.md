@@ -1,0 +1,3 @@
+## 2024-06-25 - Synchronize ARIA state with Visual state in JS-rendered UI
+**Learning:** When writing dynamic UI elements in vanilla JavaScript (like a mobile navigation menu), it's essential to explicitly update ARIA attributes (such as `aria-expanded` and `aria-label`) alongside the visual CSS class toggles in event listeners. Without doing this, screen readers might announce a button as collapsed when the menu is actually visually open.
+**Action:** Always ensure any JS code that adds or removes a stateful CSS class (e.g. `open`, `active`) also sets the corresponding ARIA attribute via `setAttribute()`.
