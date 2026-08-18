@@ -119,10 +119,19 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// 🛡️ SECURITY: Use regex to explicitly escape quotes to prevent XSS in HTML attributes.
+// DOM-based escaping (div.textContent to innerHTML) does not escape quotes.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (str == null) return "";
+  return String(str).replace(/[&<>"']/g, function(m) {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+    }
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
