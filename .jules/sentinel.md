@@ -1,0 +1,4 @@
+## 2024-11-20 - Fix XSS vulnerability in DOM-based HTML escaping
+**Vulnerability:** DOM-based escaping (`textContent` -> `innerHTML`) failed to escape quote characters (`"` and `'`). This allowed attackers to break out of HTML attributes when user data (like titles or descriptions) was interpolated into HTML strings (e.g. `alt="${escapeHtml(project.title)}"`).
+**Learning:** `textContent` only escapes `<`, `>`, and `&` in modern browsers because quotes are valid text content and only need escaping within HTML tags/attributes. Thus, using it as a general-purpose sanitizer is unsafe when the output is placed inside attributes.
+**Prevention:** Use a regex-based replacement (like `str.replace(/[&<>"']/g, ...`) or a dedicated library (like DOMPurify) when sanitizing data, especially for attribute injection.
