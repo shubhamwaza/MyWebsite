@@ -1,0 +1,3 @@
+## 2024-05-18 - Ensure ARIA attributes sync with visual state
+**Learning:** In vanilla JS applications with dynamic UI components like navigation menus, setting initial ARIA attributes (like `aria-expanded`) in HTML isn't enough; they must be actively updated via JavaScript to remain accurate for screen readers when the component's visual state changes (e.g., toggling a class).
+**Action:** When implementing or updating JS-rendered dynamic UI components (like navigation menus), ensure that ARIA attributes (e.g., `aria-expanded`, `aria-label`, `aria-controls`, `aria-current`) are toggled simultaneously with CSS classes or states in the JavaScript logic.
