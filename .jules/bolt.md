@@ -1,0 +1,3 @@
+## 2024-05-24 - Pausing requestAnimationFrame on idle
+**Learning:** Continuous `requestAnimationFrame` loops in UI components (like cursor-following boxes) run indefinitely even when the target is reached or the user is inactive, leading to unnecessary CPU and battery usage. This is a common performance bottleneck in custom JS-driven UI elements.
+**Action:** When implementing continuous background animations, always track an active state or measure the difference between current and target positions. Pause the loop when the target is reached and the component is inactive, and restart it only when relevant events (like mouse movements) occur.
