@@ -119,10 +119,21 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// SECURITY FIX: Replaced DOM-based escaping with regex approach.
+// The old textContent-to-innerHTML approach fails to escape quotes (" and '),
+// leading to XSS vulnerabilities when used inside HTML attributes.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (typeof str !== 'string') return str;
+  return str.replace(/[&<>"']/g, function(match) {
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return map[match];
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
