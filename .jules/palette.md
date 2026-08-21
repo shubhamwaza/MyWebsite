@@ -1,0 +1,3 @@
+## 2025-02-14 - Navigation ARIA Accessibility
+**Learning:** Found an accessibility issue pattern specific to this app's components where active links and dynamically toggled elements (like the mobile menu) were missing their corresponding `aria-current`, `aria-controls`, and `aria-expanded` properties. It's critical that JS-rendered active states match screen reader active states.
+**Action:** When implementing or updating JS-rendered dynamic UI components (like navigation menus), ensure that ARIA attributes (e.g., `aria-expanded`, `aria-label`, `aria-controls`, `aria-current`) are toggled simultaneously with CSS classes or states in the JavaScript logic.
