@@ -1,0 +1,3 @@
+## 2025-01-08 - Accessible Navigation ARIA States
+**Learning:** JS-rendered dynamic UI components (like mobile menus) often have interactive states toggled visually via CSS classes without syncing ARIA attributes. Also, dynamically generated active page links lack `aria-current="page"`.
+**Action:** When implementing or modifying JS-rendered menus, ensure `aria-expanded` and `aria-label` are toggled synchronously with CSS visibility states. Automatically inject `aria-current="page"` for active navigation links.
