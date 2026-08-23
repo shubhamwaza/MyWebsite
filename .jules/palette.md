@@ -1,0 +1,3 @@
+## 2026-08-23 - Dynamic ARIA Toggling in Vanilla JS
+**Learning:** In vanilla JS apps without a framework, UI components (like navigation menus) often rely on custom logic to track state (e.g., an `open` variable). Simply adding static ARIA attributes to the HTML isn't enough; accessibility attributes like `aria-expanded` and `aria-label` must be explicitly toggled via JavaScript (`setAttribute`) alongside CSS classes and visual changes to keep screen readers synced with the UI state.
+**Action:** When implementing or updating custom interactive components (like toggles, tabs, or modals), always ensure that the event listeners modifying the component's visual state also synchronously update the relevant ARIA attributes.
