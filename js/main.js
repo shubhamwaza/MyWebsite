@@ -182,19 +182,35 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let reqId = null;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // Stop the loop if the box has reached its target position and is inactive
+    const distSq = (targetX - curX) ** 2 + (targetY - curY) ** 2;
+    if (!active && distSq < 0.1) {
+      reqId = null;
+      return;
+    }
+    reqId = requestAnimationFrame(loop);
   }
-  loop();
+
+  function startLoop() {
+    if (!reqId) {
+      reqId = requestAnimationFrame(loop);
+    }
+  }
+
+  startLoop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    startLoop();
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,10 +220,12 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      startLoop();
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
       active = false;
+      startLoop();
     });
   });
 }
