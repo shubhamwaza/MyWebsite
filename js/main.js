@@ -34,7 +34,7 @@ function renderNav() {
           ${NAV_LINKS.map(l => `<li><a href="${l.href}" class="${l.href === active ? "active" : ""}">${l.label}</a></li>`).join("")}
         </ul>
         <a href="contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">${ICON_MENU}</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
       </div>
     </header>
     <div class="mobile-menu" id="mobileMenu">
@@ -59,12 +59,16 @@ function renderNav() {
     menu.classList.toggle("open", open);
     toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
     document.body.style.overflow = open ? "hidden" : "";
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   });
   menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
     open = false;
     menu.classList.remove("open");
     toggle.innerHTML = ICON_MENU;
     document.body.style.overflow = "";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
   }));
 }
 
