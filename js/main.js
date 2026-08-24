@@ -182,19 +182,35 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let running = false; // Tracks if animation loop is active
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
+
+    // Performance optimization: Pause loop when inactive and target reached
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      running = false;
+      return;
+    }
+
     requestAnimationFrame(loop);
   }
-  loop();
+
+  function startLoop() {
+    if (!running) {
+      running = true;
+      requestAnimationFrame(loop);
+    }
+  }
+  startLoop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    startLoop(); // Ensure loop restarts on movement
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
