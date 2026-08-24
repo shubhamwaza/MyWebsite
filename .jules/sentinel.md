@@ -1,0 +1,4 @@
+## 2024-05-18 - DOM-based escaping XSS Vulnerability
+**Vulnerability:** DOM-based HTML escaping using `div.textContent = str; return div.innerHTML;` fails to escape quote characters (`"` and `'`), making the application susceptible to Cross-Site Scripting (XSS) when the escaped string is used inside HTML attributes.
+**Learning:** In a vanilla JS environment, using the browser's DOM for HTML escaping is insufficient for attributes. Quotes are not escaped because they are valid characters inside a text node, allowing attackers to break out of HTML attributes.
+**Prevention:** Always use regex-based string replacement (`&`, `<`, `>`, `"`, `'`) for HTML escaping in vanilla JS codebases. Ensure non-string inputs are safely handled (e.g., explicitly casting to a string and returning an empty string for nullish values) to prevent type-confusion XSS vulnerabilities.
