@@ -1,0 +1,3 @@
+## 2026-06-25 - Synchronize ARIA Attributes for JS-Rendered Dynamic Menus
+**Learning:** When generating dynamic UI components like navigation menus in JavaScript (e.g., `#navToggle` and `#mobileMenu`), ARIA attributes such as `aria-expanded` and `aria-label` must be explicitly defined and manually synchronized with CSS state changes during click events to ensure accurate screen reader feedback. Without this, the DOM lacks semantic states for accessibility.
+**Action:** In vanilla JS apps, update ARIA attributes simultaneously with state/class changes, initialize toggles with proper default ARIA values (like `aria-expanded="false"` and `aria-controls`), and apply `aria-current="page"` for active navigation links.
