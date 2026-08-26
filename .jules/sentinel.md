@@ -1,0 +1,4 @@
+## 2025-02-20 - Fix XSS vulnerability in DOM-based HTML escaping
+**Vulnerability:** The existing `escapeHtml` function used DOM-based escaping (`textContent` to `innerHTML`), which does not escape quotes (`"` or `'`). Since this function was used extensively to sanitize data injected into HTML attributes, it created a severe XSS vulnerability.
+**Learning:** In a vanilla JS environment, relying on DOM elements for HTML escaping fails to handle quotes properly, making the escaped output unsafe for HTML attributes. Additionally, failure to handle non-string inputs could cause type-confusion issues.
+**Prevention:** Always use a regex-based `escapeHtml` function that covers `&`, `<`, `>`, `"`, and `'`. Ensure non-string inputs are gracefully handled by casting them or returning empty strings for nullish values.
