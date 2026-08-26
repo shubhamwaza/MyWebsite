@@ -1,0 +1,3 @@
+## 2024-08-26 - Pausing continuous background animations
+**Learning:** Continuous background animations (e.g., using `requestAnimationFrame` for cursor previews or magnetic hovers) run indefinitely even when no interaction is happening or the target position has been reached, causing unnecessary CPU usage and battery drain.
+**Action:** When implementing continuous animations with `requestAnimationFrame`, always include logic to pause the loop when the target position is reached and the animation is inactive, and restart the loop only when relevant events (like `mousemove` or `mouseenter`) occur.
