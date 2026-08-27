@@ -120,9 +120,16 @@ function initReveal() {
 }
 
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  // SECURITY FIX: DOM-based escaping (textContent to innerHTML) fails to escape quotes,
+  // creating XSS vulnerabilities when injected into HTML attributes.
+  // Using regex replacement and safely handling non-string inputs to prevent type-confusion XSS.
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
