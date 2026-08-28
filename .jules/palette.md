@@ -1,0 +1,3 @@
+## 2026-08-28 - ARIA State Management in Vanilla JS Navigation
+**Learning:** In vanilla JS projects where DOM manipulation drives UI components like mobile navigation, developers often forget to synchronize ARIA attributes (like `aria-expanded` and `aria-label`) alongside CSS classes (like `.open`).
+**Action:** When implementing or fixing JS-rendered dynamic UI components (like navigation menus), ensure that ARIA attributes are toggled simultaneously with CSS classes or states in the JavaScript logic to keep the accessibility tree in sync with the visual state.
