@@ -182,8 +182,15 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isRunning = true; // Optimization: track if loop is running
 
   function loop() {
+    // Optimization: pause loop when animation is inactive and target is reached
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isRunning = false;
+      return;
+    }
+
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
@@ -195,6 +202,11 @@ function initCursorPreview(itemSelector) {
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // Optimization: wake up loop on mouse move
+    if (!isRunning) {
+      isRunning = true;
+      requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,6 +216,11 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      // Optimization: wake up loop on enter
+      if (!isRunning) {
+        isRunning = true;
+        requestAnimationFrame(loop);
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
