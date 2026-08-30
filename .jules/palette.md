@@ -1,0 +1,3 @@
+## 2025-05-15 - Dynamic Navigation Needs Dynamic ARIA
+**Learning:** When implementing a dynamic navigation menu (e.g., using JS to toggle CSS classes like 'open'), setting initial ARIA attributes (`aria-expanded`, `aria-hidden`) is insufficient for screen readers. They must be explicitly updated in tandem with the visual state changes via JS to maintain accessibility sync.
+**Action:** Always ensure ARIA attributes like `aria-expanded` and `aria-hidden` are updated within the same JS event listener that handles visual toggles, and remember to reset them when the state is cleared by other interactions (e.g., clicking a link).
