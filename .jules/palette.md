@@ -1,0 +1,3 @@
+## 2026-08-31 - [Dynamic ARIA states in JS-rendered menus]
+**Learning:** [In vanilla JS codebases, when implementing or updating JS-rendered dynamic UI components (like navigation menus), ensure that ARIA attributes (e.g., `aria-expanded`, `aria-label`, `aria-controls`) are explicitly updated simultaneously with CSS classes or states in the JavaScript logic, rather than just defining them in the initial static HTML.]
+**Action:** [When modifying interactive components, always check if ARIA states need to be programmatically toggled alongside visual state changes (like `classList.toggle`), keeping screen readers synchronized with the UI.]
