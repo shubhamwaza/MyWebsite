@@ -120,9 +120,17 @@ function initReveal() {
 }
 
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (str == null) return "";
+  return String(str).replace(/[&<>"']/g, function(match) {
+    const escapeMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return escapeMap[match];
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
