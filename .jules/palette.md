@@ -1,0 +1,3 @@
+## 2024-05-24 - Improve navigation accessibility with dynamic ARIA states
+**Learning:** For dynamic JS-rendered UI components like a mobile navigation menu, it's critical to ensure ARIA attributes (e.g., `aria-expanded`, `aria-label`, `aria-current`) are correctly toggled in sync with the JavaScript state and visual changes. Relying solely on CSS classes for UI states leaves screen reader users without appropriate context.
+**Action:** When implementing or modifying interactive dynamic elements in vanilla JS, specifically verify that their corresponding ARIA attributes are programmatically updated inside their event listeners to match the current visual state.
