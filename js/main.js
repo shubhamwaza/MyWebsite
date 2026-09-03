@@ -31,10 +31,10 @@ function renderNav() {
       <div class="container">
         <a href="index.html" class="nav-logo" style="display:flex; align-items:center;"><span class="nav-mark">S.W.</span>Shubham Waza</a>
         <ul class="nav-links">
-          ${NAV_LINKS.map(l => `<li><a href="${l.href}" class="${l.href === active ? "active" : ""}">${l.label}</a></li>`).join("")}
+          ${NAV_LINKS.map(l => `<li><a href="${l.href}" class="${l.href === active ? "active" : ""}" ${l.href === active ? 'aria-current="page"' : ''}>${l.label}</a></li>`).join("")}
         </ul>
         <a href="contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">${ICON_MENU}</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
       </div>
     </header>
     <div class="mobile-menu" id="mobileMenu">
@@ -58,12 +58,16 @@ function renderNav() {
     open = !open;
     menu.classList.toggle("open", open);
     toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+    toggle.setAttribute("aria-expanded", open);
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.body.style.overflow = open ? "hidden" : "";
   });
   menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
     open = false;
     menu.classList.remove("open");
     toggle.innerHTML = ICON_MENU;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
     document.body.style.overflow = "";
   }));
 }
