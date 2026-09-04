@@ -1,0 +1,3 @@
+## 2024-05-24 - Dynamic Navigation Accessibility
+**Learning:** In vanilla JS applications, dynamic menus (like mobile navigation toggles) often rely solely on CSS classes (e.g., `.open` or `.active`) to indicate state changes visually, neglecting screen readers. This repository's `#navToggle` button and active navigation links lack the ARIA attributes necessary to communicate their state to assistive technologies.
+**Action:** When implementing or updating JS-rendered dynamic UI components (like navigation menus), ensure that ARIA attributes (e.g., `aria-expanded`, `aria-label`, `aria-controls`, `aria-current`) are toggled simultaneously with CSS classes or states in the JavaScript logic.
