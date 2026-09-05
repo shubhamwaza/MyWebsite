@@ -182,19 +182,36 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isAnimating = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // ⚡ Bolt: Pause the animation loop when the target is reached and not active to save CPU
+    if (!active && Math.abs(targetX - curX) < 0.5 && Math.abs(targetY - curY) < 0.5) {
+      isAnimating = false;
+    } else {
+      requestAnimationFrame(loop);
+    }
   }
-  loop();
+
+  function startLoop() {
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(loop);
+    }
+  }
+
+  // Start initially
+  startLoop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    startLoop();
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,10 +221,12 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      startLoop();
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
       active = false;
+      startLoop();
     });
   });
 }
