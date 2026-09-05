@@ -119,10 +119,15 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Security fix: DOM-based escaping doesn't escape quotes, leading to XSS in attributes.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
