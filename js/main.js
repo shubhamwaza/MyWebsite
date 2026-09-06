@@ -182,19 +182,32 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isAnimating = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // ⚡ Bolt: Pause the animation loop when the preview box has reached the target
+    // position (within a 0.5px threshold) and the user is not actively hovering an item.
+    // This saves CPU and battery by preventing requestAnimationFrame from running indefinitely.
+    if (Math.abs(targetX - curX) > 0.5 || Math.abs(targetY - curY) > 0.5 || active) {
+      requestAnimationFrame(loop);
+    } else {
+      isAnimating = false;
+    }
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // ⚡ Bolt: Restart the animation loop if it was paused and the mouse moved.
+    if (!isAnimating) {
+      isAnimating = true;
+      requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
