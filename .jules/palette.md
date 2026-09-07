@@ -1,0 +1,3 @@
+## 2025-01-28 - Add ARIA Attributes to Navigation Menu
+**Learning:** In JS-rendered dynamic UI components (like navigation menus), essential ARIA attributes (`aria-expanded`, `aria-current`, `aria-controls`) are often omitted, negatively impacting accessibility for screen reader users.
+**Action:** When implementing or updating JS-rendered navigation, ensure that ARIA attributes (e.g., `aria-expanded` and `aria-label` for toggles, `aria-current="page"` for active links) are explicitly set and that dynamic attributes are toggled simultaneously with CSS classes or states in the JavaScript logic.
