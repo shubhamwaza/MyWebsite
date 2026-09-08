@@ -1,0 +1,3 @@
+## 2023-10-24 - Dynamic ARIA states in Custom Menus
+**Learning:** When building custom JS-driven navigation menus, setting initial ARIA attributes (`aria-expanded`, `aria-controls`) is not enough. The `aria-expanded` and `aria-label` attributes must be dynamically toggled within the same JavaScript event listeners that handle the CSS state classes (e.g., `open`) to ensure screen readers accurately convey the current menu state.
+**Action:** Always ensure ARIA attributes are programmatically updated alongside visual state changes in vanilla JS event listeners.
