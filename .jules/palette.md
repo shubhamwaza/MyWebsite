@@ -1,0 +1,3 @@
+## 2024-05-24 - Mobile Menu Accessibility
+**Learning:** When using JS-rendered components like dynamic navigation menus or modals, toggling CSS classes for visibility is not enough for screen readers. ARIA attributes must be managed simultaneously within the JS logic (e.g., `aria-expanded` and `aria-label` changing on a toggle button to reflect the open/closed state of an `aria-controls` element).
+**Action:** When creating or updating dynamic UI elements that change state visually, always implement the corresponding ARIA attribute updates inside the JS event listeners to ensure accessibility state matches visual state.
