@@ -182,20 +182,35 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
   function loop() {
-    curX += (targetX - curX) * 0.18;
-    curY += (targetY - curY) * 0.18;
+    const dx = targetX - curX;
+    const dy = targetY - curY;
+
+    // Stop the loop if we've reached the target and the box isn't active
+    if (!active && Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) {
+      rafId = null;
+      return; // Pause animation to save CPU
+    }
+
+    curX += dx * 0.18;
+    curY += dy * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
-  });
+
+    // Resume the loop if it was paused
+    if (!rafId) {
+      rafId = requestAnimationFrame(loop);
+    }
+  }, { passive: true });
 
   document.querySelectorAll(itemSelector).forEach(el => {
     const src = el.getAttribute("data-preview");
