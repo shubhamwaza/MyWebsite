@@ -1,0 +1,3 @@
+## 2024-05-24 - Dynamic Navigation Menu Accessibility
+**Learning:** When dealing with dynamic UI elements like mobile menus in vanilla JS apps, relying solely on CSS states (like `.open`) leaves screen readers unaware of the element's status. ARIA attributes (e.g., `aria-expanded`) must be dynamically toggled within the JavaScript logic simultaneously with the visual state changes. Also, active links should be explicitly marked with `aria-current="page"`.
+**Action:** Always verify that JS toggles for visual state (`classList.toggle`) are paired with corresponding `.setAttribute` calls for ARIA attributes, and ensure navigation active states include `aria-current`.
