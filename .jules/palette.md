@@ -1,0 +1,3 @@
+## 2023-10-27 - ARIA states for JS-rendered mobile menus
+**Learning:** When generating navigation menus dynamically in vanilla JS, the toggle button needs `aria-expanded` and `aria-controls` explicitly linked to the menu container, and the JS event listeners that toggle CSS classes must simultaneously toggle `aria-expanded` and `aria-label` to ensure screen reader users have context about the menu's open/close state.
+**Action:** Always check toggle buttons in dynamic components to ensure their ARIA attributes (like `aria-expanded` and `aria-label`) are kept in sync with the visual state inside the event handlers.
