@@ -119,10 +119,20 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Escapes HTML special characters to prevent XSS.
+// Handles non-string inputs safely to prevent type confusion.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (str == null) return "";
+  return String(str).replace(/[&<>"']/g, function(m) {
+    switch (m) {
+      case "&": return "&amp;";
+      case "<": return "&lt;";
+      case ">": return "&gt;";
+      case "\"": return "&quot;";
+      case "'": return "&#039;";
+      default: return m;
+    }
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
