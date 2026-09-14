@@ -182,8 +182,15 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isLooping = true;
 
   function loop() {
+    // ⚡ Bolt: Pause the animation loop when the target position converges and preview is inactive
+    // to save CPU/battery.
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isLooping = false;
+      return;
+    }
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
@@ -192,9 +199,17 @@ function initCursorPreview(itemSelector) {
   }
   loop();
 
+  function resumeLoop() {
+    if (!isLooping) {
+      isLooping = true;
+      loop();
+    }
+  }
+
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    resumeLoop();
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,10 +219,12 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      resumeLoop();
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
       active = false;
+      resumeLoop();
     });
   });
 }
