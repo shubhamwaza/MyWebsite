@@ -182,19 +182,37 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let loopRunning = false; // Track loop state to pause when inactive
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
+
+    // Stop the loop if the animation is inactive and has reached the target position
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      loopRunning = false;
+      return;
+    }
+
     requestAnimationFrame(loop);
   }
-  loop();
+
+  function startLoop() {
+    if (!loopRunning) {
+      loopRunning = true;
+      loop();
+    }
+  }
+
+  // Initial call, but it will pause soon if inactive
+  startLoop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    startLoop(); // Restart loop on mouse movement if paused
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,6 +222,7 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      startLoop(); // Ensure loop is running when active
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
