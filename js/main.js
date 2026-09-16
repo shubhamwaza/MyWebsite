@@ -34,7 +34,7 @@ function renderNav() {
           ${NAV_LINKS.map(l => `<li><a href="${l.href}" class="${l.href === active ? "active" : ""}">${l.label}</a></li>`).join("")}
         </ul>
         <a href="contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">${ICON_MENU}</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">${ICON_MENU}</button>
       </div>
     </header>
     <div class="mobile-menu" id="mobileMenu">
@@ -54,18 +54,33 @@ function renderNav() {
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("mobileMenu");
   let open = false;
+
+  function closeMenu() {
+    open = false;
+    menu.classList.remove("open");
+    toggle.innerHTML = ICON_MENU;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    document.body.style.overflow = "";
+  }
+
   toggle.addEventListener("click", () => {
     open = !open;
     menu.classList.toggle("open", open);
     toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     document.body.style.overflow = open ? "hidden" : "";
   });
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-    open = false;
-    menu.classList.remove("open");
-    toggle.innerHTML = ICON_MENU;
-    document.body.style.overflow = "";
-  }));
+
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && open) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
 }
 
 function renderFooter() {
