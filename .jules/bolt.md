@@ -1,0 +1,3 @@
+## 2024-05-24 - Pause Inactive Animations
+**Learning:** Continuous `requestAnimationFrame` loops run constantly even when the target values have been reached, consuming CPU and battery unnecessarily.
+**Action:** When implementing easing/interpolation loops, track an `isLooping` state and pause the loop when the delta between current and target values falls below a small threshold. Restart the loop only when new events (like `mousemove`) change the target values.
