@@ -1,0 +1,4 @@
+## 2024-05-15 - [CRITICAL] Fix attribute injection XSS in escapeHtml
+**Vulnerability:** The `escapeHtml` function used DOM text node assignment (`document.createElement("div").textContent = str; return div.innerHTML;`). This correctly escapes `<`, `>`, and `&`, but it fails to escape single (`'`) and double (`"`) quotes. Because the output of `escapeHtml` is widely used inside HTML attributes (e.g., `alt="${escapeHtml(project.title)}"`), an attacker could provide a string with quotes to break out of the attribute and inject arbitrary HTML or script execution (Attribute Injection XSS).
+**Learning:** Using the browser's DOM parser for HTML escaping is unsafe when the output is rendered inside attribute contexts.
+**Prevention:** Always use comprehensive regex-based escaping that includes `&`, `<`, `>`, `"`, and `'` characters, especially when rendering into HTML templates. Handle non-string values safely.
