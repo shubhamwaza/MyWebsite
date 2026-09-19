@@ -1,0 +1,5 @@
+🚨 Severity: CRITICAL
+💡 Vulnerability: The `escapeHtml` function used DOM text node assignment, which failed to escape single and double quotes. Because its output is heavily used inside HTML attributes throughout the site (e.g., in image `alt` attributes), this allowed for Attribute Injection XSS.
+🎯 Impact: An attacker could pass a crafted string containing quotes to break out of HTML attributes and execute arbitrary JavaScript or manipulate the DOM, leading to full cross-site scripting exploitation.
+🔧 Fix: Replaced the DOM-based escaping with a robust, regex-based string replacement that safely encodes `&`, `<`, `>`, `"`, and `'`. Also added safety checks for null/undefined values to prevent type confusion.
+✅ Verification: Verified that the `escapeHtml` function correctly transforms potentially dangerous characters into their respective HTML entities using the new regex logic, and ensured the project builds correctly. No regressions were introduced.
