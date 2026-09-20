@@ -182,19 +182,35 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isLooping = true; // ⚡ Bolt: Track loop state
 
   function loop() {
-    curX += (targetX - curX) * 0.18;
-    curY += (targetY - curY) * 0.18;
-    box.style.left = curX + "px";
-    box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+    const distX = targetX - curX;
+    const distY = targetY - curY;
+
+    // ⚡ Bolt: Pause the animation loop when the cursor is idle (converged)
+    // This prevents continuous layout thrashing and saves CPU/battery.
+    if (Math.abs(distX) > 0.1 || Math.abs(distY) > 0.1) {
+      curX += distX * 0.18;
+      curY += distY * 0.18;
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+      requestAnimationFrame(loop);
+    } else {
+      isLooping = false;
+    }
   }
   loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+
+    // ⚡ Bolt: Restart loop on movement if it was paused
+    if (!isLooping) {
+      isLooping = true;
+      requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
