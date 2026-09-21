@@ -1,0 +1,3 @@
+## 2024-11-20 - Dynamic ARIA states on Navigation Toggles
+**Learning:** Adding a static `aria-label` to a mobile menu toggle button is insufficient for screen reader users. The state of the menu (open or closed) must be communicated dynamically via `aria-expanded` and the `aria-label` should change contextually (e.g., from "Open menu" to "Close menu"). Connecting the toggle to the menu using `aria-controls` provides essential context.
+**Action:** When implementing toggles that control the visibility of other elements, always ensure `aria-expanded` is dynamically updated on state change, provide a dynamic contextual `aria-label`, and link the controller to the target via `aria-controls`.
