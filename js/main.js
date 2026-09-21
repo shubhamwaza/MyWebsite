@@ -182,12 +182,22 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  // ⚡ Bolt: Track loop state to avoid unnecessary frames
+  let isLooping = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
+
+    // ⚡ Bolt: Halt animation when box reaches cursor to save CPU/battery
+    if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isLooping = false;
+      return;
+    }
+
+    isLooping = true;
     requestAnimationFrame(loop);
   }
   loop();
@@ -195,6 +205,10 @@ function initCursorPreview(itemSelector) {
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // ⚡ Bolt: Restart loop on movement if halted
+    if (!isLooping) {
+      loop();
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
