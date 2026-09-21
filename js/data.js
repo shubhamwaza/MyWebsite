@@ -12,8 +12,9 @@
 const PROJECTS = [
   {
     slug: "upcrew",
-    title: "UpCrew [Work in Progress]",
-    type: "case-study",
+    title: "UpCrew",
+    type: "ux-case-study",
+    dedicatedPage: "work/upcrew.html",
     client: "UpCrew (self-initiated)",
     industry: "Gig Economy / Workforce Marketplace",
     categories: ["UI/UX"],

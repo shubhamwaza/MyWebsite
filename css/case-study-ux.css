@@ -1,0 +1,828 @@
+/* ==========================================================================
+   UX Case Study Module
+   Premium, editorial, scannable case study layout
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Frame System
+   -------------------------------------------------------------------------- */
+.cs-frame {
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0;
+  position: relative;
+  background-color: var(--bg);
+}
+
+.cs-frame--hero {
+  min-height: 92vh;
+  overflow: hidden;
+  padding-top: 160px;
+}
+
+.cs-frame--soft {
+  background-color: var(--bg-soft);
+}
+
+.cs-frame-inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+.cs-frame-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.cs-frame-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 24ch;
+}
+
+.cs-frame-body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 36rem;
+  margin-bottom: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   Placeholders
+   -------------------------------------------------------------------------- */
+.cs-placeholder {
+  background: var(--bg-soft);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 24px;
+}
+
+.cs-placeholder-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 1: Hero Showcase
+   -------------------------------------------------------------------------- */
+.cs-hero-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.cs-meta-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.cs-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cs-meta-tag strong {
+  color: var(--ink);
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.cs-hero-mockup {
+  position: relative;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.cs-phone-frame {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 9 / 19.5;
+  border: 12px solid #222;
+  border-radius: 48px;
+  background: #111;
+  padding: 6px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  transform: rotateY(-8deg) rotateX(3deg);
+  transition: transform 0.6s var(--ease-editorial);
+  animation: cs-float 6s ease-in-out infinite;
+}
+
+.cs-hero-mockup:hover .cs-phone-frame {
+  transform: rotateY(0) rotateX(0);
+}
+
+.cs-phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes cs-float {
+  0%, 100% { transform: translateY(0) rotateY(-8deg) rotateX(3deg); }
+  50% { transform: translateY(-16px) rotateY(-8deg) rotateX(3deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Frame 2: Problem Split
+   -------------------------------------------------------------------------- */
+.cs-friction-split {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.cs-pain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 32rem;
+}
+
+.cs-pain-list li {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  position: relative;
+  padding-left: 28px;
+}
+
+.cs-pain-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.cs-friction-visual {
+  width: 100%;
+}
+
+.cs-flow-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg);
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+}
+
+.cs-flow-step {
+  padding: 20px 24px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.cs-flow-step--alert {
+  background: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 3: Impact
+   -------------------------------------------------------------------------- */
+.cs-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.cs-stat-card {
+  padding: 40px 32px;
+  background: var(--bg-soft);
+  border-radius: 24px;
+  border-top: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.cs-stat-label {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.cs-stat-tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  margin-top: 8px;
+}
+
+.cs-device-fan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.cs-device-fan-item {
+  position: absolute;
+  width: 240px;
+  aspect-ratio: 9 / 19.5;
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.cs-device-fan-item:nth-child(1) { transform: translateX(-120px) rotate(-12deg); z-index: 1; }
+.cs-device-fan-item:nth-child(2) { transform: translateX(0) rotate(0deg); z-index: 3; }
+.cs-device-fan-item:nth-child(3) { transform: translateX(120px) rotate(12deg); z-index: 2; }
+
+.cs-device-fan:hover .cs-device-fan-item:nth-child(1) { transform: translateX(-160px) rotate(-16deg); }
+.cs-device-fan:hover .cs-device-fan-item:nth-child(3) { transform: translateX(160px) rotate(16deg); }
+
+.cs-mini-phone {
+  width: 100%;
+  height: 100%;
+  border: 8px solid #222;
+  border-radius: 32px;
+  background: #111;
+  padding: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cs-mini-phone .cs-placeholder {
+  height: 100%;
+  border-radius: 22px;
+  padding: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 4: Process
+   -------------------------------------------------------------------------- */
+.cs-process-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.cs-workflow-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+}
+
+.cs-workflow-node {
+  padding: 16px 32px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+.cs-workflow-connector {
+  width: 2px;
+  height: 24px;
+  background: var(--line);
+  margin-left: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 5: Pivot
+   -------------------------------------------------------------------------- */
+.cs-compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.cs-compare-card {
+  position: relative;
+  padding: 8px;
+  border-radius: 24px;
+  background: var(--bg-soft);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-compare-card--scrapped {
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.cs-compare-card--scrapped .cs-placeholder {
+  background: rgba(239, 68, 68, 0.02);
+  border-color: rgba(239, 68, 68, 0.1);
+  flex-grow: 1;
+}
+
+.cs-compare-card--adopted {
+  border: 1px solid var(--accent);
+}
+
+.cs-compare-card--adopted .cs-placeholder {
+  background: rgba(249, 115, 22, 0.05);
+  border-color: rgba(249, 115, 22, 0.2);
+  flex-grow: 1;
+}
+
+.cs-compare-label {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.cs-compare-card--scrapped .cs-compare-label {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+}
+
+.cs-compare-card--adopted .cs-compare-label {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.cs-annotation {
+  position: absolute;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: cs-badge-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.cs-compare-card--scrapped .cs-annotation {
+  bottom: 15%;
+  right: -5%;
+}
+
+.cs-compare-card--adopted .cs-annotation {
+  bottom: 25%;
+  right: -5%;
+}
+
+@keyframes cs-badge-pop {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   Frame 6: Feature Deep-Dive
+   -------------------------------------------------------------------------- */
+.cs-deepdive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+.cs-dilemma-table {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.cs-dilemma-table > div {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.cs-dilemma-table h4 {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.cs-dilemma-table .dilemma h4 { color: #EF4444; }
+.cs-dilemma-table .solution h4 { color: var(--accent); }
+
+.cs-dilemma-table p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.cs-component-isolate {
+  width: 100%;
+  aspect-ratio: 4/3;
+  margin-bottom: 24px;
+}
+
+.cs-demo-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 7: Edge Cases
+   -------------------------------------------------------------------------- */
+.cs-edge-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.cs-edge-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-edge-screen {
+  height: 240px;
+  border-bottom: 1px solid var(--line);
+  background: #111;
+  padding: 24px 24px 0 24px;
+}
+
+.cs-edge-screen .cs-placeholder {
+  height: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.cs-edge-content {
+  padding: 32px 24px;
+}
+
+.cs-edge-label {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.cs-edge-content p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 8: Design System Board
+   -------------------------------------------------------------------------- */
+.cs-ds-board {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.cs-ds-section h3 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 24px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.cs-ds-colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 24px;
+}
+
+.cs-ds-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-ds-swatch-color {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.1);
+}
+
+.cs-ds-swatch span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.cs-ds-type {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs-ds-type-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 16px;
+}
+
+.cs-ds-type-row:last-child {
+  border-bottom: none;
+}
+
+.cs-ds-type-row span.spec {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.cs-ds-atoms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cs-ds-atom {
+  padding: 16px 32px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-ds-atom.primary {
+  background: #2563EB; /* Case study primary */
+  border-color: #2563EB;
+  color: #fff;
+  border-radius: 100px;
+}
+
+.cs-ds-atom.pill {
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 9: Journey Ribbon
+   -------------------------------------------------------------------------- */
+.cs-journey-ribbon {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 32px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.cs-journey-ribbon::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.cs-journey-slide {
+  flex: 0 0 min(80vw, 320px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs-journey-slide .cs-phone-frame {
+  max-width: 100%;
+  animation: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.cs-journey-label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Frame 10: CTA
+   -------------------------------------------------------------------------- */
+.cs-cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.cs-cta::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cs-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cs-cta-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.cs-cta-sub {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+  margin-bottom: 48px;
+  max-width: 400px;
+}
+
+.cs-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 16px 32px;
+  background-color: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #fb923c;
+  transform: scale(1.05);
+}
+
+.cs-cta-secondary {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cs-cta-secondary:hover {
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .cs-frame-inner {
+    padding-inline: 48px;
+  }
+  .cs-friction-split, .cs-process-layout {
+    flex-direction: row;
+    align-items: center;
+  }
+  .cs-friction-split > *, .cs-process-layout > * {
+    flex: 1;
+  }
+  .cs-stat-grid, .cs-edge-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cs-compare {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-workflow-diagram {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .cs-workflow-connector {
+    width: 24px;
+    height: 2px;
+    margin-left: 0;
+  }
+  .cs-compare-card--scrapped .cs-annotation { right: -10%; }
+  .cs-compare-card--adopted .cs-annotation { right: -10%; }
+}
+
+@media (min-width: 900px) {
+  .cs-hero-showcase, .cs-deepdive-grid {
+    flex-direction: row;
+    align-items: center;
+  }
+  .cs-hero-showcase > *, .cs-deepdive-grid > * {
+    flex: 1;
+  }
+}

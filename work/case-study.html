@@ -117,6 +117,12 @@
         return;
       }
 
+      // Redirect to dedicated page if one exists
+      if (project.dedicatedPage) {
+        window.location.replace("../" + project.dedicatedPage);
+        return;
+      }
+
       document.getElementById("pageTitle").textContent = `${project.title} — Shubham Waza`;
       document.getElementById("pageDesc").setAttribute("content", project.description || project.title);
 
