@@ -1,0 +1,4 @@
+💡 What: Added dynamic `aria-expanded` and `aria-label` attributes to the mobile menu toggle button, and added `aria-current="page"` to active navigation links in both desktop and mobile menus.
+🎯 Why: To improve keyboard and screen reader accessibility by clearly communicating the state of the mobile menu and semantically identifying the currently active page.
+📸 Before/After: (No visual changes, purely semantic HTML/ARIA updates).
+♿ Accessibility: Ensures state changes on the nav toggle are broadcast to assistive technologies and active page links are semantically recognizable.
