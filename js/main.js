@@ -182,19 +182,33 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // Stop the loop if the current coordinates converge with the target coordinates
+    if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      curX = targetX;
+      curY = targetY;
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+      rafId = null;
+    } else {
+      rafId = requestAnimationFrame(loop);
+    }
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // Restart loop when cursor moves
+    if (!rafId) {
+      rafId = requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
