@@ -1,0 +1,7 @@
+## 2024-05-24 - Accessibility XSS Escape Pattern
+**Learning:** Using `document.createElement('div').textContent = str; return div.innerHTML` is an insecure way to escape HTML for attribute contexts, as it does not escape single and double quotes. In a vanilla JS component rendering context using template literals to construct HTML, this leaves the application vulnerable to attribute injection cross-site scripting (XSS), causing a severe security failure when attributes contain untrusted values like titles.
+**Action:** Always use comprehensive regex-based escaping or dedicated encoding libraries instead of relying on DOM text node assignment when the escaped string will be used inside HTML attributes. Ensure XSS security is verified as a cross-cutting UX/Accessibility concern when user input or dynamic content is rendered to screen readers and visual displays.
+
+## 2024-05-24 - Mobile Menu Accessibility Pattern
+**Learning:** Hidden off-screen mobile menus (like `#mobileMenu`) must use the `inert` attribute (or `display: none`) when closed. If only visually hidden with opacity/transform, screen readers and keyboard focus can still interact with the hidden links, causing confusion.
+**Action:** Always ensure off-screen navigation menus are fully removed from the accessibility tree when closed, ideally using the modern `inert` attribute which pairs cleanly with CSS transitions, and ensure the toggle button uses `aria-expanded` and `aria-controls`.
