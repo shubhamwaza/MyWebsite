@@ -120,9 +120,14 @@ function initReveal() {
 }
 
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (typeof str !== "string") return str;
+  // Security: Use regex replacement to ensure quotes are encoded to prevent attribute injection XSS
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
