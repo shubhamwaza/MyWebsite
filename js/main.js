@@ -182,19 +182,31 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isAnimating = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
+
+    // Pause the loop if inactive and coordinates have converged
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isAnimating = false;
+      return;
+    }
+
     requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // Resume loop on mouse movement if active
+    if (active && !isAnimating) {
+      isAnimating = true;
+      loop();
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,6 +216,13 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      if (!isAnimating) {
+        isAnimating = true;
+        // Snap to cursor immediately if starting fresh to avoid flying from 0,0
+        curX = targetX;
+        curY = targetY;
+        loop();
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");

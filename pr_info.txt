@@ -1,0 +1,8 @@
+PR TITLE:
+⚡ Bolt: Pause requestAnimationFrame loop when cursor preview is inactive
+
+PR DESCRIPTION:
+💡 What: Modified the cursor preview loop in js/main.js to only run when the preview is active and tracking the cursor, pausing when hidden and converged.
+🎯 Why: Background visual effects running continuous requestAnimationFrame loops lead to unnecessary CPU overhead and battery drain, even when inactive.
+📊 Impact: Reduces CPU usage to 0% for this component when the cursor is not actively hovering over previewable elements, saving battery life.
+🔬 Measurement: Open dev tools performance tab, observe idle CPU usage before and after hovering over project rows.
