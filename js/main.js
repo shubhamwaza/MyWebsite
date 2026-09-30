@@ -119,10 +119,19 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Security enhancement: Comprehensive regex-based escaping to prevent XSS in HTML attributes
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  if (str == null) return "";
+  return String(str).replace(/[&<>"']/g, match => {
+    const escape = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    };
+    return escape[match];
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
