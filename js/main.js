@@ -182,19 +182,30 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let frameId = null;
 
   function loop() {
-    curX += (targetX - curX) * 0.18;
-    curY += (targetY - curY) * 0.18;
-    box.style.left = curX + "px";
-    box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+    const dx = targetX - curX;
+    const dy = targetY - curY;
+
+    // Only animate if the cursor has moved or the preview is active
+    if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1 || active) {
+      curX += dx * 0.18;
+      curY += dy * 0.18;
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+      frameId = requestAnimationFrame(loop);
+    } else {
+      frameId = null;
+    }
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    if (!frameId) {
+      frameId = requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
