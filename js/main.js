@@ -119,10 +119,18 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// 🛡️ Sentinel: Secure HTML escaping to prevent XSS (including attribute injection)
+const escapeMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  return String(str).replace(/[&<>"']/g, function(match) {
+    return escapeMap[match];
+  });
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
