@@ -182,19 +182,34 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
   function loop() {
-    curX += (targetX - curX) * 0.18;
-    curY += (targetY - curY) * 0.18;
+    const dx = targetX - curX;
+    const dy = targetY - curY;
+
+    // Bolt: Pause continuous loop when interpolation completes to save CPU
+    if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+      curX = targetX;
+      curY = targetY;
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+      rafId = null;
+      return;
+    }
+
+    curX += dx * 0.18;
+    curY += dy * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
+  rafId = requestAnimationFrame(loop);
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    if (!rafId) rafId = requestAnimationFrame(loop);
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -204,6 +219,7 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      if (!rafId) rafId = requestAnimationFrame(loop);
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
