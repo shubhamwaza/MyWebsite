@@ -1,0 +1,3 @@
+## 2024-05-18 - Dynamic ARIA States for Navigation
+**Learning:** Static HTML/JS sites often lack dynamic ARIA attributes (like `aria-expanded` and `aria-current`) that screen readers rely on for navigation and menu interactions, making the experience confusing for users relying on assistive technologies.
+**Action:** Always ensure interactive elements (like mobile menu toggles) dynamically update their `aria-expanded` and `aria-label` states, and navigation links use `aria-current="page"` when active to properly communicate state changes.
