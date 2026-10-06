@@ -42,21 +42,39 @@
             </div>
           </div>
           
-          <div class="cs-hero-mockup reveal">
+          <div class="cs-hero-mockup">
             <div class="cs-phone-frame">
               <div class="cs-phone-screen" style="padding: 0; overflow: hidden;">
                 <video
+                  id="hero-video"
                   autoplay
                   muted
                   loop
                   playsinline
-                  style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit;"
+                  preload="auto"
+                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
                 >
-                  <source src="../assets/videos/upcrew-launch.mp4" type="video/mp4">
+                  <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
           </div>
+          <script>
+            (function() {
+              var vid = document.getElementById('hero-video');
+              if (!vid) return;
+              vid.addEventListener('error', function(e) {
+                console.error('VIDEO ERROR:', vid.error, 'networkState:', vid.networkState, 'readyState:', vid.readyState);
+              });
+              vid.addEventListener('loadeddata', function() {
+                console.log('VIDEO LOADED OK — duration:', vid.duration, 'videoWidth:', vid.videoWidth, 'videoHeight:', vid.videoHeight);
+                vid.play().catch(function(err) { console.error('PLAY FAILED:', err); });
+              });
+              vid.addEventListener('stalled', function() { console.warn('VIDEO STALLED'); });
+              vid.addEventListener('suspend', function() { console.warn('VIDEO SUSPENDED — networkState:', vid.networkState); });
+              console.log('Video src:', vid.currentSrc, 'networkState:', vid.networkState);
+            })();
+          </script>
         </div>
       </div>
     </section>
