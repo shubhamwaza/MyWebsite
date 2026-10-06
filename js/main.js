@@ -182,15 +182,21 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
+  // ⚡ Bolt Optimization: Only run animation frame when preview is active
+  // Reduces idle CPU usage and unnecessary DOM updates
   function loop() {
+    if (!active) {
+      rafId = null;
+      return;
+    }
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
@@ -204,6 +210,12 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      if (!rafId) {
+        // Snap directly to cursor on first enter to prevent flying in from corner
+        curX = targetX;
+        curY = targetY;
+        loop();
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
