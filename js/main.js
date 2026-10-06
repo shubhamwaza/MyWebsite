@@ -119,10 +119,15 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Use comprehensive regex-based escaping to encode quotes and prevent attribute injection XSS.
+// Also cast the input to a string to prevent Type Confusion XSS bypasses.
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
