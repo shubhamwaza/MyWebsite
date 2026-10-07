@@ -1,0 +1,4 @@
+## 2023-10-24 - DOM-based HTML Escaping Bypass (XSS)
+**Vulnerability:** The `escapeHtml` function in `js/main.js` used `document.createElement('div').textContent = str; return div.innerHTML;`, which does not escape quotes, leading to XSS when the output is used inside HTML attributes. It also lacked type casting.
+**Learning:** DOM text assignment only escapes `<`, `>`, and `&`, leaving `'` and `"` vulnerable to attribute injection. It can also be bypassed via type confusion if the input isn't cast to a string first.
+**Prevention:** Use a comprehensive regex-based replacement that explicitly casts the input to a string and escapes all HTML entities including single and double quotes.
