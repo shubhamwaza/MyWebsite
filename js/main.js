@@ -180,30 +180,50 @@ function initCursorPreview(itemSelector) {
   }
   const img = document.getElementById("cursorPreviewImg");
 
-  let targetX = 0, targetY = 0, curX = 0, curY = 0;
+  let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // ⚡ Bolt: Pause the animation loop when invisible and settled to save CPU and prevent DOM reflows
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      rafId = null;
+      return;
+    }
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
+  rafId = requestAnimationFrame(loop);
 
   document.addEventListener("mousemove", (e) => {
-    targetX = e.clientX;
-    targetY = e.clientY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (active) {
+      targetX = mouseX;
+      targetY = mouseY;
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
     const src = el.getAttribute("data-preview");
     if (!src) return;
     el.addEventListener("mouseenter", () => {
+      targetX = mouseX;
+      targetY = mouseY;
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+
+      // ⚡ Bolt: Snap to cursor and restart loop if paused
+      if (!rafId) {
+        curX = targetX;
+        curY = targetY;
+        rafId = requestAnimationFrame(loop);
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
