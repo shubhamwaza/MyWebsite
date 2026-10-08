@@ -1,0 +1,4 @@
+## 2024-05-23 - [Fix Attribute Injection XSS]
+**Vulnerability:** The `escapeHtml` function used DOM text node assignment (`div.textContent = str; return div.innerHTML;`), which fails to encode single and double quotes. This allows attribute injection XSS when used in HTML attributes. It was also missing type casting, leading to potential Type Confusion bypass.
+**Learning:** DOM-based encoding only escapes `<`, `>`, and `&`. It does not safely encode values for use inside HTML attributes. Input must also be strictly cast to a string to prevent objects/arrays from being implicitly stringified.
+**Prevention:** Use a comprehensive regex-based escaping function that replaces `&`, `<`, `>`, `"`, and `'`, and always cast input to a string (`String(str)`) before escaping.
