@@ -558,23 +558,24 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  min-height: 400px;
-  padding-bottom: 32px;
+  min-height: 480px;
+  margin-top: 48px;
+  padding-bottom: 24px;
 }
 
 .cs-fan-item {
   position: absolute;
-  bottom: 32px;
+  bottom: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  transition: transform 0.4s var(--cs-ease);
+  transition: transform 0.45s var(--cs-ease);
   cursor: default;
 }
 
 .cs-fan-item--l {
-  transform: translateX(-195px) rotate(-11deg);
+  transform: translateX(-220px) rotate(-10deg);
   transform-origin: bottom center;
   z-index: 1;
 }
@@ -586,45 +587,51 @@
 }
 
 .cs-fan-item--r {
-  transform: translateX(195px) rotate(11deg);
+  transform: translateX(220px) rotate(10deg);
   transform-origin: bottom center;
   z-index: 2;
 }
 
-.cs-fan:hover .cs-fan-item--l { transform: translateX(-220px) rotate(-15deg); }
-.cs-fan:hover .cs-fan-item--r { transform: translateX(220px) rotate(15deg); }
+.cs-fan:hover .cs-fan-item--l { transform: translateX(-250px) rotate(-14deg); }
+.cs-fan:hover .cs-fan-item--r { transform: translateX(250px) rotate(14deg); }
 
 .cs-fan-item figcaption {
   font-family: var(--cs-body);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--cs-ink-3) !important;
+  color: var(--cs-ink) !important;
+  background: var(--cs-surface);
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--cs-line);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   white-space: nowrap;
 }
 
 /* Mini phone (fan) */
 .cs-mini-phone {
-  width: 168px;
+  width: 190px;
   aspect-ratio: 9 / 19.5;
   background: #111;
-  border-radius: 28px;
+  border-radius: 30px;
   padding: 6px;
   box-shadow:
-    0 0 0 1px rgba(0,0,0,0.12),
-    0 16px 40px rgba(0,0,0,0.18);
+    0 0 0 1px rgba(0,0,0,0.14),
+    0 24px 52px rgba(0,0,0,0.18),
+    0 6px 16px rgba(0,0,0,0.08);
   position: relative;
   overflow: hidden;
 }
 
 .cs-mini-notch {
   position: absolute;
-  top: 8px;
+  top: 9px;
   left: 50%;
   transform: translateX(-50%);
-  width: 52px;
-  height: 14px;
+  width: 58px;
+  height: 16px;
   background: #111;
   border-radius: 999px;
   z-index: 2;
@@ -633,8 +640,9 @@
 .cs-mini-screen {
   width: 100%;
   height: 100%;
-  border-radius: 22px;
+  border-radius: 24px;
   overflow: hidden;
+  background: #1a1a1a;
 }
 
 .cs-mini-screen img {
@@ -1035,19 +1043,413 @@
   margin: 0;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   VISUAL ARTIFACTS & SCHEMATICS (UI/UX PRO MAX SKILL APPLIED)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. WhatsApp Chaos Simulator vs UpCrew Clarity ──────────────────────── */
+.cs-contrast-comparison {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (min-width: 860px) {
+  .cs-contrast-comparison {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.cs-sim-box {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-sim-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--cs-line);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.cs-sim-badge {
+  font-family: var(--cs-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.cs-sim-badge--bad {
+  background: #FEE2E2;
+  color: #B91C1C !important;
+}
+
+.cs-sim-badge--good {
+  background: var(--cs-blue-bg);
+  color: var(--cs-blue) !important;
+}
+
+/* WhatsApp chat aesthetic */
+.cs-chat-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #EFEAE2;
+  padding: 20px 16px;
+  border-radius: var(--cs-r);
+  flex-grow: 1;
+}
+
+.cs-chat-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-family: var(--cs-body);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  position: relative;
+}
+
+.cs-chat-bubble--in {
+  align-self: flex-start;
+  background: #FFFFFF;
+  color: #111827 !important;
+  border-top-left-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.cs-chat-bubble--out {
+  align-self: flex-end;
+  background: #DCF8C6;
+  color: #111827 !important;
+  border-top-right-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.cs-chat-time {
+  display: block;
+  font-size: 0.625rem;
+  color: #6B7280;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.cs-chat-friction-tag {
+  display: inline-block;
+  background: #F87171;
+  color: #FFFFFF !important;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+/* UpCrew structured card simulator */
+.cs-card-specimen {
+  background: #FFFFFF;
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r);
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.cs-specimen-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cs-specimen-role {
+  font-family: var(--cs-display) !important;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--cs-ink) !important;
+}
+
+.cs-specimen-company {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--cs-body);
+  font-size: 0.8125rem;
+  color: var(--cs-ink-3) !important;
+  margin-top: 2px;
+}
+
+.cs-verified-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  background: var(--cs-blue);
+  color: #FFF !important;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.cs-specimen-payout {
+  font-family: var(--cs-display) !important;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--cs-blue) !important;
+  text-align: right;
+}
+
+.cs-specimen-payout span {
+  display: block;
+  font-family: var(--cs-body);
+  font-size: 0.6875rem;
+  color: var(--cs-ink-3) !important;
+  font-weight: 500;
+}
+
+.cs-specimen-meta-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--cs-bg);
+  padding: 10px 12px;
+  border-radius: var(--cs-r-sm);
+  font-family: var(--cs-body);
+  font-size: 0.75rem;
+}
+
+.cs-specimen-meta-col span {
+  display: block;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  color: var(--cs-ink-3) !important;
+  font-weight: 600;
+}
+
+.cs-specimen-meta-col strong {
+  color: var(--cs-ink) !important;
+  font-weight: 600;
+}
+
+.cs-specimen-cta-row {
+  display: flex;
+  gap: 8px;
+}
+
+.cs-specimen-btn {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--cs-blue);
+  color: #FFF !important;
+  text-align: center;
+  border-radius: var(--cs-r-sm);
+  font-family: var(--cs-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* ── 2. Visual Wireframe Flow (Onboarding Wall vs Progressive) ───────────── */
+.cs-flow-schematic-wrap {
+  margin-top: 40px;
+  padding: 32px;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r-lg);
+}
+
+.cs-wire-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 16px 0;
+}
+
+.cs-wire-screen {
+  flex: 1;
+  min-width: 130px;
+  height: 180px;
+  background: var(--cs-bg);
+  border: 1px solid var(--cs-line);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.cs-wire-screen--active {
+  border: 2px solid var(--cs-blue);
+  background: var(--cs-surface);
+}
+
+.cs-wire-screen--dropoff {
+  border: 1px dashed #DC2626;
+  background: #FEF2F2;
+}
+
+.cs-wire-header-bar {
+  height: 6px;
+  width: 40%;
+  background: var(--cs-line-2);
+  border-radius: 999px;
+}
+
+.cs-wire-line {
+  height: 4px;
+  width: 80%;
+  background: var(--cs-line);
+  border-radius: 999px;
+}
+
+.cs-wire-line--half { width: 50%; }
+
+.cs-wire-btn {
+  margin-top: auto;
+  height: 16px;
+  width: 100%;
+  background: var(--cs-line-2);
+  border-radius: 4px;
+}
+
+.cs-wire-btn--primary {
+  background: var(--cs-blue);
+}
+
+.cs-dropoff-callout {
+  position: absolute;
+  top: -12px;
+  right: 8px;
+  background: #DC2626;
+  color: #FFF !important;
+  font-family: var(--cs-body);
+  font-size: 0.625rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.cs-screen-caption {
+  font-family: var(--cs-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--cs-ink-3) !important;
+  margin-top: 6px;
+}
+
+/* ── 3. Edge-Case UI Component Schematics ────────────────────────────────── */
+.cs-ui-component-specimen {
+  margin-top: 14px;
+  background: var(--cs-bg);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-ui-state-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.cs-ui-state-pill--alert {
+  background: #FEE2E2;
+  color: #B91C1C !important;
+}
+
+.cs-ui-state-pill--info {
+  background: #E0E7FF;
+  color: #3730A3 !important;
+}
+
+.cs-ui-state-pill--neutral {
+  background: var(--cs-surface-2);
+  color: var(--cs-ink-2) !important;
+}
+
+.cs-ui-action-row {
+  display: flex;
+  gap: 6px;
+}
+
+.cs-ui-btn-tiny {
+  padding: 6px 12px;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line-2);
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--cs-ink) !important;
+  text-align: center;
+  cursor: default;
+}
+
+.cs-ui-btn-tiny--primary {
+  background: var(--cs-blue);
+  color: #FFF !important;
+  border: none;
+}
+
 /* ── Responsive tweaks ──────────────────────────────────────────────────── */
-@media (max-width: 599px) {
+@media (max-width: 680px) {
   .cs-hero { padding: 20px 0 52px; }
   .cs-section { padding: 60px 0; }
   .cs-hero-title { margin-bottom: 16px; }
   .cs-meta { flex-direction: column; gap: 16px; }
   .cs-meta-item { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--cs-line); padding-bottom: 12px; }
   .cs-meta-item:last-child { border-bottom: none; }
-  .cs-fan { min-height: 300px; }
-  .cs-fan-item--l { transform: translateX(-130px) rotate(-10deg); }
-  .cs-fan-item--r { transform: translateX(130px) rotate(10deg); }
-  .cs-mini-phone { width: 120px; border-radius: 20px; }
   .cs-bento-stat { padding: 24px 20px; }
+  
+  /* Horizontal swipe track for mobile fan */
+  .cs-fan {
+    min-height: auto;
+    position: static;
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 16px 8px 24px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cs-fan-item {
+    position: static;
+    transform: none !important;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+  .cs-mini-phone {
+    width: 160px;
+    border-radius: 24px;
+  }
 }
 
 /* ── Prefers reduced motion ─────────────────────────────────────────────── */
