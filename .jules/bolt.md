@@ -1,0 +1,3 @@
+## 2024-05-24 - Continuous Animation Loop Drain
+**Learning:** The custom cursor preview (`initCursorPreview`) was using a permanent, non-stopping `requestAnimationFrame` loop which runs at 60fps even when the user is idle, causing unnecessary CPU and battery drain across multiple pages.
+**Action:** Always track animation state and conditionally stop `requestAnimationFrame` loops when the target values (e.g. coordinates) are reached within a small threshold (like `< 0.1`). Restart the loop only when new input (like mouse movement) occurs.
