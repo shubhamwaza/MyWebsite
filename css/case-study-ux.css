@@ -1,829 +1,568 @@
 /* ==========================================================================
-   UX Case Study Module
-   Premium, editorial, scannable case study layout
+   UpCrew Case Study — Design System
+   Ground-up rewrite. Light, editorial, purposeful.
+
+   Tokens
+   ──────
+   --cs-canvas        warm off-white page background
+   --cs-surface       pure white — cards, panels
+   --cs-surface-sub   very subtle raised surface
+   --cs-ink           near-black primary text
+   --cs-ink-2         secondary text
+   --cs-ink-muted     placeholder / caveat text
+   --cs-border        default 1px rule colour
+   --cs-blue          primary action / stat accent
+   --cs-orange        energy accent (used sparingly)
+   --cs-green         success / confirmation
+   --cs-font          Plus Jakarta Sans
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   Frame System
-   -------------------------------------------------------------------------- */
-.cs-frame {
-  min-height: 100vh;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 0;
-  position: relative;
-  background-color: var(--bg);
+/* ── Tokens ──────────────────────────────────────────────────────────────── */
+.cs-page {
+  --cs-canvas:       #F7F6F3;
+  --cs-surface:      #FFFFFF;
+  --cs-surface-sub:  #F0EEE9;
+  --cs-ink:          #0E0E0C;
+  --cs-ink-2:        #46443F;
+  --cs-ink-muted:    #9B9892;
+  --cs-border:       #E4E1DA;
+  --cs-border-strong:#C8C4BB;
+  --cs-blue:         #2558E8;
+  --cs-blue-sub:     #EEF2FF;
+  --cs-orange:       #F26419;
+  --cs-orange-sub:   #FFF3ED;
+  --cs-green:        #1A9E5C;
+  --cs-font:         'Plus Jakarta Sans', 'General Sans', sans-serif;
+  --cs-ease:         cubic-bezier(0.16, 1, 0.3, 1);
+  --cs-radius:       12px;
+  --cs-radius-lg:    20px;
+  --cs-radius-phone: 40px;
 }
 
-.cs-frame--hero {
-  min-height: 92vh;
-  overflow: hidden;
-  padding-top: 160px;
+/* ── Page-level overrides ────────────────────────────────────────────────── */
+.cs-page {
+  background: var(--cs-canvas);
+  color: var(--cs-ink);
+  font-family: var(--cs-font);
+  -webkit-font-smoothing: antialiased;
 }
 
-.cs-frame--soft {
-  background-color: var(--bg-soft);
+/* Everything inside main inherits light theme */
+.cs-main {
+  background: var(--cs-canvas);
 }
 
-.cs-frame-inner {
-  width: 100%;
-  max-width: 1320px;
+/* Override global dark headings on this page */
+.cs-page h1,
+.cs-page h2,
+.cs-page h3 {
+  font-family: var(--cs-font);
+  color: var(--cs-ink);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ── Layout wrapper ──────────────────────────────────────────────────────── */
+.cs-wrap {
+  max-width: 1160px;
   margin: 0 auto;
-  padding-inline: 24px;
+  padding-inline: 32px;
 }
 
-.cs-frame-eyebrow {
+@media (min-width: 768px) {
+  .cs-wrap { padding-inline: 56px; }
+}
+
+/* ── Typography primitives ───────────────────────────────────────────────── */
+.cs-label {
   display: inline-block;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-  margin-bottom: 24px;
+  font-family: var(--cs-font);
+  font-size: 0.6875rem;        /* 11px */
   font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--cs-ink-muted);
+  line-height: 1;
 }
 
-.cs-frame-headline {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 32px;
-  max-width: 24ch;
+.cs-label--num {
+  color: var(--cs-blue);
+  margin-right: 12px;
 }
 
-.cs-frame-body {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  line-height: 1.6;
-  color: var(--ink-muted);
-  max-width: 36rem;
-  margin-bottom: 40px;
+.cs-section-title {
+  font-size: clamp(1.875rem, 4vw, 3rem);  /* 30–48px */
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: var(--cs-ink);
+  max-width: 22ch;
 }
 
-/* --------------------------------------------------------------------------
-   Placeholders
-   -------------------------------------------------------------------------- */
-.cs-placeholder {
-  background: var(--bg-soft);
-  border: 1px dashed rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-muted);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 24px;
+.cs-body {
+  font-family: var(--cs-font);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--cs-ink-2);
+  max-width: 42ch;
+  margin: 0;
 }
 
-.cs-placeholder-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 1: Hero Showcase
-   -------------------------------------------------------------------------- */
-.cs-hero-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-}
-
-.cs-meta-tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 48px;
-}
-
-.cs-meta-tag {
+/* ── Back link ───────────────────────────────────────────────────────────── */
+.cs-back {
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
-  border-radius: 100px;
-  border: 1px solid var(--line);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.cs-meta-tag strong {
-  color: var(--ink);
-  margin-right: 6px;
+  gap: 6px;
+  font-family: var(--cs-font);
+  font-size: 0.8125rem;
   font-weight: 500;
+  color: var(--cs-ink-muted);
+  text-decoration: none;
+  margin-bottom: 56px;
+  transition: color 0.2s var(--cs-ease), gap 0.2s var(--cs-ease);
 }
 
-.cs-hero-mockup {
+.cs-back:hover {
+  color: var(--cs-ink);
+  gap: 10px;
+}
+
+/* ── Section shared ──────────────────────────────────────────────────────── */
+.cs-section {
+  padding: 96px 0;
+}
+
+.cs-section--ruled {
+  border-top: 1px solid var(--cs-border);
+}
+
+.cs-section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   01 — HERO
+   ═══════════════════════════════════════════════════════════════════════════ */
+.cs-hero {
+  padding: 40px 0 80px;
+}
+
+.cs-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .cs-hero-grid {
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+  }
+}
+
+/* Copy */
+.cs-hero-copy {
+  max-width: 560px;
+}
+
+.cs-hero-title {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: var(--cs-ink);
+  margin: 20px 0 24px;
+}
+
+.cs-hero-desc {
+  font-family: var(--cs-font);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--cs-ink-2);
+  max-width: 44ch;
+  margin: 0 0 36px;
+}
+
+/* Meta row */
+.cs-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 20px 0 0;
+}
+
+.cs-meta-item:first-child {
+  padding-left: 0;
+}
+
+.cs-meta-key {
+  font-family: var(--cs-font);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cs-ink-muted);
+}
+
+.cs-meta-val {
+  font-family: var(--cs-font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cs-ink);
+}
+
+.cs-meta-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--cs-border);
+  margin: 0 20px 0 0;
+  flex-shrink: 0;
+}
+
+/* ── Phone (hero, large) ─────────────────────────────────────────────────── */
+.cs-hero-device {
   position: relative;
-  perspective: 1200px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 24px;
+  align-items: flex-start;
 }
 
-.cs-phone-frame {
+.cs-phone {
+  position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   aspect-ratio: 9 / 19.5;
-  border: 12px solid #222;
-  border-radius: 48px;
-  background: #111;
-  padding: 6px;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.1);
-  transform: rotateY(-8deg) rotateX(3deg);
-  transition: transform 0.6s var(--ease-editorial);
-  animation: cs-float 6s ease-in-out infinite;
+  background: var(--cs-ink);
+  border-radius: var(--cs-radius-phone);
+  padding: 10px;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.12),
+    0 24px 56px rgba(0,0,0,0.16),
+    0 8px 16px rgba(0,0,0,0.08);
+  animation: cs-float 7s ease-in-out infinite;
+  transform-origin: center bottom;
 }
 
-.cs-hero-mockup:hover .cs-phone-frame {
-  transform: rotateY(0) rotateX(0);
+@keyframes cs-float {
+  0%,  100% { transform: translateY(0) rotateY(-4deg) rotateX(1deg); }
+  50%        { transform: translateY(-14px) rotateY(-4deg) rotateX(1deg); }
+}
+
+.cs-phone-notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: var(--cs-ink);
+  border-radius: 999px;
+  z-index: 2;
 }
 
 .cs-phone-screen {
   width: 100%;
   height: 100%;
-  border-radius: 36px;
+  border-radius: calc(var(--cs-radius-phone) - 8px);
   overflow: hidden;
-  position: relative;
+  background: var(--cs-surface-sub);
 }
 
-@keyframes cs-float {
-  0%, 100% { transform: translateY(0) rotateY(-8deg) rotateX(3deg); }
-  50% { transform: translateY(-16px) rotateY(-8deg) rotateX(3deg); }
-}
-
-/* --------------------------------------------------------------------------
-   Frame 2: Problem Split
-   -------------------------------------------------------------------------- */
-.cs-friction-split {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-}
-
-.cs-pain-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 32rem;
-}
-
-.cs-pain-list li {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.5;
-  color: var(--ink-muted);
-  position: relative;
-  padding-left: 28px;
-}
-
-.cs-pain-list li::before {
-  content: "";
+/* Ambient glow */
+.cs-phone-glow {
   position: absolute;
-  left: 0;
-  top: 10px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--accent);
-}
-
-.cs-friction-visual {
-  width: 100%;
-}
-
-.cs-flow-diagram {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: var(--bg);
-  padding: 32px;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-}
-
-.cs-flow-step {
-  padding: 20px 24px;
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: var(--font-body);
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.cs-flow-step--alert {
-  background: rgba(239, 68, 68, 0.05);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #EF4444;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 3: Impact
-   -------------------------------------------------------------------------- */
-.cs-stat-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  margin-bottom: 80px;
-}
-
-.cs-stat-card {
-  padding: 40px 32px;
-  background: var(--bg-soft);
-  border-radius: 24px;
-  border-top: 4px solid var(--accent);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.cs-stat-number {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
-
-.cs-stat-label {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.cs-stat-tag {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--ink-muted);
-  margin-top: 8px;
-}
-
-.cs-device-fan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  position: relative;
-  margin-top: 40px;
-}
-
-.cs-device-fan-item {
-  position: absolute;
-  width: 240px;
-  aspect-ratio: 9 / 19.5;
-  transition: transform 0.4s var(--ease-editorial);
-}
-
-.cs-device-fan-item:nth-child(1) { transform: translateX(-120px) rotate(-12deg); z-index: 1; }
-.cs-device-fan-item:nth-child(2) { transform: translateX(0) rotate(0deg); z-index: 3; }
-.cs-device-fan-item:nth-child(3) { transform: translateX(120px) rotate(12deg); z-index: 2; }
-
-.cs-device-fan:hover .cs-device-fan-item:nth-child(1) { transform: translateX(-160px) rotate(-16deg); }
-.cs-device-fan:hover .cs-device-fan-item:nth-child(3) { transform: translateX(160px) rotate(16deg); }
-
-.cs-mini-phone {
-  width: 100%;
-  height: 100%;
-  border: 8px solid #222;
-  border-radius: 32px;
-  background: #111;
-  padding: 0;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.cs-mini-phone .cs-placeholder {
-  height: 100%;
-  border-radius: 22px;
-  padding: 16px;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 4: Process
-   -------------------------------------------------------------------------- */
-.cs-process-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-}
-
-.cs-workflow-diagram {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  position: relative;
-}
-
-.cs-workflow-node {
-  padding: 16px 32px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink);
-  font-weight: 500;
-  position: relative;
-  z-index: 2;
-}
-
-.cs-workflow-connector {
-  width: 2px;
-  height: 24px;
-  background: var(--line);
-  margin-left: 32px;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 5: Pivot
-   -------------------------------------------------------------------------- */
-.cs-compare {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  margin-top: 48px;
-}
-
-.cs-compare-card {
-  position: relative;
-  padding: 8px;
-  border-radius: 24px;
-  background: var(--bg-soft);
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-}
-
-.cs-compare-card--scrapped {
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.cs-compare-card--scrapped .cs-placeholder {
-  background: rgba(239, 68, 68, 0.02);
-  border-color: rgba(239, 68, 68, 0.1);
-  flex-grow: 1;
-}
-
-.cs-compare-card--adopted {
-  border: 1px solid var(--accent);
-}
-
-.cs-compare-card--adopted .cs-placeholder {
-  background: rgba(249, 115, 22, 0.05);
-  border-color: rgba(249, 115, 22, 0.2);
-  flex-grow: 1;
-}
-
-.cs-compare-label {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  z-index: 10;
-}
-
-.cs-compare-card--scrapped .cs-compare-label {
-  background: rgba(239, 68, 68, 0.1);
-  color: #EF4444;
-}
-
-.cs-compare-card--adopted .cs-compare-label {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-.cs-annotation {
-  position: absolute;
-  background: var(--ink);
-  color: var(--bg);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  animation: cs-badge-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  animation-delay: 0.5s;
-  opacity: 0;
-  transform: scale(0);
-}
-
-.cs-compare-card--scrapped .cs-annotation {
-  bottom: 15%;
-  right: -5%;
-}
-
-.cs-compare-card--adopted .cs-annotation {
-  bottom: 25%;
-  right: -5%;
-}
-
-@keyframes cs-badge-pop {
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* --------------------------------------------------------------------------
-   Frame 6: Feature Deep-Dive
-   -------------------------------------------------------------------------- */
-.cs-deepdive-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 64px;
-}
-
-.cs-dilemma-table {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: 32px;
-}
-
-.cs-dilemma-table > div {
-  padding: 24px;
-  border-radius: 16px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-}
-
-.cs-dilemma-table h4 {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-.cs-dilemma-table .dilemma h4 { color: #EF4444; }
-.cs-dilemma-table .solution h4 { color: var(--accent); }
-
-.cs-dilemma-table p {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink);
-  line-height: 1.5;
-}
-
-.cs-component-isolate {
-  width: 100%;
-  aspect-ratio: 4/3;
-  margin-bottom: 24px;
-}
-
-.cs-demo-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 7: Edge Cases
-   -------------------------------------------------------------------------- */
-.cs-edge-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-}
-
-.cs-edge-card {
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.cs-edge-screen {
-  height: 240px;
-  border-bottom: 1px solid var(--line);
-  background: #111;
-  padding: 24px 24px 0 24px;
-}
-
-.cs-edge-screen .cs-placeholder {
-  height: 100%;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom: none;
-}
-
-.cs-edge-content {
-  padding: 32px 24px;
-}
-
-.cs-edge-label {
-  display: inline-block;
-  padding: 6px 12px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 6px;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-
-.cs-edge-content p {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink-muted);
-  line-height: 1.5;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 8: Design System Board
-   -------------------------------------------------------------------------- */
-.cs-ds-board {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-}
-
-.cs-ds-section h3 {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink);
-  margin-bottom: 24px;
-  font-weight: 500;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 12px;
-}
-
-.cs-ds-colors {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 24px;
-}
-
-.cs-ds-swatch {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.cs-ds-swatch-color {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.1);
-}
-
-.cs-ds-swatch span {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  text-align: center;
-}
-
-.cs-ds-type {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.cs-ds-type-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px dashed var(--line);
-  padding-bottom: 16px;
-}
-
-.cs-ds-type-row:last-child {
-  border-bottom: none;
-}
-
-.cs-ds-type-row span.spec {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-}
-
-.cs-ds-atoms {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.cs-ds-atom {
-  padding: 16px 32px;
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cs-ds-atom.primary {
-  background: #2563EB; /* Case study primary */
-  border-color: #2563EB;
-  color: #fff;
-  border-radius: 100px;
-}
-
-.cs-ds-atom.pill {
-  border-radius: 100px;
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  background: rgba(16, 185, 129, 0.1);
-  color: #10B981;
-  border: none;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 9: Journey Ribbon
-   -------------------------------------------------------------------------- */
-.cs-journey-ribbon {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 32px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-}
-
-.cs-journey-ribbon::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-.cs-journey-slide {
-  flex: 0 0 min(80vw, 320px);
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.cs-journey-slide .cs-phone-frame {
-  max-width: 100%;
-  animation: none;
-  transform: none;
-  box-shadow: none;
-}
-
-.cs-journey-label {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--ink);
-  text-align: center;
-  font-weight: 500;
-}
-
-/* --------------------------------------------------------------------------
-   Frame 10: CTA
-   -------------------------------------------------------------------------- */
-.cs-cta {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.cs-cta::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0) 70%);
-  z-index: 0;
+  inset: 20% 10% -10%;
+  background: radial-gradient(ellipse at 50% 60%, rgba(37, 88, 232, 0.12) 0%, transparent 70%);
+  filter: blur(32px);
+  z-index: -1;
   pointer-events: none;
 }
 
-.cs-cta > * {
+/* ── Phone small (fan) ───────────────────────────────────────────────────── */
+.cs-phone--sm {
+  max-width: 180px;
+  border-radius: 28px;
+  padding: 6px;
+  animation: none;
+  transform: none;
+}
+
+.cs-phone-notch--sm {
+  width: 48px;
+  height: 13px;
+  top: 9px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   02 — PROBLEM
+   ═══════════════════════════════════════════════════════════════════════════ */
+.cs-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  .cs-problem-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.cs-problem-copy .cs-section-title {
+  margin-bottom: 20px;
+}
+
+/* Pain list */
+.cs-pain-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cs-pain-item {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.cs-pain-item:first-child {
+  border-top: 1px solid var(--cs-border);
+}
+
+.cs-pain-num {
+  font-family: var(--cs-font);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--cs-blue);
+  padding-top: 3px;
+}
+
+.cs-pain-item strong {
+  display: block;
+  font-family: var(--cs-font);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--cs-ink);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.cs-pain-item p {
+  font-family: var(--cs-font);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--cs-ink-2);
+  margin: 0;
+}
+
+/* Broken flow */
+.cs-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 28px 32px;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  overflow: hidden;
+}
+
+.cs-flow-node {
+  font-family: var(--cs-font);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--cs-ink-2);
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: var(--cs-surface-sub);
+  border: 1px solid var(--cs-border);
+}
+
+.cs-flow-node--fail {
+  color: #B45309;
+  background: #FFFBEB;
+  border-color: #FDE68A;
+  font-weight: 600;
+}
+
+.cs-flow-arrow {
+  font-size: 0.875rem;
+  color: var(--cs-border-strong);
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   03 — OUTCOME
+   ═══════════════════════════════════════════════════════════════════════════ */
+.cs-section-title.cs-outcome-title {
+  margin-bottom: 64px;
+}
+
+/* Stats — editorial row, not cards */
+.cs-stats {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 80px;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  background: var(--cs-surface);
+  overflow: hidden;
+}
+
+.cs-stat {
+  flex: 1;
+  padding: 40px 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-stat-divider {
+  width: 1px;
+  background: var(--cs-border);
+  flex-shrink: 0;
+}
+
+.cs-stat-num {
+  font-family: var(--cs-font);
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--cs-blue);
+}
+
+.cs-stat-desc {
+  font-family: var(--cs-font);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--cs-ink);
+  font-weight: 500;
+  max-width: 20ch;
+}
+
+.cs-stat-caveat {
+  font-family: var(--cs-font);
+  font-size: 0.6875rem;
+  color: var(--cs-ink-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .cs-stats {
+    flex-direction: column;
+  }
+  .cs-stat-divider {
+    width: auto;
+    height: 1px;
+  }
+  .cs-stat {
+    padding: 28px 24px;
+  }
+}
+
+/* ── Device fan ──────────────────────────────────────────────────────────── */
+.cs-fan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
   position: relative;
-  z-index: 1;
+  padding: 48px 0 0;
+  min-height: 380px;
 }
 
-.cs-cta-headline {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-
-.cs-cta-sub {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: var(--ink-muted);
-  margin-bottom: 48px;
-  max-width: 400px;
-}
-
-.cs-cta-actions {
+.cs-fan-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  position: absolute;
+  bottom: 0;
+  transition: transform 0.4s var(--cs-ease);
 }
 
-.btn-primary {
-  display: inline-block;
-  padding: 16px 32px;
-  background-color: var(--accent);
-  color: var(--bg);
-  font-family: var(--font-body);
+.cs-fan-item--left {
+  left: 50%;
+  transform: translateX(calc(-50% - 180px)) rotate(-10deg);
+  transform-origin: bottom center;
+  z-index: 1;
+}
+
+.cs-fan-item--center {
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: bottom center;
+  z-index: 3;
+}
+
+.cs-fan-item--right {
+  left: 50%;
+  transform: translateX(calc(-50% + 180px)) rotate(10deg);
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.cs-fan:hover .cs-fan-item--left  { transform: translateX(calc(-50% - 200px)) rotate(-14deg); }
+.cs-fan:hover .cs-fan-item--right { transform: translateX(calc(-50% + 200px)) rotate(14deg); }
+
+.cs-fan-label {
+  font-family: var(--cs-font);
+  font-size: 0.6875rem;
   font-weight: 600;
-  text-decoration: none;
-  border-radius: 100px;
-  transition: transform 0.2s, background-color 0.2s;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cs-ink-muted);
+  white-space: nowrap;
 }
 
-.btn-primary:hover {
-  background-color: #fb923c;
-  transform: scale(1.05);
+/* ── Scroll reveal ───────────────────────────────────────────────────────── */
+/* Override global .reveal for this light page */
+.cs-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--cs-ease), transform 0.65s var(--cs-ease);
 }
 
-.cs-cta-secondary {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--ink-muted);
-  text-decoration: none;
-  transition: color 0.2s;
+.cs-page .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.cs-cta-secondary:hover {
-  color: var(--ink);
-}
-
-/* --------------------------------------------------------------------------
-   Responsive Media Queries
-   -------------------------------------------------------------------------- */
-@media (min-width: 768px) {
-  .cs-frame-inner {
-    padding-inline: 48px;
-  }
-  .cs-friction-split, .cs-process-layout {
-    flex-direction: row;
-    align-items: center;
-  }
-  .cs-friction-split > *, .cs-process-layout > * {
-    flex: 1;
-  }
-  .cs-stat-grid, .cs-edge-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .cs-compare {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .cs-workflow-diagram {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .cs-workflow-connector {
-    width: 24px;
-    height: 2px;
-    margin-left: 0;
-  }
-  .cs-compare-card--scrapped .cs-annotation { right: -10%; }
-  .cs-compare-card--adopted .cs-annotation { right: -10%; }
-}
-
-@media (min-width: 900px) {
-  .cs-hero-showcase, .cs-deepdive-grid {
-    flex-direction: row;
-    align-items: center;
-  }
-  .cs-hero-showcase > *, .cs-deepdive-grid > * {
-    flex: 1;
-  }
+/* ── Responsive tweaks ───────────────────────────────────────────────────── */
+@media (max-width: 599px) {
+  .cs-wrap { padding-inline: 20px; }
+  .cs-hero { padding: 24px 0 56px; }
+  .cs-section { padding: 64px 0; }
+  .cs-hero-title { margin-bottom: 16px; }
+  .cs-meta-row { flex-direction: column; gap: 12px; }
+  .cs-meta-divider { display: none; }
+  .cs-flow { padding: 20px; gap: 6px; }
+  .cs-flow-arrow { padding: 0 6px; }
+  .cs-fan { min-height: 300px; }
+  .cs-fan-item--left  { transform: translateX(calc(-50% - 130px)) rotate(-10deg); }
+  .cs-fan-item--right { transform: translateX(calc(-50% + 130px)) rotate(10deg); }
+  .cs-phone--sm { max-width: 130px; }
 }

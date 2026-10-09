@@ -5,149 +5,199 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UpCrew — UX Case Study · Shubham Waza</title>
   <meta name="description" content="End-to-end UX case study for UpCrew, a mobile-first gig economy marketplace. Designed by Shubham Waza.">
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400&f[]=general-sans@500,600,400&display=swap" rel="stylesheet">
-  
+
   <!-- Styles -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/case-study-ux.css">
 </head>
-<body>
-  
+<body class="cs-page">
+
   <div id="nav-placeholder"></div>
 
-  <main>
-    <!-- Frame 1: Hero -->
-    <section class="cs-frame cs-frame--hero" id="frame-hero">
-      <div class="cs-frame-inner">
-        <a href="../work.html" class="cs-frame-eyebrow reveal" style="text-decoration: none; color: var(--ink-muted); margin-bottom: 40px; display: inline-flex; align-items: center; gap: 8px;">
-          ← Back to Work
+  <main class="cs-main">
+
+    <!-- ── Section 01: Hero ─────────────────────────────────────────────── -->
+    <section class="cs-hero" id="cs-hero">
+      <div class="cs-wrap">
+
+        <a href="../work.html" class="cs-back reveal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Work
         </a>
-        
-        <div class="cs-hero-showcase">
-          <div class="cs-hero-content reveal">
-            <span class="cs-frame-eyebrow">UX Case Study</span>
-            <h1 class="cs-frame-headline">UpCrew</h1>
-            <p class="cs-frame-body">
+
+        <div class="cs-hero-grid">
+          <!-- Left: copy -->
+          <div class="cs-hero-copy reveal">
+            <span class="cs-label">UX Case Study</span>
+            <h1 class="cs-hero-title">UpCrew</h1>
+            <p class="cs-hero-desc">
               A mobile-first marketplace connecting businesses with verified temporary workers — making flexible hiring trusted, fast, and transparent.
             </p>
-            <div class="cs-meta-tags">
-              <div class="cs-meta-tag"><strong>Role</strong> End-to-End Product Design</div>
-              <div class="cs-meta-tag"><strong>Timeline</strong> 12 Weeks</div>
-              <div class="cs-meta-tag"><strong>Tools</strong> Figma · FigJam · Notion</div>
+            <div class="cs-meta-row">
+              <div class="cs-meta-item">
+                <span class="cs-meta-key">Role</span>
+                <span class="cs-meta-val">End-to-End Product Design</span>
+              </div>
+              <div class="cs-meta-divider"></div>
+              <div class="cs-meta-item">
+                <span class="cs-meta-key">Timeline</span>
+                <span class="cs-meta-val">12 Weeks</span>
+              </div>
+              <div class="cs-meta-divider"></div>
+              <div class="cs-meta-item">
+                <span class="cs-meta-key">Tools</span>
+                <span class="cs-meta-val">Figma · FigJam · Notion</span>
+              </div>
             </div>
           </div>
-          
-          <div class="cs-hero-mockup">
-            <div class="cs-phone-frame">
-              <div class="cs-phone-screen" style="padding: 0; overflow: hidden;">
+
+          <!-- Right: phone -->
+          <div class="cs-hero-device">
+            <div class="cs-phone">
+              <div class="cs-phone-notch"></div>
+              <div class="cs-phone-screen">
                 <video
                   id="hero-video"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  preload="auto"
-                  style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                  autoplay muted loop playsinline preload="auto"
+                  style="width:100%;height:100%;object-fit:cover;display:block;"
                 >
                   <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
+            <!-- Ambient glow behind phone -->
+            <div class="cs-phone-glow" aria-hidden="true"></div>
           </div>
-          <script>
-            (function() {
-              var vid = document.getElementById('hero-video');
-              if (!vid) return;
-              vid.addEventListener('error', function(e) {
-                console.error('VIDEO ERROR:', vid.error, 'networkState:', vid.networkState, 'readyState:', vid.readyState);
-              });
-              vid.addEventListener('loadeddata', function() {
-                console.log('VIDEO LOADED OK — duration:', vid.duration, 'videoWidth:', vid.videoWidth, 'videoHeight:', vid.videoHeight);
-                vid.play().catch(function(err) { console.error('PLAY FAILED:', err); });
-              });
-              vid.addEventListener('stalled', function() { console.warn('VIDEO STALLED'); });
-              vid.addEventListener('suspend', function() { console.warn('VIDEO SUSPENDED — networkState:', vid.networkState); });
-              console.log('Video src:', vid.currentSrc, 'networkState:', vid.networkState);
-            })();
-          </script>
         </div>
+
       </div>
     </section>
 
-    <!-- Frame 2: Problem -->
-    <section class="cs-frame cs-frame--soft" id="frame-problem">
-      <div class="cs-frame-inner">
-        <div class="cs-friction-split">
-          <div class="cs-friction-content reveal">
-            <span class="cs-frame-eyebrow">The Friction</span>
-            <h2 class="cs-frame-headline">Informal hiring costs businesses time, trust, and reliable workers</h2>
-            <ul class="cs-pain-list">
-              <li>Hiring relies on WhatsApp groups and word-of-mouth — no verification, no accountability.</li>
-              <li>Workers can't distinguish legitimate opportunities from exploitative ones.</li>
-              <li>Both sides waste hours on scheduling, no-shows, and miscommunication.</li>
-            </ul>
+    <!-- ── Section 02: Problem ───────────────────────────────────────────── -->
+    <section class="cs-section cs-section--ruled" id="cs-problem">
+      <div class="cs-wrap">
+
+        <div class="cs-section-header reveal">
+          <span class="cs-label cs-label--num">01</span>
+          <span class="cs-label">The Problem</span>
+        </div>
+
+        <div class="cs-problem-grid">
+          <div class="cs-problem-copy reveal">
+            <h2 class="cs-section-title">Informal hiring costs trust on both sides</h2>
+            <p class="cs-body">
+              India's gig workforce is largely managed through WhatsApp groups and referral chains — with no verification layer, no dispute mechanism, and no record of who showed up.
+            </p>
           </div>
-          
-          <div class="cs-friction-visual reveal">
-            <div class="cs-flow-diagram">
-              <div class="cs-flow-step">1. Job Posted</div>
-              <div class="cs-flow-step">2. Shared on WhatsApp</div>
-              <div class="cs-flow-step">3. Unverified Applicants</div>
-              <div class="cs-flow-step cs-flow-step--alert">4. No-show / Mismatch</div>
+
+          <div class="cs-pain-col reveal">
+            <div class="cs-pain-item">
+              <span class="cs-pain-num">01</span>
+              <div>
+                <strong>No verification layer</strong>
+                <p>Businesses hire from word-of-mouth. Workers show up without documented history or accountability.</p>
+              </div>
+            </div>
+            <div class="cs-pain-item">
+              <span class="cs-pain-num">02</span>
+              <div>
+                <strong>Legitimate vs. exploitative</strong>
+                <p>Workers can't distinguish real opportunities from bad-faith postings. Trust is absent from both sides.</p>
+              </div>
+            </div>
+            <div class="cs-pain-item">
+              <span class="cs-pain-num">03</span>
+              <div>
+                <strong>Scheduling chaos</strong>
+                <p>No-shows, last-minute cancellations, and pay disputes with no paper trail to resolve them.</p>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Broken flow diagram -->
+        <div class="cs-flow reveal">
+          <div class="cs-flow-node">Job posted</div>
+          <div class="cs-flow-arrow">→</div>
+          <div class="cs-flow-node">WhatsApp blast</div>
+          <div class="cs-flow-arrow">→</div>
+          <div class="cs-flow-node">Unverified replies</div>
+          <div class="cs-flow-arrow">→</div>
+          <div class="cs-flow-node cs-flow-node--fail">No-show · Mismatch</div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Frame 3: Impact -->
-    <section class="cs-frame" id="frame-impact">
-      <div class="cs-frame-inner">
-        <span class="cs-frame-eyebrow reveal">The Outcome</span>
-        <h2 class="cs-frame-headline reveal">From fragmented hiring to verified, shift-ready matches in under 5 minutes</h2>
-        
-        <div class="cs-stat-grid reveal">
-          <div class="cs-stat-card">
-            <div class="cs-stat-number" data-target="3" data-prefix="" data-suffix="×">0×</div>
-            <div class="cs-stat-label">Faster average time to hire vs. informal methods</div>
-            <div class="cs-stat-tag">[Modeled Projection]</div>
+    <!-- ── Section 03: Outcome ───────────────────────────────────────────── -->
+    <section class="cs-section" id="cs-outcome">
+      <div class="cs-wrap">
+
+        <div class="cs-section-header reveal">
+          <span class="cs-label cs-label--num">02</span>
+          <span class="cs-label">The Outcome</span>
+        </div>
+
+        <h2 class="cs-section-title reveal">From fragmented hiring to verified,<br>shift-ready matches in under 5 minutes</h2>
+
+        <!-- Stats -->
+        <div class="cs-stats reveal">
+          <div class="cs-stat">
+            <div class="cs-stat-num" data-target="3" data-prefix="" data-suffix="×">0×</div>
+            <div class="cs-stat-desc">Faster time to hire vs. informal methods</div>
+            <div class="cs-stat-caveat">Modeled projection</div>
           </div>
-          
-          <div class="cs-stat-card">
-            <div class="cs-stat-number" data-target="87" data-prefix="" data-suffix="%">0%</div>
-            <div class="cs-stat-label">Worker verification completion rate</div>
-            <div class="cs-stat-tag">[Estimated Metric]</div>
+          <div class="cs-stat-divider"></div>
+          <div class="cs-stat">
+            <div class="cs-stat-num" data-target="87" data-prefix="" data-suffix="%">0%</div>
+            <div class="cs-stat-desc">Worker verification completion rate</div>
+            <div class="cs-stat-caveat">Estimated metric</div>
           </div>
-          
-          <div class="cs-stat-card">
-            <div class="cs-stat-number" data-target="5" data-prefix="< " data-suffix=" min">< 0 min</div>
-            <div class="cs-stat-label">Time from job post to first qualified match</div>
-            <div class="cs-stat-tag">[Modeled Projection]</div>
+          <div class="cs-stat-divider"></div>
+          <div class="cs-stat">
+            <div class="cs-stat-num" data-target="5" data-prefix="&lt; " data-suffix=" min">&lt; 0 min</div>
+            <div class="cs-stat-desc">Job post to first qualified match</div>
+            <div class="cs-stat-caveat">Modeled projection</div>
           </div>
         </div>
 
-        <div class="cs-device-fan reveal">
-          <div class="cs-device-fan-item">
-            <div class="cs-mini-phone">
-              <img src="../Assets/Images/upcrew-browse-shifts.png" alt="Browse Shifts screen" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+        <!-- Device fan -->
+        <div class="cs-fan reveal">
+          <div class="cs-fan-item cs-fan-item--left">
+            <div class="cs-phone cs-phone--sm">
+              <div class="cs-phone-notch cs-phone-notch--sm"></div>
+              <div class="cs-phone-screen">
+                <img src="../Assets/Images/upcrew-browse-shifts.png" alt="Browse Shifts" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
             </div>
+            <span class="cs-fan-label">Browse Shifts</span>
           </div>
-          <div class="cs-device-fan-item">
-            <div class="cs-mini-phone">
-              <img src="../Assets/Images/upcrew-apply-flow.png" alt="Apply Flow screen" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+          <div class="cs-fan-item cs-fan-item--center">
+            <div class="cs-phone cs-phone--sm">
+              <div class="cs-phone-notch cs-phone-notch--sm"></div>
+              <div class="cs-phone-screen">
+                <img src="../Assets/Images/upcrew-apply-flow.png" alt="Apply Flow" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
             </div>
+            <span class="cs-fan-label">Apply Flow</span>
           </div>
-          <div class="cs-device-fan-item">
-            <div class="cs-mini-phone">
-              <img src="../Assets/Images/upcrew-shift-details.png" alt="Shift Details screen" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+          <div class="cs-fan-item cs-fan-item--right">
+            <div class="cs-phone cs-phone--sm">
+              <div class="cs-phone-notch cs-phone-notch--sm"></div>
+              <div class="cs-phone-screen">
+                <img src="../Assets/Images/upcrew-shift-details.png" alt="Shift Details" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
             </div>
+            <span class="cs-fan-label">Shift Details</span>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -160,66 +210,50 @@
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Fix nav/footer links for nested page depth
-      function fixNavDepth() {
-        document.querySelectorAll("#nav-placeholder a, #mobileMenu a, #footer-placeholder a").forEach(a => {
-          const href = a.getAttribute("href");
-          if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("../") && !href.startsWith("#")) {
-            a.setAttribute("href", "../" + href);
-          }
-        });
-      }
-      fixNavDepth();
+      // Fix nav/footer links for sub-page depth
+      document.querySelectorAll("#nav-placeholder a, #mobileMenu a, #footer-placeholder a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("../") && !href.startsWith("#")) {
+          a.setAttribute("href", "../" + href);
+        }
+      });
 
-      // Init site-wide interactions
       if (typeof initReveal === 'function') initReveal();
       if (typeof initMagnetic === 'function') initMagnetic();
       if (typeof initOrangeHover === 'function') initOrangeHover();
 
-      // Counter animation logic
-      const observer = new IntersectionObserver((entries) => {
+      // Video: force play
+      const vid = document.getElementById('hero-video');
+      if (vid) {
+        vid.play().catch(() => {});
+      }
+
+      // Stat counters
+      const counterObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const statElements = entry.target.querySelectorAll('.cs-stat-number');
-            statElements.forEach(el => {
-              if (el.classList.contains('counted')) return;
-              el.classList.add('counted');
-              
-              const target = parseInt(el.getAttribute('data-target'), 10);
-              const prefix = el.getAttribute('data-prefix') || '';
-              const suffix = el.getAttribute('data-suffix') || '';
-              
-              const duration = 2000;
-              const startTime = performance.now();
-              
-              const updateCounter = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // easeOutQuart
-                const ease = 1 - Math.pow(1 - progress, 4);
-                const current = Math.floor(ease * target);
-                
-                el.innerText = prefix + current + suffix;
-                
-                if (progress < 1) {
-                  requestAnimationFrame(updateCounter);
-                } else {
-                  el.innerText = prefix + target + suffix;
-                }
-              };
-              
-              requestAnimationFrame(updateCounter);
-            });
-            observer.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll('.cs-stat-num').forEach(el => {
+            if (el.dataset.counted) return;
+            el.dataset.counted = '1';
+            const target = parseInt(el.dataset.target, 10);
+            const prefix = el.dataset.prefix || '';
+            const suffix = el.dataset.suffix || '';
+            const start = performance.now();
+            const dur = 1800;
+            (function tick(now) {
+              const t = Math.min((now - start) / dur, 1);
+              const ease = 1 - Math.pow(1 - t, 4);
+              el.textContent = prefix + Math.floor(ease * target) + suffix;
+              if (t < 1) requestAnimationFrame(tick);
+              else el.textContent = prefix + target + suffix;
+            })(start);
+          });
+          counterObs.unobserve(entry.target);
         });
       }, { threshold: 0.3 });
 
-      const impactFrame = document.querySelector('#frame-impact');
-      if (impactFrame) {
-        observer.observe(impactFrame);
-      }
+      const outcome = document.querySelector('#cs-outcome');
+      if (outcome) counterObs.observe(outcome);
     });
   </script>
 </body>
