@@ -430,6 +430,53 @@
             <span class="cs-trust-arrow">→</span>
             <span class="cs-trust-pill">6. Compounded Reputation</span>
           </div>
+
+          <!-- Real Figma Screens: The Operational Stages -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 36px;">
+            <div style="text-align: center;">
+              <div class="cs-edge-phone-frame" style="max-width: 190px;">
+                <div class="cs-edge-phone-screen">
+                  <img src="../Assets/Images/upcrew-screen-app-selected.png" alt="Figma screen: Shift selection" loading="lazy">
+                </div>
+              </div>
+              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
+                Stage 1: Selection &amp; Notice
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="cs-edge-phone-frame" style="max-width: 190px;">
+                <div class="cs-edge-phone-screen">
+                  <img src="../Assets/Images/upcrew-screen-my-shifts.png" alt="Figma screen: My Shifts tracker" loading="lazy">
+                </div>
+              </div>
+              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
+                Stage 2: Shift Readiness
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="cs-edge-phone-frame" style="max-width: 190px;">
+                <div class="cs-edge-phone-screen">
+                  <img src="../Assets/Images/upcrew-screen-wallet.png" alt="Figma screen: Instant payout wallet" loading="lazy">
+                </div>
+              </div>
+              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
+                Stage 3: Escrow &amp; Instant Pay
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="cs-edge-phone-frame" style="max-width: 190px;">
+                <div class="cs-edge-phone-screen">
+                  <img src="../Assets/Images/upcrew-screen-profile.png" alt="Figma screen: Verified worker profile" loading="lazy">
+                </div>
+              </div>
+              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
+                Stage 4: Verified Reputation
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -503,32 +550,20 @@
           </h4>
 
           <div class="cs-wire-stepper">
-            <!-- Screen 1: App Open -->
+            <!-- Screen 1: App Open / Value-first Browse -->
             <div>
               <div class="cs-wire-screen cs-wire-screen--active">
-                <div class="cs-wire-header-bar"></div>
-                <div class="cs-wire-line"></div>
-                <div class="cs-wire-line cs-wire-line--half"></div>
-                <div style="background: var(--cs-blue-bg); border-radius: 6px; padding: 6px; margin: 4px 0;">
-                  <div style="height: 6px; width: 60%; background: var(--cs-blue); border-radius: 999px;"></div>
-                </div>
-                <div class="cs-wire-btn cs-wire-btn--primary"></div>
+                <img src="../Assets/Images/upcrew-screen-welcome.png" alt="Figma screen: Welcome to UpCrew" loading="lazy">
               </div>
-              <div class="cs-screen-caption">1. Instant Browse</div>
+              <div class="cs-screen-caption">1. Instant Value</div>
             </div>
 
             <div style="color: var(--cs-line-2); font-size: 1.25rem;">→</div>
 
-            <!-- Screen 2: Job Card Selection -->
+            <!-- Screen 2: Finding Shifts & Intent Trigger -->
             <div>
               <div class="cs-wire-screen cs-wire-screen--active">
-                <div class="cs-wire-header-bar"></div>
-                <div style="border: 1px solid var(--cs-blue); border-radius: 6px; padding: 6px;">
-                  <div style="height: 5px; width: 70%; background: var(--cs-blue); border-radius: 999px; margin-bottom: 4px;"></div>
-                  <div style="height: 4px; width: 40%; background: var(--cs-line-2); border-radius: 999px;"></div>
-                </div>
-                <div class="cs-wire-line"></div>
-                <div class="cs-wire-btn cs-wire-btn--primary"></div>
+                <img src="../Assets/Images/upcrew-screen-find-shifts.png" alt="Figma screen: Find the right shifts" loading="lazy">
               </div>
               <div class="cs-screen-caption">2. Intent Trigger</div>
             </div>
@@ -538,26 +573,19 @@
             <!-- Screen 3: Progressive Verification -->
             <div>
               <div class="cs-wire-screen cs-wire-screen--active">
-                <div class="cs-wire-header-bar"></div>
-                <div style="font-size: 0.625rem; font-weight: 700; color: var(--cs-blue); margin-bottom: 4px;">Verify to Apply</div>
-                <div style="border: 1px dashed var(--cs-blue); border-radius: 4px; height: 35px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: var(--cs-blue);">
-                  Upload ID
-                </div>
-                <div class="cs-wire-btn cs-wire-btn--primary"></div>
+                <img src="../Assets/Images/upcrew-screen-verify-phone.png" alt="Figma screen: Verify phone number" loading="lazy">
               </div>
-              <div class="cs-screen-caption">3. Targeted ID Check</div>
+              <div class="cs-screen-caption">3. Targeted Verification</div>
             </div>
 
             <div style="color: var(--cs-line-2); font-size: 1.25rem;">→</div>
 
-            <!-- Screen 4: Confirmed Shift -->
+            <!-- Screen 4: Application Confirmed -->
             <div>
-              <div class="cs-wire-screen" style="border: 2px solid var(--cs-green); background: #F0FDF4;">
-                <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--cs-green); margin: 0 auto; display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 10px;">✓</div>
-                <div style="height: 5px; width: 60%; background: var(--cs-green); border-radius: 999px; margin: 4px auto;"></div>
-                <div class="cs-wire-btn" style="background: var(--cs-green);"></div>
+              <div class="cs-wire-screen cs-wire-screen--active">
+                <img src="../Assets/Images/upcrew-screen-app-confirmed.png" alt="Figma screen: Application confirmed" loading="lazy">
               </div>
-              <div class="cs-screen-caption" style="color: var(--cs-green);">4. Shift Confirmed</div>
+              <div class="cs-screen-caption" style="color: var(--cs-green); font-weight: 700;">4. Shift Confirmed</div>
             </div>
           </div>
         </div>
@@ -584,74 +612,100 @@
         </p>
 
         <div class="cs-edge-grid js-reveal">
+          <!-- 1. Zero Shifts in Selected Radius -->
           <div class="cs-edge-card">
-            <span class="cs-edge-state">Empty States</span>
-            <h4 class="cs-edge-title">Zero Shifts in Selected Radius</h4>
-            <p class="cs-edge-desc">
-              Never a dead end. The UI explains the constraint, offers a 1-tap button to expand radius from 5km to 15km, and enables push alerts when shifts go live nearby.
-            </p>
-            <div class="cs-ui-component-specimen">
-              <span class="cs-ui-state-pill cs-ui-state-pill--neutral">🔍 0 shifts within 5 km</span>
-              <div style="font-size: 0.75rem; color: var(--cs-ink-3);">Expand search to unlock 14 verified shifts nearby?</div>
-              <div class="cs-ui-action-row">
-                <div class="cs-ui-btn-tiny cs-ui-btn-tiny--primary">Expand to 15 km</div>
-                <div class="cs-ui-btn-tiny">Notify Me</div>
+            <div>
+              <span class="cs-edge-state">Empty States</span>
+              <h4 class="cs-edge-title">Zero Shifts in Selected Radius</h4>
+              <p class="cs-edge-desc">
+                Never a dead end. Explains the exact constraint, allows 1-tap expansion from 5km to 15km, and offers push notifications for nearby openings.
+              </p>
+            </div>
+            <div class="cs-edge-phone-frame">
+              <div class="cs-edge-phone-screen">
+                <img src="../Assets/Images/upcrew-zero-shifts-radius.png" alt="Figma screen: Zero shifts in selected radius" loading="lazy">
               </div>
             </div>
           </div>
 
+          <!-- 2. Document Rejected & Recovery -->
           <div class="cs-edge-card">
-            <span class="cs-edge-state">Verification States</span>
-            <h4 class="cs-edge-title">Document Rejection &amp; Recovery</h4>
-            <p class="cs-edge-desc">
-              Never a vague "Verification Failed". The screen specifies the exact reason (e.g., "ID photo blurred"), provides photo guidelines, and offers direct 1-tap resubmission.
-            </p>
-            <div class="cs-ui-component-specimen">
-              <span class="cs-ui-state-pill cs-ui-state-pill--alert">⚠️ Glare detected on ID</span>
-              <div style="font-size: 0.75rem; color: var(--cs-ink-3);">Ensure all 4 corners and government seal are clearly legible.</div>
-              <div class="cs-ui-action-row">
-                <div class="cs-ui-btn-tiny cs-ui-btn-tiny--primary">Retake Photo 📷</div>
+            <div>
+              <span class="cs-edge-state">Verification States</span>
+              <h4 class="cs-edge-title">Document Rejection &amp; Recovery</h4>
+              <p class="cs-edge-desc">
+                Never a vague "Verification Failed". Highlights the exact document failure reason (e.g. glare/blur) with direct re-upload affordances.
+              </p>
+            </div>
+            <div class="cs-edge-phone-frame">
+              <div class="cs-edge-phone-screen">
+                <img src="../Assets/Images/upcrew-screen-document-rejected.png" alt="Figma screen: Document rejected recovery" loading="lazy">
               </div>
             </div>
           </div>
 
+          <!-- 3. Offline Confirmed Shift Details -->
           <div class="cs-edge-card">
-            <span class="cs-edge-state">Offline Resilience</span>
-            <h4 class="cs-edge-title">Low Connectivity on Commute</h4>
-            <p class="cs-edge-desc">
-              Confirmed shift details, supervisor contact, and venue directions are cached locally. The UI avoids creating false certainty when actions cannot sync.
-            </p>
-            <div class="cs-ui-component-specimen">
-              <span class="cs-ui-state-pill cs-ui-state-pill--info">📶 Offline Mode Active</span>
-              <div style="font-size: 0.75rem; color: var(--cs-ink-3);">H&amp;M shift ticket cached locally. Directions available without data.</div>
-              <div class="cs-ui-action-row">
-                <div class="cs-ui-btn-tiny">View Offline Pass</div>
+            <div>
+              <span class="cs-edge-state">Offline Resilience</span>
+              <h4 class="cs-edge-title">Offline Confirmed Shift Pass</h4>
+              <p class="cs-edge-desc">
+                Confirmed shift location, supervisor contact, and venue directions are cached locally so workers aren't stranded if reception drops on transit.
+              </p>
+            </div>
+            <div class="cs-edge-phone-frame">
+              <div class="cs-edge-phone-screen">
+                <img src="../Assets/Images/upcrew-screen-offline-confirmed.png" alt="Figma screen: Offline confirmed shift details" loading="lazy">
               </div>
             </div>
           </div>
 
+          <!-- 4. Employer Emergency Cancellation -->
           <div class="cs-edge-card">
-            <span class="cs-edge-state">Cancellation UX</span>
-            <h4 class="cs-edge-title">Employer Emergency Cancellation</h4>
-            <p class="cs-edge-desc">
-              Immediate push notification, compensation eligibility status, and an automated feed of alternative nearby shifts for that same time window.
-            </p>
+            <div>
+              <span class="cs-edge-state">Cancellation UX</span>
+              <h4 class="cs-edge-title">Employer Emergency Cancellation</h4>
+              <p class="cs-edge-desc">
+                Immediate transparent notice with guaranteed compensation policy and an automated feed of alternative nearby shifts for that time slot.
+              </p>
+            </div>
+            <div class="cs-edge-phone-frame">
+              <div class="cs-edge-phone-screen">
+                <img src="../Assets/Images/upcrew-screen-emergency-cancellation.png" alt="Figma screen: Employer emergency cancellation" loading="lazy">
+              </div>
+            </div>
           </div>
 
+          <!-- 5. Verified Live Check-in -->
           <div class="cs-edge-card">
-            <span class="cs-edge-state">Reliability Tracking</span>
-            <h4 class="cs-edge-title">No-Show & Attendance Taxonomy</h4>
-            <p class="cs-edge-desc">
-              Strict state differentiation: <em>Applied → Selected → Confirmed → Checked In → Completed</em>. Only verified on-site check-in establishes worker reliability scores.
-            </p>
+            <div>
+              <span class="cs-edge-state">Reliability Tracking</span>
+              <h4 class="cs-edge-title">Verified On-Site Live Check-In</h4>
+              <p class="cs-edge-desc">
+                Protects attendance and reliability scores through verified on-site supervisor check-in and GPS geo-validation.
+              </p>
+            </div>
+            <div class="cs-edge-phone-frame">
+              <div class="cs-edge-phone-screen">
+                <img src="../Assets/Images/upcrew-screen-verified-checkin.png" alt="Figma screen: Verified live on-site check-in" loading="lazy">
+              </div>
+            </div>
           </div>
 
+          <!-- 6. 3-Hour Reminder with Transit Time -->
           <div class="cs-edge-card">
-            <span class="cs-edge-state">Timers & Urgency</span>
-            <h4 class="cs-edge-title">Time-Critical Shift Reminders</h4>
-            <p class="cs-edge-desc">
-              Tiered countdown alerts: 24h before, 3h before with travel transit times, and live check-in confirmation to ensure high worker turnout.
-            </p>
+            <div>
+              <span class="cs-edge-state">Timers &amp; Urgency</span>
+              <h4 class="cs-edge-title">3-Hour Transit &amp; Shift Reminder</h4>
+              <p class="cs-edge-desc">
+                Tiered operational countdown with live transit travel times and supervisor details to ensure zero accidental no-shows.
+              </p>
+            </div>
+            <div class="cs-edge-phone-frame">
+              <div class="cs-edge-phone-screen">
+                <img src="../Assets/Images/upcrew-screen-transit-reminder.png" alt="Figma screen: 3-hour shift reminder with transit time" loading="lazy">
+              </div>
+            </div>
           </div>
         </div>
 
