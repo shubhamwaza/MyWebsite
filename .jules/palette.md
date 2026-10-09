@@ -1,0 +1,3 @@
+## 2024-05-24 - Accessibility Enhancement: Mobile Navigation
+**Learning:** Found a common pattern in the application where the mobile navigation menu toggle button does not provide adequate accessibility context about the expanded state, and the menu item links don't indicate the current page for screen reader users. The navigation is rendered dynamically with JavaScript.
+**Action:** Consistently apply `aria-expanded` and dynamically update `aria-label` to toggle buttons (Open/Close), and apply `aria-current="page"` to the currently active navigation link to improve context for screen reader users.
