@@ -59,6 +59,37 @@
   color: var(--cs-ink) !important;
   font-family: var(--cs-body) !important;
   -webkit-font-smoothing: antialiased;
+  padding-top: 72px; /* Clearance for fixed .site-nav (72px height) */
+}
+
+/* Nav light theme styling for .cs-page */
+.cs-page .site-nav {
+  background: rgba(245, 244, 240, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cs-line);
+}
+
+.cs-page .site-nav.scrolled {
+  background: rgba(245, 244, 240, 0.95);
+  border-color: var(--cs-line);
+}
+
+.cs-page .nav-logo {
+  color: var(--cs-ink) !important;
+}
+
+.cs-page .nav-links a {
+  color: var(--cs-ink-3) !important;
+}
+
+.cs-page .nav-links a:hover,
+.cs-page .nav-links a.active {
+  color: var(--cs-ink) !important;
+}
+
+.cs-page .nav-toggle {
+  color: var(--cs-ink) !important;
 }
 
 .cs-main {
@@ -183,7 +214,7 @@
   font-weight: 500;
   color: var(--cs-ink-3) !important;
   text-decoration: none;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
   cursor: pointer;
   transition: color 0.2s, gap 0.2s;
 }
@@ -211,7 +242,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 .cs-hero {
   background: var(--cs-bg);
-  padding: 36px 0 72px;
+  padding: 48px 0 72px;
 }
 
 .cs-hero-layout {
