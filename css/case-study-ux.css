@@ -208,16 +208,23 @@
   font-weight: 800;
 }
 
+.cs-nobr {
+  white-space: nowrap;
+}
+
 .cs-section-h2 {
   font-family: var(--cs-display) !important;
-  font-size: clamp(2.35rem, 4.2vw, 3.4rem);
+  font-size: clamp(2.5rem, 4.8vw, 3.75rem);
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1.08;
+  line-height: 1.05;
   color: var(--cs-ink) !important;
-  max-width: 28ch;
+  max-width: 38ch;
   margin-bottom: 18px;
   text-wrap: balance;
+  hyphens: none;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .cs-body-copy {
@@ -461,7 +468,58 @@
   }
 }
 
-/* Pain list */
+.cs-pain-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .cs-pain-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.cs-pain-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r);
+}
+
+.cs-pain-card .cs-pain-index {
+  font-family: var(--cs-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--cs-blue);
+}
+
+.cs-pain-card .cs-pain-text strong {
+  display: block;
+  font-family: var(--cs-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--cs-ink) !important;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.cs-pain-card .cs-pain-text p {
+  font-family: var(--cs-body);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--cs-ink-3) !important;
+  margin: 0;
+}
+
+/* Pain list (legacy fallback) */
 .cs-pain-list {
   display: flex;
   flex-direction: column;
@@ -930,11 +988,13 @@
 
 .cs-trust-loop-heading {
   font-family: var(--cs-display) !important;
-  font-size: 1.25rem;
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
   font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
   color: var(--cs-ink) !important;
-  margin-top: 6px;
-  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
 .cs-trust-loop-chain {
