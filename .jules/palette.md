@@ -1,0 +1,3 @@
+## 2024-10-10 - Dynamic ARIA State for Mobile Menu Toggle
+**Learning:** ARIA attributes on interactive elements (like a menu toggle button) need to be dynamically updated via JavaScript to accurately reflect their state (e.g., `aria-expanded="true"`, `aria-label="Close menu"`) for screen reader users.
+**Action:** Always ensure dynamically toggled elements update their ARIA states alongside visual changes.
