@@ -1,0 +1,4 @@
+## 2024-05-24 - Fix attribute injection XSS in escapeHtml
+**Vulnerability:** The `escapeHtml` function relied on DOM text node assignment (`div.textContent = str; return div.innerHTML`), which fails to encode single and double quotes, leaving the application vulnerable to attribute injection XSS. It also lacked string casting, risking type confusion bypasses.
+**Learning:** The DOM's `innerHTML` getter does not automatically encode quotes when generating HTML strings. Furthermore, inputs like arrays or objects can bypass `typeof` checks if not explicitly cast to strings, leading to automatic stringification by the DOM.
+**Prevention:** Use comprehensive regex-based escaping with explicit string casting (`String(str)`) to safely encode all HTML special characters (`&`, `<`, `>`, `"`, `'`) before outputting to the client.
