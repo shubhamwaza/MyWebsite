@@ -663,14 +663,14 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #1E40AF;
+  color: var(--cs-ink-3);
 }
 
 .cs-context-col h3 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
   line-height: 1.25;
 }
@@ -719,14 +719,14 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #1E40AF;
+  color: var(--cs-ink-3);
 }
 
 .cs-principle-card h4 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
   line-height: 1.3;
 }
@@ -753,7 +753,7 @@
 }
 
 .cs-editorial-disclaimer strong {
-  color: var(--cs-ink);
+  color: var(--cs-blue);
   font-weight: 800;
 }
 
@@ -810,7 +810,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.1875rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
 }
 
@@ -913,7 +913,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
 }
 
@@ -2497,7 +2497,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.0625rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
   line-height: 1.3;
 }
@@ -2611,7 +2611,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 0.9375rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
 }
 
@@ -2923,7 +2923,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0 0 4px;
 }
 
@@ -3061,7 +3061,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.1875rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0 0 4px;
 }
 
@@ -3271,7 +3271,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
 }
 
@@ -3774,7 +3774,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.0625rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0 0 6px 0;
 }
 
@@ -3917,14 +3917,14 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #1E40AF;
+  color: var(--cs-ink-3);
 }
 
 .cs-edge-info h4 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
   line-height: 1.3;
 }
@@ -3992,7 +3992,7 @@
   font-size: 0.6875rem;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #1E40AF;
+  color: var(--cs-ink-3);
   text-transform: uppercase;
 }
 
@@ -4000,7 +4000,7 @@
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
   line-height: 1.25;
 }
