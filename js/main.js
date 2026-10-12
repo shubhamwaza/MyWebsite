@@ -53,7 +53,7 @@ function renderNav() {
           ${DESKTOP_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
         </ul>
         <a href="${prefix}contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
       </div>
     </header>
     <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile Navigation">
@@ -83,6 +83,7 @@ function renderNav() {
     menu.classList.remove("open");
     toggle.innerHTML = ICON_MENU;
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
     document.body.style.overflow = "";
   }
 
@@ -91,6 +92,7 @@ function renderNav() {
     menu.classList.toggle("open", open);
     toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
     document.body.style.overflow = open ? "hidden" : "";
   });
 
