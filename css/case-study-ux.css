@@ -631,144 +631,132 @@
   color: var(--cs-ink-3);
 }
 
-.cs-section--dark .cs-slide-footer {
-  border-top-color: rgba(255, 255, 255, 0.12);
-  color: #64748B;
-}
-
-/* ── Dark Inverted Section (Slide 02) ───────────────────────────────────── */
-.cs-section--dark {
-  background: #0B132B !important;
-  color: #F8FAFC !important;
-  border-top: 1px solid #1E293B;
-  border-bottom: 1px solid #1E293B;
-}
-
-.cs-section--dark .cs-slide-header {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #94A3B8;
-}
-
-.cs-section--dark .cs-slide-header-brand {
-  color: #FFFFFF !important;
-}
-
-.cs-section--dark .cs-slide-header-num {
-  color: #60A5FA !important;
-}
-
-.cs-section--dark .cs-eyebrow {
-  color: #60A5FA !important;
-}
-
-.cs-section--dark .cs-section-h2 {
-  color: #FFFFFF !important;
-  max-width: 100% !important;
-  font-size: clamp(2.4rem, 4.6vw, 3.8rem) !important;
-  margin-bottom: 24px;
-}
-
-.cs-section--dark .cs-body-copy {
-  color: #CBD5E1 !important;
-}
-
+/* ── Section 02: Context & Principles (Slide 02) ───────────────────────── */
 .cs-context-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  padding: 28px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 32px;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+  .cs-context-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 .cs-context-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r-lg);
+  padding: 28px 24px;
+  box-shadow: 0 4px 16px rgba(20, 18, 16, 0.03);
 }
 
 .cs-context-label {
   font-family: var(--cs-body);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #60A5FA;
+  color: #1E40AF;
 }
 
 .cs-context-col h3 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 1.375rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  color: #FFFFFF !important;
+  color: var(--cs-ink) !important;
   margin: 0;
+  line-height: 1.25;
 }
 
 .cs-context-col p {
   font-family: var(--cs-body);
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: #CBD5E1 !important;
+  color: var(--cs-ink-2) !important;
   margin: 0;
 }
 
 .cs-principles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 860px) {
+  .cs-principles-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 .cs-principle-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid var(--cs-line);
+  border-top: 3px solid #1E40AF;
   border-radius: var(--cs-r);
-  padding: 20px 18px;
+  padding: 22px 20px;
+  box-shadow: 0 2px 10px rgba(20, 18, 16, 0.03);
+  transition: transform 0.2s var(--cs-ease);
+}
+
+.cs-principle-card:hover {
+  transform: translateY(-2px);
 }
 
 .cs-principle-label {
   font-family: var(--cs-body);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #60A5FA;
+  color: #1E40AF;
 }
 
 .cs-principle-card h4 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.125rem;
   font-weight: 800;
-  color: #FFFFFF !important;
+  color: var(--cs-ink) !important;
   margin: 0;
+  line-height: 1.3;
 }
 
 .cs-principle-card p {
   font-family: var(--cs-body);
-  font-size: 0.84375rem;
+  font-size: 0.875rem;
   line-height: 1.55;
-  color: #94A3B8 !important;
+  color: var(--cs-ink-2) !important;
   margin: 0;
 }
 
 .cs-editorial-disclaimer {
   padding: 16px 20px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--cs-r-sm);
+  background: #FFFFFF;
+  border: 1px solid var(--cs-line);
+  border-left: 4px solid #1E40AF;
   font-family: var(--cs-body);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.55;
-  color: #94A3B8;
-  margin-bottom: 36px;
+  color: var(--cs-ink-2);
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(20, 18, 16, 0.02);
 }
 
 .cs-editorial-disclaimer strong {
-  color: #F8FAFC;
+  color: var(--cs-ink);
+  font-weight: 800;
 }
 
 /* ── Information Architecture & Jobs to be Done (Slide 03) ──────────────── */
@@ -1733,8 +1721,8 @@
 .cs-contrast-comparison {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 0;
+  gap: 24px;
+  margin-top: 28px;
 }
 
 @media (min-width: 860px) {
@@ -1745,14 +1733,15 @@
 }
 
 .cs-sim-box {
-  background: var(--cs-surface);
+  background: #FFFFFF;
   border: 1px solid var(--cs-line);
   border-radius: var(--cs-r-lg);
-  padding: 22px 20px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(20, 18, 16, 0.04);
 }
 
 .cs-sim-header {
@@ -1767,21 +1756,37 @@
 .cs-sim-badge {
   font-family: var(--cs-body);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 999px;
 }
 
 .cs-sim-badge--bad {
   background: #FEE2E2;
-  color: #B91C1C !important;
+  color: #7F1D1D !important;
+  border: 1px solid #FECACA;
 }
 
 .cs-sim-badge--good {
-  background: var(--cs-blue-bg);
-  color: var(--cs-blue) !important;
+  background: #EEF1FD;
+  color: #1E40AF !important;
+  border: 1px solid #DBEAFE;
+}
+
+.cs-sim-status-bad {
+  font-family: var(--cs-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #991B1B;
+}
+
+.cs-sim-status-good {
+  font-family: var(--cs-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #14532D;
 }
 
 /* WhatsApp chat aesthetic */
@@ -1790,17 +1795,18 @@
   flex-direction: column;
   gap: 12px;
   background: #EFEAE2;
+  border: 1px solid #E5DFD5;
   padding: 20px 16px;
   border-radius: var(--cs-r);
   flex-grow: 1;
 }
 
 .cs-chat-bubble {
-  max-width: 85%;
-  padding: 10px 14px;
+  max-width: 88%;
+  padding: 12px 14px;
   border-radius: 12px;
   font-family: var(--cs-body);
-  font-size: 0.8125rem;
+  font-size: 0.84375rem;
   line-height: 1.45;
   position: relative;
 }
@@ -1810,7 +1816,16 @@
   background: #FFFFFF;
   color: #111827 !important;
   border-top-left-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cs-chat-sender {
+  color: #1E3A8A;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  display: block;
+  margin-bottom: 4px;
 }
 
 .cs-chat-bubble--out {
@@ -1818,35 +1833,60 @@
   background: #DCF8C6;
   color: #111827 !important;
   border-top-right-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cs-chat-bubble--alert {
+  align-self: stretch;
+  background: #FEF2F2;
+  border: 1.5px solid #FCA5A5;
+  color: #7F1D1D !important;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cs-chat-bubble--alert strong {
+  color: #7F1D1D;
+  font-weight: 800;
 }
 
 .cs-chat-time {
   display: block;
-  font-size: 0.625rem;
-  color: #6B7280;
+  font-size: 0.6875rem;
+  color: #4B5563;
   text-align: right;
   margin-top: 4px;
+  font-weight: 500;
+}
+
+.cs-chat-bubble--out .cs-chat-time {
+  color: #374151;
+}
+
+.cs-chat-bubble--alert .cs-chat-time {
+  color: #991B1B;
 }
 
 .cs-chat-friction-tag {
   display: inline-block;
-  background: #F87171;
-  color: #FFFFFF !important;
-  font-size: 0.625rem;
+  background: #FEE2E2;
+  color: #7F1D1D !important;
+  border: 1px solid #FECACA;
+  font-size: 0.6875rem;
   font-weight: 700;
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: 4px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 /* UpCrew structured card simulator */
 .cs-card-specimen {
   background: #FFFFFF;
-  border: 1px solid var(--cs-line);
+  border: 1.5px solid var(--cs-line);
   border-radius: var(--cs-r);
-  padding: 20px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  padding: 22px 20px;
+  box-shadow: 0 8px 24px rgba(20, 18, 16, 0.04);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1858,13 +1898,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 12px;
 }
 
 .cs-specimen-role {
-  font-family: var(--cs-display) !important;
-  font-size: 1.125rem;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--cs-ink) !important;
+  line-height: 1.2;
 }
 
 .cs-specimen-company {
@@ -1872,79 +1914,113 @@
   align-items: center;
   gap: 6px;
   font-family: var(--cs-body);
-  font-size: 0.8125rem;
-  color: var(--cs-ink-3) !important;
-  margin-top: 2px;
+  font-size: 0.9375rem;
+  color: var(--cs-ink-2) !important;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 .cs-verified-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
-  background: var(--cs-blue);
-  color: #FFF !important;
+  width: 16px;
+  height: 16px;
+  background: #1E40AF;
+  color: #FFFFFF !important;
   border-radius: 50%;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 900;
 }
 
 .cs-specimen-payout {
-  font-family: var(--cs-display) !important;
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: var(--cs-blue) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1E40AF !important;
   text-align: right;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .cs-specimen-payout span {
   display: block;
   font-family: var(--cs-body);
   font-size: 0.6875rem;
-  color: var(--cs-ink-3) !important;
-  font-weight: 500;
+  color: #475569 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
 }
 
 .cs-specimen-meta-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  background: var(--cs-bg);
-  padding: 10px 12px;
+  gap: 10px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 12px 14px;
   border-radius: var(--cs-r-sm);
   font-family: var(--cs-body);
-  font-size: 0.75rem;
+  margin: 8px 0;
 }
 
 .cs-specimen-meta-col span {
   display: block;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   text-transform: uppercase;
-  color: var(--cs-ink-3) !important;
-  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #475569 !important;
+  font-weight: 700;
+  margin-bottom: 2px;
 }
 
 .cs-specimen-meta-col strong {
-  color: var(--cs-ink) !important;
-  font-weight: 600;
+  color: #0F172A !important;
+  font-size: 0.9375rem;
+  font-weight: 800;
+}
+
+.cs-specimen-protection {
+  font-family: var(--cs-body);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.cs-specimen-protection strong {
+  color: #0F172A;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 4px;
 }
 
 .cs-specimen-cta-row {
   display: flex;
   gap: 8px;
+  margin-top: 4px;
 }
 
 .cs-specimen-btn {
   flex: 1;
-  padding: 10px 16px;
-  background: var(--cs-blue);
-  color: #FFF !important;
+  padding: 12px 18px;
+  background: #1E40AF;
+  color: #FFFFFF !important;
   text-align: center;
   border-radius: var(--cs-r-sm);
   font-family: var(--cs-body);
-  font-size: 0.8125rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cs-specimen-btn:hover {
+  background: #1E3A8A;
+  transform: translateY(-1px);
 }
 
 /* ── 2. Visual Wireframe Flow (Onboarding Wall vs Progressive) ───────────── */
