@@ -25,10 +25,17 @@
   <main class="cs-main">
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         HERO
+         SLIDE 01 / 14: HERO
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-hero" id="cs-hero">
       <div class="cs-wrap">
+
+        <!-- Slide Header Bar (Slide 01 / 14) -->
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
+          <span class="cs-slide-header-num">01 / 14</span>
+        </div>
 
         <a href="../work.html" class="cs-back js-reveal">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -37,18 +44,28 @@
           Work
         </a>
 
-        <div class="cs-hero-layout">
+        <div class="cs-hero-layout" style="margin-top: 18px;">
 
           <!-- Left: copy -->
           <div class="cs-hero-copy js-reveal">
-            <div class="cs-eyebrow">
-              <span class="cs-dot"></span>
-              UX Case Study
+            <div class="cs-eyebrow" style="color: var(--cs-blue); font-weight: 800; letter-spacing: 0.12em; margin-bottom: 12px;">
+              FLEXIBLE WORK. CLEARER CHOICES.
             </div>
-            <h1 class="cs-hero-title">UpCrew</h1>
-            <p class="cs-hero-lead">
-              A mobile-first marketplace connecting businesses with verified temporary workers to make flexible shift hiring dependable, fast, and transparent.
+            <h1 class="cs-hero-title" style="font-size: clamp(3.4rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.0; margin-bottom: 12px;">
+              UpCrew<span style="color: var(--cs-blue); display: inline-block;">.</span>
+            </h1>
+            <h2 style="font-family: var(--cs-display); font-size: clamp(1.85rem, 3.2vw, 2.75rem); font-weight: 800; color: var(--cs-ink); letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 20px;">
+              Work that moves with you
+            </h2>
+            <p class="cs-hero-lead" style="font-size: 1.125rem; line-height: 1.6; color: var(--cs-ink-2); max-width: 48ch; margin-bottom: 24px;">
+              A mobile experience for discovering shifts, understanding the commitment and staying informed from application to earnings.
             </p>
+
+            <div style="display: inline-flex; align-items: center; gap: 10px; font-family: var(--cs-body); font-size: 0.875rem; font-weight: 600; color: var(--cs-ink-2); margin-bottom: 28px;">
+              <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cs-blue);"></span>
+              19 original screens · One connected journey
+            </div>
+
             <dl class="cs-meta">
               <div class="cs-meta-item">
                 <dt>Role</dt>
@@ -60,419 +77,483 @@
               </div>
               <div class="cs-meta-item">
                 <dt>Tools</dt>
-                <dd>Figma · FigJam · Notion</dd>
+                <dd>Figma · FigJam · Design Systems</dd>
               </div>
             </dl>
           </div>
 
-          <!-- Right: device -->
+          <!-- Right: prominent dual devices -->
           <div class="cs-hero-device js-reveal js-reveal-delay">
-            <div class="cs-device-wrap">
-              <div class="cs-phone" aria-label="UpCrew app preview">
-                <div class="cs-phone-inner">
-                  <div class="cs-phone-island" aria-hidden="true"></div>
-                  <div class="cs-phone-screen">
-                    <video
-                      id="hero-video"
-                      autoplay muted loop playsinline preload="auto"
-                      aria-label="UpCrew launch screen animation"
-                    >
-                      <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
-                    </video>
-                  </div>
+            <div class="cs-hero-dual" aria-label="UpCrew app preview phones: Splash screen and Shift details">
+              <div class="cs-hero-phone-back">
+                <div class="cs-hero-phone-screen">
+                  <video
+                    id="hero-video"
+                    autoplay muted loop playsinline preload="auto"
+                    aria-label="UpCrew launch screen animation"
+                  >
+                    <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-              <!-- Decorative blobs -->
-              <div class="cs-blob cs-blob-1" aria-hidden="true"></div>
-              <div class="cs-blob cs-blob-2" aria-hidden="true"></div>
+              <div class="cs-hero-phone-front">
+                <div class="cs-hero-phone-screen">
+                  <img
+                    src="../Assets/Images/upcrew-shift-details.png"
+                    alt="UpCrew shift details screen for Retail Assistant at H&M"
+                    loading="eager"
+                  >
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
+
+        <!-- Slide Footer Bar -->
+        <div class="cs-slide-footer js-reveal">
+          <span>WORK THAT MOVES WITH YOU</span>
+          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+        </div>
+
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         01: PROBLEM
+         SLIDE 02 / 14: THE PRODUCT & THE CHALLENGE
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section" id="cs-problem">
+    <section class="cs-section cs-section--dark" id="cs-problem">
       <div class="cs-wrap">
 
-        <div class="cs-section-label js-reveal">
-          <span class="cs-num">01</span>
-          <span>The Problem</span>
+        <!-- Slide Header Bar (Slide 02 / 14) -->
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
+          <span class="cs-slide-header-num">02 / 14</span>
         </div>
 
-        <h2 class="cs-section-h2 js-reveal">Informal hiring costs trust on both sides of the market</h2>
-        <p class="cs-body-copy js-reveal">
-          India's short-term workforce relies heavily on WhatsApp groups and informal referrals, offering zero identity verification, no dispute resolution, and no confirmed attendance records.
-        </p>
+        <div class="cs-eyebrow js-reveal" style="color: #60A5FA; letter-spacing: 0.12em; margin-bottom: 14px;">
+          THE PRODUCT &amp; THE CHALLENGE
+        </div>
 
-        <div class="cs-pain-grid js-reveal js-reveal-delay">
-          <div class="cs-pain-card">
-            <span class="cs-pain-index">01</span>
-            <div class="cs-pain-text">
-              <strong>No verification layer</strong>
-              <p>Businesses hire from word-of-mouth. Workers have no documented history or accountability trail.</p>
-            </div>
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.6rem, 5.2vw, 4.4rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; color: #FFFFFF; max-width: 100%; margin-bottom: 32px;">
+          Flexible work shouldn’t mean uncertain decisions.
+        </h2>
+
+        <!-- 2-Column Product Context vs Design Challenge -->
+        <div class="cs-context-grid js-reveal">
+          <div class="cs-context-col">
+            <span class="cs-context-label">PRODUCT CONTEXT</span>
+            <h3>A worker–side shift companion</h3>
+            <p>
+              UpCrew brings nearby opportunities, applications, upcoming shifts, earnings and account details into one mobile experience. The supplied screens show retail, hospitality, event and warehouse roles around Thane and Mumbai.
+            </p>
           </div>
-          <div class="cs-pain-card">
-            <span class="cs-pain-index">02</span>
-            <div class="cs-pain-text">
-              <strong>No signal of legitimacy</strong>
-              <p>Workers cannot easily verify whether a shift is genuine or safe, while employers struggle to confirm worker reliability.</p>
-            </div>
-          </div>
-          <div class="cs-pain-card">
-            <span class="cs-pain-index">03</span>
-            <div class="cs-pain-text">
-              <strong>No system for resolution</strong>
-              <p>No-shows, cancellations, and wage disputes occur with zero documentation and no path to resolution.</p>
-            </div>
+          <div class="cs-context-col">
+            <span class="cs-context-label">DESIGN CHALLENGE</span>
+            <h3>Make the next step understandable</h3>
+            <p>
+              The interface needs to explain what a shift pays, when and where it happens, whether an application has been accepted, and what to do before arrival. Those questions change as the worker moves through the journey.
+            </p>
           </div>
         </div>
 
-        <!-- Contrast Comparison: Informal WhatsApp Chaos vs UpCrew Structured Clarity -->
-        <div class="cs-contrast-comparison js-reveal">
+        <!-- 3-Column Principles -->
+        <div class="cs-principles-grid js-reveal">
+          <div class="cs-principle-card">
+            <span class="cs-principle-label">PRINCIPLE / CLARITY</span>
+            <h4>Facts before commitment</h4>
+            <p>Keep pay, schedule and location together so the choice is informed, not just visually attractive.</p>
+          </div>
+          <div class="cs-principle-card">
+            <span class="cs-principle-label">PRINCIPLE / CONTINUITY</span>
+            <h4>State before action</h4>
+            <p>Distinguish sending an application from being selected. Let each status explain what happens next.</p>
+          </div>
+          <div class="cs-principle-card">
+            <span class="cs-principle-label">PRINCIPLE / AGENCY</span>
+            <h4>Help without a dead end</h4>
+            <p>Permission deferral, code recovery and visible support preserve a route forward.</p>
+          </div>
+        </div>
+
+        <!-- Editorial Disclaimer Box -->
+        <div class="cs-editorial-disclaimer js-reveal">
+          <strong>ABOUT THIS CASE STUDY —</strong> An editorial reading of the supplied interface. The rationale describes design intent; no research, usability results or business impact are claimed.
+        </div>
+
+        <!-- Interactive Contrast Simulation: Informal WhatsApp vs UpCrew Structured Clarity -->
+        <div class="cs-contrast-comparison js-reveal" style="margin-top: 24px;">
           <!-- Left: WhatsApp Simulation -->
-          <div class="cs-sim-box">
-            <div class="cs-sim-header">
+          <div class="cs-sim-box" style="background: rgba(15, 23, 42, 0.7); border-color: rgba(255, 255, 255, 0.1);">
+            <div class="cs-sim-header" style="border-bottom-color: rgba(255, 255, 255, 0.1);">
               <span class="cs-sim-badge cs-sim-badge--bad">Status Quo · Informal WhatsApp Hiring</span>
-              <span style="font-size: 0.75rem; color: #6B7280; font-family: var(--cs-body);">Unverified · High Risk</span>
+              <span style="font-size: 0.75rem; color: #94A3B8; font-family: var(--cs-body);">Unverified · High Risk</span>
             </div>
             <div class="cs-chat-stream">
-              <div class="cs-chat-bubble cs-chat-bubble--in">
-                <strong>Event Manager (Unknown)</strong><br>
+              <div class="cs-chat-bubble cs-chat-bubble--in" style="background: #1E293B; color: #F1F5F9;">
+                <strong style="color: #60A5FA;">Event Manager (Unknown)</strong><br>
                 Urgently need 4 boys/girls for exhibition tomorrow. Pay 500rs cash end of day. DM fast.
-                <span class="cs-chat-friction-tag">No business verification</span>
-                <span class="cs-chat-time">11:42 PM</span>
+                <span class="cs-chat-friction-tag" style="background: rgba(239, 68, 68, 0.2); color: #FCA5A5;">No business verification</span>
+                <span class="cs-chat-time" style="color: #94A3B8;">11:42 PM</span>
               </div>
-              <div class="cs-chat-bubble cs-chat-bubble--out">
+              <div class="cs-chat-bubble cs-chat-bubble--out" style="background: #0F766E; color: #FFFFFF;">
                 Sir where is the venue? What are the shift timings?
-                <span class="cs-chat-time">11:45 PM</span>
+                <span class="cs-chat-time" style="color: #CCFBF1;">11:45 PM</span>
               </div>
-              <div class="cs-chat-bubble cs-chat-bubble--in">
+              <div class="cs-chat-bubble cs-chat-bubble--in" style="background: #1E293B; color: #F1F5F9;">
                 Near station only. Reach by 9 AM sharp. Rest details I will tell tomorrow morning.
-                <span class="cs-chat-friction-tag">Zero location/hours transparency</span>
-                <span class="cs-chat-time">11:51 PM</span>
+                <span class="cs-chat-friction-tag" style="background: rgba(239, 68, 68, 0.2); color: #FCA5A5;">Zero location/hours transparency</span>
+                <span class="cs-chat-time" style="color: #94A3B8;">11:51 PM</span>
               </div>
-              <div class="cs-chat-bubble cs-chat-bubble--out" style="background: #FEE2E2;">
-                *Worker arrives at 9:00 AM. Venue is locked, and the organizer is unreachable.*
-                <span class="cs-chat-friction-tag">No accountability · Wasted travel</span>
-                <span class="cs-chat-time">9:15 AM</span>
+              <div class="cs-chat-bubble cs-chat-bubble--out" style="background: rgba(239, 68, 68, 0.25); color: #FECACA; border: 1px solid rgba(239, 68, 68, 0.4);">
+                *Worker arrives at 9:00 AM. Venue is locked, organizer is unreachable.*
+                <span class="cs-chat-friction-tag" style="background: rgba(239, 68, 68, 0.3); color: #FCA5A5;">No accountability · Wasted travel</span>
+                <span class="cs-chat-time" style="color: #FCA5A5;">9:15 AM</span>
               </div>
             </div>
           </div>
 
           <!-- Right: UpCrew Structured Specimen -->
-          <div class="cs-sim-box">
-            <div class="cs-sim-header">
+          <div class="cs-sim-box" style="background: rgba(15, 23, 42, 0.7); border-color: rgba(255, 255, 255, 0.1);">
+            <div class="cs-sim-header" style="border-bottom-color: rgba(255, 255, 255, 0.1);">
               <span class="cs-sim-badge cs-sim-badge--good">UpCrew · Verified Shift Model</span>
-              <span style="font-size: 0.75rem; color: var(--cs-blue); font-weight: 700; font-family: var(--cs-body);">Guaranteed Settlement</span>
+              <span style="font-size: 0.75rem; color: #60A5FA; font-weight: 700; font-family: var(--cs-body);">Guaranteed Settlement</span>
             </div>
-            <div class="cs-card-specimen">
+            <div class="cs-card-specimen" style="background: #0F172A; border-color: rgba(255, 255, 255, 0.12);">
               <div class="cs-specimen-top">
                 <div>
-                  <div class="cs-specimen-role">Retail Assistant</div>
-                  <div class="cs-specimen-company">
+                  <div class="cs-specimen-role" style="color: #FFFFFF;">Retail Assistant</div>
+                  <div class="cs-specimen-company" style="color: #94A3B8;">
                     H&amp;M, LakeShore Mall
-                    <span class="cs-verified-icon" title="Verified Business">✓</span>
+                    <span class="cs-verified-icon" title="Verified Business" style="background: #2563EB; color: #FFF;">✓</span>
                   </div>
                 </div>
-                <div class="cs-specimen-payout">
+                <div class="cs-specimen-payout" style="color: #60A5FA;">
                   ₹5,000
-                  <span>guaranteed payout</span>
+                  <span style="color: #94A3B8;">guaranteed payout</span>
                 </div>
               </div>
 
-              <div class="cs-specimen-meta-strip">
+              <div class="cs-specimen-meta-strip" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1);">
                 <div class="cs-specimen-meta-col">
-                  <span>Shift Date</span>
-                  <strong>11th August</strong>
+                  <span style="color: #94A3B8;">Shift Date</span>
+                  <strong style="color: #FFFFFF;">11th August</strong>
                 </div>
                 <div class="cs-specimen-meta-col">
-                  <span>Timing</span>
-                  <strong>10:00–21:00</strong>
+                  <span style="color: #94A3B8;">Timing</span>
+                  <strong style="color: #FFFFFF;">10:00–21:00</strong>
                 </div>
                 <div class="cs-specimen-meta-col">
-                  <span>Distance</span>
-                  <strong>22 min away</strong>
+                  <span style="color: #94A3B8;">Distance</span>
+                  <strong style="color: #FFFFFF;">22 min away</strong>
                 </div>
               </div>
 
-              <div style="font-size: 0.8125rem; color: var(--cs-ink-2); line-height: 1.5;">
-                <strong style="color: var(--cs-ink); display: block; margin-bottom: 4px;">Verified Shift Protection:</strong>
+              <div style="font-size: 0.8125rem; color: #CBD5E1; line-height: 1.5;">
+                <strong style="color: #FFFFFF; display: block; margin-bottom: 4px;">Verified Shift Protection:</strong>
                 Payment held in escrow, automated geo-directions, and verified on-site supervisor check-in.
               </div>
 
               <div class="cs-specimen-cta-row">
-                <div class="cs-specimen-btn">View Shift Details &amp; Apply →</div>
+                <div class="cs-specimen-btn" style="background: #2563EB; color: #FFFFFF;">View Shift Details &amp; Apply →</div>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Slide Footer Bar -->
+        <div class="cs-slide-footer js-reveal">
+          <span>WORK THAT MOVES WITH YOU</span>
+          <span>UPCREW — EXPERIENCE CASE STUDY</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         02: OUTCOME
+         SLIDE 03 / 14: INFORMATION ARCHITECTURE
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section cs-section--alt" id="cs-outcome">
+    <section class="cs-section" id="cs-ia">
       <div class="cs-wrap">
 
-        <div class="cs-section-label js-reveal">
-          <span class="cs-num">02</span>
-          <span>The Outcome</span>
+        <!-- Slide Header Bar (Slide 03 / 14) -->
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
+          <span class="cs-slide-header-num">03 / 14</span>
         </div>
 
-        <h2 class="cs-section-h2 js-reveal">
-          From fragmented hiring to verified, shift-ready matches
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
+          INFORMATION ARCHITECTURE
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;">
+          One journey. Distinct jobs to do.
         </h2>
-
-        <!-- Stats bento -->
-        <div class="cs-bento js-reveal">
-          <div class="cs-bento-stat">
-            <div class="cs-stat-figure" data-target="3" data-prefix="" data-suffix="×">0×</div>
-            <p class="cs-stat-label">Faster time to hire vs. informal methods</p>
-            <span class="cs-stat-tag">Modeled projection</span>
-          </div>
-          <div class="cs-bento-stat">
-            <div class="cs-stat-figure" data-target="87" data-prefix="" data-suffix="%">0%</div>
-            <p class="cs-stat-label">Worker verification completion rate</p>
-            <span class="cs-stat-tag">Estimated target</span>
-          </div>
-          <div class="cs-bento-stat">
-            <div class="cs-stat-figure" data-target="5" data-prefix="&lt;&thinsp;" data-suffix="&thinsp;min">&lt; 0 min</div>
-            <p class="cs-stat-label">Job post to first qualified match</p>
-            <span class="cs-stat-tag">Modeled projection</span>
-          </div>
-        </div>
-
-        <!-- Device fan -->
-        <div class="cs-fan js-reveal" role="img" aria-label="Three app screens: Browse Shifts, Apply Flow, Shift Details">
-          <figure class="cs-fan-item cs-fan-item--l">
-            <div class="cs-mini-phone">
-              <div class="cs-mini-notch" aria-hidden="true"></div>
-              <div class="cs-mini-screen">
-                <img src="../Assets/Images/upcrew-browse-shifts.png" alt="Browse Shifts screen showing available jobs near Thane" loading="lazy">
-              </div>
-            </div>
-            <figcaption>Browse Shifts</figcaption>
-          </figure>
-
-          <figure class="cs-fan-item cs-fan-item--c">
-            <div class="cs-mini-phone">
-              <div class="cs-mini-notch" aria-hidden="true"></div>
-              <div class="cs-mini-screen">
-                <img src="../Assets/Images/upcrew-apply-flow.png" alt="You're selected confirmation screen after applying" loading="lazy">
-              </div>
-            </div>
-            <figcaption>Apply Flow</figcaption>
-          </figure>
-
-          <figure class="cs-fan-item cs-fan-item--r">
-            <div class="cs-mini-phone">
-              <div class="cs-mini-notch" aria-hidden="true"></div>
-              <div class="cs-mini-screen">
-                <img src="../Assets/Images/upcrew-shift-details.png" alt="Shift details screen for Retail Assistant at H&M" loading="lazy">
-              </div>
-            </div>
-            <figcaption>Shift Details</figcaption>
-          </figure>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         03: TWO-SIDED ARCHETYPES & STRATEGY
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section" id="cs-archetypes">
-      <div class="cs-wrap">
-
-        <div class="cs-section-label js-reveal">
-          <span class="cs-num">03</span>
-          <span>Two-Sided Marketplace Strategy</span>
-        </div>
-
-        <h2 class="cs-section-h2 js-reveal">Two distinct user groups, one cohesive marketplace</h2>
-        <p class="cs-body-copy js-reveal">
-          A two-sided marketplace cannot succeed by solving for only one side. Businesses require rapid fulfillment and reliable attendance, while workers require flexibility, clear pay, and verified safety.
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 72ch; margin-bottom: 28px;">
+          A structural reading of the supplied screens: discovery leads to commitment; tracking, money and identity remain easy to return to.
         </p>
 
-        <div class="cs-archetype-grid js-reveal">
-          <!-- Worker Archetype -->
-          <div class="cs-archetype-card">
-            <span class="cs-archetype-badge">Supply · The Flexible Worker</span>
-            <h3 class="cs-archetype-title">College Student &amp; Gig Worker</h3>
-            <div class="cs-quote-box">
-              "Tell me exactly what I will earn and where I need to travel. I cannot afford to waste half a day on an unverified listing."
-            </div>
-            <ul class="cs-archetype-list">
-              <li><strong>Needs:</strong> Flexible hours around class schedules, verified employers, prompt shift payouts.</li>
-              <li><strong>Frictions:</strong> Opaque pay rates, unverified message listings, travel uncertainty, tedious registration forms.</li>
-              <li><strong>Mental Model:</strong> "Is this legitimate, worth my time, and close enough to reach?"</li>
-            </ul>
+        <!-- Blue Horizontal Navigation Ribbon -->
+        <div class="cs-ia-ribbon js-reveal" role="list">
+          <div class="cs-ia-ribbon-item" role="listitem">Launch &amp; onboarding</div>
+          <div class="cs-ia-ribbon-item" role="listitem">Permissions</div>
+          <div class="cs-ia-ribbon-item" role="listitem">Phone sign–in</div>
+          <div class="cs-ia-ribbon-item" role="listitem">Verification / recovery</div>
+          <div class="cs-ia-ribbon-item" role="listitem">Available jobs</div>
+        </div>
+
+        <!-- 4 Architectural Job Cards -->
+        <div class="cs-ia-jobs-grid js-reveal">
+          <div class="cs-ia-job-card">
+            <h4>Discover</h4>
+            <p>
+              Home &amp; search<br>
+              Filters &amp; matching<br>
+              Shift details
+            </p>
+            <div class="cs-ia-job-sub">Compare opportunities before applying.</div>
           </div>
 
-          <!-- Business Archetype -->
-          <div class="cs-archetype-card">
-            <span class="cs-archetype-badge">Demand · The Hiring Manager</span>
-            <h3 class="cs-archetype-title">Retail, Event &amp; Café Operator</h3>
-            <div class="cs-quote-box">
-              "I do not need a complex HR management suite. I have an exhibition tomorrow morning and need four dependable staff on-site."
-            </div>
-            <ul class="cs-archetype-list">
-              <li><strong>Needs:</strong> Quick shift fulfillment, candidate punctuality signals, minimal admin work.</li>
-              <li><strong>Frictions:</strong> No-shows that leave venues stranded, phone tag on WhatsApp, unverified candidate profiles.</li>
-              <li><strong>Mental Model:</strong> "Who is verified and confirmed to arrive on time?"</li>
-            </ul>
+          <div class="cs-ia-job-card">
+            <h4>My Shifts</h4>
+            <p>
+              Applied · Upcoming · Completed<br>
+              Application progress<br>
+              Arrival preparation
+            </p>
+            <div class="cs-ia-job-sub">Understand status and the next obligation.</div>
+          </div>
+
+          <div class="cs-ia-job-card">
+            <h4>Wallet</h4>
+            <p>
+              Available balance<br>
+              Earnings &amp; transactions<br>
+              Bank destination
+            </p>
+            <div class="cs-ia-job-sub">Separate earned money from money ready to withdraw.</div>
+          </div>
+
+          <div class="cs-ia-job-card">
+            <h4>Profile</h4>
+            <p>
+              Identity &amp; verification<br>
+              Preferences &amp; documents<br>
+              Support &amp; settings
+            </p>
+            <div class="cs-ia-job-sub">Maintain the account behind every application.</div>
           </div>
         </div>
 
-        <!-- 4 Strategic HMW Pillars -->
-        <div class="cs-hmw-grid js-reveal">
-          <div class="cs-hmw-card">
-            <span class="cs-hmw-tag">HMW 01 · Trust</span>
-            <h4 class="cs-hmw-question">How might we establish mutual trust before either party commits time or travel?</h4>
-            <p class="cs-hmw-response">Visible verification badges, clear employer identity signals, and transparent shift commitments built directly into the UI.</p>
+        <!-- The Core Shift Journey Pipeline -->
+        <div class="cs-journey-pipeline js-reveal">
+          <div class="cs-eyebrow" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 8px;">
+            THE CORE SHIFT JOURNEY
           </div>
-          <div class="cs-hmw-card">
-            <span class="cs-hmw-tag">HMW 02 · Speed</span>
-            <h4 class="cs-hmw-question">How might businesses fill urgent shifts in minutes without sacrificing candidate quality?</h4>
-            <p class="cs-hmw-response">Pre-configured role templates, single-tap applicant reviews, and availability matching that bypasses back-and-forth messaging.</p>
+          <div class="cs-journey-chevrons">
+            Browse <span>→</span> Inspect <span>→</span> Apply <span>→</span> In review <span>→</span> Selected <span>→</span> Prepare <span>→</span> Earnings
           </div>
-          <div class="cs-hmw-card">
-            <span class="cs-hmw-tag">HMW 03 · Discovery</span>
-            <h4 class="cs-hmw-question">How might workers filter opportunities against real personal constraints?</h4>
-            <p class="cs-hmw-response">Single-tap filter chips prioritizing transit radius, shift hours, and guaranteed payouts over buried search menus.</p>
-          </div>
-          <div class="cs-hmw-card">
-            <span class="cs-hmw-tag">HMW 04 · Transparency</span>
-            <h4 class="cs-hmw-question">How might we prevent disputes before a shift begins?</h4>
-            <p class="cs-hmw-response">Structured shift cards displaying dress code requirements, specific duties, break policies, and payout schedules upfront.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         04: SHIFT LIFECYCLE & TRUST LOOP
-    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section cs-section--alt" id="cs-lifecycle">
-      <div class="cs-wrap">
-
-        <div class="cs-section-label js-reveal">
-          <span class="cs-num">04</span>
-          <span>Shift Lifecycle &amp; Trust Model</span>
-        </div>
-
-        <h2 class="cs-section-h2 js-reveal">
-          Designing the <span class="cs-nobr">end-to-end</span> shift lifecycle
-        </h2>
-        <p class="cs-body-copy js-reveal">
-          In temporary work, reliability is not proven when an application is submitted. It is established through clear onboarding, verified on-site check-in, and timely payout settlement.
-        </p>
-
-        <!-- Dual Journeys -->
-        <div class="cs-dual-journey js-reveal">
-          <div class="cs-journey-panel">
-            <h3>Worker Journey <span>Worker Flow</span></h3>
-            <div class="cs-journey-steps">
-              <div class="cs-step-row"><span class="cs-step-num">01</span><span class="cs-step-text">Discover & filter nearby verified shifts</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">02</span><span class="cs-step-text">Review transparent pay, travel & duties</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">03</span><span class="cs-step-text">Instant 1-tap application</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">04</span><span class="cs-step-text">Get selected & receive shift guidelines</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">05</span><span class="cs-step-text">Check-in on-site with verified directions</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">06</span><span class="cs-step-text">Shift completion, payout & 2-way rating</span></div>
-            </div>
-          </div>
-
-          <div class="cs-journey-panel">
-            <h3>Employer Journey <span>Business Flow</span></h3>
-            <div class="cs-journey-steps">
-              <div class="cs-step-row"><span class="cs-step-num">01</span><span class="cs-step-text">Post urgent shift requirement in &lt; 2 minutes</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">02</span><span class="cs-step-text">Match with nearby verified workers</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">03</span><span class="cs-step-text">Review candidate attendance ratings</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">04</span><span class="cs-step-text">Confirm selection & trigger automated instructions</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">05</span><span class="cs-step-text">Track on-site worker check-in</span></div>
-              <div class="cs-step-row"><span class="cs-step-num">06</span><span class="cs-step-text">Approve hours, trigger payout & rate reliability</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Marketplace Trust Loop -->
-        <div class="cs-trust-loop-box js-reveal">
-          <div class="cs-section-label" style="font-size: 0.75rem; margin-bottom: 8px;">
-            <span class="cs-dot"></span>
-            <span>System Architecture</span>
-          </div>
-          <h3 class="cs-trust-loop-heading">The Shift Trust Loop</h3>
-          <p class="cs-body-copy" style="max-width: 65ch; margin-top: 8px;">
-            Each completed shift reinforces platform reliability: upfront verification filters bad actors, transparent terms align expectations, and confirmed attendance builds credible worker reputation.
+          <p style="font-family: var(--cs-body); font-size: 0.875rem; color: var(--cs-ink-2); line-height: 1.6; margin: 12px 0 0;">
+            Verification has a recovery branch. Submission has a waiting state. Selection leads to arrival guidance. Completion and payment approval are referenced in the interface; their operational screens are outside the supplied set.
           </p>
-          <div class="cs-trust-loop-chain">
-            <span class="cs-trust-pill">1. Upfront Verification</span>
-            <span class="cs-trust-arrow">→</span>
-            <span class="cs-trust-pill">2. Clear Shift Terms</span>
-            <span class="cs-trust-arrow">→</span>
-            <span class="cs-trust-pill">3. Confident Application</span>
-            <span class="cs-trust-arrow">→</span>
-            <span class="cs-trust-pill">4. Verified Attendance</span>
-            <span class="cs-trust-arrow">→</span>
-            <span class="cs-trust-pill">5. Timely Payout</span>
-            <span class="cs-trust-arrow">→</span>
-            <span class="cs-trust-pill">6. Mutual Review</span>
+        </div>
+
+        <!-- Slide Footer Bar -->
+        <div class="cs-slide-footer js-reveal">
+          <span>WORK THAT MOVES WITH YOU</span>
+          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 04 / 14: ONBOARDING FLOW
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-onboarding">
+      <div class="cs-wrap">
+
+        <!-- Slide Header Bar (Slide 04 / 14) -->
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
+          <span class="cs-slide-header-num">04 / 14</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
+          ONBOARDING
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;">
+          Show the promise. Then show the product.
+        </h2>
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 72ch; margin-bottom: 28px;">
+          The introduction moves from a broad value proposition to tangible examples of discovery, application tracking and earnings.
+        </p>
+
+        <!-- 3-Device Triptych Presentation -->
+        <div class="cs-triptych-section js-reveal">
+          <div class="cs-triptych-grid">
+            <!-- Phone 1: Welcome -->
+            <div class="cs-triptych-phone">
+              <div class="cs-triptych-screen">
+                <img
+                  src="../Assets/Images/upcrew-screen-welcome.png"
+                  alt="UpCrew onboarding screen 1: Welcome and core value proposition"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+
+            <!-- Phone 2: Find shifts -->
+            <div class="cs-triptych-phone">
+              <div class="cs-triptych-screen">
+                <img
+                  src="../Assets/Images/upcrew-screen-find-shifts.png"
+                  alt="UpCrew onboarding screen 2: Find the right shifts concrete preview"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+
+            <!-- Phone 3: Stay in control -->
+            <div class="cs-triptych-phone">
+              <div class="cs-triptych-screen">
+                <img
+                  src="../Assets/Images/upcrew-screen-stay-in-control.png"
+                  alt="UpCrew onboarding screen 3: Stay in control timeline and earnings preview"
+                  loading="lazy"
+                >
+              </div>
+            </div>
           </div>
 
-          <!-- Real Figma Screens: The Operational Stages -->
-          <div class="cs-lifecycle-screens">
-            <div style="text-align: center;">
-              <div class="cs-edge-phone-frame" style="max-width: 190px;">
-                <div class="cs-edge-phone-screen">
-                  <img src="../Assets/Images/upcrew-screen-app-selected.png" alt="Figma screen: Shift selection" loading="lazy">
-                </div>
-              </div>
-              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
-                Stage 1: Selection &amp; Notice
+          <!-- 3 Dedicated Annotated Text Columns Directly Below Each Phone -->
+          <div class="cs-triptych-cols">
+            <div class="cs-triptych-col-card">
+              <h4>A concise starting point</h4>
+              <p>
+                Nearby opportunities, clear pay and everything in one place establish the three reasons to continue. Skip stays visible.
+              </p>
+            </div>
+
+            <div class="cs-triptych-col-card">
+              <h4>Make the promise concrete</h4>
+              <p>
+                A Retail Assistant example exposes ₹5000, 11th August and 10:00–21:00. The preview introduces the same facts used later to decide.
+              </p>
+            </div>
+
+            <div class="cs-triptych-col-card">
+              <h4>Preview life after applying</h4>
+              <p>
+                The timeline and ₹12,850 earnings example communicate continuity: updates and payments belong to the same experience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Footer Bar -->
+        <div class="cs-slide-footer js-reveal">
+          <span>WORK THAT MOVES WITH YOU</span>
+          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 06 / 14: SIGN-IN & VERIFICATION
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-auth">
+      <div class="cs-wrap">
+
+        <!-- Slide Header Bar (Slide 06 / 14) -->
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
+          <span class="cs-slide-header-num">06 / 14</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
+          SIGN-IN &amp; VERIFICATION
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;">
+          A familiar path into the account.
+        </h2>
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 72ch; margin-bottom: 28px;">
+          Phone entry, a one-time code and explicit confirmation keep the authentication model visible at each step.
+        </p>
+
+        <!-- 3-Device Triptych Presentation -->
+        <div class="cs-triptych-section js-reveal">
+          <div class="cs-triptych-grid">
+            <!-- Phone 1: Mobile number entry -->
+            <div class="cs-triptych-phone">
+              <div class="cs-triptych-screen">
+                <img
+                  src="../Assets/Images/upcrew-screen-permissions.png"
+                  alt="UpCrew sign-in screen 1: Mobile number entry with country code"
+                  loading="lazy"
+                >
               </div>
             </div>
 
-            <div style="text-align: center;">
-              <div class="cs-edge-phone-frame" style="max-width: 190px;">
-                <div class="cs-edge-phone-screen">
-                  <img src="../Assets/Images/upcrew-screen-my-shifts.png" alt="Figma screen: My Shifts tracker" loading="lazy">
-                </div>
-              </div>
-              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
-                Stage 2: Shift Readiness
-              </div>
-            </div>
-
-            <div style="text-align: center;">
-              <div class="cs-edge-phone-frame" style="max-width: 190px;">
-                <div class="cs-edge-phone-screen">
-                  <img src="../Assets/Images/upcrew-screen-wallet.png" alt="Figma screen: Instant payout wallet" loading="lazy">
-                </div>
-              </div>
-              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
-                Stage 3: Escrow &amp; Instant Pay
+            <!-- Phone 2: OTP verification -->
+            <div class="cs-triptych-phone">
+              <div class="cs-triptych-screen">
+                <img
+                  src="../Assets/Images/upcrew-screen-verify-phone.png"
+                  alt="UpCrew sign-in screen 2: Enter 6-digit verification code with resend timer"
+                  loading="lazy"
+                >
               </div>
             </div>
 
-            <div style="text-align: center;">
-              <div class="cs-edge-phone-frame" style="max-width: 190px;">
-                <div class="cs-edge-phone-screen">
-                  <img src="../Assets/Images/upcrew-screen-profile.png" alt="Figma screen: Verified worker profile" loading="lazy">
-                </div>
-              </div>
-              <div style="font-family: var(--cs-body); font-size: 0.75rem; font-weight: 700; color: var(--cs-ink); margin-top: 10px;">
-                Stage 4: Verified Reputation
+            <!-- Phone 3: Signed-in confirmation -->
+            <div class="cs-triptych-phone">
+              <div class="cs-triptych-screen">
+                <img
+                  src="../Assets/Images/upcrew-screen-app-confirmed.png"
+                  alt="UpCrew sign-in screen 3: Sign-in successful confirmation card"
+                  loading="lazy"
+                >
               </div>
             </div>
           </div>
+
+          <!-- 3 Dedicated Annotated Text Columns Directly Below Each Phone -->
+          <div class="cs-triptych-cols">
+            <div class="cs-triptych-col-card">
+              <h4>One primary input</h4>
+              <p>
+                The +91 country code and 98765 43210 entry are grouped under Mobile number. The one-time-code explanation sets expectations before Continue.
+              </p>
+            </div>
+
+            <div class="cs-triptych-col-card">
+              <h4>Delivery is a visible state</h4>
+              <p>
+                The masked destination +91 ••••• 43210, code fields and 00:24 resend countdown explain where the code went and when another can be requested.
+              </p>
+            </div>
+
+            <div class="cs-triptych-col-card">
+              <h4>Confirm, then move forward</h4>
+              <p>
+                Phone verified and the masked account confirmation resolve uncertainty. View available jobs becomes the next primary action.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Footer Bar -->
+        <div class="cs-slide-footer js-reveal">
+          <span>WORK THAT MOVES WITH YOU</span>
+          <span>UPCREW — EXPERIENCE CASE STUDY</span>
         </div>
 
       </div>
