@@ -507,96 +507,108 @@
 /* ── Hero Subtitle & Dual Devices ───────────────────────────────────────── */
 .cs-hero-sub {
   font-family: var(--cs-display) !important;
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem) !important;
-  font-weight: 700 !important;
+  font-size: clamp(1.65rem, 2.4vw, 2.15rem) !important;
+  font-weight: 800 !important;
   color: var(--cs-ink) !important;
   letter-spacing: -0.025em;
-  line-height: 1.25;
+  line-height: 1.15;
   margin-top: 0;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   white-space: nowrap;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .cs-hero-sub {
-    font-size: 1.25rem !important;
+    font-size: 1.35rem !important;
     white-space: normal;
   }
 }
 
 @media (min-width: 980px) {
   .cs-hero-layout {
-    grid-template-columns: 1fr 440px !important;
-    gap: 48px;
+    grid-template-columns: 1fr 490px !important;
+    gap: 40px;
   }
 }
 
 .cs-hero-dual {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 490px;
   height: 540px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
-/* Screen with video animation: ON TOP of the other screen */
+/* Left phone (Video animation): ON TOP of the right phone with full phone chassis */
 .cs-hero-phone--video,
 .cs-hero-phone-back {
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 0;
   width: 255px;
   aspect-ratio: 9 / 19.5;
-  border-radius: 38px;
+  border-radius: 42px;
   background: #141210;
-  padding: 6px;
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.22);
-  z-index: 3; /* Video animation screen is ON TOP */
-  transform: rotate(-3deg);
+  padding: 8px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 28px 64px rgba(0, 0, 0, 0.22),
+    0 8px 24px rgba(0, 0, 0, 0.10);
+  z-index: 2; /* ON TOP */
   transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease-out;
 }
 
-/* Shift details screen: layered underneath */
+/* Right phone (Shift details): sits slightly lower to the right, gentle 20px overlap */
 .cs-hero-phone--details,
 .cs-hero-phone-front {
   position: absolute;
   right: 0;
-  bottom: 15px;
-  width: 250px;
+  top: 36px;
+  width: 255px;
   aspect-ratio: 9 / 19.5;
-  border-radius: 38px;
+  border-radius: 42px;
   background: #141210;
-  padding: 6px;
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
-  z-index: 1; /* Shift details sits behind */
-  transform: rotate(2deg);
+  padding: 8px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.10),
+    0 16px 44px rgba(0, 0, 0, 0.12);
+  z-index: 1; /* Underneath */
   transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease-out;
 }
 
 .cs-hero-dual:hover .cs-hero-phone--video,
 .cs-hero-dual:hover .cs-hero-phone-back {
-  transform: rotate(-4deg) translateY(-8px) scale(1.02);
-  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.26);
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 36px 76px rgba(0, 0, 0, 0.26),
+    0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .cs-hero-dual:hover .cs-hero-phone--details,
 .cs-hero-dual:hover .cs-hero-phone-front {
-  transform: rotate(1deg) translateY(-4px);
-  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.10),
+    0 22px 52px rgba(0, 0, 0, 0.16);
 }
 
-.cs-hero-phone-screen {
-  border-radius: 32px;
+.cs-hero-dual .cs-phone-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
   overflow: hidden;
   background: #000;
+}
+
+.cs-hero-dual .cs-phone-screen {
   width: 100%;
   height: 100%;
 }
 
-.cs-hero-phone-screen video,
-.cs-hero-phone-screen img {
+.cs-hero-dual .cs-phone-screen video,
+.cs-hero-dual .cs-phone-screen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3601,14 +3613,16 @@
   }
   .cs-hero-phone--video,
   .cs-hero-phone-back {
-    width: 185px;
-    top: 10px;
-    z-index: 3;
+    width: 175px;
+    top: 0;
+    left: 0;
+    z-index: 2;
   }
   .cs-hero-phone--details,
   .cs-hero-phone-front {
-    width: 180px;
-    bottom: 10px;
+    width: 175px;
+    top: 25px;
+    right: 0;
     z-index: 1;
   }
 }

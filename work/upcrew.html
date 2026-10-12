@@ -83,26 +83,32 @@
           <!-- Right: prominent dual devices -->
           <div class="cs-hero-device js-reveal js-reveal-delay">
             <div class="cs-hero-dual" aria-label="UpCrew app preview phones: Splash video screen on top of Shift details">
-              <!-- Screen with video animation (ON TOP of the other screen) -->
+              <!-- Left Phone: Video animation (ON TOP of the other screen, with realistic chassis & island) -->
               <div class="cs-hero-phone--video" aria-label="UpCrew animated launch screen">
-                <div class="cs-hero-phone-screen">
-                  <video
-                    id="hero-video"
-                    autoplay muted loop playsinline preload="auto"
-                    aria-label="UpCrew launch screen animation"
-                  >
-                    <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
-                  </video>
+                <div class="cs-phone-inner">
+                  <div class="cs-phone-island" aria-hidden="true"></div>
+                  <div class="cs-phone-screen">
+                    <video
+                      id="hero-video"
+                      autoplay muted loop playsinline preload="auto"
+                      aria-label="UpCrew launch screen animation"
+                    >
+                      <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
+                    </video>
+                  </div>
                 </div>
               </div>
-              <!-- Shift details screen (Layered underneath) -->
+
+              <!-- Right Phone: Shift details screen (Layered underneath with realistic chassis) -->
               <div class="cs-hero-phone--details" aria-label="UpCrew shift details screen">
-                <div class="cs-hero-phone-screen">
-                  <img
-                    src="../Assets/Images/upcrew-shift-details.png"
-                    alt="UpCrew shift details screen for Retail Assistant at H&M"
-                    loading="eager"
-                  >
+                <div class="cs-phone-inner">
+                  <div class="cs-phone-screen">
+                    <img
+                      src="../Assets/Images/upcrew-shift-details.png"
+                      alt="UpCrew shift details screen for Retail Assistant at H&M"
+                      loading="eager"
+                    >
+                  </div>
                 </div>
               </div>
             </div>
