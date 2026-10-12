@@ -504,7 +504,26 @@
   font-weight: 800;
 }
 
-/* ── Hero Dual Devices ──────────────────────────────────────────────────── */
+/* ── Hero Subtitle & Dual Devices ───────────────────────────────────────── */
+.cs-hero-sub {
+  font-family: var(--cs-display) !important;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem) !important;
+  font-weight: 700 !important;
+  color: var(--cs-ink) !important;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .cs-hero-sub {
+    font-size: 1.25rem !important;
+    white-space: normal;
+  }
+}
+
 @media (min-width: 980px) {
   .cs-hero-layout {
     grid-template-columns: 1fr 440px !important;
@@ -522,44 +541,50 @@
   justify-content: center;
 }
 
+/* Screen with video animation: ON TOP of the other screen */
+.cs-hero-phone--video,
 .cs-hero-phone-back {
   position: absolute;
   left: 0;
   top: 15px;
+  width: 255px;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 38px;
+  background: #141210;
+  padding: 6px;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.22);
+  z-index: 3; /* Video animation screen is ON TOP */
+  transform: rotate(-3deg);
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease-out;
+}
+
+/* Shift details screen: layered underneath */
+.cs-hero-phone--details,
+.cs-hero-phone-front {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
   width: 250px;
   aspect-ratio: 9 / 19.5;
   border-radius: 38px;
   background: #141210;
   padding: 6px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
-  z-index: 1;
-  transform: rotate(-3deg);
-  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease-out;
-}
-
-.cs-hero-phone-front {
-  position: absolute;
-  right: 0;
-  bottom: 15px;
-  width: 260px;
-  aspect-ratio: 9 / 19.5;
-  border-radius: 38px;
-  background: #141210;
-  padding: 6px;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
-  z-index: 2;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
+  z-index: 1; /* Shift details sits behind */
   transform: rotate(2deg);
   transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease-out;
 }
 
+.cs-hero-dual:hover .cs-hero-phone--video,
 .cs-hero-dual:hover .cs-hero-phone-back {
-  transform: rotate(-5deg) translateY(-8px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.16);
+  transform: rotate(-4deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.26);
 }
 
+.cs-hero-dual:hover .cs-hero-phone--details,
 .cs-hero-dual:hover .cs-hero-phone-front {
-  transform: rotate(1deg) translateY(-6px);
-  box-shadow: 0 32px 76px rgba(0,0,0,0.22);
+  transform: rotate(1deg) translateY(-4px);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.15);
 }
 
 .cs-hero-phone-screen {
@@ -3574,13 +3599,17 @@
     height: 420px;
     margin: 20px auto 0;
   }
+  .cs-hero-phone--video,
   .cs-hero-phone-back {
-    width: 180px;
+    width: 185px;
     top: 10px;
+    z-index: 3;
   }
+  .cs-hero-phone--details,
   .cs-hero-phone-front {
-    width: 190px;
+    width: 180px;
     bottom: 10px;
+    z-index: 1;
   }
 }
 

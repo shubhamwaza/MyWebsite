@@ -51,17 +51,15 @@
             <div class="cs-eyebrow" style="color: var(--cs-blue); font-weight: 800; letter-spacing: 0.12em; margin-bottom: 12px;">
               FLEXIBLE WORK. CLEARER CHOICES.
             </div>
-            <h1 class="cs-hero-title" style="font-size: clamp(3.4rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.0; margin-bottom: 12px;">
+            <h1 class="cs-hero-title" style="font-size: clamp(3.4rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.0; margin-bottom: 8px;">
               UpCrew<span style="color: var(--cs-blue); display: inline-block;">.</span>
             </h1>
-            <h2 style="font-family: var(--cs-display); font-size: clamp(1.85rem, 3.2vw, 2.75rem); font-weight: 800; color: var(--cs-ink); letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 20px;">
-              Work that moves with you
-            </h2>
-            <p class="cs-hero-lead" style="font-size: 1.125rem; line-height: 1.6; color: var(--cs-ink-2); max-width: 48ch; margin-bottom: 24px;">
+            <h2 class="cs-hero-sub">Work that moves with you</h2>
+            <p class="cs-hero-lead" style="font-size: 1.0625rem; line-height: 1.6; color: var(--cs-ink-2); max-width: 48ch; margin-bottom: 22px;">
               A mobile experience for discovering shifts, understanding the commitment and staying informed from application to earnings.
             </p>
 
-            <div style="display: inline-flex; align-items: center; gap: 10px; font-family: var(--cs-body); font-size: 0.875rem; font-weight: 600; color: var(--cs-ink-2); margin-bottom: 28px;">
+            <div style="display: inline-flex; align-items: center; gap: 10px; font-family: var(--cs-body); font-size: 0.875rem; font-weight: 600; color: var(--cs-ink-2); margin-bottom: 26px;">
               <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cs-blue);"></span>
               19 original screens · One connected journey
             </div>
@@ -84,8 +82,9 @@
 
           <!-- Right: prominent dual devices -->
           <div class="cs-hero-device js-reveal js-reveal-delay">
-            <div class="cs-hero-dual" aria-label="UpCrew app preview phones: Splash screen and Shift details">
-              <div class="cs-hero-phone-back">
+            <div class="cs-hero-dual" aria-label="UpCrew app preview phones: Splash video screen on top of Shift details">
+              <!-- Screen with video animation (ON TOP of the other screen) -->
+              <div class="cs-hero-phone--video" aria-label="UpCrew animated launch screen">
                 <div class="cs-hero-phone-screen">
                   <video
                     id="hero-video"
@@ -96,7 +95,8 @@
                   </video>
                 </div>
               </div>
-              <div class="cs-hero-phone-front">
+              <!-- Shift details screen (Layered underneath) -->
+              <div class="cs-hero-phone--details" aria-label="UpCrew shift details screen">
                 <div class="cs-hero-phone-screen">
                   <img
                     src="../Assets/Images/upcrew-shift-details.png"
