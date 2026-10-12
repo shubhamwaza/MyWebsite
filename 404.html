@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — Shubham Waza</title>
+  <title>404: Page Not Found — Shubham Waza</title>
+  <meta name="description" content="The requested page could not be found. Explore Shubham Waza's portfolio, selected work, design services, and articles." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -11,12 +14,51 @@
 <body>
   <div id="nav-placeholder"></div>
 
-  <main>
-    <section class="container notfound">
-      <p class="eyebrow">404</p>
-      <h1 class="display-md">This page doesn't exist yet.</h1>
-      <p class="muted" style="margin-top:16px;">It might have moved, or the link may be out of date.</p>
-      <a href="index.html" class="btn btn-solid" style="margin-top:40px;">Back to Home</a>
+  <main class="page-main">
+    <section class="container notfound" style="max-width: 760px; margin-inline: auto; padding-top: 40px; padding-bottom: 80px;">
+      <p class="eyebrow reveal in-view" style="display:inline-flex; align-items:center; gap:8px;">
+        <span style="display:inline-block; width:6px; height:6px; border-radius:999px; background:var(--accent);"></span>
+        Error 404 · Page Not Found
+      </p>
+      <h1 class="display-lg text-balance reveal in-view" style="margin-top: 16px;">Lost in the negative space.</h1>
+      <p class="muted text-balance reveal in-view" style="margin-top: 24px; font-size: 1.125rem; line-height: 1.6;">
+        The canvas here is blank. The page you're looking for might have been archived, renamed, or never existed in the first place.
+      </p>
+
+      <div class="reveal in-view" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 40px;">
+        <a href="index.html" class="btn btn-solid magnetic">Return Home <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+        <a href="work.html" class="btn btn-outline magnetic">View Selected Work</a>
+      </div>
+
+      <div class="reveal in-view" style="margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line); text-align: left;">
+        <p class="eyebrow" style="margin-bottom: 20px;">Explore the Portfolio</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+          <a href="work.html" class="service-card orange-hover" style="padding: 20px; display: block;">
+            <div style="font-family: var(--font-display); font-size: 1rem; color: var(--ink);">Work →</div>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 4px;">Case studies &amp; campaigns</p>
+          </a>
+          <a href="about.html" class="service-card orange-hover" style="padding: 20px; display: block;">
+            <div style="font-family: var(--font-display); font-size: 1rem; color: var(--ink);">About →</div>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 4px;">Story &amp; background</p>
+          </a>
+          <a href="services.html" class="service-card orange-hover" style="padding: 20px; display: block;">
+            <div style="font-family: var(--font-display); font-size: 1rem; color: var(--ink);">Services →</div>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 4px;">Capabilities &amp; rates</p>
+          </a>
+          <a href="resume.html" class="service-card orange-hover" style="padding: 20px; display: block;">
+            <div style="font-family: var(--font-display); font-size: 1rem; color: var(--ink);">Resume →</div>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 4px;">Experience &amp; credentials</p>
+          </a>
+          <a href="blog.html" class="service-card orange-hover" style="padding: 20px; display: block;">
+            <div style="font-family: var(--font-display); font-size: 1rem; color: var(--ink);">Blog →</div>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 4px;">Thoughts &amp; writing</p>
+          </a>
+          <a href="contact.html" class="service-card orange-hover" style="padding: 20px; display: block;">
+            <div style="font-family: var(--font-display); font-size: 1rem; color: var(--ink);">Contact →</div>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 4px;">Start a project together</p>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -24,5 +66,11 @@
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initReveal();
+      initMagnetic();
+    });
+  </script>
 </body>
 </html>

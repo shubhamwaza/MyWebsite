@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Shubham Waza</title>
   <meta name="description" content="Get in touch with Shubham Waza about your next brand or product project." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -18,26 +19,41 @@
         <p class="eyebrow">Contact</p>
         <h1 class="display-lg text-balance">Let's talk about your project.</h1>
         <p class="muted" style="margin-top:24px; max-width:24rem; line-height:1.7;">
-          Based in Mumbai, working with clients everywhere. Fill out the form or reach out
-          directly — I typically reply within two business days.
+          Based in Mumbai, working with clients worldwide. Fill out the form or reach out
+          directly via email or phone.
         </p>
-        <ul style="margin-top:56px; display:flex; flex-direction:column; gap:12px;">
-          <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="muted" style="font-size:0.9rem;">LinkedIn</a></li>
-          <li><a href="https://behance.net" target="_blank" rel="noopener" class="muted" style="font-size:0.9rem;">Behance</a></li>
-          <li><a href="https://instagram.com" target="_blank" rel="noopener" class="muted" style="font-size:0.9rem;">Instagram</a></li>
-          <li><a href="mailto:hello@shubhamwaza.com" class="muted" style="font-size:0.9rem;">Email</a></li>
+        <ul style="margin-top:40px; display:flex; flex-direction:column; gap:16px;">
+          <li>
+            <a href="mailto:hello@shubhamwaza.com" class="muted" style="font-size:0.95rem; display:inline-flex; align-items:center; gap:10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              hello@shubhamwaza.com
+            </a>
+          </li>
+          <li>
+            <a href="tel:+919820000000" class="muted" style="font-size:0.95rem; display:inline-flex; align-items:center; gap:10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              +91 98200 00000
+            </a>
+          </li>
+          <li style="display:flex; gap:18px; margin-top:12px;">
+            <a href="https://www.linkedin.com/in/shubhamwaza" target="_blank" rel="noopener" class="muted" style="font-size:0.875rem;">LinkedIn ↗</a>
+            <a href="https://www.behance.net/shubhamwaza" target="_blank" rel="noopener" class="muted" style="font-size:0.875rem;">Behance ↗</a>
+            <a href="https://www.instagram.com/shubhamwaza" target="_blank" rel="noopener" class="muted" style="font-size:0.875rem;">Instagram ↗</a>
+          </li>
         </ul>
       </div>
 
       <div class="reveal" id="formWrap">
-        <form id="contactForm">
+        <form id="contactForm" novalidate>
+          <div id="formAlert" style="display:none; padding:14px 18px; border-radius:8px; margin-bottom:20px; font-size:0.875rem;" role="alert"></div>
+          
           <div class="form-row form-group">
             <div>
-              <label class="field-label" for="name">Name</label>
+              <label class="field-label" for="name">Name *</label>
               <input class="field" id="name" name="name" required placeholder="Your full name" />
             </div>
             <div>
-              <label class="field-label" for="email">Email</label>
+              <label class="field-label" for="email">Email *</label>
               <input class="field" type="email" id="email" name="email" required placeholder="you@company.com" />
             </div>
             <div>
@@ -68,8 +84,8 @@
           </div>
 
           <div class="form-group">
-            <label class="field-label" for="message">Message</label>
-            <textarea class="field" id="message" name="message" rows="4" required placeholder="Tell me a little about your project"></textarea>
+            <label class="field-label" for="message">Message *</label>
+            <textarea class="field" id="message" name="message" rows="4" required placeholder="Tell me a little about your project (minimum 10 characters)"></textarea>
           </div>
 
           <button type="submit" class="btn btn-solid">Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></button>
@@ -86,18 +102,59 @@
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("contactForm");
       const wrap = document.getElementById("formWrap");
+      const alertBox = document.getElementById("formAlert");
+
+      function showError(msg) {
+        alertBox.style.display = "block";
+        alertBox.style.background = "rgba(239, 68, 68, 0.15)";
+        alertBox.style.border = "1px solid rgba(239, 68, 68, 0.4)";
+        alertBox.style.color = "#FCA5A5";
+        alertBox.textContent = msg;
+      }
+
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        // This is a UI-only form. Wire it up to an email/API endpoint of your
-        // choice (Formspree, Resend, a serverless function, etc.) to actually send it.
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name) {
+          showError("Please enter your name.");
+          document.getElementById("name").focus();
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+          showError("Please enter a valid email address.");
+          document.getElementById("email").focus();
+          return;
+        }
+
+        if (!message || message.length < 10) {
+          showError("Please enter a message of at least 10 characters.");
+          document.getElementById("message").focus();
+          return;
+        }
+
+        alertBox.style.display = "none";
+        const origHTML = wrap.innerHTML;
+
         wrap.innerHTML = `
-          <div class="form-success">
+          <div class="form-success" role="status" aria-live="polite">
             <span class="success-icon">${ICON_CHECK}</span>
-            <h3 style="font-size:1.5rem;">Message sent.</h3>
-            <p class="muted" style="margin-top:12px;">Thanks for reaching out — I'll get back to you within a couple of business days.</p>
+            <h3 style="font-size:1.5rem; margin-top:16px;">Message sent successfully.</h3>
+            <p class="muted" style="margin-top:12px; line-height:1.6; max-width:28rem;">Thanks for reaching out, ${escapeHtml(name)}! I've received your note and will get back to you within two business days.</p>
+            <button type="button" id="resetBtn" class="btn btn-outline" style="margin-top:28px;">Send another message</button>
           </div>
         `;
+
+        document.getElementById("resetBtn")?.addEventListener("click", () => {
+          wrap.innerHTML = origHTML;
+          location.reload();
+        });
       });
+
       initReveal();
     });
   </script>

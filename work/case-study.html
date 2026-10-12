@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="pageTitle">Project — Shubham Waza</title>
-  <meta name="description" id="pageDesc" content="Project by Shubham Waza." />
+  <meta name="description" id="pageDesc" content="In-depth design case study and creative campaign work by Shubham Waza." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
@@ -25,7 +26,7 @@
     function fixNavDepth() {
       document.querySelectorAll("#nav-placeholder a, #mobileMenu a, #footer-placeholder a").forEach(a => {
         const href = a.getAttribute("href");
-        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("../") && !href.startsWith("#")) {
+        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("tel:") && !href.startsWith("../") && !href.startsWith("#")) {
           a.setAttribute("href", "../" + href);
         }
       });
@@ -140,6 +141,14 @@
         body = renderCaseStudySections(project);
       }
 
+      document.title = `${project.title} — Shubham Waza`;
+      const descEl = document.getElementById("pageDesc");
+      if (descEl && project.description) {
+        descEl.setAttribute("content", project.description);
+      }
+
+      const nextHref = next.dedicatedPage ? next.dedicatedPage.replace(/^work\//, "") : `case-study.html?slug=${next.slug}`;
+
       root.innerHTML = `
         <section class="container reveal in-view">
           <a href="../work.html" class="link-arrow" style="margin-bottom:40px; display:inline-flex;">${ICON_BACK} All work</a>
@@ -154,7 +163,7 @@
 
         <section class="container" style="padding-top:112px;">
           <div class="cs-next reveal">
-            <a href="case-study.html?slug=${next.slug}" class="cs-next-row">
+            <a href="${nextHref}" class="cs-next-row">
               <div>
                 <p class="eyebrow">Next Project</p>
                 <h3 class="display-md">${escapeHtml(next.title)}</h3>

@@ -21,9 +21,9 @@ const PROJECTS = [
     year: "2026",
     description: "A mobile-first marketplace connecting businesses with verified temporary workers for flexible, shift-based jobs across India.",
     coverImage: "images/projects/upcrew-cover.svg",
-    heroImage: "images/projects/upcrew-hero.svg",
+    heroImage: "Assets/Images/upcrew-browse-shifts.png",
     deliverables: ["UX research", "Personas & journey mapping", "Information architecture", "Wireframes", "High-fidelity UI", "Design system", "Interactive prototype"],
-    gallery: ["images/projects/upcrew-1.svg", "images/projects/upcrew-2.svg"],
+    gallery: ["Assets/Images/upcrew-apply-flow.png", "Assets/Images/upcrew-shift-details.png"],
     caseStudy: [
       { heading: "Overview", body: "UpCrew is a mobile-first marketplace platform that connects businesses with verified temporary workers for flexible, shift-based jobs across India. It helps employers hire reliable staff quickly, while helping students, freelancers, and gig workers discover trusted, flexible work opportunities. This was a self-initiated, end-to-end UX/UI project built to solve a real-world hiring problem identified through research." },
       { heading: "Problem", body: "Temporary hiring in India is fragmented and largely dependent on WhatsApp groups, referrals, and informal networks. Businesses struggle to find dependable workers on short notice, while students, freelancers, and gig workers struggle to discover verified, flexible opportunities they can trust. Existing solutions often lack transparency, verification, and a streamlined hiring experience." },
@@ -102,10 +102,10 @@ const PROJECTS = [
         description: "A community-first set of gaming creatives designed to build excitement around play, culture, and shared moments. High-contrast graphics and platform-native storytelling keep the feed energetic, recognisable, and made for gamers.",
         carouselRatio: "1080 / 1350",
         images: [
-          "images/projects/OnlyGaming-1.png",
-          "images/projects/OnlyGaming-2.png",
-          "images/projects/OnlyGaming-3.png",
-          "images/projects/OnlyGaming-4.png"
+          "images/projects/OnlyGaming-1.jpg",
+          "images/projects/OnlyGaming-2.jpg",
+          "images/projects/OnlyGaming-3.jpg",
+          "images/projects/OnlyGaming-4.jpg"
         ]
       },
       {
@@ -114,11 +114,11 @@ const PROJECTS = [
         description: "Social and push-notification creative for MakeO, designed to make oral and skin-care decisions feel approachable, personal, and action-oriented. The work translates a technology-led beauty and wellness offering into concise messages that encourage confident next steps.",
         carouselRatio: "1080 / 540",
         images: [
-          "images/projects/makeo-carousel-1.png",
-          "images/projects/makeo-carousel-2.png",
-          "images/projects/makeo-carousel-3.png",
-          "images/projects/makeo-carousel-4.png",
-          "images/projects/makeo-carousel-5.png",
+          "images/projects/makeo-carousel-1.jpg",
+          "images/projects/makeo-carousel-2.jpg",
+          "images/projects/makeo-carousel-3.jpg",
+          "images/projects/makeo-carousel-4.jpg",
+          "images/projects/makeo-carousel-5.jpg"
         ]
       }
     ]
@@ -131,12 +131,12 @@ const ALL_CATEGORIES = ["Branding", "Social Media", "UI/UX", "Web Design", "Moti
 // freely; logo is optional (falls back to initials if the path is missing).
 const WORKED_WITH = [
   { name: "UpCrew", role: "UI/UX Design", period: "2026", location: "Self-initiated", logo: "images/clients/UpCrew.png", link: "" },
-  { name: "Philips", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/Philips.png", link: "" },
-  { name: "Blue Star", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/Blue Star.png", link: "" },
-  { name: "AOC", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/AOC.png", link: "" },
-  { name: "ITPL", role: "Design Support", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/ITPL.png", link: "" },
-  { name: "MakeO", role: "Social Media Design", period: "Placeholder — add dates", location: "Placeholder — add location", logo: "images/clients/MakeO.png", link: "" }
-  ];
+  { name: "Philips", role: "Design Support", period: "2024–2026", location: "The 4P Solutions", logo: "images/clients/Philips.png", link: "" },
+  { name: "Blue Star", role: "Design Support", period: "2024–2026", location: "The 4P Solutions", logo: "images/clients/Blue Star.png", link: "" },
+  { name: "AOC", role: "Design Support", period: "2024–2026", location: "The 4P Solutions", logo: "images/clients/AOC.png", link: "" },
+  { name: "ITPL", role: "Design Support", period: "2024–2026", location: "The 4P Solutions", logo: "images/clients/ITPL.png", link: "" },
+  { name: "MakeO", role: "Social Media Design", period: "2024–2026", location: "The 4P Solutions", logo: "images/clients/MakeO.png", link: "" }
+];
 
 const CLIENTS = [
   { name: "Philips", logo: "images/clients/Philips.png" },
@@ -156,7 +156,7 @@ const POSTS = [
     readingTime: "6 min read",
     coverImage: "images/blog/trust-electronics.svg",
     excerpt: "Notes on closing the confidence gap for shoppers through consistent, honest visual design.",
-    body: "Full post content goes here — replace this placeholder with your actual writing, or wire this data file up to a headless CMS."
+    body: "When consumers purchase refurbished tech, the primary barrier isn't price or specs—it is psychological trust. Buyers wonder if the battery will hold charge, whether the screen was replaced with a cheap aftermarket panel, and if customer support will disappear the moment an issue arises. Through my work across consumer electronics brands like Philips and AOC, closing this hesitation gap required designing transparent grading tiers, unambiguous warranty badges, and unboxing photography that highlights genuine cosmetic condition rather than sterile 3D mockups. Trust is never won through marketing slogans; it is earned by removing ambiguity at every decision point in the buyer journey."
   },
   {
     slug: "what-a-good-design-sprint-actually-looks-like",
@@ -166,7 +166,7 @@ const POSTS = [
     readingTime: "8 min read",
     coverImage: "images/blog/design-sprint.svg",
     excerpt: "Breaking down affinity mapping, personas, and Crazy 8's into a repeatable workflow.",
-    body: "Full post content goes here — replace this placeholder with your actual writing, or wire this data file up to a headless CMS."
+    body: "Most design sprints fail not because the team lacks creativity, but because they jump straight to wireframes without establishing shared problem criteria. In building product case studies like UpCrew, compressing discovery into structured milestones—mapping qualitative user interviews into affinity clusters, distilling core friction into single-sentence How-Might-We statements, and sketching divergent Crazy 8 concepts—allowed us to test hypotheses with real users before writing a single line of production CSS. A sprint is not about creating polished UI overnight; it is an alignment engine designed to eliminate false assumptions before they become expensive mistakes."
   },
   {
     slug: "building-a-brand-system-that-survives-contact-with-reality",
@@ -176,6 +176,6 @@ const POSTS = [
     readingTime: "5 min read",
     coverImage: "images/blog/brand-system.svg",
     excerpt: "Why flexible rules beat rigid guidelines once a brand actually starts shipping content.",
-    body: "Full post content goes here — replace this placeholder with your actual writing, or wire this data file up to a headless CMS."
+    body: "A brand guidelines PDF that sits unopened in a Google Drive folder is a dead system. When social marketing teams are producing twenty creatives a week across Instagram, push notifications, and performance ads, rigid grid systems inevitably crack under turnaround pressure. The solution is creating living design token libraries and modular visual anchors: high-contrast typographic pairings, flexible color accent roles, and reusable layout containers that allow creators to move rapidly while preserving undeniable brand recognition."
   }
 ];

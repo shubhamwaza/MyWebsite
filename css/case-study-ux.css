@@ -60,6 +60,8 @@
   font-family: var(--cs-body) !important;
   -webkit-font-smoothing: antialiased;
   padding-top: 72px; /* Clearance for fixed .site-nav (72px height) */
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Nav light theme styling for .cs-page */
@@ -90,6 +92,29 @@
 
 .cs-page .nav-toggle {
   color: var(--cs-ink) !important;
+}
+
+/* Mobile menu light theme styling for .cs-page */
+.cs-page .mobile-menu {
+  background: var(--cs-bg) !important;
+}
+
+.cs-page .mobile-menu ul a {
+  color: var(--cs-ink) !important;
+}
+
+.cs-page .mobile-menu ul a:hover,
+.cs-page .mobile-menu ul a.active {
+  color: var(--cs-blue) !important;
+}
+
+.cs-page .mobile-menu li {
+  border-bottom: 1px solid var(--cs-line) !important;
+}
+
+.cs-page .mobile-menu .btn-solid {
+  background-color: var(--cs-ink) !important;
+  color: var(--cs-bg) !important;
 }
 
 .cs-main {
@@ -276,6 +301,8 @@
 .cs-hero {
   background: var(--cs-bg);
   padding: 24px 0 44px;
+  position: relative;
+  overflow-x: clip;
 }
 
 .cs-hero-layout {
@@ -1618,7 +1645,7 @@
 }
 
 /* ── Responsive tweaks ──────────────────────────────────────────────────── */
-@media (max-width: 680px) {
+@media (max-width: 860px) {
   .cs-hero { padding: 20px 0 52px; }
   .cs-section { padding: 60px 0; }
   .cs-hero-title { margin-bottom: 16px; }

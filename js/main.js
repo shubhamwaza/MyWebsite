@@ -6,10 +6,26 @@ const ICON_CHECK = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" 
 const ICON_DOWNLOAD = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
 const ICON_BACK = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`;
 
-const NAV_LINKS = [
-  { href: "index.html", label: "Home" },
-  { href: "about.html", label: "About" },
+function getPathPrefix() {
+  const p = window.location.pathname.toLowerCase();
+  if (p.includes("/work/") || p.includes("/blog/") || p.includes("\\work\\") || p.includes("\\blog\\")) {
+    return "../";
+  }
+  return "";
+}
+
+const DESKTOP_NAV_LINKS = [
   { href: "work.html", label: "Work" },
+  { href: "about.html", label: "About" },
+  { href: "services.html", label: "Services" },
+  { href: "resume.html", label: "Resume" },
+  { href: "blog.html", label: "Blog" }
+];
+
+const ALL_NAV_LINKS = [
+  { href: "index.html", label: "Home" },
+  { href: "work.html", label: "Work" },
+  { href: "about.html", label: "About" },
   { href: "services.html", label: "Services" },
   { href: "resume.html", label: "Resume" },
   { href: "blog.html", label: "Blog" },
@@ -18,30 +34,36 @@ const NAV_LINKS = [
 
 function currentPage() {
   const path = window.location.pathname.split("/").pop() || "index.html";
-  return path;
+  return path.toLowerCase();
 }
 
 function renderNav() {
   const el = document.getElementById("nav-placeholder");
   if (!el) return;
   const active = currentPage();
+  const prefix = getPathPrefix();
 
   el.innerHTML = `
     <header class="site-nav" id="siteNav">
       <div class="container">
-        <a href="index.html" class="nav-logo" style="display:flex; align-items:center;"><span class="nav-mark">S.W.</span>Shubham Waza</a>
+        <a href="${prefix}index.html" class="nav-logo" aria-label="Shubham Waza - Home" style="display:flex; align-items:center;">
+          <span class="nav-mark">S.W.</span>Shubham Waza
+        </a>
         <ul class="nav-links">
-          ${NAV_LINKS.map(l => `<li><a href="${l.href}" class="${l.href === active ? "active" : ""}">${l.label}</a></li>`).join("")}
+          ${DESKTOP_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
         </ul>
-        <a href="contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Open menu">${ICON_MENU}</button>
+        <a href="${prefix}contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
       </div>
     </header>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile Navigation">
       <div class="container">
         <ul>
-          ${NAV_LINKS.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}
+          ${ALL_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
         </ul>
+        <div style="padding: 24px 0 32px;">
+          <a href="${prefix}contact.html" class="btn btn-solid" style="width:100%; justify-content:center;">Let's Connect →</a>
+        </div>
       </div>
     </div>
   `;
@@ -54,42 +76,81 @@ function renderNav() {
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("mobileMenu");
   let open = false;
+
+  function closeMenu() {
+    if (!open) return;
+    open = false;
+    menu.classList.remove("open");
+    toggle.innerHTML = ICON_MENU;
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
   toggle.addEventListener("click", () => {
     open = !open;
     menu.classList.toggle("open", open);
     toggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.style.overflow = open ? "hidden" : "";
   });
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-    open = false;
-    menu.classList.remove("open");
-    toggle.innerHTML = ICON_MENU;
-    document.body.style.overflow = "";
-  }));
+
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && open) {
+      closeMenu();
+    }
+  });
 }
 
 function renderFooter() {
   const el = document.getElementById("footer-placeholder");
   if (!el) return;
-  const social = [
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Behance", href: "https://behance.net" },
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Email", href: "mailto:hello@shubhamwaza.com" }
+  const prefix = getPathPrefix();
+
+  const footerNav = [
+    { label: "Work", href: "work.html" },
+    { label: "About", href: "about.html" },
+    { label: "Services", href: "services.html" },
+    { label: "Resume", href: "resume.html" },
+    { label: "Blog", href: "blog.html" },
+    { label: "Contact", href: "contact.html" }
   ];
+
+  const social = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/shubhamwaza" },
+    { label: "Behance", href: "https://www.behance.net/shubhamwaza" },
+    { label: "Instagram", href: "https://www.instagram.com/shubhamwaza" },
+    { label: "hello@shubhamwaza.com", href: "mailto:hello@shubhamwaza.com" },
+    { label: "+91 98200 00000", href: "tel:+919820000000" }
+  ];
+
+  const currentYear = new Date().getFullYear();
+
   el.innerHTML = `
     <footer class="site-footer">
       <div class="container footer-top">
         <div>
-          <p class="footer-logo">Shubham Waza</p>
+          <a href="${prefix}index.html" class="footer-logo" aria-label="Shubham Waza - Home" style="display:inline-block; text-decoration:none;">Shubham Waza</a>
           <p class="footer-tagline">Designing brands and digital experiences that people remember.</p>
         </div>
-        <ul class="footer-social">
-          ${social.map(s => `<li><a href="${s.href}" ${s.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${s.label}</a></li>`).join("")}
-        </ul>
+        <div class="footer-links-wrap" style="display:flex; flex-wrap:wrap; gap:40px;">
+          <div>
+            <p class="eyebrow" style="margin-bottom:12px; font-size:0.7rem;">Navigation</p>
+            <ul class="footer-nav-list" style="display:flex; flex-direction:column; gap:8px;">
+              ${footerNav.map(n => `<li><a href="${prefix}${n.href}" class="muted" style="font-size:0.875rem;">${n.label}</a></li>`).join("")}
+            </ul>
+          </div>
+          <div>
+            <p class="eyebrow" style="margin-bottom:12px; font-size:0.7rem;">Connect</p>
+            <ul class="footer-social" style="display:flex; flex-direction:column; gap:8px;">
+              ${social.map(s => `<li><a href="${s.href}" ${s.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""} class="muted" style="font-size:0.875rem;">${s.label}</a></li>`).join("")}
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
-        <p class="footer-copy">© ${new Date().getFullYear()} Shubham Waza. All rights reserved.</p>
+      <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-top:40px; padding-top:24px; border-top:1px solid var(--line);">
+        <p class="footer-copy">© 2024–${currentYear} Shubham Waza. All rights reserved.</p>
         <a href="#top" class="back-to-top" id="backToTop">Back to top ↑</a>
       </div>
     </footer>

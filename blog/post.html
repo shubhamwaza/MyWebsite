@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">Blog Post — Shubham Waza</title>
-  <meta name="description" id="pageDesc" content="" />
+  <title id="pageTitle">Blog — Shubham Waza</title>
+  <meta name="description" id="pageDesc" content="Design, product thinking, and creative strategy insights by Shubham Waza." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500,400&f[]=general-sans@500,400&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
@@ -22,7 +23,7 @@
     function fixNavDepth() {
       document.querySelectorAll("#nav-placeholder a, #mobileMenu a, #footer-placeholder a").forEach(a => {
         const href = a.getAttribute("href");
-        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("../")) {
+        if (href && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("tel:") && !href.startsWith("../") && !href.startsWith("#")) {
           a.setAttribute("href", "../" + href);
         }
       });
@@ -45,8 +46,9 @@
         return;
       }
 
+      document.title = `${post.title} — Shubham Waza`;
       document.getElementById("pageTitle").textContent = `${post.title} — Shubham Waza`;
-      document.getElementById("pageDesc").setAttribute("content", post.excerpt);
+      document.getElementById("pageDesc")?.setAttribute("content", post.excerpt);
 
       root.innerHTML = `
         <article class="container reveal in-view" style="max-width:48rem;">
