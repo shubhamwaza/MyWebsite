@@ -479,13 +479,397 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         05: KEY UX DECISIONS & RATIONALE
+         05: DESIGN SYSTEM & FIELD FOUNDATIONS
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section" id="cs-decisions">
+    <section class="cs-section" id="cs-design-system">
       <div class="cs-wrap">
 
         <div class="cs-section-label js-reveal">
           <span class="cs-num">05</span>
+          <span>Design System &amp; Foundations</span>
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal">
+          A high-contrast, touch-first system engineered for the field
+        </h2>
+        <p class="cs-body-copy js-reveal">
+          Blue-collar workers use mobile devices outdoors under direct sunlight, often on low-cost Android hardware with smudged screens. The UpCrew design system was created around three hard non-negotiables: unmistakable readability at arm's length, minimum 48px touch targets, and instant semantic feedback.
+        </p>
+
+        <!-- 3 Core Tenets -->
+        <div class="cs-ds-pillars js-reveal">
+          <div class="cs-ds-pillar-card">
+            <span class="cs-ds-pillar-num">Pillar 01</span>
+            <h3 class="cs-ds-pillar-title">Direct Sunlight Contrast</h3>
+            <p class="cs-ds-pillar-desc">
+              Warm neutral canvas (<code style="font-family:monospace; font-size:0.8rem; background:var(--cs-bg-alt); padding:2px 6px; border-radius:4px;">#F5F4F0</code>) cuts harsh white glare under midday sun, while dark ink (<code style="font-family:monospace; font-size:0.8rem; background:var(--cs-bg-alt); padding:2px 6px; border-radius:4px;">#141210</code>) achieves a crisp 14.6:1 AAA contrast ratio.
+            </p>
+          </div>
+
+          <div class="cs-ds-pillar-card">
+            <span class="cs-ds-pillar-num">Pillar 02</span>
+            <h3 class="cs-ds-pillar-title">48dp Thumb-Zone Tap Ergonomics</h3>
+            <p class="cs-ds-pillar-desc">
+              Every interactive target meets or exceeds 48×48dp with 12px spatial safety buffers, optimized for one-handed operation on budget handsets while walking or riding crowded transit.
+            </p>
+          </div>
+
+          <div class="cs-ds-pillar-card">
+            <span class="cs-ds-pillar-num">Pillar 03</span>
+            <h3 class="cs-ds-pillar-title">Zero-Ambiguity Semantics</h3>
+            <p class="cs-ds-pillar-desc">
+              Color is never purely aesthetic. Blue signals verified escrow and primary actions; Green confirms check-ins and instant payouts; Amber warns of expiry; Orange marks surge rates.
+            </p>
+          </div>
+        </div>
+
+        <!-- Block 1: Color Tokens -->
+        <div class="cs-ds-block js-reveal">
+          <div class="cs-ds-block-head">
+            <span class="cs-ds-block-eyebrow">Design Tokens · Color</span>
+            <h3 class="cs-ds-block-title">Functional Semantic Palette</h3>
+            <p class="cs-ds-block-desc">
+              Scoped token architecture mapping global hex values into semantic aliases across actions, confirmations, timers, and surface containment.
+            </p>
+          </div>
+
+          <div class="cs-ds-colors-grid">
+            <!-- Swatch 1: Blue -->
+            <div class="cs-ds-swatch-card">
+              <div class="cs-ds-swatch-preview" style="background:#2558E8; color:#FFFFFF;">
+                <span>AA · 4.8:1</span>
+              </div>
+              <div class="cs-ds-swatch-info">
+                <span class="cs-ds-swatch-name">Action Blue</span>
+                <span class="cs-ds-swatch-hex">--cs-blue · #2558E8</span>
+                <span class="cs-ds-swatch-role">Primary CTAs, escrow locks &amp; verified worker shield</span>
+              </div>
+            </div>
+
+            <!-- Swatch 2: Green -->
+            <div class="cs-ds-swatch-card">
+              <div class="cs-ds-swatch-preview" style="background:#10B981; color:#FFFFFF;">
+                <span>AAA (Text)</span>
+              </div>
+              <div class="cs-ds-swatch-info">
+                <span class="cs-ds-swatch-name">Success Emerald</span>
+                <span class="cs-ds-swatch-hex">--cs-green · #10B981</span>
+                <span class="cs-ds-swatch-role">GPS check-in verified &amp; instant UPI payouts credited</span>
+              </div>
+            </div>
+
+            <!-- Swatch 3: Amber -->
+            <div class="cs-ds-swatch-card">
+              <div class="cs-ds-swatch-preview" style="background:#E8A017; color:#141210;">
+                <span>AAA (Text)</span>
+              </div>
+              <div class="cs-ds-swatch-info">
+                <span class="cs-ds-swatch-name">Warning Amber</span>
+                <span class="cs-ds-swatch-hex">--cs-amber · #E8A017</span>
+                <span class="cs-ds-swatch-role">15m shift reservation countdowns &amp; geofence alerts</span>
+              </div>
+            </div>
+
+            <!-- Swatch 4: Orange -->
+            <div class="cs-ds-swatch-card">
+              <div class="cs-ds-swatch-preview" style="background:#F26419; color:#FFFFFF;">
+                <span>AA · 3.5:1</span>
+              </div>
+              <div class="cs-ds-swatch-info">
+                <span class="cs-ds-swatch-name">Surge Coral</span>
+                <span class="cs-ds-swatch-hex">--cs-orange · #F26419</span>
+                <span class="cs-ds-swatch-role">+20% surge rate callouts, weekend bonuses &amp; urgent refills</span>
+              </div>
+            </div>
+
+            <!-- Swatch 5: Canvas -->
+            <div class="cs-ds-swatch-card">
+              <div class="cs-ds-swatch-preview" style="background:#F5F4F0; color:#141210; border:1px solid #E0DDD5;">
+                <span>Canvas</span>
+              </div>
+              <div class="cs-ds-swatch-info">
+                <span class="cs-ds-swatch-name">Warm Canvas</span>
+                <span class="cs-ds-swatch-hex">--cs-bg · #F5F4F0</span>
+                <span class="cs-ds-swatch-role">Glare-free background surface reducing outdoor eye fatigue</span>
+              </div>
+            </div>
+
+            <!-- Swatch 6: Deep Ink -->
+            <div class="cs-ds-swatch-card">
+              <div class="cs-ds-swatch-preview" style="background:#141210; color:#FFFFFF;">
+                <span>AAA · 14.6:1</span>
+              </div>
+              <div class="cs-ds-swatch-info">
+                <span class="cs-ds-swatch-name">Near-Black Ink</span>
+                <span class="cs-ds-swatch-hex">--cs-ink · #141210</span>
+                <span class="cs-ds-swatch-role">High-legibility headline typography &amp; wage rate numbers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 2: Typography System -->
+        <div class="cs-ds-block js-reveal">
+          <div class="cs-ds-block-head">
+            <span class="cs-ds-block-eyebrow">Design Tokens · Typography</span>
+            <h3 class="cs-ds-block-title">Dual-Typeface Field Hierarchy</h3>
+            <p class="cs-ds-block-desc">
+              Pairing an industrial grotesque for numeric clarity with a monospace-influenced body font for clean word parsing on budget Android screens.
+            </p>
+          </div>
+
+          <div class="cs-ds-type-grid">
+            <!-- Type specimen 1: Archivo -->
+            <div class="cs-ds-type-card">
+              <div class="cs-ds-type-badge">Primary Display</div>
+              <div class="cs-ds-type-header">
+                <h4>Archivo</h4>
+                <p>Geometric grotesque · Weights 700 &amp; 800 · Open numeric counters</p>
+              </div>
+
+              <div class="cs-ds-type-ladder">
+                <div class="cs-ds-type-row">
+                  <span class="cs-ds-type-meta">Wage Display · 30px / 800</span>
+                  <div class="cs-ds-type-sample-display">₹950 <span style="font-size:1.125rem; font-weight:600; color:var(--cs-ink-3);">/ 8 hrs</span></div>
+                </div>
+                <div class="cs-ds-type-row">
+                  <span class="cs-ds-type-meta">Section Title · 20px / 700</span>
+                  <div class="cs-ds-type-sample-h1">Warehouse Dispatch Lead</div>
+                </div>
+                <div class="cs-ds-type-row">
+                  <span class="cs-ds-type-meta">Badge Label · 14px / 700</span>
+                  <div style="font-family:var(--cs-display); font-size:0.875rem; font-weight:700; color:var(--cs-blue);">FLIPKART LOGISTICS HUB ↗</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Type specimen 2: Space Grotesk -->
+            <div class="cs-ds-type-card">
+              <div class="cs-ds-type-badge" style="background:#F0EEE8; color:var(--cs-ink-2);">Body &amp; Interface</div>
+              <div class="cs-ds-type-header">
+                <h4>Space Grotesk</h4>
+                <p>Monospace-derived rhythm · Weights 400, 500, 600 · Tabular numbers</p>
+              </div>
+
+              <div class="cs-ds-type-ladder">
+                <div class="cs-ds-type-row">
+                  <span class="cs-ds-type-meta">Body Regular · 14px / 400</span>
+                  <div class="cs-ds-type-sample-body">Safety helmet and steel-toe boots mandatory. Report to Supervisor Alok at Gate 4 before 08:45 AM.</div>
+                </div>
+                <div class="cs-ds-type-row">
+                  <span class="cs-ds-type-meta">Metadata Strip · 13px / 600</span>
+                  <div class="cs-ds-type-sample-mono">1.4 km · Andheri East · Starts in 2h 15m</div>
+                </div>
+                <div class="cs-ds-type-row">
+                  <span class="cs-ds-type-meta">Micro-Caption · 11px / 700</span>
+                  <div style="font-family:var(--cs-body); font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--cs-ink-3);">● GPS VERIFIED · ESCROW SECURED</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 3: Reusable Atomic Components -->
+        <div class="cs-ds-block js-reveal">
+          <div class="cs-ds-block-head">
+            <span class="cs-ds-block-eyebrow">Component Architecture</span>
+            <h3 class="cs-ds-block-title">Field-Tested Component Anatomy</h3>
+            <p class="cs-ds-block-desc">
+              Modular components assembled from base tokens, standardizing trust signals, status indicators, and one-tap application actions.
+            </p>
+          </div>
+
+          <div class="cs-ds-components-grid">
+            <!-- Component 1: Atomic Shift Card -->
+            <div class="cs-ds-comp-box">
+              <div class="cs-ds-comp-header">
+                <h4 class="cs-ds-comp-title">Atomic Shift Card</h4>
+                <span class="cs-ds-comp-tag">Core Pattern</span>
+              </div>
+              <div class="cs-ds-comp-preview">
+                <div style="background:#FFFFFF; border:1px solid var(--cs-line); border-radius:14px; padding:18px; box-shadow:0 4px 12px rgba(0,0,0,0.03);">
+                  <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+                    <div>
+                      <span style="font-family:var(--cs-body); font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--cs-blue);">Flipkart Logistics</span>
+                      <h5 style="font-family:var(--cs-display); font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:2px 0 0;">Inventory Sorter</h5>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="font-family:var(--cs-display); font-size:1.1875rem; font-weight:800; color:var(--cs-blue);">₹920</div>
+                      <span style="font-family:var(--cs-body); font-size:0.6875rem; color:var(--cs-ink-3);">8h Shift</span>
+                    </div>
+                  </div>
+                  <div style="display:flex; gap:10px; font-family:var(--cs-body); font-size:0.75rem; color:var(--cs-ink-2); margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--cs-line);">
+                    <span>📍 1.4 km · Andheri East</span>
+                    <span>⚡ Instant UPI</span>
+                  </div>
+                  <div style="display:flex; gap:8px;">
+                    <div style="flex:1; background:var(--cs-blue); color:#FFF; font-family:var(--cs-body); font-size:0.8125rem; font-weight:700; padding:10px; border-radius:8px; text-align:center; min-height:44px; display:flex; align-items:center; justify-content:center;">
+                      Quick Apply →
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Component 2: Status Chips -->
+            <div class="cs-ds-comp-box">
+              <div class="cs-ds-comp-header">
+                <h4 class="cs-ds-comp-title">State Badges</h4>
+                <span class="cs-ds-comp-tag">Status Token</span>
+              </div>
+              <div class="cs-ds-comp-preview" style="justify-content:center; min-height:160px;">
+                <div class="cs-ds-chip-group">
+                  <span class="cs-ds-chip cs-ds-chip--green">● Shift Confirmed</span>
+                  <span class="cs-ds-chip cs-ds-chip--blue">🔒 Escrow Locked</span>
+                  <span class="cs-ds-chip cs-ds-chip--amber">⏱ 14m to Claim</span>
+                  <span class="cs-ds-chip cs-ds-chip--orange">⚡ +₹200 Surge Bonus</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Component 3: Filter Chips -->
+            <div class="cs-ds-comp-box">
+              <div class="cs-ds-comp-header">
+                <h4 class="cs-ds-comp-title">Horizontal Filter Chips</h4>
+                <span class="cs-ds-comp-tag">Ergonomics</span>
+              </div>
+              <div class="cs-ds-comp-preview" style="justify-content:center; min-height:160px;">
+                <div class="cs-ds-chip-group">
+                  <span style="display:inline-flex; align-items:center; padding:8px 14px; background:var(--cs-blue); color:#FFFFFF; border-radius:999px; font-family:var(--cs-body); font-size:0.8125rem; font-weight:700;">
+                    ✓ Near Me (&lt;3km)
+                  </span>
+                  <span style="display:inline-flex; align-items:center; padding:8px 14px; background:var(--cs-surface); border:1px solid var(--cs-line); color:var(--cs-ink); border-radius:999px; font-family:var(--cs-body); font-size:0.8125rem; font-weight:600;">
+                    ₹800+ Today
+                  </span>
+                  <span style="display:inline-flex; align-items:center; padding:8px 14px; background:var(--cs-surface); border:1px solid var(--cs-line); color:var(--cs-ink); border-radius:999px; font-family:var(--cs-body); font-size:0.8125rem; font-weight:600;">
+                    Morning Shifts
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Component 4: Geo-Stamp -->
+            <div class="cs-ds-comp-box">
+              <div class="cs-ds-comp-header">
+                <h4 class="cs-ds-comp-title">Geo-Stamp Verification</h4>
+                <span class="cs-ds-comp-tag">Fraud Guard</span>
+              </div>
+              <div class="cs-ds-comp-preview" style="justify-content:center; min-height:160px;">
+                <div style="background:#FFFFFF; border:1px solid var(--cs-line); border-radius:12px; padding:14px; display:flex; align-items:center; gap:12px;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:#E8F8F0; color:#059669; display:flex; align-items:center; justify-content:center; font-size:1.125rem;">
+                    ✓
+                  </div>
+                  <div>
+                    <div style="font-family:var(--cs-display); font-size:0.875rem; font-weight:700; color:var(--cs-ink);">GPS Radius Confirmed</div>
+                    <div style="font-family:var(--cs-body); font-size:0.75rem; color:var(--cs-ink-3);">Within 45m of Gate 2 · Token Generated</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Block 4: Spatial Scale & Radii -->
+        <div class="cs-ds-block js-reveal">
+          <div class="cs-ds-block-head">
+            <span class="cs-ds-block-eyebrow">Spatial Foundation</span>
+            <h3 class="cs-ds-block-title">8pt Spatial Grid &amp; Concentric Corner Radii</h3>
+            <p class="cs-ds-block-desc">
+              Geometric rules preventing visual clutter and ensuring harmonious nesting between parent containers and child elements.
+            </p>
+          </div>
+
+          <div class="cs-ds-tokens-grid">
+            <div class="cs-ds-token-card">
+              <h4 style="font-family:var(--cs-display); font-size:1.125rem; font-weight:800; margin:0 0 4px; color:var(--cs-ink);">8pt Spatial Scale</h4>
+              <p style="font-family:var(--cs-body); font-size:0.8125rem; color:var(--cs-ink-3); margin:0;">Base increments maintaining rhythm across all screens.</p>
+              <table class="cs-ds-token-table">
+                <thead>
+                  <tr>
+                    <th>Token</th>
+                    <th>Value</th>
+                    <th>Application</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>--cs-space-xxs</code></td>
+                    <td>4px</td>
+                    <td>Micro-spacing inside badges &amp; icons</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-space-xs</code></td>
+                    <td>8px</td>
+                    <td>Internal padding on status pills</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-space-md</code></td>
+                    <td>16px</td>
+                    <td>Form field gutters &amp; card margins</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-space-lg</code></td>
+                    <td>24px</td>
+                    <td>Card interior padding &amp; resting thumb zones</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-space-xl</code></td>
+                    <td>32px</td>
+                    <td>Modal margins &amp; section vertical rhythms</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="cs-ds-token-card">
+              <h4 style="font-family:var(--cs-display); font-size:1.125rem; font-weight:800; margin:0 0 4px; color:var(--cs-ink);">Concentric Radii System</h4>
+              <p style="font-family:var(--cs-body); font-size:0.8125rem; color:var(--cs-ink-3); margin:0;">Proportional curve smoothing across nested components.</p>
+              <table class="cs-ds-token-table">
+                <thead>
+                  <tr>
+                    <th>Token</th>
+                    <th>Radius</th>
+                    <th>Usage Context</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>--cs-r-sm</code></td>
+                    <td>8px</td>
+                    <td>Status chips, badges &amp; photo tags</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-r</code></td>
+                    <td>14px</td>
+                    <td>Primary buttons, input fields &amp; search</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-r-lg</code></td>
+                    <td>22px</td>
+                    <td>Bento grid cards &amp; bottom action sheets</td>
+                  </tr>
+                  <tr>
+                    <td><code>--cs-r-phone</code></td>
+                    <td>44px</td>
+                    <td>Hardware phone mockups &amp; frame boundaries</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         06: KEY UX DECISIONS & RATIONALE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-decisions">
+      <div class="cs-wrap">
+
+        <div class="cs-section-label js-reveal">
+          <span class="cs-num">06</span>
           <span>Critical UX Decisions</span>
         </div>
 
@@ -590,13 +974,13 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         06: DESIGNING FOR REALITY: EDGE CASES
+         07: DESIGNING FOR REALITY: EDGE CASES
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section cs-section--alt" id="cs-edge-cases">
+    <section class="cs-section" id="cs-edge-cases">
       <div class="cs-wrap">
 
         <div class="cs-section-label js-reveal">
-          <span class="cs-num">06</span>
+          <span class="cs-num">07</span>
           <span>Designing for Reality</span>
         </div>
 
@@ -709,13 +1093,13 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         07: REFLECTIONS & NEXT STEPS
+         08: REFLECTIONS & NEXT STEPS
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section" id="cs-reflections">
+    <section class="cs-section cs-section--alt" id="cs-reflections">
       <div class="cs-wrap">
 
         <div class="cs-section-label js-reveal">
-          <span class="cs-num">07</span>
+          <span class="cs-num">08</span>
           <span>Retrospective &amp; Next Steps</span>
         </div>
 
@@ -749,7 +1133,7 @@
     </section>
 
     <!-- ── Closing CTA ─────────────────────────────────────────────────── -->
-    <section class="cs-section cs-section--alt cs-cta-section">
+    <section class="cs-section cs-cta-section">
       <div class="cs-wrap js-reveal">
         <span class="cs-eyebrow"><span class="cs-dot"></span>Let's Collaborate</span>
         <h2 class="cs-section-h2" style="max-width: 28ch; margin: 0 auto 16px;">Let's build systems people can depend on</h2>
