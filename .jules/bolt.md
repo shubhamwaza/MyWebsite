@@ -1,0 +1,3 @@
+## 2024-05-14 - Stop constant requestAnimationFrame loops
+**Learning:** Continuous `requestAnimationFrame` loops that update DOM elements without any termination condition run endlessly, draining CPU and battery even when the user is inactive.
+**Action:** Always include a termination condition in `requestAnimationFrame` loops (like checking if the target position is reached) and restart the loop only when new input (like a `mousemove` event) requires it.
