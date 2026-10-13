@@ -3980,6 +3980,127 @@
   to { transform: rotate(360deg); }
 }
 
+/* ── Skeleton Loading Shimmer System ── */
+.cs-skeleton-shimmer {
+  background: #E5E7EB;
+  background-image: linear-gradient(
+    90deg,
+    #E5E7EB 0%,
+    #F3F4F6 50%,
+    #E5E7EB 100%
+  );
+  background-size: 200% 100%;
+  animation: csSkeletonWave 1.6s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+@keyframes csSkeletonWave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-skeleton-shimmer {
+    animation: none;
+    background: #E5E7EB;
+  }
+}
+
+.cs-ds-loading-lab {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r-lg);
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+}
+
+.cs-ds-loading-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+@media (max-width: 840px) {
+  .cs-ds-loading-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs-ds-loading-card-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-ds-loading-card-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--cs-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cs-ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cs-ds-live-card {
+  background: var(--cs-bg);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-r);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  min-height: 230px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.cs-ds-interactive-btn-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cs-line);
+}
+
+.cs-ds-sim-btn {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  background: var(--cs-blue);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(37, 88, 232, 0.3);
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background 0.15s ease;
+}
+
+.cs-ds-sim-btn:active {
+  transform: scale(0.96);
+}
+
+.cs-ds-sim-btn.is-loading {
+  background: #1D4ED8;
+  cursor: wait;
+}
+
+.cs-ds-sim-btn.is-success {
+  background: #059669;
+}
+
 /* ── Extended Components Grid ───────────────────────────────────────────── */
 .cs-ds-components-grid {
   display: grid;
