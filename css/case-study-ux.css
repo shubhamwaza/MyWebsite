@@ -3831,20 +3831,506 @@
   letter-spacing: 0.06em;
 }
 
-.cs-ds-matrix-grid {
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUB-SECTION E: COMPONENT ARCHITECTURE · LIVE STATES (EMIL KOWALSKI CRAFT)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Radar Pulsing Pip Animation for Live Badges ── */
+@keyframes csRadarPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--pip-color-rgb, 37, 88, 232), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(var(--pip-color-rgb, 37, 88, 232), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--pip-color-rgb, 37, 88, 232), 0);
+  }
+}
+
+/* ── High-Fidelity Skeleton Wave (Zero CLS) ── */
+.cs-skeleton-shimmer {
+  background: #E5E7EB;
+  background-image: linear-gradient(
+    90deg,
+    #E5E7EB 0%,
+    #F3F4F6 35%,
+    #FFFFFF 50%,
+    #F3F4F6 65%,
+    #E5E7EB 100%
+  );
+  background-size: 200% 100%;
+  animation: csSkeletonWave 1.4s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+@keyframes csSkeletonWave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-skeleton-shimmer {
+    animation: none !important;
+    background: #E5E7EB !important;
+  }
+  .cs-radar-pip {
+    animation: none !important;
+  }
+}
+
+/* ── Loading Lab Outer Shell & Concentric Radii (R_outer = R_inner + P) ── */
+.cs-ds-loading-lab {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.02);
+}
+
+/* Lab Header & Telemetry */
+.cs-ds-lab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--cs-line);
+}
+
+.cs-ds-lab-header-left h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.1875rem;
+  font-weight: 800;
+  color: var(--cs-blue) !important;
+  margin: 0 0 4px;
+}
+
+.cs-ds-lab-header-left p {
+  font-family: var(--cs-body);
+  font-size: 0.8125rem;
+  color: var(--cs-ink-3) !important;
+  margin: 0;
+  max-width: 62ch;
+  line-height: 1.5;
+}
+
+.cs-ds-lab-telemetry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cs-ds-telemetry-chip {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
+}
+
+.cs-ds-telemetry-chip--green {
+  background: #ECFDF5;
+  color: #065F46;
+  border-color: #A7F3D0;
+}
+
+/* Lab Controls Bar (View Switcher + Simulation Button) */
+.cs-ds-lab-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.cs-ds-lab-view-tabs {
+  display: inline-flex;
+  background: #E5E7EB;
+  padding: 3px;
+  border-radius: 10px;
+  gap: 2px;
+}
+
+.cs-ds-lab-tab {
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 7px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cs-ink-2);
+  cursor: pointer;
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-ds-lab-tab:active {
+  transform: scale(0.96);
+}
+
+.cs-ds-lab-tab.is-active {
+  background: #FFFFFF;
+  color: var(--cs-ink);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.cs-ds-fetch-sim-btn {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid var(--cs-line);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cs-ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background 150ms ease, border-color 150ms ease;
+}
+
+.cs-ds-fetch-sim-btn:active {
+  transform: scale(0.96);
+}
+
+.cs-ds-fetch-sim-btn:hover {
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+/* Simulation Latency Banner */
+.cs-ds-latency-banner {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-top: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1E40AF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: csFadeIn 200ms ease-out;
+}
+
+@keyframes csFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading Grid Modes */
+.cs-ds-loading-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 18px;
+  transition: all 250ms ease-out;
+}
+
+@media (max-width: 840px) {
+  .cs-ds-loading-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs-ds-loading-grid[data-view="skeleton"] .cs-ds-loading-card-wrap--hydrated {
+  display: none;
+}
+.cs-ds-loading-grid[data-view="skeleton"] {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}
+
+.cs-ds-loading-grid[data-view="hydrated"] .cs-ds-loading-card-wrap--skeleton {
+  display: none;
+}
+.cs-ds-loading-grid[data-view="hydrated"] {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}
+
+.cs-ds-loading-card-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-ds-loading-card-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cs-ink-2);
+  letter-spacing: 0.02em;
+}
+
+/* Concentric Card: Outer R16 with inner padding 20px */
+.cs-ds-live-card {
+  background: var(--cs-bg);
+  border: 1px solid var(--cs-line);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  min-height: 244px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.02);
+  transition: box-shadow 150ms ease-out;
+}
+
+/* ── Emil Kowalski State-Morphing Button ── */
+.cs-morph-btn {
+  height: 44px;
+  width: 100%;
+  border-radius: 8px;
+  background: #2558E8;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(37, 88, 232, 0.28);
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background-color 200ms ease, box-shadow 200ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cs-morph-btn:active {
+  transform: scale(0.96);
+}
+
+.cs-morph-btn:hover {
+  background-color: #1D4ED8;
+}
+
+.cs-morph-btn.is-loading {
+  background-color: #1E40AF;
+  cursor: wait;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+}
+
+.cs-morph-btn.is-success {
+  background-color: #059669;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+}
+
+.cs-morph-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-morph-state {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: transform 200ms cubic-bezier(0.2, 0, 0, 1), opacity 200ms ease, filter 200ms ease;
+  will-change: transform, opacity, filter;
+}
+
+.cs-morph-state--idle {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+.cs-morph-state--loading {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.cs-morph-state--success {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Morph Active Transitions */
+.cs-morph-btn.is-loading .cs-morph-state--idle {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.95);
+  filter: blur(2px);
+  pointer-events: none;
+}
+.cs-morph-btn.is-loading .cs-morph-state--loading {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+.cs-morph-btn.is-success .cs-morph-state--idle {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.95);
+  filter: blur(2px);
+  pointer-events: none;
+}
+.cs-morph-btn.is-success .cs-morph-state--loading {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.95);
+  filter: blur(2px);
+  pointer-events: none;
+}
+.cs-morph-btn.is-success .cs-morph-state--success {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+/* Checkmark contextual pop in */
+.cs-morph-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  font-size: 0.75rem;
+  font-weight: 800;
+  transition: transform 200ms cubic-bezier(0.2, 0, 0, 1), opacity 200ms ease;
+}
+
+/* Fast-spinning spinner (Emil Kowalski perceived speed rule: 0.65s) */
+.cs-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: csSpin 0.65s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.cs-spinner--dark {
+  border: 2px solid rgba(0,0,0,0.15);
+  border-top-color: var(--cs-ink);
+}
+
+@keyframes csSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pulsing Radar Pip */
+.cs-radar-pip {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: csRadarPulse 1.8s infinite;
+}
+
+/* ── 4-Variant × 6-State Button Matrix ── */
+.cs-ds-matrix-wrap {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.02);
+}
+
+.cs-ds-matrix-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--cs-line);
+  margin-bottom: 20px;
+}
+
+.cs-ds-matrix-header h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.1875rem;
+  font-weight: 800;
+  color: var(--cs-blue) !important;
+  margin: 0 0 4px;
+}
+
+.cs-ds-matrix-header p {
+  font-family: var(--cs-body);
+  font-size: 0.8125rem;
+  color: var(--cs-ink-3) !important;
+  margin: 0;
+  max-width: 65ch;
+  line-height: 1.5;
+}
+
+.cs-ds-matrix-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1040px) {
+  .cs-ds-matrix-grid-4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-ds-matrix-grid-4col {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cs-ds-matrix-col {
   background: var(--cs-bg);
   border: 1px solid var(--cs-line);
-  border-radius: var(--cs-r);
-  padding: 18px 16px;
+  border-radius: 14px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+}
+
+.cs-ds-col-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cs-line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .cs-ds-col-title {
@@ -3852,15 +4338,20 @@
   font-size: 0.875rem;
   font-weight: 800;
   color: var(--cs-ink);
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--cs-line);
+}
+
+.cs-ds-col-subtag {
+  font-family: var(--cs-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--cs-ink-3);
 }
 
 .cs-ds-btn-state-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cs-ds-btn-state-name {
@@ -3868,10 +4359,10 @@
   font-size: 0.6875rem;
   font-weight: 600;
   color: var(--cs-ink-3);
-  min-width: 80px;
+  min-width: 68px;
 }
 
-/* Button Specimen Primitive */
+/* Button Specimen Primitives */
 .cs-btn-spec {
   height: 44px;
   padding: 0 16px;
@@ -3885,9 +4376,10 @@
   gap: 8px;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s ease, box-shadow 0.15s ease;
-  min-width: 130px;
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background-color 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  min-width: 124px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .cs-btn-spec:active,
@@ -3895,50 +4387,58 @@
   transform: scale(0.96) !important;
 }
 
-/* Primary */
+/* Primary Filled */
 .cs-btn-spec--primary {
   background: #2558E8;
   color: #FFFFFF !important;
   box-shadow: 0 2px 6px rgba(37, 88, 232, 0.25);
 }
-
 .cs-btn-spec--primary:hover {
   background: #1D4ED8;
 }
-
 .cs-btn-spec--primary.cs-btn-spec--focus {
   outline: 2px solid #2558E8;
   outline-offset: 2px;
 }
 
-/* Secondary */
+/* Secondary Surface / Outlined */
 .cs-btn-spec--secondary {
   background: #FFFFFF;
   color: var(--cs-ink) !important;
   border: 1px solid var(--cs-line);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
-
 .cs-btn-spec--secondary:hover {
   background: #F9FAFB;
 }
-
 .cs-btn-spec--secondary.cs-btn-spec--focus {
   outline: 2px solid var(--cs-ink);
   outline-offset: 2px;
 }
 
-/* Destructive */
+/* Ghost / Tertiary */
+.cs-btn-spec--ghost {
+  background: transparent;
+  color: var(--cs-ink) !important;
+  border-color: transparent;
+}
+.cs-btn-spec--ghost:hover {
+  background: #F3F4F6;
+}
+.cs-btn-spec--ghost.cs-btn-spec--focus {
+  outline: 2px solid var(--cs-ink);
+  outline-offset: 2px;
+}
+
+/* Danger / Destructive */
 .cs-btn-spec--danger {
   background: #DC2626;
   color: #FFFFFF !important;
   box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
 }
-
 .cs-btn-spec--danger:hover {
   background: #B91C1C;
 }
-
 .cs-btn-spec--danger.cs-btn-spec--focus {
   outline: 2px solid #DC2626;
   outline-offset: 2px;
@@ -3948,6 +4448,7 @@
 .cs-btn-spec--success {
   background: #059669;
   color: #FFFFFF !important;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
 }
 
 /* Disabled */
@@ -3960,148 +4461,7 @@
   border: 1px solid #D1D5DB !important;
 }
 
-/* Spinner */
-.cs-spinner {
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: #FFFFFF;
-  border-radius: 50%;
-  animation: csSpin 0.7s linear infinite;
-  display: inline-block;
-}
-
-.cs-spinner--dark {
-  border: 2px solid rgba(0,0,0,0.15);
-  border-top-color: var(--cs-ink);
-}
-
-@keyframes csSpin {
-  to { transform: rotate(360deg); }
-}
-
-/* ── Skeleton Loading Shimmer System ── */
-.cs-skeleton-shimmer {
-  background: #E5E7EB;
-  background-image: linear-gradient(
-    90deg,
-    #E5E7EB 0%,
-    #F3F4F6 50%,
-    #E5E7EB 100%
-  );
-  background-size: 200% 100%;
-  animation: csSkeletonWave 1.6s ease-in-out infinite;
-  border-radius: 6px;
-}
-
-@keyframes csSkeletonWave {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cs-skeleton-shimmer {
-    animation: none;
-    background: #E5E7EB;
-  }
-}
-
-.cs-ds-loading-lab {
-  background: var(--cs-surface);
-  border: 1px solid var(--cs-line);
-  border-radius: var(--cs-r-lg);
-  padding: 24px;
-  margin-top: 24px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-}
-
-.cs-ds-loading-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 20px;
-}
-
-@media (max-width: 840px) {
-  .cs-ds-loading-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.cs-ds-loading-card-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.cs-ds-loading-card-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--cs-body);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--cs-ink-2);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.cs-ds-live-card {
-  background: var(--cs-bg);
-  border: 1px solid var(--cs-line);
-  border-radius: var(--cs-r);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: relative;
-  min-height: 230px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-
-.cs-ds-interactive-btn-strip {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--cs-line);
-}
-
-.cs-ds-sim-btn {
-  height: 44px;
-  padding: 0 20px;
-  border-radius: 8px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  border: none;
-  background: var(--cs-blue);
-  color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(37, 88, 232, 0.3);
-  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background 0.15s ease;
-}
-
-.cs-ds-sim-btn:active {
-  transform: scale(0.96);
-}
-
-.cs-ds-sim-btn.is-loading {
-  background: #1D4ED8;
-  cursor: wait;
-}
-
-.cs-ds-sim-btn.is-success {
-  background: #059669;
-}
-
-/* ── Extended Components Grid ───────────────────────────────────────────── */
+/* ── Extended Components Grid (Chips, Pills, Input) ── */
 .cs-ds-components-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -4111,12 +4471,12 @@
 .cs-ds-comp-box {
   background: var(--cs-surface);
   border: 1px solid var(--cs-line);
-  border-radius: var(--cs-r-lg);
+  border-radius: 20px;
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.02);
 }
 
 .cs-ds-comp-header {
@@ -4148,19 +4508,19 @@
 .cs-ds-comp-preview {
   background: var(--cs-bg);
   border: 1px solid var(--cs-line);
-  border-radius: var(--cs-r);
+  border-radius: 14px;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
-/* Segmented control */
+/* Segmented control with concentric radii */
 .cs-segmented-control {
   display: flex;
   background: #E5E7EB;
   padding: 3px;
-  border-radius: 8px;
+  border-radius: 10px;
   gap: 2px;
 }
 
@@ -4169,24 +4529,28 @@
   padding: 8px 10px;
   border: none;
   background: transparent;
-  border-radius: 6px;
+  border-radius: 7px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--cs-ink-2);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background 150ms ease, color 150ms ease, box-shadow 150ms ease;
   text-align: center;
+}
+
+.cs-seg-tab:active {
+  transform: scale(0.96);
 }
 
 .cs-seg-tab.is-active {
   background: #FFFFFF;
   color: var(--cs-ink) !important;
   font-weight: 700;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
 }
 
-/* Chips Cluster */
+/* Filter Chips with contextual check icon */
 .cs-chips-cluster {
   display: flex;
   flex-wrap: wrap;
@@ -4205,12 +4569,28 @@
   font-weight: 600;
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   cursor: pointer;
-  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background 0.15s ease;
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background 150ms ease, color 150ms ease, border-color 150ms ease;
 }
 
 .cs-filter-chip:active {
   transform: scale(0.96);
+}
+
+.cs-chip-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  opacity: 0;
+  transform: scale(0.25);
+  filter: blur(4px);
+  margin-right: 0;
+  overflow: hidden;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  transition: width 200ms cubic-bezier(0.2, 0, 0, 1), opacity 200ms ease, transform 200ms cubic-bezier(0.2, 0, 0, 1), filter 200ms ease, margin-right 200ms ease;
 }
 
 .cs-filter-chip.is-selected {
@@ -4219,11 +4599,20 @@
   border-color: #2558E8;
 }
 
+.cs-filter-chip.is-selected .cs-chip-check {
+  width: 12px;
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+  margin-right: 2px;
+}
+
 .cs-filter-chip.is-disabled {
   background: #F3F4F6;
   color: #9CA3AF !important;
   cursor: not-allowed;
   border-color: #E5E7EB;
+  transform: none !important;
 }
 
 /* Soft + Strong Status Pills */
@@ -4237,19 +4626,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1);
 }
 
-.cs-ds-pill-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 6px;
+.cs-ds-pill-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .cs-ds-pill-sub {
@@ -4259,22 +4647,47 @@
   opacity: 0.85;
 }
 
-.cs-ds-status-pill--blue { background: #EFF6FF; color: #1E40AF !important; border: 1px solid #BFDBFE; }
-.cs-ds-status-pill--blue .cs-ds-pill-dot { background: #2558E8; }
+.cs-ds-status-pill--green {
+  background: #ECFDF5;
+  color: #065F46 !important;
+  border: 1px solid #A7F3D0;
+  --pip-color-rgb: 5, 150, 105;
+}
+.cs-ds-status-pill--green .cs-radar-pip {
+  background: #059669;
+}
 
-.cs-ds-status-pill--green { background: #ECFDF5; color: #065F46 !important; border: 1px solid #A7F3D0; }
-.cs-ds-status-pill--green .cs-ds-pill-dot { background: #059669; }
+.cs-ds-status-pill--blue {
+  background: #EFF6FF;
+  color: #1E40AF !important;
+  border: 1px solid #BFDBFE;
+  --pip-color-rgb: 37, 88, 232;
+}
+.cs-ds-status-pill--blue .cs-radar-pip {
+  background: #2558E8;
+}
 
-.cs-ds-status-pill--orange { background: #FFF7ED; color: #9A3412 !important; border: 1px solid #FED7AA; }
-.cs-ds-pill-dot { background: #EA580C; }
+.cs-ds-status-pill--orange {
+  background: #FFF7ED;
+  color: #9A3412 !important;
+  border: 1px solid #FED7AA;
+  --pip-color-rgb: 234, 88, 12;
+}
+.cs-ds-status-pill--orange .cs-radar-pip {
+  background: #EA580C;
+}
 
-.cs-ds-status-pill--red { background: #FEF2F2; color: #991B1B !important; border: 1px solid #FECACA; }
-.cs-ds-status-pill--red .cs-ds-pill-dot { background: #DC2626; }
+.cs-ds-status-pill--red {
+  background: #FEF2F2;
+  color: #991B1B !important;
+  border: 1px solid #FECACA;
+}
+.cs-ds-status-pill--red .cs-radar-pip {
+  background: #DC2626;
+  animation: none;
+}
 
-.cs-ds-status-pill--neutral { background: #F3F4F6; color: #374151 !important; border: 1px solid #E5E7EB; }
-.cs-ds-status-pill--neutral .cs-ds-pill-dot { background: #6B7280; }
-
-/* Search & Input Primitive */
+/* 44px Minimum Touch Target Search & Field Inputs */
 .cs-input-group {
   display: flex;
   flex-direction: column;
@@ -4290,7 +4703,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.cs-search-box:focus-within {
+  border-color: #2558E8;
+  outline: 2px solid rgba(37, 88, 232, 0.2);
 }
 
 .cs-search-input {
@@ -4306,15 +4725,25 @@
 .cs-input-clear {
   border: none;
   background: #E5E7EB;
-  color: #6B7280;
-  width: 20px;
-  height: 20px;
+  color: #4B5563;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background 150ms ease;
+}
+
+.cs-input-clear:active {
+  transform: scale(0.96);
+}
+
+.cs-input-clear:hover {
+  background: #D1D5DB;
 }
 
 .cs-input-helper {
@@ -4328,6 +4757,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .cs-icon-btn {
@@ -4341,7 +4771,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background 150ms ease, border-color 150ms ease;
 }
 
 .cs-icon-btn:active {
@@ -4350,6 +4781,7 @@
 
 .cs-icon-btn:hover {
   background: #F9FAFB;
+  border-color: #D1D5DB;
 }
 
 /* 56px Minimum List Row */
