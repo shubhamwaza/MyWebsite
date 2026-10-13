@@ -1094,115 +1094,148 @@
 
             <!-- Loading Grid (Controlled by View Tabs) -->
             <div class="cs-ds-loading-grid" id="cs-loading-lab-grid" data-view="split">
-              <!-- Left: Live Skeleton Shimmer Card -->
+              <!-- Left: Live Skeleton Shimmer Card Matching Exact Real UI Topology -->
               <div class="cs-ds-loading-card-wrap cs-ds-loading-card-wrap--skeleton">
                 <div class="cs-ds-loading-card-label">
                   <span>Phase 01 · Skeleton Shimmer (Pre-Fetch)</span>
                   <span style="color:#2558E8; font-weight:700;">Live Shimmer Wave</span>
                 </div>
-                <div class="cs-ds-live-card">
-                  <!-- Header row skeleton -->
-                  <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <div style="display:flex; align-items:center; gap:12px;">
-                      <div class="cs-skeleton-shimmer" style="width:40px; height:40px; border-radius:10px;"></div>
-                      <div style="display:flex; flex-direction:column; gap:6px;">
-                        <div class="cs-skeleton-shimmer" style="width:120px; height:14px;"></div>
-                        <div class="cs-skeleton-shimmer" style="width:84px; height:10px;"></div>
-                      </div>
+                <div class="cs-upcrew-job-card">
+                  <!-- Top Row Skeleton -->
+                  <div class="cs-job-card-top">
+                    <div class="cs-skeleton-shimmer" style="width:104px; height:32px; border-radius:8px;"></div>
+                    <div class="cs-job-top-actions">
+                      <div class="cs-skeleton-shimmer" style="width:100px; height:20px; border-radius:6px;"></div>
+                      <div class="cs-skeleton-shimmer" style="width:40px; height:40px; border-radius:50%;"></div>
                     </div>
-                    <div class="cs-skeleton-shimmer" style="width:96px; height:24px; border-radius:999px;"></div>
                   </div>
 
-                  <!-- Title skeleton -->
-                  <div style="display:flex; flex-direction:column; gap:6px; margin-top:2px;">
-                    <div class="cs-skeleton-shimmer" style="width:82%; height:20px;"></div>
-                    <div class="cs-skeleton-shimmer" style="width:52%; height:13px;"></div>
+                  <!-- Middle Section Skeleton -->
+                  <div class="cs-job-card-mid">
+                    <div class="cs-job-info-col" style="flex:1;">
+                      <div class="cs-skeleton-shimmer" style="width:190px; height:28px; border-radius:6px;"></div>
+                      <div class="cs-skeleton-shimmer" style="width:84px; height:18px; border-radius:6px; margin-top:8px;"></div>
+                      <div class="cs-skeleton-shimmer" style="width:230px; height:16px; border-radius:6px; margin-top:14px;"></div>
+                      <div class="cs-skeleton-shimmer" style="width:180px; height:16px; border-radius:6px; margin-top:10px;"></div>
+                    </div>
+                    <div class="cs-skeleton-shimmer" style="width:72px; height:72px; border-radius:50%; flex-shrink:0;"></div>
                   </div>
 
-                  <!-- 3 meta pills skeleton -->
-                  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:2px;">
-                    <div class="cs-skeleton-shimmer" style="height:28px; border-radius:6px;"></div>
-                    <div class="cs-skeleton-shimmer" style="height:28px; border-radius:6px;"></div>
-                    <div class="cs-skeleton-shimmer" style="height:28px; border-radius:6px;"></div>
-                  </div>
+                  <!-- Divider Line Skeleton -->
+                  <div class="cs-job-card-divider"></div>
 
-                  <!-- Button skeleton (Exact 44px Match) -->
-                  <div class="cs-skeleton-shimmer" style="height:44px; border-radius:8px; margin-top:4px;"></div>
+                  <!-- Bottom Section Skeleton -->
+                  <div class="cs-job-card-bottom">
+                    <div class="cs-job-pay-col">
+                      <div class="cs-skeleton-shimmer" style="width:96px; height:28px; border-radius:6px;"></div>
+                      <div class="cs-skeleton-shimmer" style="width:80px; height:14px; border-radius:6px; margin-top:6px;"></div>
+                    </div>
+                    <div class="cs-skeleton-shimmer" style="width:136px; height:48px; border-radius:14px;"></div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Right: Populated Card with Interactive Emil Kowalski State-Morphing Button -->
+              <!-- Right: Populated Card with Authentic User UI Elements -->
               <div class="cs-ds-loading-card-wrap cs-ds-loading-card-wrap--hydrated">
                 <div class="cs-ds-loading-card-label">
                   <span>Phase 02 · Hydrated &amp; Interactive</span>
                   <span style="color:#059669; font-weight:700;">Ready for Touch</span>
                 </div>
-                <div class="cs-ds-live-card" style="background:#FFFFFF;">
-                  <!-- Top row -->
-                  <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <div style="display:flex; align-items:center; gap:12px;">
-                      <div style="width:40px; height:40px; border-radius:10px; background:#EFF6FF; border:1px solid #BFDBFE; display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; color:#2558E8; font-size:0.9375rem;">
-                        HM
+                <div class="cs-upcrew-job-card">
+                  <!-- Top Row -->
+                  <div class="cs-job-card-top">
+                    <span class="cs-job-tag-high-paying">High Paying</span>
+                    <div class="cs-job-top-actions">
+                      <span class="cs-job-match-badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2558E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M10 2L12.5 7.5L18 10L12.5 12.5L10 18L7.5 12.5L2 10L7.5 7.5L10 2Z"></path>
+                          <circle cx="19" cy="18" r="1.5" fill="#2558E8"></circle>
+                        </svg>
+                        <span>Great match</span>
+                      </span>
+                      <button type="button" class="cs-job-bookmark-btn" id="cs-job-bookmark-btn" aria-label="Save shift to bookmarks" title="Save shift">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Middle Section -->
+                  <div class="cs-job-card-mid">
+                    <div class="cs-job-info-col">
+                      <h4 class="cs-job-role-title">Retail Assistant</h4>
+                      <div class="cs-job-company-row">
+                        <span>H&amp;M</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-label="Verified employer">
+                          <path d="M12 2l2.4 2.1 3.2-.2 1.4 2.9 3 .9.2 3.2 2.1 2.4-2.1 2.4-.2 3.2-3 .9-1.4 2.9-3.2-.2L12 24l-2.4-2.1-3.2.2-1.4-2.9-3-.9-.2-3.2L0 12.7l2.1-2.4.2-3.2 3-.9 1.4-2.9 3.2.2L12 2z" fill="#2558E8"></path>
+                          <path d="M8.5 12.5l2.5 2.5 5-5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
                       </div>
-                      <div>
-                        <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:0.875rem; font-weight:700; color:#141210;">
-                          H&amp;M, LakeShore Mall
-                          <span style="color:#2558E8; font-size:0.8125rem;">✓</span>
-                        </div>
-                        <div style="font-family:var(--cs-body); font-size:0.75rem; color:#6B7280;">Thane West · 22 min away</div>
+
+                      <div class="cs-job-loc-row">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2558E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>H&amp;M, LakeShore Mall</span>
+                        <span class="cs-job-loc-dot">•</span>
+                        <span class="cs-job-loc-dist">22 min away</span>
+                      </div>
+
+                      <div class="cs-job-timing-row">
+                        <span class="cs-job-timing-item">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2558E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                          </svg>
+                          <span>11 Aug</span>
+                        </span>
+                        <span class="cs-job-timing-item">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2558E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          <span>10:00–21:00</span>
+                        </span>
                       </div>
                     </div>
-                    <span style="font-family:'Plus Jakarta Sans', sans-serif; font-size:0.6875rem; font-weight:700; background:#ECFDF5; color:#065F46; border:1px solid #A7F3D0; padding:3px 10px; border-radius:999px; display:inline-flex; align-items:center; gap:6px;">
-                      <span class="cs-radar-pip" style="background:#059669; --pip-color-rgb:5,150,105; width:6px; height:6px;"></span>
-                      Guaranteed Pay
-                    </span>
-                  </div>
 
-                  <!-- Role & Pay -->
-                  <div>
-                    <h4 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:1.1875rem; font-weight:800; color:#141210; margin:0;">
-                      Retail Assistant · Weekend Shift
-                    </h4>
-                    <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:0.875rem; font-weight:700; color:#2558E8; margin-top:3px; font-variant-numeric: tabular-nums;">
-                      ₹5,000 Payout <span style="font-size:0.75rem; color:#6B7280; font-weight:500;">(₹555/hr · 9 hrs)</span>
+                    <!-- Company Logo Circle -->
+                    <div class="cs-job-logo-circle">
+                      <img src="../images/projects/hm-logo-crop.png" alt="H&amp;M logo" class="cs-job-logo-img">
                     </div>
                   </div>
 
-                  <!-- 3 Meta badges -->
-                  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
-                    <div style="background:#F9FAFB; border:1px solid #E5E7EB; border-radius:6px; padding:6px; text-align:center; font-family:var(--cs-body); font-size:0.6875rem; font-weight:600; color:#374151;">
-                      📅 11 Aug
+                  <!-- Divider Line -->
+                  <div class="cs-job-card-divider"></div>
+
+                  <!-- Bottom Section -->
+                  <div class="cs-job-card-bottom">
+                    <div class="cs-job-pay-col">
+                      <span class="cs-job-pay-amount">₹5000</span>
+                      <span class="cs-job-pay-sub">for this shift</span>
                     </div>
-                    <div style="background:#F9FAFB; border:1px solid #E5E7EB; border-radius:6px; padding:6px; text-align:center; font-family:var(--cs-body); font-size:0.6875rem; font-weight:600; color:#374151;">
-                      ⏰ 10:00–21:00
-                    </div>
-                    <div style="background:#F9FAFB; border:1px solid #E5E7EB; border-radius:6px; padding:6px; text-align:center; font-family:var(--cs-body); font-size:0.6875rem; font-weight:600; color:#374151;">
-                      ⚡ Instant UPI
-                    </div>
+
+                    <!-- Action Button with Zero CLS State Morpher -->
+                    <button type="button" class="cs-job-view-btn cs-morph-btn" id="cs-sim-reserve-btn" aria-live="polite">
+                      <div class="cs-morph-stage">
+                        <span class="cs-morph-state cs-morph-state--idle">
+                          View shift
+                        </span>
+                        <span class="cs-morph-state cs-morph-state--loading">
+                          <span class="cs-spinner"></span>
+                          <span>Loading...</span>
+                        </span>
+                        <span class="cs-morph-state cs-morph-state--success">
+                          <span class="cs-morph-check">✓</span>
+                          <span>Viewing shift</span>
+                        </span>
+                      </div>
+                    </button>
                   </div>
-
-                  <!-- Emil Kowalski State-Morphing Action Button (Zero Layout Shift) -->
-                  <button type="button" class="cs-morph-btn" id="cs-sim-reserve-btn" aria-live="polite">
-                    <div class="cs-morph-stage">
-                      <!-- Idle State -->
-                      <span class="cs-morph-state cs-morph-state--idle" style="padding-inline-start:16px; padding-inline-end:14px;">
-                        <span>Claim Shift · Instant Escrow</span>
-                        <span aria-hidden="true">→</span>
-                      </span>
-
-                      <!-- Loading State -->
-                      <span class="cs-morph-state cs-morph-state--loading">
-                        <span class="cs-spinner"></span>
-                        <span>Securing Shift &amp; Locking ₹5,000...</span>
-                      </span>
-
-                      <!-- Success State -->
-                      <span class="cs-morph-state cs-morph-state--success">
-                        <span class="cs-morph-check">✓</span>
-                        <span>Shift Reserved · Escrow Confirmed</span>
-                      </span>
-                    </div>
-                  </button>
                 </div>
               </div>
             </div>
@@ -1210,7 +1243,7 @@
             <!-- Hint Strip -->
             <div style="margin-top:14px; font-family:var(--cs-body); font-size:0.75rem; color:var(--cs-ink-3); display:flex; align-items:center; gap:8px;">
               <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2558E8;"></span>
-              <span>Tap <strong>"Claim Shift"</strong> above to witness Emil Kowalski state morphing (sub-300ms transitions, zero layout shift, tactile <code>scale(0.96)</code> physics).</span>
+              <span>Tap <strong>"View shift"</strong> above to witness state morphing and zero layout shift on your authentic UpCrew job card UI.</span>
             </div>
           </div>
 
@@ -2509,6 +2542,19 @@
       searchClearBtn.addEventListener('click', function () {
         searchInput.value = '';
         searchInput.focus();
+      });
+    }
+
+    /* Bookmark Button Toggle */
+    var bookmarkBtn = document.getElementById('cs-job-bookmark-btn');
+    if (bookmarkBtn) {
+      bookmarkBtn.addEventListener('click', function () {
+        var isSaved = bookmarkBtn.classList.toggle('is-saved');
+        var path = bookmarkBtn.querySelector('path');
+        if (path) {
+          path.setAttribute('fill', isSaved ? '#2558E8' : 'none');
+          path.setAttribute('stroke', isSaved ? '#2558E8' : '#4B5563');
+        }
       });
     }
 
