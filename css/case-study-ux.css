@@ -763,149 +763,105 @@
 
 /* ── Information Architecture & Jobs to be Done (Slide 03) ──────────────── */
 .cs-ia-block {
-  margin-top: 36px;
+  margin-top: 32px;
 }
 
 .cs-ia-block-header {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .cs-ia-block-title {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
   font-weight: 800;
   color: var(--cs-ink) !important;
   letter-spacing: -0.02em;
-  margin: 0 0 6px 0;
-  line-height: 1.25;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
 }
 
 .cs-ia-block-desc {
   font-family: var(--cs-body);
-  font-size: 0.90625rem;
+  font-size: 0.875rem;
   color: var(--cs-ink-2) !important;
-  line-height: 1.55;
-  max-width: 70ch;
+  line-height: 1.42;
+  max-width: 68ch;
   margin: 0;
 }
 
 .cs-ia-ribbon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   background: var(--cs-blue);
   color: #FFFFFF;
-  border-radius: 12px;
-  padding: 12px 18px;
+  border-radius: 8px;
+  padding: 12px 14px;
   gap: 8px;
-  box-shadow: 0 4px 16px rgba(37, 88, 232, 0.22);
-}
-
-.cs-ia-ribbon-item {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 6px 4px;
+  text-align: center;
   font-family: var(--cs-body);
   font-size: 0.8125rem;
   font-weight: 700;
-  white-space: nowrap;
+  margin-top: 14px;
+  box-shadow: 0 4px 14px rgba(37, 88, 232, 0.2);
 }
 
-.cs-ia-ribbon-num {
-  display: inline-flex;
+.cs-ia-ribbon-item {
+  padding: 6px 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  background: rgba(255, 255, 255, 0.22);
-  color: #FFFFFF;
-  padding: 2px 7px;
-  border-radius: 999px;
-  line-height: 1.2;
+  text-align: center;
 }
 
-.cs-ia-ribbon-sep {
-  flex: 0 0 auto;
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 800;
-  font-size: 0.9375rem;
-}
-
-.cs-ia-ribbon-item--unlock .cs-ia-ribbon-num {
-  background: #FFFFFF;
-  color: var(--cs-blue);
+.cs-ia-ribbon-item:last-child {
+  border-right: none;
 }
 
 .cs-ia-jobs-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-  margin-top: 18px;
+  gap: 12px;
+  margin-top: 14px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 860px) {
   .cs-ia-jobs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cs-ia-jobs-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 
 .cs-ia-job-card {
   background: #FFFFFF;
   border: 1px solid var(--cs-line);
-  border-radius: 16px;
-  padding: 20px 16px 18px;
+  border-radius: var(--cs-r);
+  padding: 20px 14px 18px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 4px 16px rgba(20, 18, 16, 0.03);
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
   transition: transform 0.2s var(--cs-ease), box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .cs-ia-job-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(37, 88, 232, 0.08);
+  transform: translateY(-2px);
   border-color: rgba(37, 88, 232, 0.35);
-}
-
-.cs-ia-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 2px;
-}
-
-.cs-ia-tab-badge {
-  font-family: var(--cs-body);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--cs-blue);
-  background: var(--cs-blue-bg);
-  border: 1px solid rgba(37, 88, 232, 0.16);
-  padding: 2px 7px;
-  border-radius: 999px;
-  line-height: 1.2;
-}
-
-.cs-ia-tab-icon {
-  color: var(--cs-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.85;
+  box-shadow: 0 8px 20px rgba(37, 88, 232, 0.07);
 }
 
 .cs-ia-job-card h4 {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--cs-ink) !important;
+  color: var(--cs-blue) !important;
   margin: 0;
   line-height: 1.25;
 }
@@ -913,7 +869,7 @@
 .cs-ia-job-card p {
   font-family: var(--cs-body);
   font-size: 0.8125rem;
-  line-height: 1.55;
+  line-height: 1.48;
   color: var(--cs-ink-2) !important;
   margin: 0;
   flex-grow: 1;
@@ -925,8 +881,8 @@
   color: var(--cs-ink-3) !important;
   font-style: italic;
   border-top: 1px solid var(--cs-line);
-  padding-top: 10px;
-  line-height: 1.45;
+  padding-top: 8px;
+  line-height: 1.4;
   margin-top: 4px;
 }
 
@@ -3977,21 +3933,19 @@
     gap: 16px;
   }
   .cs-ia-ribbon {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    text-align: left;
     padding: 12px 14px;
   }
   .cs-ia-ribbon-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 10px;
     justify-content: flex-start;
-    padding: 6px 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
   .cs-ia-ribbon-item:last-child {
     border-bottom: none;
-  }
-  .cs-ia-ribbon-sep {
-    display: none;
   }
   .cs-hero-dual {
     max-width: 320px;
