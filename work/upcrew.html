@@ -15,7 +15,257 @@
   <!-- Global styles (nav/footer only) -->
   <link rel="stylesheet" href="../css/style.css">
   <!-- Case study: scoped light theme, loaded last so it wins -->
-  <link rel="stylesheet" href="../css/case-study-ux.css">
+  <link rel="stylesheet" href="../css/case-study-ux.css?v=20261014-v4">
+
+  <style id="cs-ds-component-overrides">
+    /* ── Sub-Section E Component Spec Fixes & Overflow Containment ── */
+    .cs-ds-matrix-wrap {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 20px !important;
+      padding: 24px 20px !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.02) !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+    }
+
+    .cs-ds-matrix-grid-4col {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 12px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 1100px) {
+      .cs-ds-matrix-grid-4col {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .cs-ds-matrix-grid-4col {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+    }
+
+    .cs-ds-matrix-col {
+      background: var(--cs-bg) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 14px !important;
+      padding: 14px 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+    }
+
+    .cs-ds-col-header {
+      padding-bottom: 8px !important;
+      border-bottom: 1px solid var(--cs-line) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+    }
+
+    .cs-ds-col-title {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.8125rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    .cs-ds-col-subtag {
+      font-family: var(--cs-body) !important;
+      font-size: 0.65625rem !important;
+      font-weight: 600 !important;
+      color: var(--cs-ink-3) !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    .cs-ds-btn-state-row {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 8px !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .cs-ds-btn-state-name {
+      font-family: var(--cs-body) !important;
+      font-size: 0.6875rem !important;
+      font-weight: 600 !important;
+      color: var(--cs-ink-3) !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .cs-btn-spec {
+      height: 38px !important;
+      padding: 0 10px !important;
+      border-radius: 8px !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.71875rem !important;
+      font-weight: 700 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      cursor: pointer !important;
+      min-width: 0 !important;
+      flex: 1 !important;
+      max-width: 136px !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 1100px) {
+      .cs-btn-spec {
+        max-width: 180px !important;
+      }
+    }
+
+    /* ── Components Grid & Filter Spacing ── */
+    .cs-ds-components-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+      gap: 16px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .cs-ds-comp-box {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 20px !important;
+      padding: 20px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 4px 16px rgba(0,0,0,0.02) !important;
+      min-width: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .cs-ds-comp-preview {
+      background: var(--cs-bg) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 14px !important;
+      padding: 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      flex: 1 !important;
+      min-height: 180px !important;
+      box-sizing: border-box !important;
+    }
+
+    .cs-segmented-control {
+      display: flex !important;
+      background: #E5E7EB !important;
+      padding: 3px !important;
+      border-radius: 10px !important;
+      gap: 2px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .cs-seg-tab {
+      flex: 1 !important;
+      padding: 6px 4px !important;
+      border: none !important;
+      background: transparent !important;
+      border-radius: 7px !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.6875rem !important;
+      font-weight: 600 !important;
+      color: var(--cs-ink-2) !important;
+      cursor: pointer !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      line-height: 1.2 !important;
+    }
+
+    .cs-chips-cluster {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+      align-items: center !important;
+    }
+
+    .cs-filter-chip {
+      height: 30px !important;
+      padding: 0 10px !important;
+      border-radius: 999px !important;
+      font-size: 0.6875rem !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+    }
+
+    /* ── Soft + Strong Status Pills Grid Alignment ── */
+    .cs-ds-pills-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+      width: 100% !important;
+    }
+
+    .cs-ds-status-pill {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) !important;
+      align-items: center !important;
+      gap: 8px !important;
+      height: 36px !important;
+      padding: 0 12px !important;
+      border-radius: 8px !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.71875rem !important;
+      font-weight: 700 !important;
+    }
+
+    .cs-ds-pill-left {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      min-width: 0 !important;
+    }
+
+    .cs-ds-pill-sub {
+      font-family: var(--cs-body) !important;
+      font-size: 0.65625rem !important;
+      font-weight: 600 !important;
+      opacity: 0.85 !important;
+      text-align: right !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+  </style>
 </head>
 
 <!-- cs-page class scopes the entire light theme override -->
@@ -1248,7 +1498,7 @@
           </div>
 
           <!-- Interactive 4-Variant × 6-State Button Matrix Showcase -->
-          <div class="cs-ds-matrix-wrap" style="margin-top:24px;">
+          <div class="cs-ds-matrix-wrap" style="margin-top:24px; width:100%; max-width:100%; box-sizing:border-box; overflow:hidden;">
             <div class="cs-ds-matrix-header">
               <div>
                 <h4>The 4-Variant × 6-State Button Matrix</h4>
@@ -1259,7 +1509,7 @@
               <span class="cs-ds-matrix-badge">Tactile scale(0.96) · 24 Verified Specimens</span>
             </div>
 
-            <div class="cs-ds-matrix-grid-4col">
+            <div class="cs-ds-matrix-grid-4col" style="width:100%; box-sizing:border-box;">
               <!-- Variant 1: Primary (Action) -->
               <div class="cs-ds-matrix-col">
                 <div class="cs-ds-col-header">
