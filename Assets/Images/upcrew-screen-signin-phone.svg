@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 874" width="402" height="874">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap');
+      .txt { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+    </style>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="40%" stop-color="#FDFDFE"/>
+      <stop offset="100%" stop-color="#F8FAFC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Screen Background -->
+  <rect width="402" height="874" fill="url(#bg-grad)"/>
+
+  <!-- Top Dynamic Island Pill -->
+  <rect x="156" y="11" width="90" height="26" rx="13" fill="#000000"/>
+
+  <!-- Top Status Elements (Time & Battery) -->
+  <text x="42" y="29" class="txt" font-size="14" font-weight="700" fill="#0F172A">9:41</text>
+  <g transform="translate(328, 17)">
+    <!-- Cellular -->
+    <rect x="0" y="8" width="3" height="4" rx="0.8" fill="#0F172A"/>
+    <rect x="5" y="6" width="3" height="6" rx="0.8" fill="#0F172A"/>
+    <rect x="10" y="3" width="3" height="9" rx="0.8" fill="#0F172A"/>
+    <rect x="15" y="0" width="3" height="12" rx="0.8" fill="#0F172A"/>
+    <!-- Wifi -->
+    <path d="M26 1.5 C29.5 -0.5 34.5 -0.5 38 1.5 M28 4.5 C30.5 3 33.5 3 36 4.5 M30.5 7.5 C31.5 6.8 32.5 6.8 33.5 7.5 M32 10 A1 1 0 1 1 32 10.01" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <!-- Battery -->
+    <rect x="44" y="1" width="22" height="11" rx="3" fill="none" stroke="#0F172A" stroke-width="1.5"/>
+    <rect x="46" y="3" width="15" height="7" rx="1.5" fill="#0F172A"/>
+    <path d="M67 4.5 C67.5 4.5 68 5 68 5.5 L68 7.5 C68 8 67.5 8.5 67 8.5" fill="#0F172A"/>
+  </g>
+
+  <!-- Centered UpCrew Brandmark & Slogan -->
+  <g transform="translate(126, 74) scale(0.96)">
+    <!-- Blue left curve -->
+    <path fill="#2558E8" d="M29.88,72.76c.14-.57.43-.95.79-1.33,1.24-1.32,2.93-2.14,4.75-2.19.25,0,.47.09.47.38l-.02,13.92c0,2.4-1.03,4.64-2.57,6.44-4.63,5.39-13.2,5.77-18.41.88-2.11-1.98-3.42-4.66-3.42-7.6v-13.63c-.01-.23.12-.38.33-.38,1.09-.01,2.1.27,3.05.79.8.44,1.52.95,2.08,1.68.21.28.52.64.52,1.03l.03,10.39c0,1.4.67,2.62,1.71,3.52,2.77,2.43,7.32,2.13,9.59-.62.67-.81,1.1-1.78,1.1-2.85v-10.41Z" transform="translate(-10, -60)"/>
+    <path fill="#2558E8" d="M21.67,91.17c.66-1.03,1.15-2.36,2.22-2.89,2.04-.23,3.44-.75,4.82-2.3.89-.99,1.15-2,1.14-3.33v-9.91c0-.36.31-.71.51-1,1.26-1.89,3.59-2.53,5.51-2.52l-.02,14.31c.02,2.7-1.26,5.17-3.17,7.15s-5.11,3.4-7.9,3.55c-1.16-.51-2.55-1.89-3.12-3.07Z" transform="translate(-10, -60)"/>
+    <!-- Orange center -->
+    <path fill="#F26419" d="M25.79,69.87c0-1.41-1.01-2.46-2.14-2.45-1.06,0-2.11,1.02-2.11,2.39l-.02,10.32c0,.8,1.35,2.13,2.17,2.43.83-.39,2.11-1.56,2.11-2.49v-10.21Z" transform="translate(-10, -60)"/>
+    <circle fill="#F26419" cx="13.67" cy="3.68" r="2.48"/>
+    <circle fill="#2558E8" cx="4.65" cy="5.4" r="2.78"/>
+    <circle fill="#2558E8" cx="22.69" cy="5.4" r="2.78"/>
+    <!-- Text UpCrew in Dark Charcoal -->
+    <path fill="#0F172A" d="M52.03,89.99c-1.7,0-3.19-.41-4.47-1.24-1.28-.83-2.28-1.95-2.98-3.35-.71-1.4-1.06-2.96-1.06-4.67v-12.39h3.71v12.39c0,1.01.19,1.94.57,2.79.38.85.93,1.52,1.64,2.02.71.5,1.58.75,2.6.75s1.9-.25,2.61-.75c.71-.5,1.25-1.17,1.62-2.02.37-.85.55-1.77.55-2.79v-12.39h3.71v12.39c0,1.29-.2,2.49-.61,3.61s-.98,2.1-1.73,2.95c-.75.85-1.64,1.51-2.68,1.99-1.04.48-2.19.71-3.47.71Z" transform="translate(-10, -60)"/>
+    <path fill="#0F172A" d="M66.28,97.19h-3.71v-22.78h3.71v1.93c.5-.69,1.11-1.25,1.83-1.68s1.57-.64,2.54-.64c1.11,0,2.15.21,3.11.62.96.42,1.81.99,2.54,1.72.73.73,1.31,1.58,1.72,2.54.41.96.62,2,.62,3.1s-.21,2.14-.62,3.11c-.41.97-.98,1.83-1.72,2.56-.73.73-1.58,1.31-2.54,1.72-.96.41-2,.62-3.11.62-.97,0-1.82-.22-2.54-.65s-1.33-.99-1.83-1.68v9.49ZM70.61,77.59c-.77,0-1.46.2-2.07.6-.61.4-1.08.93-1.43,1.6-.34.67-.52,1.41-.52,2.22s.17,1.55.52,2.23c.34.67.82,1.21,1.43,1.61.61.4,1.3.6,2.07.6s1.49-.2,2.14-.59c.65-.4,1.16-.93,1.55-1.6.38-.67.58-1.42.58-2.24s-.19-1.55-.58-2.22c-.39-.67-.9-1.2-1.54-1.6-.64-.4-1.36-.6-2.15-.6Z" transform="translate(-10, -60)"/>
+    <path fill="#0F172A" d="M92.81,89.99c-1.44,0-2.79-.29-4.06-.86-1.27-.57-2.38-1.36-3.34-2.38-.96-1.01-1.71-2.18-2.25-3.52s-.81-2.76-.81-4.28.27-2.96.81-4.29,1.29-2.5,2.25-3.51c.96-1.01,2.07-1.8,3.34-2.37,1.26-.57,2.62-.86,4.06-.86,1.72,0,3.3.4,4.75,1.19s2.65,1.86,3.6,3.18l-3.31,1.78c-.6-.74-1.34-1.33-2.23-1.78s-1.83-.67-2.82-.67c-.93,0-1.81.19-2.63.57-.82.38-1.54.91-2.16,1.58-.62.67-1.1,1.45-1.44,2.34-.34.89-.52,1.83-.52,2.83s.17,1.96.52,2.84c.35.88.83,1.66,1.45,2.33.62.67,1.33,1.2,2.15,1.58.82.38,1.69.57,2.62.57,1.01,0,1.96-.23,2.83-.68.87-.45,1.61-1.05,2.21-1.79l3.31,1.79c-.95,1.32-2.15,2.37-3.6,3.17s-3.03,1.2-4.75,1.2Z" transform="translate(-10, -60)"/>
+    <path fill="#0F172A" d="M102.35,89.6l-.02-15.19h3.71l.02,1.35c.52-.55,1.13-.98,1.85-1.3s1.49-.48,2.32-.48c.56,0,1.11.08,1.67.24l-1.46,3.74c-.39-.15-.77-.23-1.15-.23-.6,0-1.14.14-1.63.43s-.88.68-1.17,1.17c-.29.49-.43,1.03-.43,1.63v8.63h-3.71Z" transform="translate(-10, -60)"/>
+    <path fill="#0F172A" d="M119.58,89.99c-1.4,0-2.67-.36-3.82-1.08-1.15-.72-2.07-1.69-2.75-2.9-.68-1.22-1.03-2.56-1.03-4.02,0-1.1.2-2.14.59-3.11.39-.97.94-1.82,1.63-2.55.69-.73,1.5-1.31,2.42-1.72s1.9-.62,2.95-.62c1.18,0,2.27.25,3.26.75s1.82,1.19,2.51,2.06c.69.87,1.19,1.86,1.5,2.98.31,1.11.39,2.28.21,3.49h-11.1c.14.57.37,1.08.7,1.53.32.45.73.81,1.23,1.08.5.27,1.06.41,1.69.42.65.01,1.24-.14,1.77-.46s.98-.75,1.33-1.3l3.78.88c-.62,1.35-1.54,2.45-2.77,3.3-1.22.86-2.59,1.28-4.11,1.28ZM115.84,80.49h7.47c-.11-.61-.35-1.16-.71-1.65-.36-.49-.8-.88-1.33-1.18-.53-.29-1.09-.44-1.7-.44s-1.17.14-1.69.43-.95.68-1.31,1.17c-.36.49-.61,1.04-.74,1.66Z" transform="translate(-10, -60)"/>
+    <path fill="#0F172A" d="M135.06,89.6h-3.68l-5.07-15.19h3.63l3.3,9.83,3.28-9.83h3.66l3.28,9.83,3.3-9.83h3.63l-5.07,15.19h-3.67l-3.3-9.87-3.28,9.87Z" transform="translate(-10, -60)"/>
+  </g>
+
+  <!-- Slogan -->
+  <text x="201" y="128" text-anchor="middle" class="txt" font-size="12" font-weight="500" fill="#64748B">Work that moves with you</text>
+
+  <!-- Heading -->
+  <text x="24" y="206" class="txt" font-size="27" font-weight="800" fill="#0F172A" letter-spacing="-0.5">Welcome back</text>
+  <text x="24" y="234" class="txt" font-size="13.5" font-weight="400" fill="#64748B">Sign in with the mobile number linked to your UpCrew</text>
+  <text x="24" y="254" class="txt" font-size="13.5" font-weight="400" fill="#64748B">account.</text>
+
+  <!-- Interactive Form Card with Concentric Geometry -->
+  <g transform="translate(20, 282)">
+    <rect width="362" height="200" rx="20" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.03))"/>
+    
+    <!-- Mobile number label -->
+    <text x="20" y="32" class="txt" font-size="12.5" font-weight="700" fill="#1E293B">Mobile number</text>
+
+    <!-- Country Code Box with India Flag -->
+    <rect x="20" y="46" width="82" height="50" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <!-- India Flag -->
+    <g transform="translate(34, 63)">
+      <rect width="20" height="4" fill="#FF9933" rx="1"/>
+      <rect y="4" width="20" height="4" fill="#FFFFFF"/>
+      <circle cx="10" cy="6" r="1.8" fill="#000080"/>
+      <rect y="8" width="20" height="4" fill="#138808" rx="1"/>
+    </g>
+    <text x="60" y="77" class="txt" font-size="15" font-weight="700" fill="#0F172A">+91</text>
+
+    <!-- Phone Number Input with Active Blue Focus Ring -->
+    <rect x="110" y="46" width="232" height="50" rx="12" fill="#FFFFFF" stroke="#2558E8" stroke-width="2"/>
+    <text x="126" y="77" class="txt" font-size="16" font-weight="600" fill="#0F172A" letter-spacing="0.5">98765 43210</text>
+
+    <!-- Helper Text below input -->
+    <text x="20" y="116" class="txt" font-size="11.5" font-weight="400" fill="#94A3B8">We'll send a one-time code to verify this number.</text>
+
+    <!-- Soft + Strong Security Notice Pill -->
+    <rect x="20" y="132" width="322" height="44" rx="10" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="1"/>
+    <!-- Checkmark icon -->
+    <circle cx="36" cy="154" r="8" fill="#DBEAFE"/>
+    <path d="M32.5 154 L35 156.5 L39.5 151.5" stroke="#2558E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="52" y="151" class="txt" font-size="11.5" font-weight="700" fill="#1E40AF">Secure sign-in</text>
+    <text x="136" y="151" class="txt" font-size="11.5" font-weight="400" fill="#3B82F6">· Never shared with employers</text>
+    <text x="52" y="166" class="txt" font-size="10.5" font-weight="400" fill="#60A5FA">Direct OTP gateway with bank-grade encryption</text>
+  </g>
+
+  <!-- Legal & Account Helper -->
+  <text x="201" y="696" text-anchor="middle" class="txt" font-size="12" font-weight="500" fill="#64748B">New to UpCrew? We'll help you set up your profile.</text>
+  <text x="201" y="720" text-anchor="middle" class="txt" font-size="10.5" font-weight="400" fill="#94A3B8">By continuing, you agree to UpCrew's Terms of Service and Privacy</text>
+  <text x="201" y="736" text-anchor="middle" class="txt" font-size="10.5" font-weight="400" fill="#94A3B8">Policy.</text>
+
+  <!-- Primary Action Button with Apple HIG 44px+ Touch Area (Height 52px) -->
+  <rect x="20" y="762" width="362" height="52" rx="14" fill="#2558E8" filter="drop-shadow(0 4px 14px rgba(37, 88, 232, 0.3))"/>
+  <text x="201" y="794" text-anchor="middle" class="txt" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="-0.2">Continue</text>
+
+  <!-- Home Indicator Bar -->
+  <rect x="134" y="860" width="134" height="5" rx="2.5" fill="#CBD5E1"/>
+</svg>
