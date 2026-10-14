@@ -50,19 +50,19 @@ function renderNav() {
           <span class="nav-mark">S.W.</span>Shubham Waza
         </a>
         <ul class="nav-links">
-          ${DESKTOP_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
+          ${DESKTOP_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}"${l.href.toLowerCase() === active ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join("")}
         </ul>
-        <a href="${prefix}contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
+        <a href="${prefix}contact.html" class="btn btn-outline nav-cta magnetic"${active === 'contact.html' ? ' aria-current="page"' : ''}>Let's Connect</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
       </div>
     </header>
     <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile Navigation">
       <div class="container">
         <ul>
-          ${ALL_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
+          ${ALL_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}"${l.href.toLowerCase() === active ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join("")}
         </ul>
         <div style="padding: 24px 0 32px;">
-          <a href="${prefix}contact.html" class="btn btn-solid" style="width:100%; justify-content:center;">Let's Connect →</a>
+          <a href="${prefix}contact.html" class="btn btn-solid" style="width:100%; justify-content:center;"${active === 'contact.html' ? ' aria-current="page"' : ''}>Let's Connect →</a>
         </div>
       </div>
     </div>
