@@ -243,8 +243,16 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let loopRunning = true;
 
   function loop() {
+    // ⚡ Bolt: Pause the animation loop when idle to save CPU cycles and battery.
+    // If the box is not active and has reached its target position, stop the loop.
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      loopRunning = false;
+      return;
+    }
+
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
@@ -256,6 +264,11 @@ function initCursorPreview(itemSelector) {
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // ⚡ Bolt: Wake up the animation loop if it was paused.
+    if (!loopRunning) {
+      loopRunning = true;
+      requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
