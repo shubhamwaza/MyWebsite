@@ -1,0 +1,3 @@
+## 2025-02-27 - Pause Inactive `requestAnimationFrame` Loops
+**Learning:** Continuous vanilla JS background animations using `requestAnimationFrame` (like cursor followers) run indefinitely and consume CPU/battery even when the target position has been reached and the animation is visually inactive or off-screen.
+**Action:** When implementing continuous background animations, always ensure the loop pauses when the target position is reached and the animation is inactive. Restart it via relevant event listeners (e.g. `mousemove`, `mouseenter`) to minimize resource consumption.
