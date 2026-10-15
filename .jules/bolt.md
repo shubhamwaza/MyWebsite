@@ -1,0 +1,3 @@
+## 2024-03-27 - Pause background animation loop when inactive
+**Learning:** A continuous `requestAnimationFrame` background loop for UI elements (like a custom cursor) can consume CPU and drain battery even when the user isn't interacting with the page.
+**Action:** When implementing continuous background animations, always ensure the loop pauses when the target position is reached and the animation is inactive. Restart it only when relevant events (like mouse movement or hover) occur.
