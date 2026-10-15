@@ -1,0 +1,3 @@
+## 2024-05-24 - Pause continuous requestAnimationFrame loops
+**Learning:** Continuous `requestAnimationFrame` loops for UI effects (like cursor followers) that run indefinitely even when no interaction occurs cause unnecessary CPU usage and battery drain. This is an anti-pattern for performance, especially on static sites.
+**Action:** Always include an `isAnimating` or similar flag to pause `requestAnimationFrame` loops when the target has been reached and the effect is not currently active, and restart it on the relevant event listeners.
