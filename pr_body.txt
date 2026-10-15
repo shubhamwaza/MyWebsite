@@ -1,0 +1,4 @@
+💡 What: Added logic to pause the infinite `requestAnimationFrame` loop in `initCursorPreview` when the cursor follower has reached its target coordinate, and restarted it upon new `mousemove` events.
+🎯 Why: Previously, the background visual flair was causing constant 60fps renders and DOM style updates even when the cursor was completely idle, unnecessarily burning CPU and battery.
+📊 Impact: Eliminates infinite idle frame renders and continuous inline style recalculations on `.cursor-preview`, resulting in near-zero CPU usage when the mouse isn't moving.
+🔬 Measurement: Verify via Chrome DevTools Performance monitor that idle CPU usage drops and no frames are fired when the mouse is perfectly still.
