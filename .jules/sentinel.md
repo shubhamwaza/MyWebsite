@@ -1,0 +1,4 @@
+## 2024-05-15 - [XSS via DOM-based escapeHtml]
+**Vulnerability:** Cross-Site Scripting (XSS) due to unescaped quotes when using `textContent` for HTML escaping.
+**Learning:** The previous `escapeHtml` function used `div.textContent = str; return div.innerHTML;`. While this escapes `<`, `>`, and `&`, it FAILS to escape `"` and `'`. Because the output was often injected into HTML attributes (e.g., `<img alt="${escapeHtml(title)}">`), this allowed an attacker to break out of the attribute and inject malicious attributes (like `onmouseover`).
+**Prevention:** Always use a robust regex-based escaping function that explicitly replaces `&`, `<`, `>`, `"`, and `'`. Also, handle non-string inputs (null, undefined, numbers) safely by coercing them to strings or returning empty strings to prevent type-confusion errors.
