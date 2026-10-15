@@ -1,0 +1,3 @@
+## 2024-05-15 - Optimize Continuous requestAnimationFrame
+**Learning:** Background continuous animations with `requestAnimationFrame` consume CPU and battery even when visually inactive if they do not include pause and resume logic.
+**Action:** When implementing continuous animations, pause the `requestAnimationFrame` loop when the target position is reached and the animation is inactive, and restart it only upon relevant UI interactions.
