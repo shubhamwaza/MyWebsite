@@ -22,8 +22,8 @@
     </section>
 
     <section class="container block">
-      <div class="filter-row" id="filterRow"></div>
-      <div class="row-list" id="workList"></div>
+      <div class="filter-row" id="filterRow" role="group" aria-label="Project categories"></div>
+      <div class="row-list" id="workList" aria-live="polite"></div>
     </section>
   </main>
 
@@ -64,7 +64,7 @@
     function renderFilters() {
       const row = document.getElementById("filterRow");
       const cats = ["All", ...ALL_CATEGORIES];
-      row.innerHTML = cats.map(c => `<button class="filter-btn ${c === activeCategory ? "active" : ""}" data-cat="${c}">${c}</button>`).join("");
+      row.innerHTML = cats.map(c => `<button type="button" class="filter-btn ${c === activeCategory ? "active" : ""}" data-cat="${c}" aria-pressed="${c === activeCategory ? 'true' : 'false'}">${c}</button>`).join("");
       row.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", () => {
           activeCategory = btn.dataset.cat;
