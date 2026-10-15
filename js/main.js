@@ -243,12 +243,20 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isLooping = true; // ⚡ Bolt optimization: Track loop state to pause when inactive
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
+
+    // ⚡ Bolt optimization: Pause endless requestAnimationFrame loop when converged and inactive
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isLooping = false;
+      return;
+    }
+
     requestAnimationFrame(loop);
   }
   loop();
@@ -256,6 +264,11 @@ function initCursorPreview(itemSelector) {
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // ⚡ Bolt optimization: Restart loop on movement
+    if (!isLooping) {
+      isLooping = true;
+      loop();
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -265,6 +278,11 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      // ⚡ Bolt optimization: Restart loop on hover
+      if (!isLooping) {
+        isLooping = true;
+        loop();
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
