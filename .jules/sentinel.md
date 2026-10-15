@@ -1,0 +1,4 @@
+## 2025-02-18 - XSS via textContent to innerHTML conversion
+**Vulnerability:** The existing `escapeHtml` function uses `div.textContent = str; return div.innerHTML;` which fails to escape single and double quotes. Since this function is used to insert data into HTML attributes, this creates an XSS vulnerability.
+**Learning:** In vanilla JS applications lacking modern framework escaping, relying on DOM assignment (`textContent`) is unsafe for attribute values because `"` and `'` remain unescaped, allowing attackers to break out of attributes.
+**Prevention:** Always use regex-based escaping with comprehensive replacement (`&`, `<`, `>`, `"`, `'`) for any data that will be injected into HTML contexts, especially attributes. Also ensure safe casting of non-string inputs (like null) before escaping.
