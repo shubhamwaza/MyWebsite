@@ -1,0 +1,4 @@
+## 2026-08-11 - Fix XSS Vulnerability in `escapeHtml`
+**Vulnerability:** The custom `escapeHtml` function failed to escape single (`'`) and double (`"`) quotes, leading to Cross-Site Scripting (XSS) vulnerabilities when unsanitized user data is injected into HTML attributes (e.g., `alt="[DATA]"`).
+**Learning:** In a vanilla JS environment, relying on DOM-based escaping (`div.textContent` to `div.innerHTML`) only escapes `<`, `>`, and `&`. It does NOT escape quotes, leaving attributes vulnerable to breakout attacks.
+**Prevention:** Always use regex-based escaping or established secure libraries (like DOMPurify) when manually building HTML strings in vanilla JS, explicitly replacing `&`, `<`, `>`, `"`, and `'`.
