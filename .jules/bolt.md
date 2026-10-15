@@ -1,0 +1,3 @@
+## 2025-01-20 - Pause Invisible Animation Loops
+**Learning:** Continuous animation loops (`requestAnimationFrame`), such as cursor followers, can unnecessarily consume CPU and battery even when they are visually stable or inactive (e.g., hidden). In a vanilla JS architecture, running these constantly in the background degrades page performance.
+**Action:** When implementing continuous background animations, introduce state to track whether the animation is actively changing. Explicitly pause the loop when the target position converges and the component is inactive, and resume it only on relevant user interaction events (like mouse movement).
