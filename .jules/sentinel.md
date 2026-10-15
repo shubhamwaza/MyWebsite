@@ -1,0 +1,4 @@
+## 2024-05-18 - DOM-based HTML Escaping leaves Attributes Vulnerable to XSS
+**Vulnerability:** The codebase used a DOM-based approach (`textContent` to `innerHTML`) in the `escapeHtml` function. This approach does not escape single or double quotes, meaning it fails to prevent XSS when the output is injected directly into HTML attributes.
+**Learning:** Using a temporary DOM element to escape HTML is only safe when inserting data as text content between HTML tags. It is insufficient and unsafe when injecting data into HTML attributes, as quotes remain unescaped, allowing attackers to break out of attributes.
+**Prevention:** In vanilla JS environments without standard escaping libraries, use a regex-based `escapeHtml` function that explicitly escapes `<`, `>`, `&`, `"`, and `'`. Also, safely cast inputs to strings and handle nullish values safely.
