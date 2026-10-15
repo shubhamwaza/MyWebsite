@@ -1,0 +1,4 @@
+## 2024-05-18 - [Fix DOM-based XSS vulnerability in escapeHtml]
+**Vulnerability:** The existing `escapeHtml` function used DOM API (`textContent` and `innerHTML`) which fails to escape single and double quotes, causing an XSS vulnerability when user input is injected into HTML attributes. Additionally, not stringifying input allows type-confusion XSS vulnerabilities where numbers or objects could bypass escaping logic entirely.
+**Learning:** DOM-based text injection to generate innerHTML only encodes HTML special characters `<` and `>`, but leaves `'` and `"` intact, which is dangerous when outputs are embedded within attributes like `<img alt="[output]">`.
+**Prevention:** Always use regex-based character replacement for `escapeHtml` implementations, ensuring that `&`, `<`, `>`, `"`, and `'` are safely replaced. Explicitly typecast variables using `String()` and safely return empty strings for `null` and `undefined` to stop type-confusion vulnerabilities.
