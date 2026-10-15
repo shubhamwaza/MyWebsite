@@ -1,0 +1,4 @@
+## 2024-08-16 - DOM-Based Escaping Fails in Attribute Contexts
+**Vulnerability:** XSS vulnerability found in `escapeHtml` where quotes were not escaped.
+**Learning:** DOM-based HTML escaping (`textContent` -> `innerHTML`) is insecure because it does not escape single (`'`) or double (`"`) quotes. This leads to XSS vulnerabilities when the escaped string is placed inside an HTML attribute (e.g., `alt="..."`, `href="..."`).
+**Prevention:** Always use regex-based escaping or dedicated libraries to sanitize input, explicitly handling quotes, especially when the output will be used within HTML attributes.
