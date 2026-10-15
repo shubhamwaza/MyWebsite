@@ -1,0 +1,4 @@
+## 2024-09-14 - Fix XSS vulnerability in escapeHtml
+**Vulnerability:** The `escapeHtml` function implemented via `document.createElement("div").textContent` failed to escape quotes (`"`, `'`) and unsafely handled non-string inputs (like `null` or `undefined`), enabling Cross-Site Scripting (XSS) and Type Confusion attacks.
+**Learning:** Browser native DOM manipulations for escaping HTML using text nodes (like `textContent`) don't encode all dangerous characters, specifically quotes which can be used to break out of HTML attributes. Additionally, not converting variables securely to strings can result in stringifying "null" or "undefined" literally.
+**Prevention:** Always use robust regex-based escaping mechanisms that handle all 5 special characters (`&`, `<`, `>`, `"`, `'`) and explicitly typecast values to strings before applying escaping logic to prevent type confusion vulnerabilities.
