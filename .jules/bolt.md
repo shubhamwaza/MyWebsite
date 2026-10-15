@@ -1,0 +1,3 @@
+## 2024-05-24 - Avoid Layout Thrashing in High-Frequency Events
+**Learning:** Calling `getBoundingClientRect()` directly inside high-frequency mouse/pointer event listeners like `mousemove` and `pointermove` causes forced synchronous layout (layout thrashing) and drops frame rates, especially during interactive UI effects.
+**Action:** Cache the DOM measurement on a lower-frequency event like `mouseenter`, `pointerenter`, or when the active target changes. Invalidate or recalculate the cache on `mouseleave`, target switch, or window `scroll`/resize. When recalculating for an element that may have active CSS transforms, temporarily set `el.style.transform = "none"` before measuring, then restore it to ensure an accurate bounding box.
