@@ -1,0 +1,3 @@
+## 2025-02-23 - Pausing requestAnimationFrame loops
+**Learning:** Continuous background animations using `requestAnimationFrame` (like cursor followers) run indefinitely and consume CPU/battery even when the target is reached and the animation is visually static.
+**Action:** When implementing continuous background loops, calculate the distance to the target position and exit the loop (stop calling `requestAnimationFrame`) when the distance is negligible. Re-trigger the loop only on relevant user interactions (like `mousemove`).
