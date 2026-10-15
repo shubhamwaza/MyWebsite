@@ -1,0 +1,4 @@
+## 2026-05-18 - Fix DOM-based escapeHtml XSS vulnerability
+**Vulnerability:** The `escapeHtml` function in `js/main.js` used a DOM-based approach (`div.textContent = str; return div.innerHTML;`), which fails to escape single and double quotes, creating potential Cross-Site Scripting (XSS) vulnerabilities when data is injected into HTML attributes. Furthermore, it did not safely handle non-string inputs, leading to type-confusion vulnerabilities.
+**Learning:** DOM-based escaping relying on `innerHTML` is inherently unsafe for attribute contexts, and relying on implicit coercion can cause unexpected results with nullish or object values.
+**Prevention:** Use a regex-based replacement function for HTML escaping, specifically replacing `&`, `<`, `>`, `"`, and `'`. Always safely cast inputs to strings and explicitly handle nullish values.
