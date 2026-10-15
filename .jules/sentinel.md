@@ -1,0 +1,4 @@
+## 2024-05-24 - Cross-Site Scripting (XSS) via Attribute Injection
+**Vulnerability:** The `escapeHtml` function in `js/main.js` used DOM text node assignment (`textContent`), which fails to encode single and double quotes. These outputs were directly interpolated into HTML attributes (e.g. `alt="${escapeHtml(project.title)}"`), leaving the app vulnerable to XSS. Additionally, if the input is not explicitly a string (e.g., an array or object), type confusion can bypass string checks and result in XSS if the DOM stringifies it automatically.
+**Learning:** `textContent` is insufficient for attributes; a comprehensive regex replace mapping is required to cover all HTML characters including quotes, ensuring safe usage within quotes, and explicit string casting prevents type confusion.
+**Prevention:** Use a map-based regex replacement for `&`, `<`, `>`, `"`, and `'`, and enforce `String(str)` casting on all inputs within custom escaping utilities.
