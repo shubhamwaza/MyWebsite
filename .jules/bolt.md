@@ -1,0 +1,3 @@
+## 2024-05-24 - Stop Idle requestAnimationFrame Loops
+**Learning:** Found a background `requestAnimationFrame` loop running continuously in `initCursorPreview` to update floating cursor positions, even when the mouse was completely idle. This forced constant DOM style recalculations and layout thrashing, severely impacting idle CPU usage and battery life.
+**Action:** When implementing custom cursor tracking or physics animations, always measure the delta to the target and pause the `requestAnimationFrame` loop when the element reaches its destination. Restart the loop on the next input event (e.g., `mousemove`).
