@@ -464,6 +464,243 @@
       color: #5B21B6;
     }
 
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       APPLE DESIGN FLUID ACCENTS & TACTILE STICKERS
+       Materials: Glassmorphism, Spring Physics, Translucent Depth
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .up-float-card {
+      position: absolute;
+      z-index: 8;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 12px 18px;
+      box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.02);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms ease;
+      cursor: default;
+      user-select: none;
+      animation: upFloatSlow 5s ease-in-out infinite alternate;
+    }
+    .up-float-card:hover {
+      transform: translateY(-6px) scale(1.04) rotate(0deg) !important;
+      box-shadow: 0 24px 50px -10px rgba(37, 88, 232, 0.16), 0 0 0 1.5px var(--up-primary);
+    }
+    .up-float-card:active {
+      transform: scale(0.97) !important;
+    }
+
+    .up-float-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.125rem;
+    }
+    .up-float-icon--orange {
+      background: #FFF7ED;
+      color: #EA580C;
+      border: 1px solid #FED7AA;
+    }
+    .up-float-icon--green {
+      background: #F0FDF4;
+      color: #16A34A;
+      border: 1px solid #BBF7D0;
+    }
+    .up-float-icon--purple {
+      background: #F5F3FF;
+      color: #7C3AED;
+      border: 1px solid #DDD6FE;
+    }
+    .up-float-icon--blue {
+      background: #EFF6FF;
+      color: #2558E8;
+      border: 1px solid #BFDBFE;
+    }
+
+    .up-float-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .up-float-label {
+      font-family: var(--up-font-display);
+      font-size: 0.625rem;
+      font-weight: 800;
+      color: var(--up-ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .up-float-title {
+      font-family: var(--up-font-display);
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: var(--up-ink);
+      line-height: 1.25;
+      margin: 0;
+    }
+    .up-float-sub {
+      font-family: var(--up-font-body);
+      font-size: 0.6875rem;
+      color: var(--up-ink-2);
+      line-height: 1.3;
+      margin: 0;
+    }
+    .up-float-tag {
+      font-family: var(--up-font-display);
+      font-size: 0.625rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #F1F5F9;
+      color: var(--up-ink-2);
+      border: 1px solid var(--up-border-light);
+      margin-left: 4px;
+      align-self: center;
+      white-space: nowrap;
+    }
+    .up-float-tag--green {
+      background: #ECFDF5;
+      color: #065F46;
+      border-color: #A7F3D0;
+    }
+    .up-float-tag--blue {
+      background: #EFF6FF;
+      color: #1E40AF;
+      border-color: #BFDBFE;
+    }
+
+    /* Floats layout positions */
+    .up-float--top-left {
+      top: 140px;
+      left: 10px;
+      --rot: -3.5deg;
+      animation-delay: 0s;
+    }
+    .up-float--top-right {
+      top: 150px;
+      right: 15px;
+      --rot: 3deg;
+      animation-delay: 1.4s;
+    }
+    .up-float--mid-left {
+      top: 480px;
+      left: 10px;
+      --rot: -2.5deg;
+      animation-delay: 0.7s;
+    }
+    .up-float--mid-right {
+      top: 490px;
+      right: 15px;
+      --rot: 3.5deg;
+      animation-delay: 2.1s;
+    }
+
+    @keyframes upFloatSlow {
+      0% { transform: translateY(0px) rotate(var(--rot, -3deg)); }
+      100% { transform: translateY(-8px) rotate(var(--rot, -3deg)); }
+    }
+
+    /* Vector Sparkles in Background */
+    .up-sparkle {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--up-primary);
+      opacity: 0.45;
+      z-index: 1;
+      animation: upSparklePulse 4s ease-in-out infinite alternate;
+    }
+    .up-sparkle--1 {
+      top: 90px;
+      left: 14%;
+      font-size: 1.5rem;
+      animation-delay: 0s;
+    }
+    .up-sparkle--2 {
+      top: 110px;
+      right: 16%;
+      color: var(--up-purple);
+      font-size: 1.25rem;
+      animation-delay: 1.2s;
+    }
+    .up-sparkle--3 {
+      top: 420px;
+      left: 12%;
+      color: var(--up-orange);
+      font-size: 1.125rem;
+      animation-delay: 2.4s;
+    }
+    .up-sparkle--4 {
+      top: 440px;
+      right: 12%;
+      color: var(--up-primary);
+      font-size: 1.6rem;
+      animation-delay: 1.8s;
+    }
+    @keyframes upSparklePulse {
+      0% { transform: scale(0.85) rotate(0deg); opacity: 0.3; }
+      100% { transform: scale(1.15) rotate(15deg); opacity: 0.65; }
+    }
+
+    /* Hand-drawn Arrow Pointer to Center Phone */
+    .up-fan-pointer {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(100px);
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .up-fan-pointer svg {
+      width: 32px;
+      height: 32px;
+      color: var(--up-primary);
+    }
+    .up-fan-pointer span {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: var(--up-primary);
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      padding: 3px 10px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(37, 88, 232, 0.1);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1220px) {
+      .up-float-card {
+        display: none !important;
+      }
+      .up-fan-pointer {
+        display: none !important;
+      }
+      .up-sparkle {
+        display: none !important;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .up-float-card,
+      .up-sparkle {
+        animation: none !important;
+      }
+    }
+
     /* Narrative bridge between sections */
     .up-narrative-bridge {
       margin-top: 60px;
@@ -1514,6 +1751,53 @@
 
       <div class="up-stage-wrap">
         
+        <!-- Ambient Vector Sparkles in Whitespace (Apple Fluid Accent) -->
+        <span class="up-sparkle up-sparkle--1" aria-hidden="true">✦</span>
+        <span class="up-sparkle up-sparkle--2" aria-hidden="true">✦</span>
+        <span class="up-sparkle up-sparkle--3" aria-hidden="true">✦</span>
+        <span class="up-sparkle up-sparkle--4" aria-hidden="true">✦</span>
+
+        <!-- Floating Tactile Badges in Whitespace (Apple Design Materials & Springs) -->
+        <div class="up-float-card up-float--top-left js-reveal" aria-hidden="true">
+          <div class="up-float-icon up-float-icon--orange">🔥</div>
+          <div class="up-float-body">
+            <span class="up-float-label">Thane West Cluster</span>
+            <h4 class="up-float-title">14 Live Shifts Today</h4>
+            <p class="up-float-sub">Viviana &amp; LakeShore Malls</p>
+          </div>
+          <span class="up-float-tag up-float-tag--blue">📍 2.4 km</span>
+        </div>
+
+        <div class="up-float-card up-float--top-right js-reveal" aria-hidden="true">
+          <div class="up-float-icon up-float-icon--green">🛡️</div>
+          <div class="up-float-body">
+            <span class="up-float-label">Smart Escrow Lock</span>
+            <h4 class="up-float-title">100% Guaranteed Pay</h4>
+            <p class="up-float-sub">Pre-funded before check-in</p>
+          </div>
+          <span class="up-float-tag up-float-tag--green">✓ Verified</span>
+        </div>
+
+        <div class="up-float-card up-float--mid-left js-reveal" aria-hidden="true">
+          <div class="up-float-icon up-float-icon--purple">💬</div>
+          <div class="up-float-body">
+            <span class="up-float-label">Zero Intermediaries</span>
+            <h4 class="up-float-title">"No 20% WhatsApp Cuts"</h4>
+            <p class="up-float-sub">Direct UPI release to Riya</p>
+          </div>
+          <span class="up-float-tag up-float-tag--blue">⚡ Instant</span>
+        </div>
+
+        <div class="up-float-card up-float--mid-right js-reveal" aria-hidden="true">
+          <div class="up-float-icon up-float-icon--blue">🚇</div>
+          <div class="up-float-body">
+            <span class="up-float-label">Commute Guard</span>
+            <h4 class="up-float-title">22-Min Radius Cap</h4>
+            <p class="up-float-sub">Strict local train route filter</p>
+          </div>
+          <span class="up-float-tag up-float-tag--green">⏱️ Live Transit</span>
+        </div>
+
         <!-- Chapter Pill & Breadcrumb Navigation -->
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
           <div class="up-chapter-pill js-reveal" style="margin-bottom: 0;">
@@ -1574,6 +1858,15 @@
 
         <!-- The Panoramic 5-Screen Fan (Behance Showpiece Device Cascade) -->
         <div class="up-hero-fan-wrap js-reveal">
+
+          <!-- Hand-drawn vector arrow pointing to Centerpiece Phone -->
+          <div class="up-fan-pointer" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 8C14 8 26 14 26 28M26 28L20 22M26 28L32 22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3"/>
+            </svg>
+            <span>Riya's #1 Match · LakeShore Mall</span>
+          </div>
+
           <div class="up-fan-track">
             <!-- Screen 1: Welcome & Onboarding -->
             <div class="up-fan-device up-fan--1">
