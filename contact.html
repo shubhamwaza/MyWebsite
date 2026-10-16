@@ -140,19 +140,26 @@
         alertBox.style.display = "none";
         const origHTML = wrap.innerHTML;
 
-        wrap.innerHTML = `
-          <div class="form-success" role="status" aria-live="polite">
-            <span class="success-icon">${ICON_CHECK}</span>
-            <h3 style="font-size:1.5rem; margin-top:16px;">Message sent successfully.</h3>
-            <p class="muted" style="margin-top:12px; line-height:1.6; max-width:28rem;">Thanks for reaching out, ${escapeHtml(name)}! I've received your note and will get back to you within two business days.</p>
-            <button type="button" id="resetBtn" class="btn btn-outline" style="margin-top:28px;">Send another message</button>
-          </div>
-        `;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.classList.add("is-loading");
+        submitBtn.innerHTML = `Sending... ${ICON_SPINNER}`;
 
-        document.getElementById("resetBtn")?.addEventListener("click", () => {
-          wrap.innerHTML = origHTML;
-          location.reload();
-        });
+        setTimeout(() => {
+          wrap.innerHTML = `
+            <div class="form-success" role="status" aria-live="polite">
+              <span class="success-icon">${ICON_CHECK}</span>
+              <h3 style="font-size:1.5rem; margin-top:16px;">Message sent successfully.</h3>
+              <p class="muted" style="margin-top:12px; line-height:1.6; max-width:28rem;">Thanks for reaching out, ${escapeHtml(name)}! I've received your note and will get back to you within two business days.</p>
+              <button type="button" id="resetBtn" class="btn btn-outline" style="margin-top:28px;">Send another message</button>
+            </div>
+          `;
+
+          document.getElementById("resetBtn")?.addEventListener("click", () => {
+            wrap.innerHTML = origHTML;
+            location.reload();
+          });
+        }, 800);
       });
 
       initReveal();
