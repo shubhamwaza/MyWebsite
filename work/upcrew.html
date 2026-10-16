@@ -490,151 +490,40 @@
       color: var(--up-ink);
       font-family: var(--up-font-display);
     }
-    .up-bridge-link {
+    .up-bridge-link,
+    .up-bridge-link:link,
+    .up-bridge-link:visited,
+    .up-bridge-link span,
+    .up-bridge-link * {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-family: var(--up-font-display);
       font-size: 0.8125rem;
       font-weight: 800;
-      color: #FFFFFF;
+      color: #FFFFFF !important;
+      fill: none;
+      stroke: #FFFFFF !important;
       text-decoration: none;
-      padding: 11px 22px;
+    }
+    .up-bridge-link {
+      padding: 12px 24px;
       border-radius: 999px;
       background: var(--up-primary);
-      box-shadow: 0 4px 14px rgba(37, 88, 232, 0.3);
+      box-shadow: 0 4px 14px rgba(37, 88, 232, 0.35);
       transition: background 140ms ease-out, transform 140ms ease-out, box-shadow 140ms ease-out;
     }
-    .up-bridge-link:hover {
+    .up-bridge-link:hover,
+    .up-bridge-link:hover span,
+    .up-bridge-link:hover * {
       background: var(--up-primary-dark);
+      color: #FFFFFF !important;
+      stroke: #FFFFFF !important;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37, 88, 232, 0.4);
+      box-shadow: 0 8px 22px rgba(37, 88, 232, 0.45);
     }
     .up-bridge-link:active {
       transform: scale(0.97);
-    }
-
-    /* 19 Production Screens Showcase Grid / Ribbon */
-    .up-screens-gallery {
-      margin-top: 64px;
-      padding-top: 52px;
-      border-top: 1.5px dashed var(--up-border-light);
-      text-align: center;
-    }
-    .up-screens-gallery-head {
-      margin-bottom: 32px;
-    }
-    .up-screens-gallery-eyebrow {
-      font-family: var(--up-font-display);
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--up-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-    .up-screens-gallery-title {
-      font-family: var(--up-font-display);
-      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-      font-weight: 900;
-      color: var(--up-ink);
-      letter-spacing: -0.03em;
-      margin: 0 0 10px 0;
-    }
-    .up-screens-gallery-sub {
-      font-family: var(--up-font-body);
-      font-size: 1rem;
-      color: var(--up-ink-2);
-      max-width: 64ch;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .up-screens-scroll-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 36px;
-      text-align: left;
-    }
-    @media (max-width: 1024px) {
-      .up-screens-scroll-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 24px;
-        padding-left: 4px;
-        padding-right: 4px;
-        scrollbar-width: none;
-      }
-      .up-screens-scroll-grid::-webkit-scrollbar { display: none; }
-    }
-    .up-screen-thumb-card {
-      background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
-      border-radius: 22px;
-      padding: 12px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms ease-out, border-color 160ms ease-out;
-      flex-shrink: 0;
-      scroll-snap-align: start;
-    }
-    @media (max-width: 1024px) {
-      .up-screen-thumb-card {
-        width: 230px;
-      }
-    }
-    .up-screen-thumb-card:hover {
-      transform: translateY(-5px);
-      border-color: #93C5FD;
-      box-shadow: 0 14px 34px rgba(37, 88, 232, 0.12);
-    }
-    .up-screen-thumb-frame {
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 9 / 19.5;
-      background: #0F172A;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    }
-    .up-screen-thumb-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 200ms ease-out;
-    }
-    .up-screen-thumb-card:hover .up-screen-thumb-frame img {
-      transform: scale(1.03);
-    }
-    .up-screen-thumb-info {
-      padding: 2px 4px 6px 4px;
-    }
-    .up-screen-thumb-num {
-      font-family: var(--up-font-display);
-      font-size: 0.6875rem;
-      font-weight: 800;
-      color: var(--up-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .up-screen-thumb-title {
-      font-family: var(--up-font-display);
-      font-size: 0.875rem;
-      font-weight: 800;
-      color: var(--up-ink);
-      margin: 4px 0 0 0;
-      line-height: 1.3;
-    }
-    .up-screen-thumb-desc {
-      font-family: var(--up-font-body);
-      font-size: 0.75rem;
-      color: var(--up-ink-muted);
-      margin: 4px 0 0 0;
-      line-height: 1.45;
     }
 
     /* ── Sub-Section E Component Spec Fixes & Overflow Containment ── */
@@ -1683,14 +1572,6 @@
           </div>
         </div>
 
-        <!-- Core Proof Counters -->
-        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;" class="js-reveal">
-          <span class="cs-ds-metric-pill" style="background: #EFF6FF; border: 1.5px solid #BFDBFE; color: #1E40AF; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>19</strong> App Screens</span>
-          <span class="cs-ds-metric-pill" style="background: #F0FDF4; border: 1.5px solid #BBF7D0; color: #166534; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>100%</strong> Escrow Protected</span>
-          <span class="cs-ds-metric-pill" style="background: #FFF7ED; border: 1.5px solid #FED7AA; color: #9A3412; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>22 Min</strong> Commute SLA</span>
-          <span class="cs-ds-metric-pill" style="background: #F5F3FF; border: 1.5px solid #DDD6FE; color: #5B21B6; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>WCAG AAA</strong> Token Contrast</span>
-        </div>
-
         <!-- The Panoramic 5-Screen Fan (Behance Showpiece Device Cascade) -->
         <div class="up-hero-fan-wrap js-reveal">
           <div class="up-fan-track">
@@ -1758,135 +1639,14 @@
           </div>
         </div>
 
-        <!-- 19 Production Screens Mini-Gallery (Immediate Proof of Deliverables) -->
-        <div class="up-screens-gallery js-reveal">
-          <div class="up-screens-gallery-head">
-            <span class="up-screens-gallery-eyebrow">THE COMPLETE PRODUCT EXPERIENCE</span>
-            <h3 class="up-screens-gallery-title">19 Production Screens Designed &amp; Documented</h3>
-            <p class="up-screens-gallery-sub">
-              Every touchpoint engineered with 44px minimum touch targets, high-contrast typography, and explicit worker safety feedback across 5 core end-to-end flows.
-            </p>
-          </div>
-
-          <div class="up-screens-scroll-grid">
-            <!-- Screen 1: Welcome -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-welcome.png" alt="Screen 01: Welcome" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 01 · Onboarding</span>
-                <h4 class="up-screen-thumb-title">Welcome &amp; Value Prop</h4>
-                <p class="up-screen-thumb-desc">Clear worker positioning &amp; autonomy</p>
-              </div>
-            </div>
-
-            <!-- Screen 2: OTP Auth -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-signin-phone.png" alt="Screen 02: Sign In" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 01 · Onboarding</span>
-                <h4 class="up-screen-thumb-title">Phone OTP Authentication</h4>
-                <p class="up-screen-thumb-desc">Passwordless, instant SMS verification</p>
-              </div>
-            </div>
-
-            <!-- Screen 3: Worker Control -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-stay-in-control.png" alt="Screen 03: Stay in Control" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 01 · Onboarding</span>
-                <h4 class="up-screen-thumb-title">Worker Autonomy Rules</h4>
-                <p class="up-screen-thumb-desc">Explicit expectations &amp; rights upfront</p>
-              </div>
-            </div>
-
-            <!-- Screen 4: Shift Discovery -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-find-shifts.png" alt="Screen 04: Find Shifts" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 02 · Discovery</span>
-                <h4 class="up-screen-thumb-title">Hyperlocal Shift Feed</h4>
-                <p class="up-screen-thumb-desc">Distance filter, pay badges &amp; role tags</p>
-              </div>
-            </div>
-
-            <!-- Screen 5: Application Details -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-retail-assistant-application-details.png" alt="Screen 05: Retail Application Details" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 03 · Application</span>
-                <h4 class="up-screen-thumb-title">Shift Role &amp; Escrow Spec</h4>
-                <p class="up-screen-thumb-desc">Explicit duties, uniform rules &amp; locked pay</p>
-              </div>
-            </div>
-
-            <!-- Screen 6: App Confirmed -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-app-confirmed.png" alt="Screen 06: Application Confirmed" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 03 · Pipeline</span>
-                <h4 class="up-screen-thumb-title">Selection Confirmation</h4>
-                <p class="up-screen-thumb-desc">Zero ghosting guarantee with countdown SLA</p>
-              </div>
-            </div>
-
-            <!-- Screen 7: Upcoming Shift -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-upcoming-shift.png" alt="Screen 07: Upcoming Shift" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 04 · Shift Day</span>
-                <h4 class="up-screen-thumb-title">Day-of-Shift Hub</h4>
-                <p class="up-screen-thumb-desc">Live transit timing &amp; venue contact</p>
-              </div>
-            </div>
-
-            <!-- Screen 8: Geo Check-in -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-verified-checkin.png" alt="Screen 08: Verified Check-in" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 04 · Shift Day</span>
-                <h4 class="up-screen-thumb-title">GPS Verified Check-In</h4>
-                <p class="up-screen-thumb-desc">Tamper-proof QR &amp; geo-fence verification</p>
-              </div>
-            </div>
-
-            <!-- Screen 9: Wallet & Payout -->
-            <div class="up-screen-thumb-card">
-              <div class="up-screen-thumb-frame">
-                <img src="../Assets/Images/upcrew-screen-wallet.png" alt="Screen 09: Escrow Wallet" loading="lazy">
-              </div>
-              <div class="up-screen-thumb-info">
-                <span class="up-screen-thumb-num">Flow 05 · Compensation</span>
-                <h4 class="up-screen-thumb-title">Instant Escrow Payout</h4>
-                <p class="up-screen-thumb-desc">Direct bank release within 15 min of shift end</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Narrative Bridge connecting to Section 02 -->
         <div class="up-narrative-bridge js-reveal">
           <p class="up-bridge-text">
             <strong>Next: The Breakdown ·</strong> While the promise of gig work is freedom, 78% of temporary workers in Thane &amp; Mumbai lose wages to unverified WhatsApp middlemen, opaque commissions, and zero-recourse ghosting.
           </p>
-          <a href="#cs-problem" class="up-bridge-link">
-            <span>Explore 02 · Problem Statement</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <a href="#cs-problem" class="up-bridge-link" style="background: #2558E8; color: #FFFFFF !important;">
+            <span style="color: #FFFFFF !important; font-weight: 800;">Explore 02 · Problem Statement</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="stroke: #FFFFFF !important;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
         </div>
 
