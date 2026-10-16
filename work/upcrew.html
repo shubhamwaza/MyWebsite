@@ -19,23 +19,24 @@
 
   <style id="cs-ds-component-overrides">
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       UPCREW FULL-BLEED DESIGN LANGUAGE (BEHANCE AESTHETIC · ZERO AI SLOP)
-       Grounding: UpCrew Brand System (Royal Cobalt, Verified Green, Urgency Orange)
+       UPCREW FULL-BLEED DESIGN LANGUAGE (BEHANCE PLAYFUL AESTHETIC · ZERO AI SLOP)
+       Grounding: Bright Luminous Canvas, Pure High Contrast, UpCrew Brand System
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     :root {
-      --up-bg-dark: #0A0F1D;
-      --up-bg-light: #FFFFFF;
-      --up-bg-tint: #F8FAFC;
       --up-primary: #2558E8;
-      --up-primary-glow: rgba(37, 88, 232, 0.25);
+      --up-primary-dark: #1D4ED8;
+      --up-primary-light: #EEF2FF;
       --up-orange: #F26419;
       --up-green: #16A34A;
+      --up-purple: #7C3AED;
       --up-ink: #0F172A;
+      --up-ink-2: #334155;
       --up-ink-muted: #64748B;
-      --up-border-dark: rgba(255, 255, 255, 0.08);
       --up-border-light: #E2E8F0;
+      --up-surface-white: #FFFFFF;
+      --up-surface-soft: #F8FAFC;
       --up-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --up-font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --up-font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     /* Full-bleed stage wrapper */
@@ -43,20 +44,25 @@
       position: relative;
       width: 100%;
       box-sizing: border-box;
-      padding: clamp(80px, 9vw, 130px) clamp(20px, 5vw, 80px);
+      padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 80px);
       overflow: hidden;
     }
-    .up-stage--dark {
-      background-color: var(--up-bg-dark);
-      color: #F8FAFC;
+    .up-stage--hero {
+      background: radial-gradient(100% 70% at 50% 0%, #EEF2FF 0%, #F8FAFC 50%, #FFFFFF 100%);
+      color: var(--up-ink);
+      border-bottom: 1px solid var(--up-border-light);
     }
     .up-stage--light {
-      background-color: var(--up-bg-light);
+      background-color: #FFFFFF;
       color: var(--up-ink);
     }
     .up-stage--tint {
-      background-color: var(--up-bg-tint);
+      background-color: #F8FAFC;
       color: var(--up-ink);
+    }
+    .up-stage--dark {
+      background-color: #0F172A;
+      color: #F8FAFC;
     }
     .up-stage-wrap {
       max-width: 1360px;
@@ -71,18 +77,14 @@
       right: clamp(10px, 3vw, 50px);
       top: 10px;
       font-family: var(--up-font-display);
-      font-size: clamp(7rem, 16vw, 15rem);
+      font-size: clamp(8rem, 18vw, 16rem);
       font-weight: 900;
       line-height: 0.9;
-      color: rgba(255, 255, 255, 0.03);
+      color: rgba(37, 88, 232, 0.04);
       pointer-events: none;
       user-select: none;
       z-index: 1;
       letter-spacing: -0.05em;
-    }
-    .up-stage--light .up-watermark,
-    .up-stage--tint .up-watermark {
-      color: rgba(15, 23, 42, 0.03);
     }
 
     /* Signature rubric chapter badge */
@@ -90,45 +92,31 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(37, 88, 232, 0.12);
-      border: 1px solid rgba(37, 88, 232, 0.32);
+      background: #EEF2FF;
+      border: 1.5px solid #C7D2FE;
       padding: 7px 18px;
       border-radius: 999px;
-      margin-bottom: 24px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(37, 88, 232, 0.06);
     }
     .up-chapter-num {
       font-family: var(--up-font-display);
       font-size: 0.75rem;
       font-weight: 800;
-      color: #60A5FA;
+      color: var(--up-primary);
       letter-spacing: 0.06em;
     }
     .up-chapter-sep {
-      color: rgba(96, 165, 250, 0.4);
+      color: #94A3B8;
       font-weight: 400;
     }
     .up-chapter-title {
       font-family: var(--up-font-display);
       font-size: 0.75rem;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--up-ink);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-    .up-stage--light .up-chapter-pill,
-    .up-stage--tint .up-chapter-pill {
-      background: rgba(37, 88, 232, 0.08);
-      border-color: rgba(37, 88, 232, 0.2);
-    }
-    .up-stage--light .up-chapter-title,
-    .up-stage--tint .up-chapter-title {
-      color: var(--up-primary);
-    }
-    .up-stage--light .up-chapter-num,
-    .up-stage--tint .up-chapter-num {
-      color: var(--up-ink);
     }
 
     /* Back Link with microinteraction */
@@ -139,13 +127,13 @@
       font-family: var(--up-font-display);
       font-size: 0.8125rem;
       font-weight: 700;
-      color: #94A3B8;
+      color: var(--up-ink-muted);
       text-decoration: none;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       transition: color 140ms ease-out, transform 140ms ease-out;
     }
     .up-back-link:hover {
-      color: #FFFFFF;
+      color: var(--up-primary);
       transform: translateX(-3px);
     }
     .up-back-link:active {
@@ -153,39 +141,31 @@
     }
 
     /* Hero layout */
-    .up-hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: clamp(40px, 6vw, 80px);
-      align-items: center;
-      margin-top: 10px;
-    }
-    @media (max-width: 1024px) {
-      .up-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
+    .up-hero-header {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .up-eyebrow {
       font-family: var(--up-font-display);
       font-size: 0.8125rem;
       font-weight: 800;
-      color: #60A5FA;
+      color: var(--up-primary);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      display: block;
-      margin-bottom: 14px;
+      display: inline-block;
+      margin-bottom: 12px;
     }
 
     .up-hero-h1 {
       font-family: var(--up-font-display);
-      font-size: clamp(3.6rem, 7.5vw, 6.2rem);
+      font-size: clamp(3.8rem, 8vw, 6.8rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1.0;
-      margin: 0 0 12px 0;
-      color: #FFFFFF;
+      margin: 0 0 10px 0;
+      color: var(--up-ink);
     }
     .up-accent-dot {
       color: var(--up-primary);
@@ -194,53 +174,109 @@
 
     .up-hero-h2 {
       font-family: var(--up-font-display);
-      font-size: clamp(1.4rem, 2.6vw, 2.1rem);
-      font-weight: 600;
-      color: #94A3B8;
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      font-weight: 700;
+      color: var(--up-ink-2);
       letter-spacing: -0.02em;
-      margin: 0 0 22px 0;
+      margin: 0 0 18px 0;
     }
 
     .up-hero-lead {
       font-family: var(--up-font-body);
-      font-size: 1.125rem;
-      line-height: 1.68;
-      color: #CBD5E1;
-      max-width: 54ch;
-      margin-bottom: 34px;
+      font-size: 1.1875rem;
+      line-height: 1.65;
+      color: var(--up-ink-2);
+      max-width: 68ch;
+      margin: 0 auto 32px auto;
       font-weight: 400;
+    }
+
+    /* Riya Sharma Character Speech Pill */
+    .up-hero-character-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #F5F3FF;
+      border: 1.5px solid #DDD6FE;
+      border-radius: 999px;
+      padding: 6px 20px 6px 8px;
+      margin: 0 auto 36px auto;
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08);
+      text-align: left;
+    }
+    .up-char-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #7C3AED;
+      flex-shrink: 0;
+    }
+    .up-char-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .up-char-bubble {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .up-char-name {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: #7C3AED;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .up-char-quote {
+      font-family: var(--up-font-display);
+      font-size: 0.84375rem;
+      font-weight: 700;
+      color: #1E1B4B;
+      margin: 0;
     }
 
     /* Metadata matrix cards */
     .up-meta-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
-      max-width: 560px;
-      margin-bottom: 32px;
+      max-width: 960px;
+      margin: 0 auto 40px auto;
     }
-    @media (max-width: 540px) {
+    @media (max-width: 768px) {
+      .up-meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 480px) {
       .up-meta-grid {
         grid-template-columns: 1fr;
       }
     }
     .up-meta-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--up-border-dark);
-      border-radius: 14px;
-      padding: 14px 16px;
-      transition: border-color 140ms ease-out, background 140ms ease-out;
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+      text-align: left;
+      transition: transform 140ms ease-out, border-color 140ms ease-out, box-shadow 140ms ease-out;
     }
     .up-meta-card:hover {
-      border-color: rgba(37, 88, 232, 0.4);
-      background: rgba(37, 88, 232, 0.06);
+      transform: translateY(-2px);
+      border-color: #C7D2FE;
+      box-shadow: 0 8px 24px rgba(37, 88, 232, 0.08);
     }
     .up-meta-label {
       display: block;
       font-family: var(--up-font-display);
       font-size: 0.6875rem;
-      font-weight: 700;
-      color: #64748B;
+      font-weight: 800;
+      color: var(--up-ink-muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 4px;
@@ -249,98 +285,193 @@
       display: block;
       font-family: var(--up-font-display);
       font-size: 0.9375rem;
-      font-weight: 700;
-      color: #F8FAFC;
+      font-weight: 800;
+      color: var(--up-ink);
     }
 
-    /* Hero media stage */
-    .up-hero-stage {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .up-video-shell {
+    /* Multi-Device 5-Screen Panoramic Fan (Behance Hero Showpiece) */
+    .up-hero-fan-wrap {
       position: relative;
       width: 100%;
-      max-width: 380px;
-      border-radius: 36px;
-      background: #111827;
-      border: 2px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(37, 88, 232, 0.2);
+      margin: 30px auto 0 auto;
+      padding: 50px 0 30px 0;
+    }
+    .up-fan-track {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: clamp(10px, 1.8vw, 24px);
+      width: 100%;
+      box-sizing: border-box;
+      perspective: 1200px;
+    }
+    @media (max-width: 980px) {
+      .up-fan-track {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 24px;
+        padding-left: 20px;
+        padding-right: 20px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .up-fan-track::-webkit-scrollbar { display: none; }
+    }
+
+    .up-fan-device {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), z-index 0ms;
+    }
+    .up-fan-tag {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      border: 1px solid var(--up-border-light);
+      color: var(--up-ink-2);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+      white-space: nowrap;
+    }
+    .up-fan-tag--primary {
+      background: var(--up-primary);
+      border-color: var(--up-primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(37, 88, 232, 0.3);
+    }
+
+    .up-fan-phone {
+      border-radius: 34px;
+      padding: 8px;
+      background: #0F172A;
+      box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.08);
       overflow: hidden;
       aspect-ratio: 9 / 19.5;
+      display: block;
+      transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 240ms ease-out;
     }
-    .up-video-shell video {
+    .up-fan-phone img,
+    .up-fan-phone video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      border-radius: 26px;
+      background: #FFFFFF;
+    }
+
+    /* Staggered Fan Layout Dials */
+    .up-fan--1 {
+      width: clamp(170px, 16vw, 215px);
+      transform: rotate(-6deg) translateY(28px);
+      opacity: 0.88;
+    }
+    .up-fan--2 {
+      width: clamp(190px, 17.5vw, 235px);
+      transform: rotate(-2.5deg) translateY(12px);
+      z-index: 2;
+    }
+    .up-fan--3 {
+      width: clamp(230px, 20vw, 275px);
+      transform: translateY(-14px);
+      z-index: 5;
+    }
+    .up-fan--3 .up-fan-phone {
+      border: 2px solid var(--up-primary);
+      box-shadow: 0 35px 80px -15px rgba(37, 88, 232, 0.38), 0 0 0 2px rgba(37, 88, 232, 0.2);
+    }
+    .up-fan--4 {
+      width: clamp(190px, 17.5vw, 235px);
+      transform: rotate(2.5deg) translateY(12px);
+      z-index: 2;
+    }
+    .up-fan--5 {
+      width: clamp(170px, 16vw, 215px);
+      transform: rotate(6deg) translateY(28px);
+      opacity: 0.88;
+    }
+
+    .up-fan-device:hover {
+      transform: translateY(-24px) scale(1.05);
+      z-index: 10;
+      opacity: 1;
+    }
+    .up-fan-device:hover .up-fan-phone {
+      box-shadow: 0 35px 80px -10px rgba(15, 23, 42, 0.35);
+    }
+
+    @media (max-width: 980px) {
+      .up-fan--1, .up-fan--2, .up-fan--3, .up-fan--4, .up-fan--5 {
+        width: 210px;
+        transform: none !important;
+        opacity: 1 !important;
+      }
     }
 
     /* Floating tactical stickers (Behance micro-moments) */
-    .up-sticker {
-      position: absolute;
+    .up-stickers-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .up-sticker-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 16px;
+      padding: 9px 18px;
       border-radius: 999px;
       font-family: var(--up-font-display);
-      font-size: 0.75rem;
+      font-size: 0.78125rem;
       font-weight: 800;
-      letter-spacing: 0.02em;
-      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5);
-      z-index: 10;
-      white-space: nowrap;
-      animation: upStickerFloat 4s ease-in-out infinite alternate;
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+      color: var(--up-ink);
+      transition: transform 140ms ease-out, box-shadow 140ms ease-out;
     }
-    .up-sticker--1 {
-      top: 12%;
-      right: -24px;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(22, 163, 74, 0.4);
-      color: #4ADE80;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      animation-delay: 0s;
+    .up-sticker-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
     }
-    .up-sticker--2 {
-      bottom: 22%;
-      left: -32px;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(37, 88, 232, 0.4);
-      color: #60A5FA;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      animation-delay: 1.2s;
+    .up-sticker-pill--green {
+      border-color: #BBF7D0;
+      background: #F0FDF4;
+      color: #166534;
     }
-    .up-sticker--3 {
-      bottom: 8%;
-      right: -18px;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(242, 100, 25, 0.4);
-      color: #FB923C;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      animation-delay: 2.4s;
+    .up-sticker-pill--blue {
+      border-color: #BFDBFE;
+      background: #EFF6FF;
+      color: #1E40AF;
     }
-    @keyframes upStickerFloat {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-8px); }
+    .up-sticker-pill--orange {
+      border-color: #FED7AA;
+      background: #FFF7ED;
+      color: #9A3412;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .up-sticker { animation: none !important; }
-    }
-    @media (max-width: 640px) {
-      .up-sticker { display: none; }
+    .up-sticker-pill--purple {
+      border-color: #DDD6FE;
+      background: #F5F3FF;
+      color: #5B21B6;
     }
 
     /* Narrative bridge between sections */
     .up-narrative-bridge {
-      margin-top: 70px;
-      padding-top: 32px;
-      border-top: 1px solid var(--up-border-dark);
+      margin-top: 60px;
+      padding: 24px 28px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -350,13 +481,13 @@
     .up-bridge-text {
       font-family: var(--up-font-body);
       font-size: 0.9375rem;
-      color: #94A3B8;
+      color: var(--up-ink-2);
       max-width: 72ch;
       line-height: 1.6;
       margin: 0;
     }
     .up-bridge-text strong {
-      color: #F8FAFC;
+      color: var(--up-ink);
       font-family: var(--up-font-display);
     }
     .up-bridge-link {
@@ -366,20 +497,144 @@
       font-family: var(--up-font-display);
       font-size: 0.8125rem;
       font-weight: 800;
-      color: #60A5FA;
+      color: #FFFFFF;
       text-decoration: none;
-      padding: 10px 18px;
+      padding: 11px 22px;
       border-radius: 999px;
-      background: rgba(37, 88, 232, 0.12);
-      border: 1px solid rgba(37, 88, 232, 0.3);
-      transition: background 140ms ease-out, transform 140ms ease-out;
+      background: var(--up-primary);
+      box-shadow: 0 4px 14px rgba(37, 88, 232, 0.3);
+      transition: background 140ms ease-out, transform 140ms ease-out, box-shadow 140ms ease-out;
     }
     .up-bridge-link:hover {
-      background: rgba(37, 88, 232, 0.22);
+      background: var(--up-primary-dark);
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 88, 232, 0.4);
     }
     .up-bridge-link:active {
       transform: scale(0.97);
+    }
+
+    /* 19 Production Screens Showcase Grid / Ribbon */
+    .up-screens-gallery {
+      margin-top: 64px;
+      padding-top: 52px;
+      border-top: 1.5px dashed var(--up-border-light);
+      text-align: center;
+    }
+    .up-screens-gallery-head {
+      margin-bottom: 32px;
+    }
+    .up-screens-gallery-eyebrow {
+      font-family: var(--up-font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--up-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .up-screens-gallery-title {
+      font-family: var(--up-font-display);
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 900;
+      color: var(--up-ink);
+      letter-spacing: -0.03em;
+      margin: 0 0 10px 0;
+    }
+    .up-screens-gallery-sub {
+      font-family: var(--up-font-body);
+      font-size: 1rem;
+      color: var(--up-ink-2);
+      max-width: 64ch;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .up-screens-scroll-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+      text-align: left;
+    }
+    @media (max-width: 1024px) {
+      .up-screens-scroll-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 24px;
+        padding-left: 4px;
+        padding-right: 4px;
+        scrollbar-width: none;
+      }
+      .up-screens-scroll-grid::-webkit-scrollbar { display: none; }
+    }
+    .up-screen-thumb-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      border-radius: 22px;
+      padding: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms ease-out, border-color 160ms ease-out;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+    @media (max-width: 1024px) {
+      .up-screen-thumb-card {
+        width: 230px;
+      }
+    }
+    .up-screen-thumb-card:hover {
+      transform: translateY(-5px);
+      border-color: #93C5FD;
+      box-shadow: 0 14px 34px rgba(37, 88, 232, 0.12);
+    }
+    .up-screen-thumb-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 9 / 19.5;
+      background: #0F172A;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    .up-screen-thumb-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 200ms ease-out;
+    }
+    .up-screen-thumb-card:hover .up-screen-thumb-frame img {
+      transform: scale(1.03);
+    }
+    .up-screen-thumb-info {
+      padding: 2px 4px 6px 4px;
+    }
+    .up-screen-thumb-num {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: var(--up-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .up-screen-thumb-title {
+      font-family: var(--up-font-display);
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: var(--up-ink);
+      margin: 4px 0 0 0;
+      line-height: 1.3;
+    }
+    .up-screen-thumb-desc {
+      font-family: var(--up-font-body);
+      font-size: 0.75rem;
+      color: var(--up-ink-muted);
+      margin: 4px 0 0 0;
+      line-height: 1.45;
     }
 
     /* ── Sub-Section E Component Spec Fixes & Overflow Containment ── */
@@ -1365,20 +1620,19 @@
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
          SECTION 01 / 24: PROJECT OVERVIEW (FULL-BLEED BEHANCE SHOWCASE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="up-stage up-stage--dark" id="cs-hero" data-rubric="01">
+    <section class="up-stage up-stage--hero" id="cs-hero" data-rubric="01">
       <div class="up-watermark" aria-hidden="true">01</div>
 
       <div class="up-stage-wrap">
         
-        <!-- Rubric Chapter Marker -->
-        <div class="up-chapter-pill js-reveal">
-          <span class="up-chapter-num">01 / 24</span>
-          <span class="up-chapter-sep">·</span>
-          <span class="up-chapter-title">PROJECT OVERVIEW</span>
-        </div>
-
-        <div>
-          <a href="../work.html" class="up-back-link js-reveal">
+        <!-- Chapter Pill & Breadcrumb Navigation -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
+          <div class="up-chapter-pill js-reveal" style="margin-bottom: 0;">
+            <span class="up-chapter-num">01 / 24</span>
+            <span class="up-chapter-sep">·</span>
+            <span class="up-chapter-title">PROJECT OVERVIEW</span>
+          </div>
+          <a href="../work.html" class="up-back-link js-reveal" style="margin-bottom: 0;">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M9 11.5L4.5 7L9 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -1386,71 +1640,241 @@
           </a>
         </div>
 
-        <div class="up-hero-grid">
-          <!-- Left Column: Editorial & Context -->
-          <div class="up-hero-copy js-reveal">
-            <span class="up-eyebrow">HYPERLOCAL GIG WORKFORCE PLATFORM</span>
-            <h1 class="up-hero-h1">UpCrew<span class="up-accent-dot">.</span></h1>
-            <h2 class="up-hero-h2">Work that moves with you</h2>
-            
-            <p class="up-hero-lead">
-              An on-demand shift marketplace connecting verified temporary workers with local shifts in retail, hospitality, and exhibitions across Mumbai &amp; Thane. Built to replace informal WhatsApp groups with upfront guaranteed escrow pay, transparent commute radiuses, and zero-ghosting application pipelines.
-            </p>
+        <!-- Riya Sharma Character Speech Badge (Narrative Anchor) -->
+        <div style="text-align: center;">
+          <div class="up-hero-character-badge js-reveal">
+            <div class="up-char-avatar">
+              <img src="../Assets/Images/riya-persona.jpg" alt="Riya Sharma - UpCrew Persona" loading="eager">
+            </div>
+            <div class="up-char-bubble">
+              <span class="up-char-name">Riya Sharma · 23, Thane West (Retail Worker &amp; Student)</span>
+              <p class="up-char-quote">"Flexibility shouldn't mean chasing WhatsApp admins for last week's pay."</p>
+            </div>
+          </div>
+        </div>
 
-            <div class="up-meta-grid">
-              <div class="up-meta-card">
-                <span class="up-meta-label">Role</span>
-                <span class="up-meta-val">Solo Product &amp; UX/UI Designer</span>
-              </div>
-              <div class="up-meta-card">
-                <span class="up-meta-label">Timeline</span>
-                <span class="up-meta-val">12-Week Design Thinking Cycle</span>
-              </div>
-              <div class="up-meta-card">
-                <span class="up-meta-label">Platform</span>
-                <span class="up-meta-val">Mobile App (iOS &amp; Android)</span>
-              </div>
-              <div class="up-meta-card">
-                <span class="up-meta-label">Core Deliverables</span>
-                <span class="up-meta-val">19 Production Screens · Design System</span>
+        <!-- Editorial Hero Title & Positioning -->
+        <div class="up-hero-header js-reveal">
+          <span class="up-eyebrow">HYPERLOCAL ON-DEMAND WORKFORCE PLATFORM · MUMBAI &amp; THANE</span>
+          <h1 class="up-hero-h1">UpCrew<span class="up-accent-dot">.</span></h1>
+          <h2 class="up-hero-h2">Work that moves with you</h2>
+          <p class="up-hero-lead">
+            An on-demand shift marketplace connecting verified temporary gig workers in retail, hospitality, and exhibitions with upfront guaranteed escrow pay, transparent commute radiuses, and zero-ghosting application SLAs. Designed from 100+ field interviews across Thane &amp; Mumbai to replace predatory, chaotic WhatsApp hiring groups.
+          </p>
+        </div>
+
+        <!-- Project Metadata Matrix Cards (High Contrast & Tactile) -->
+        <div class="up-meta-grid js-reveal">
+          <div class="up-meta-card">
+            <span class="up-meta-label">Role</span>
+            <span class="up-meta-val">Solo Product &amp; UX/UI Designer</span>
+          </div>
+          <div class="up-meta-card">
+            <span class="up-meta-label">Timeline</span>
+            <span class="up-meta-val">12-Week Design Thinking Cycle</span>
+          </div>
+          <div class="up-meta-card">
+            <span class="up-meta-label">Platform</span>
+            <span class="up-meta-val">Mobile App (iOS &amp; Android)</span>
+          </div>
+          <div class="up-meta-card">
+            <span class="up-meta-label">Deliverables</span>
+            <span class="up-meta-val">19 Production Screens · Design System</span>
+          </div>
+        </div>
+
+        <!-- Core Proof Counters -->
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;" class="js-reveal">
+          <span class="cs-ds-metric-pill" style="background: #EFF6FF; border: 1.5px solid #BFDBFE; color: #1E40AF; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>19</strong> App Screens</span>
+          <span class="cs-ds-metric-pill" style="background: #F0FDF4; border: 1.5px solid #BBF7D0; color: #166534; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>100%</strong> Escrow Protected</span>
+          <span class="cs-ds-metric-pill" style="background: #FFF7ED; border: 1.5px solid #FED7AA; color: #9A3412; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>22 Min</strong> Commute SLA</span>
+          <span class="cs-ds-metric-pill" style="background: #F5F3FF; border: 1.5px solid #DDD6FE; color: #5B21B6; padding: 6px 16px; border-radius: 999px; font-weight: 700; font-size: 0.8125rem;"><strong>WCAG AAA</strong> Token Contrast</span>
+        </div>
+
+        <!-- The Panoramic 5-Screen Fan (Behance Showpiece Device Cascade) -->
+        <div class="up-hero-fan-wrap js-reveal">
+          <div class="up-fan-track">
+            <!-- Screen 1: Welcome & Onboarding -->
+            <div class="up-fan-device up-fan--1">
+              <span class="up-fan-tag">01 · Welcome</span>
+              <div class="up-fan-phone">
+                <img src="../Assets/Images/upcrew-screen-welcome.png" alt="UpCrew Welcome & Onboarding Screen" loading="eager">
               </div>
             </div>
 
-            <!-- Live Proof Pills -->
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-              <span class="cs-ds-metric-pill" style="background: rgba(37, 88, 232, 0.15); border: 1px solid rgba(37, 88, 232, 0.4); color: #93C5FD;"><strong>19</strong> App Screens</span>
-              <span class="cs-ds-metric-pill" style="background: rgba(22, 163, 74, 0.15); border: 1px solid rgba(22, 163, 74, 0.4); color: #86EFAC;"><strong>100%</strong> Escrow Protected</span>
-              <span class="cs-ds-metric-pill" style="background: rgba(242, 100, 25, 0.15); border: 1px solid rgba(242, 100, 25, 0.4); color: #FDBA74;"><strong>Zero</strong> Ghosting SLAs</span>
-              <span class="cs-ds-metric-pill" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #F8FAFC;"><strong>WCAG AAA</strong> Contrast</span>
+            <!-- Screen 2: Brand Motion Video Shell -->
+            <div class="up-fan-device up-fan--2">
+              <span class="up-fan-tag">02 · Motion</span>
+              <div class="up-fan-phone">
+                <video autoplay muted loop playsinline preload="auto" aria-label="UpCrew animated launch screen">
+                  <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+            <!-- Screen 3: Centerpiece Hero (Elevated, Cobalt Glow) -->
+            <div class="up-fan-device up-fan--3">
+              <span class="up-fan-tag up-fan-tag--primary">03 · Live Shifts</span>
+              <div class="up-fan-phone">
+                <img src="../Assets/Images/upcrew-browse-shifts.png" alt="UpCrew Live Shift Discovery Feed" loading="eager">
+              </div>
+            </div>
+
+            <!-- Screen 4: Shift Details & Commute -->
+            <div class="up-fan-device up-fan--4">
+              <span class="up-fan-tag">04 · Commute SLA</span>
+              <div class="up-fan-phone">
+                <img src="../Assets/Images/upcrew-shift-details.png" alt="UpCrew Shift Details & Commute Transparency" loading="eager">
+              </div>
+            </div>
+
+            <!-- Screen 5: Instant Escrow Wallet -->
+            <div class="up-fan-device up-fan--5">
+              <span class="up-fan-tag">05 · Escrow Wallet</span>
+              <div class="up-fan-phone">
+                <img src="../Assets/Images/upcrew-screen-wallet.png" alt="UpCrew Escrow Protected Wallet Screen" loading="eager">
+              </div>
             </div>
           </div>
 
-          <!-- Right Column: High-Impact Video & Tactile Floating Mockups -->
-          <div class="up-hero-stage js-reveal">
-            <div class="up-video-shell" aria-label="UpCrew animated launch screen showcase">
-              <video
-                id="hero-video"
-                autoplay muted loop playsinline preload="auto"
-                aria-label="UpCrew launch screen animation"
-              >
-                <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
-              </video>
+          <!-- Tactile Field Badges floating below fan -->
+          <div class="up-stickers-row">
+            <div class="up-sticker-pill up-sticker-pill--green">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+              <span>₹5,000 Escrow Guaranteed</span>
+            </div>
+            <div class="up-sticker-pill up-sticker-pill--blue">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>22 Min Commute · Thane West</span>
+            </div>
+            <div class="up-sticker-pill up-sticker-pill--orange">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Zero-Ghosting Application SLA</span>
+            </div>
+            <div class="up-sticker-pill up-sticker-pill--purple">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span>19 Production Screens Designed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19 Production Screens Mini-Gallery (Immediate Proof of Deliverables) -->
+        <div class="up-screens-gallery js-reveal">
+          <div class="up-screens-gallery-head">
+            <span class="up-screens-gallery-eyebrow">THE COMPLETE PRODUCT EXPERIENCE</span>
+            <h3 class="up-screens-gallery-title">19 Production Screens Designed &amp; Documented</h3>
+            <p class="up-screens-gallery-sub">
+              Every touchpoint engineered with 44px minimum touch targets, high-contrast typography, and explicit worker safety feedback across 5 core end-to-end flows.
+            </p>
+          </div>
+
+          <div class="up-screens-scroll-grid">
+            <!-- Screen 1: Welcome -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-welcome.png" alt="Screen 01: Welcome" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 01 · Onboarding</span>
+                <h4 class="up-screen-thumb-title">Welcome &amp; Value Prop</h4>
+                <p class="up-screen-thumb-desc">Clear worker positioning &amp; autonomy</p>
+              </div>
             </div>
 
-            <!-- Tactile Field Badges (Real Parameters from Thane Field Data) -->
-            <div class="up-sticker up-sticker--1" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
-              ₹5,000 Escrow Guaranteed
+            <!-- Screen 2: OTP Auth -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-signin-phone.png" alt="Screen 02: Sign In" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 01 · Onboarding</span>
+                <h4 class="up-screen-thumb-title">Phone OTP Authentication</h4>
+                <p class="up-screen-thumb-desc">Passwordless, instant SMS verification</p>
+              </div>
             </div>
 
-            <div class="up-sticker up-sticker--2" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              22 Min Commute · Thane West
+            <!-- Screen 3: Worker Control -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-stay-in-control.png" alt="Screen 03: Stay in Control" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 01 · Onboarding</span>
+                <h4 class="up-screen-thumb-title">Worker Autonomy Rules</h4>
+                <p class="up-screen-thumb-desc">Explicit expectations &amp; rights upfront</p>
+              </div>
             </div>
 
-            <div class="up-sticker up-sticker--3" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              Zero-Ghosting Application SLA
+            <!-- Screen 4: Shift Discovery -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-find-shifts.png" alt="Screen 04: Find Shifts" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 02 · Discovery</span>
+                <h4 class="up-screen-thumb-title">Hyperlocal Shift Feed</h4>
+                <p class="up-screen-thumb-desc">Distance filter, pay badges &amp; role tags</p>
+              </div>
+            </div>
+
+            <!-- Screen 5: Application Details -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-retail-assistant-application-details.png" alt="Screen 05: Retail Application Details" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 03 · Application</span>
+                <h4 class="up-screen-thumb-title">Shift Role &amp; Escrow Spec</h4>
+                <p class="up-screen-thumb-desc">Explicit duties, uniform rules &amp; locked pay</p>
+              </div>
+            </div>
+
+            <!-- Screen 6: App Confirmed -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-app-confirmed.png" alt="Screen 06: Application Confirmed" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 03 · Pipeline</span>
+                <h4 class="up-screen-thumb-title">Selection Confirmation</h4>
+                <p class="up-screen-thumb-desc">Zero ghosting guarantee with countdown SLA</p>
+              </div>
+            </div>
+
+            <!-- Screen 7: Upcoming Shift -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-upcoming-shift.png" alt="Screen 07: Upcoming Shift" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 04 · Shift Day</span>
+                <h4 class="up-screen-thumb-title">Day-of-Shift Hub</h4>
+                <p class="up-screen-thumb-desc">Live transit timing &amp; venue contact</p>
+              </div>
+            </div>
+
+            <!-- Screen 8: Geo Check-in -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-verified-checkin.png" alt="Screen 08: Verified Check-in" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 04 · Shift Day</span>
+                <h4 class="up-screen-thumb-title">GPS Verified Check-In</h4>
+                <p class="up-screen-thumb-desc">Tamper-proof QR &amp; geo-fence verification</p>
+              </div>
+            </div>
+
+            <!-- Screen 9: Wallet & Payout -->
+            <div class="up-screen-thumb-card">
+              <div class="up-screen-thumb-frame">
+                <img src="../Assets/Images/upcrew-screen-wallet.png" alt="Screen 09: Escrow Wallet" loading="lazy">
+              </div>
+              <div class="up-screen-thumb-info">
+                <span class="up-screen-thumb-num">Flow 05 · Compensation</span>
+                <h4 class="up-screen-thumb-title">Instant Escrow Payout</h4>
+                <p class="up-screen-thumb-desc">Direct bank release within 15 min of shift end</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1458,11 +1882,11 @@
         <!-- Narrative Bridge connecting to Section 02 -->
         <div class="up-narrative-bridge js-reveal">
           <p class="up-bridge-text">
-            <strong>Next: The Breakdown ·</strong> While the promise of on-demand shifts is flexibility, the ground reality for temporary workers in Mumbai and Thane is fraught with broken promises, wage theft, and total communication blackout.
+            <strong>Next: The Breakdown ·</strong> While the promise of gig work is freedom, 78% of temporary workers in Thane &amp; Mumbai lose wages to unverified WhatsApp middlemen, opaque commissions, and zero-recourse ghosting.
           </p>
           <a href="#cs-problem" class="up-bridge-link">
             <span>Explore 02 · Problem Statement</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
         </div>
 
