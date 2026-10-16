@@ -51,6 +51,9 @@
       background: radial-gradient(100% 70% at 50% 0%, #EEF2FF 0%, #F8FAFC 50%, #FFFFFF 100%);
       color: var(--up-ink);
       border-bottom: 1px solid var(--up-border-light);
+      padding: clamp(48px, 6vw, 92px) clamp(16px, 3.5vw, 60px);
+      width: 100%;
+      box-sizing: border-box;
     }
     .up-stage--light {
       background-color: #FFFFFF;
@@ -69,6 +72,20 @@
       margin: 0 auto;
       position: relative;
       z-index: 2;
+    }
+    .up-stage-wrap--hero {
+      max-width: 1680px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .up-hero-editorial {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 4;
     }
 
     /* Giant editorial watermark */
@@ -289,21 +306,22 @@
       color: var(--up-ink);
     }
 
-    /* Multi-Device 5-Screen Panoramic Fan (Behance Hero Showpiece) */
+    /* Multi-Device 5-Screen Panoramic Fan (Behance Hero Showpiece · Full Bleed) */
     .up-hero-fan-wrap {
       position: relative;
       width: 100%;
-      margin: 30px auto 0 auto;
-      padding: 50px 0 30px 0;
+      max-width: 1640px;
+      margin: 36px auto 0 auto;
+      padding: 40px 0 20px 0;
     }
     .up-fan-track {
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      gap: clamp(10px, 1.8vw, 24px);
+      gap: clamp(12px, 2vw, 32px);
       width: 100%;
       box-sizing: border-box;
-      perspective: 1200px;
+      perspective: 1400px;
     }
     @media (max-width: 980px) {
       .up-fan-track {
@@ -325,7 +343,7 @@
       gap: 12px;
       flex-shrink: 0;
       scroll-snap-align: center;
-      transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1), z-index 0ms;
+      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), z-index 0ms;
     }
     .up-fan-tag {
       font-family: var(--up-font-display);
@@ -349,10 +367,10 @@
     }
 
     .up-fan-phone {
-      border-radius: 34px;
+      border-radius: 36px;
       padding: 8px;
       background: #0F172A;
-      box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(15, 23, 42, 0.1);
       overflow: hidden;
       aspect-ratio: 9 / 19.5;
       display: block;
@@ -364,53 +382,53 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 26px;
-      background: #FFFFFF;
+      border-radius: 28px;
+      background: #0F172A;
     }
 
-    /* Staggered Fan Layout Dials */
+    /* Staggered Fan Layout Dials - Panoramic Horizon */
     .up-fan--1 {
-      width: clamp(170px, 16vw, 215px);
-      transform: rotate(-6deg) translateY(28px);
-      opacity: 0.88;
+      width: clamp(190px, 14vw, 240px);
+      transform: rotate(-6deg) translateY(24px);
+      opacity: 0.92;
     }
     .up-fan--2 {
-      width: clamp(190px, 17.5vw, 235px);
-      transform: rotate(-2.5deg) translateY(12px);
+      width: clamp(215px, 16.5vw, 275px);
+      transform: rotate(-2.5deg) translateY(10px);
       z-index: 2;
     }
     .up-fan--3 {
-      width: clamp(230px, 20vw, 275px);
-      transform: translateY(-14px);
+      width: clamp(255px, 19.5vw, 325px);
+      transform: translateY(-16px);
       z-index: 5;
     }
     .up-fan--3 .up-fan-phone {
-      border: 2px solid var(--up-primary);
-      box-shadow: 0 35px 80px -15px rgba(37, 88, 232, 0.38), 0 0 0 2px rgba(37, 88, 232, 0.2);
+      border: 2.5px solid var(--up-primary);
+      box-shadow: 0 35px 85px -15px rgba(37, 88, 232, 0.42), 0 0 0 2px rgba(37, 88, 232, 0.25);
     }
     .up-fan--4 {
-      width: clamp(190px, 17.5vw, 235px);
-      transform: rotate(2.5deg) translateY(12px);
+      width: clamp(215px, 16.5vw, 275px);
+      transform: rotate(2.5deg) translateY(10px);
       z-index: 2;
     }
     .up-fan--5 {
-      width: clamp(170px, 16vw, 215px);
-      transform: rotate(6deg) translateY(28px);
-      opacity: 0.88;
+      width: clamp(190px, 14vw, 240px);
+      transform: rotate(6deg) translateY(24px);
+      opacity: 0.92;
     }
 
     .up-fan-device:hover {
-      transform: translateY(-24px) scale(1.05);
+      transform: translateY(-24px) scale(1.04) rotate(0deg) !important;
       z-index: 10;
       opacity: 1;
     }
     .up-fan-device:hover .up-fan-phone {
-      box-shadow: 0 35px 80px -10px rgba(15, 23, 42, 0.35);
+      box-shadow: 0 40px 90px -12px rgba(15, 23, 42, 0.38);
     }
 
     @media (max-width: 980px) {
       .up-fan--1, .up-fan--2, .up-fan--3, .up-fan--4, .up-fan--5 {
-        width: 210px;
+        width: 220px;
         transform: none !important;
         opacity: 1 !important;
       }
@@ -458,40 +476,44 @@
       background: #FFF7ED;
       color: #9A3412;
     }
-    .up-sticker-pill--purple {
-      border-color: #DDD6FE;
-      background: #F5F3FF;
-      color: #5B21B6;
+    .up-sticker-pill--slate {
+      border-color: #1E293B;
+      background: #0F172A;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+    }
+    .up-sticker-pill--slate svg {
+      stroke: #38BDF8;
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       APPLE DESIGN FLUID ACCENTS & TACTILE STICKERS
-       Materials: Glassmorphism, Spring Physics, Translucent Depth
+       APPLE DESIGN FLUID ACCENTS & TACTILE FIELD CARDS
+       Clean, Opaque Surfaces · Zero AI Slop · Crisp SVG Geometry
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     .up-float-card {
       position: absolute;
-      z-index: 8;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1.5px solid rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      padding: 12px 18px;
-      box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.02);
+      z-index: 5;
+      width: 255px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      border-radius: 18px;
+      padding: 12px 16px;
+      box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.02);
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms ease;
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease, border-color 220ms ease;
       cursor: default;
       user-select: none;
-      animation: upFloatSlow 5s ease-in-out infinite alternate;
     }
     .up-float-card:hover {
-      transform: translateY(-6px) scale(1.04) rotate(0deg) !important;
-      box-shadow: 0 24px 50px -10px rgba(37, 88, 232, 0.16), 0 0 0 1.5px var(--up-primary);
+      transform: translateY(-4px) scale(1.02) rotate(0deg) !important;
+      border-color: #C7D2FE;
+      box-shadow: 0 20px 42px -8px rgba(37, 88, 232, 0.16);
     }
     .up-float-card:active {
-      transform: scale(0.97) !important;
+      transform: scale(0.98) !important;
     }
 
     .up-float-icon {
@@ -502,7 +524,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 1.125rem;
     }
     .up-float-icon--orange {
       background: #FFF7ED;
@@ -514,11 +535,6 @@
       color: #16A34A;
       border: 1px solid #BBF7D0;
     }
-    .up-float-icon--purple {
-      background: #F5F3FF;
-      color: #7C3AED;
-      border: 1px solid #DDD6FE;
-    }
     .up-float-icon--blue {
       background: #EFF6FF;
       color: #2558E8;
@@ -529,6 +545,8 @@
       display: flex;
       flex-direction: column;
       gap: 1px;
+      flex: 1;
+      min-width: 0;
     }
     .up-float-label {
       font-family: var(--up-font-display);
@@ -545,6 +563,9 @@
       color: var(--up-ink);
       line-height: 1.25;
       margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .up-float-sub {
       font-family: var(--up-font-body);
@@ -552,6 +573,9 @@
       color: var(--up-ink-2);
       line-height: 1.3;
       margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .up-float-tag {
       font-family: var(--up-font-display);
@@ -562,9 +586,12 @@
       background: #F1F5F9;
       color: var(--up-ink-2);
       border: 1px solid var(--up-border-light);
-      margin-left: 4px;
+      margin-left: 2px;
       align-self: center;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
     .up-float-tag--green {
       background: #ECFDF5;
@@ -577,87 +604,71 @@
       border-color: #BFDBFE;
     }
 
-    /* Floats layout positions */
+    /* Floats layout positions (Only on screens with wide whitespace margins >= 1320px) */
     .up-float--top-left {
-      top: 140px;
-      left: 10px;
-      --rot: -3.5deg;
-      animation-delay: 0s;
+      top: 100px;
+      left: clamp(16px, 2.5vw, 48px);
+      transform: rotate(-3deg);
     }
     .up-float--top-right {
-      top: 150px;
-      right: 15px;
-      --rot: 3deg;
-      animation-delay: 1.4s;
+      top: 110px;
+      right: clamp(16px, 2.5vw, 48px);
+      transform: rotate(3deg);
     }
     .up-float--mid-left {
-      top: 480px;
-      left: 10px;
-      --rot: -2.5deg;
-      animation-delay: 0.7s;
+      top: 310px;
+      left: clamp(16px, 2.5vw, 48px);
+      transform: rotate(-2deg);
     }
     .up-float--mid-right {
-      top: 490px;
-      right: 15px;
-      --rot: 3.5deg;
-      animation-delay: 2.1s;
+      top: 320px;
+      right: clamp(16px, 2.5vw, 48px);
+      transform: rotate(2.5deg);
     }
 
-    @keyframes upFloatSlow {
-      0% { transform: translateY(0px) rotate(var(--rot, -3deg)); }
-      100% { transform: translateY(-8px) rotate(var(--rot, -3deg)); }
+    @media (max-width: 1320px) {
+      .up-float-card {
+        display: none !important;
+      }
     }
 
-    /* Vector Sparkles in Background */
+    /* Vector Sparkles in Outer Flanks */
     .up-sparkle {
       position: absolute;
       pointer-events: none;
       user-select: none;
-      font-size: 1.25rem;
-      font-weight: 900;
       color: var(--up-primary);
-      opacity: 0.45;
+      opacity: 0.35;
       z-index: 1;
-      animation: upSparklePulse 4s ease-in-out infinite alternate;
+      transition: opacity 200ms ease;
     }
     .up-sparkle--1 {
-      top: 90px;
-      left: 14%;
-      font-size: 1.5rem;
-      animation-delay: 0s;
+      top: 80px;
+      left: 18%;
+      color: var(--up-primary);
     }
     .up-sparkle--2 {
-      top: 110px;
-      right: 16%;
-      color: var(--up-purple);
-      font-size: 1.25rem;
-      animation-delay: 1.2s;
+      top: 100px;
+      right: 18%;
+      color: var(--up-orange);
     }
     .up-sparkle--3 {
-      top: 420px;
-      left: 12%;
+      top: 380px;
+      left: 16%;
       color: var(--up-orange);
-      font-size: 1.125rem;
-      animation-delay: 2.4s;
     }
     .up-sparkle--4 {
-      top: 440px;
-      right: 12%;
+      top: 400px;
+      right: 16%;
       color: var(--up-primary);
-      font-size: 1.6rem;
-      animation-delay: 1.8s;
-    }
-    @keyframes upSparklePulse {
-      0% { transform: scale(0.85) rotate(0deg); opacity: 0.3; }
-      100% { transform: scale(1.15) rotate(15deg); opacity: 0.65; }
     }
 
     /* Hand-drawn Arrow Pointer to Center Phone */
     .up-fan-pointer {
       position: absolute;
-      top: 6px;
+      top: 4px;
       left: 50%;
-      transform: translateX(100px);
+      transform: translateX(clamp(80px, 8vw, 130px));
       z-index: 6;
       display: inline-flex;
       align-items: center;
@@ -1749,114 +1760,139 @@
     <section class="up-stage up-stage--hero" id="cs-hero" data-rubric="01">
       <div class="up-watermark" aria-hidden="true">01</div>
 
-      <div class="up-stage-wrap">
+      <div class="up-stage-wrap up-stage-wrap--hero">
         
         <!-- Ambient Vector Sparkles in Whitespace (Apple Fluid Accent) -->
-        <span class="up-sparkle up-sparkle--1" aria-hidden="true">✦</span>
-        <span class="up-sparkle up-sparkle--2" aria-hidden="true">✦</span>
-        <span class="up-sparkle up-sparkle--3" aria-hidden="true">✦</span>
-        <span class="up-sparkle up-sparkle--4" aria-hidden="true">✦</span>
+        <svg class="up-sparkle up-sparkle--1" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+        <svg class="up-sparkle up-sparkle--2" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+        <svg class="up-sparkle up-sparkle--3" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+        <svg class="up-sparkle up-sparkle--4" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
 
-        <!-- Floating Tactile Badges in Whitespace (Apple Design Materials & Springs) -->
+        <!-- Floating Tactile Badges in Whitespace (Apple Design Materials & Pure SVGs) -->
         <div class="up-float-card up-float--top-left js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--orange">🔥</div>
+          <div class="up-float-icon up-float-icon--orange">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"/></svg>
+          </div>
           <div class="up-float-body">
             <span class="up-float-label">Thane West Cluster</span>
             <h4 class="up-float-title">14 Live Shifts Today</h4>
             <p class="up-float-sub">Viviana &amp; LakeShore Malls</p>
           </div>
-          <span class="up-float-tag up-float-tag--blue">📍 2.4 km</span>
+          <span class="up-float-tag up-float-tag--blue">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            2.4 km
+          </span>
         </div>
 
         <div class="up-float-card up-float--top-right js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--green">🛡️</div>
+          <div class="up-float-icon up-float-icon--green">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+          </div>
           <div class="up-float-body">
             <span class="up-float-label">Smart Escrow Lock</span>
             <h4 class="up-float-title">100% Guaranteed Pay</h4>
             <p class="up-float-sub">Pre-funded before check-in</p>
           </div>
-          <span class="up-float-tag up-float-tag--green">✓ Verified</span>
+          <span class="up-float-tag up-float-tag--green">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Verified
+          </span>
         </div>
 
         <div class="up-float-card up-float--mid-left js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--purple">💬</div>
+          <div class="up-float-icon up-float-icon--blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
           <div class="up-float-body">
             <span class="up-float-label">Zero Intermediaries</span>
             <h4 class="up-float-title">"No 20% WhatsApp Cuts"</h4>
             <p class="up-float-sub">Direct UPI release to Riya</p>
           </div>
-          <span class="up-float-tag up-float-tag--blue">⚡ Instant</span>
+          <span class="up-float-tag up-float-tag--green">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Direct UPI
+          </span>
         </div>
 
         <div class="up-float-card up-float--mid-right js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--blue">🚇</div>
+          <div class="up-float-icon up-float-icon--blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>
+          </div>
           <div class="up-float-body">
             <span class="up-float-label">Commute Guard</span>
             <h4 class="up-float-title">22-Min Radius Cap</h4>
             <p class="up-float-sub">Strict local train route filter</p>
           </div>
-          <span class="up-float-tag up-float-tag--green">⏱️ Live Transit</span>
+          <span class="up-float-tag up-float-tag--blue">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Transit Cap
+          </span>
         </div>
 
-        <!-- Chapter Pill & Breadcrumb Navigation -->
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
-          <div class="up-chapter-pill js-reveal" style="margin-bottom: 0;">
-            <span class="up-chapter-num">01 / 24</span>
-            <span class="up-chapter-sep">·</span>
-            <span class="up-chapter-title">PROJECT OVERVIEW</span>
-          </div>
-          <a href="../work.html" class="up-back-link js-reveal" style="margin-bottom: 0;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M9 11.5L4.5 7L9 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Back to Work
-          </a>
-        </div>
+        <!-- Center Editorial Column (High Readability & Focus) -->
+        <div class="up-hero-editorial">
 
-        <!-- Riya Sharma Character Speech Badge (Narrative Anchor) -->
-        <div style="text-align: center;">
-          <div class="up-hero-character-badge js-reveal">
-            <div class="up-char-avatar">
-              <img src="../Assets/Images/riya-persona.jpg" alt="Riya Sharma - UpCrew Persona" loading="eager">
+          <!-- Chapter Pill & Breadcrumb Navigation -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
+            <div class="up-chapter-pill js-reveal" style="margin-bottom: 0;">
+              <span class="up-chapter-num">01 / 24</span>
+              <span class="up-chapter-sep">·</span>
+              <span class="up-chapter-title">PROJECT OVERVIEW</span>
             </div>
-            <div class="up-char-bubble">
-              <span class="up-char-name">Riya Sharma · 23, Thane West (Retail Worker &amp; Student)</span>
-              <p class="up-char-quote">"Flexibility shouldn't mean chasing WhatsApp admins for last week's pay."</p>
+            <a href="../work.html" class="up-back-link js-reveal" style="margin-bottom: 0;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M9 11.5L4.5 7L9 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Back to Work
+            </a>
+          </div>
+
+          <!-- Riya Sharma Character Speech Badge (Narrative Anchor) -->
+          <div style="text-align: center;">
+            <div class="up-hero-character-badge js-reveal">
+              <div class="up-char-avatar">
+                <img src="../Assets/Images/riya-persona.jpg" alt="Riya Sharma - UpCrew Persona" loading="eager">
+              </div>
+              <div class="up-char-bubble">
+                <span class="up-char-name">Riya Sharma · 23, Thane West (Retail Worker &amp; Student)</span>
+                <p class="up-char-quote">"Flexibility shouldn't mean chasing WhatsApp admins for last week's pay."</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Editorial Hero Title & Positioning -->
-        <div class="up-hero-header js-reveal">
-          <span class="up-eyebrow">HYPERLOCAL ON-DEMAND WORKFORCE PLATFORM · MUMBAI &amp; THANE</span>
-          <h1 class="up-hero-h1">UpCrew<span class="up-accent-dot">.</span></h1>
-          <h2 class="up-hero-h2">Work that moves with you</h2>
-          <p class="up-hero-lead">
-            An on-demand shift marketplace connecting verified temporary gig workers in retail, hospitality, and exhibitions with upfront guaranteed escrow pay, transparent commute radiuses, and zero-ghosting application SLAs. Designed from 100+ field interviews across Thane &amp; Mumbai to replace predatory, chaotic WhatsApp hiring groups.
-          </p>
-        </div>
+          <!-- Editorial Hero Title & Positioning -->
+          <div class="up-hero-header js-reveal">
+            <span class="up-eyebrow">HYPERLOCAL ON-DEMAND WORKFORCE PLATFORM · MUMBAI &amp; THANE</span>
+            <h1 class="up-hero-h1">UpCrew<span class="up-accent-dot">.</span></h1>
+            <h2 class="up-hero-h2">Work that moves with you</h2>
+            <p class="up-hero-lead">
+              An on-demand shift marketplace connecting verified temporary gig workers in retail, hospitality, and exhibitions with upfront guaranteed escrow pay, transparent commute radiuses, and zero-ghosting application SLAs. Designed from 100+ field interviews across Thane &amp; Mumbai to replace predatory, chaotic WhatsApp hiring groups.
+            </p>
+          </div>
 
-        <!-- Project Metadata Matrix Cards (High Contrast & Tactile) -->
-        <div class="up-meta-grid js-reveal">
-          <div class="up-meta-card">
-            <span class="up-meta-label">Role</span>
-            <span class="up-meta-val">Solo Product &amp; UX/UI Designer</span>
+          <!-- Project Metadata Matrix Cards (High Contrast & Tactile) -->
+          <div class="up-meta-grid js-reveal">
+            <div class="up-meta-card">
+              <span class="up-meta-label">Role</span>
+              <span class="up-meta-val">Solo Product &amp; UX/UI Designer</span>
+            </div>
+            <div class="up-meta-card">
+              <span class="up-meta-label">Timeline</span>
+              <span class="up-meta-val">12-Week Design Thinking Cycle</span>
+            </div>
+            <div class="up-meta-card">
+              <span class="up-meta-label">Platform</span>
+              <span class="up-meta-val">Mobile App (iOS &amp; Android)</span>
+            </div>
+            <div class="up-meta-card">
+              <span class="up-meta-label">Deliverables</span>
+              <span class="up-meta-val">19 Production Screens · Design System</span>
+            </div>
           </div>
-          <div class="up-meta-card">
-            <span class="up-meta-label">Timeline</span>
-            <span class="up-meta-val">12-Week Design Thinking Cycle</span>
-          </div>
-          <div class="up-meta-card">
-            <span class="up-meta-label">Platform</span>
-            <span class="up-meta-val">Mobile App (iOS &amp; Android)</span>
-          </div>
-          <div class="up-meta-card">
-            <span class="up-meta-label">Deliverables</span>
-            <span class="up-meta-val">19 Production Screens · Design System</span>
-          </div>
-        </div>
 
-        <!-- The Panoramic 5-Screen Fan (Behance Showpiece Device Cascade) -->
+        </div><!-- /.up-hero-editorial -->
+
+        <!-- The Panoramic 5-Screen Fan (Behance Showpiece Device Cascade · Edge-to-Edge) -->
         <div class="up-hero-fan-wrap js-reveal">
 
           <!-- Hand-drawn vector arrow pointing to Centerpiece Phone -->
@@ -1876,11 +1912,11 @@
               </div>
             </div>
 
-            <!-- Screen 2: Brand Motion Video Shell -->
+            <!-- Screen 2: Brand Motion Video Shell (With Instant Fallback Poster) -->
             <div class="up-fan-device up-fan--2">
               <span class="up-fan-tag">02 · Motion</span>
               <div class="up-fan-phone">
-                <video autoplay muted loop playsinline preload="auto" aria-label="UpCrew animated launch screen">
+                <video autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="../Assets/Images/upcrew-screen-signin-phone.png" aria-label="UpCrew animated launch screen">
                   <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
                 </video>
               </div>
@@ -1925,7 +1961,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               <span>Zero-Ghosting Application SLA</span>
             </div>
-            <div class="up-sticker-pill up-sticker-pill--purple">
+            <div class="up-sticker-pill up-sticker-pill--slate">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               <span>19 Production Screens Designed</span>
             </div>
@@ -5755,6 +5791,27 @@
           path.setAttribute('stroke', isSaved ? '#2558E8' : '#4B5563');
         }
       });
+    }
+
+    /* Ensure Hero Launch Video Auto-plays Seamlessly */
+    var heroVideo = document.querySelector('.up-fan-phone video');
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.playsInline = true;
+      var playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          var resumeOnGesture = function () {
+            heroVideo.play().catch(function () {});
+            window.removeEventListener('touchstart', resumeOnGesture);
+            window.removeEventListener('click', resumeOnGesture);
+            window.removeEventListener('scroll', resumeOnGesture);
+          };
+          window.addEventListener('touchstart', resumeOnGesture, { passive: true, once: true });
+          window.addEventListener('click', resumeOnGesture, { once: true });
+          window.addEventListener('scroll', resumeOnGesture, { passive: true, once: true });
+        });
+      }
     }
 
   });
