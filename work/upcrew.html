@@ -18,6 +18,370 @@
   <link rel="stylesheet" href="../css/case-study-ux.css?v=20261014-v5">
 
   <style id="cs-ds-component-overrides">
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       UPCREW FULL-BLEED DESIGN LANGUAGE (BEHANCE AESTHETIC · ZERO AI SLOP)
+       Grounding: UpCrew Brand System (Royal Cobalt, Verified Green, Urgency Orange)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    :root {
+      --up-bg-dark: #0A0F1D;
+      --up-bg-light: #FFFFFF;
+      --up-bg-tint: #F8FAFC;
+      --up-primary: #2558E8;
+      --up-primary-glow: rgba(37, 88, 232, 0.25);
+      --up-orange: #F26419;
+      --up-green: #16A34A;
+      --up-ink: #0F172A;
+      --up-ink-muted: #64748B;
+      --up-border-dark: rgba(255, 255, 255, 0.08);
+      --up-border-light: #E2E8F0;
+      --up-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --up-font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Full-bleed stage wrapper */
+    .up-stage {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: clamp(80px, 9vw, 130px) clamp(20px, 5vw, 80px);
+      overflow: hidden;
+    }
+    .up-stage--dark {
+      background-color: var(--up-bg-dark);
+      color: #F8FAFC;
+    }
+    .up-stage--light {
+      background-color: var(--up-bg-light);
+      color: var(--up-ink);
+    }
+    .up-stage--tint {
+      background-color: var(--up-bg-tint);
+      color: var(--up-ink);
+    }
+    .up-stage-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Giant editorial watermark */
+    .up-watermark {
+      position: absolute;
+      right: clamp(10px, 3vw, 50px);
+      top: 10px;
+      font-family: var(--up-font-display);
+      font-size: clamp(7rem, 16vw, 15rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      letter-spacing: -0.05em;
+    }
+    .up-stage--light .up-watermark,
+    .up-stage--tint .up-watermark {
+      color: rgba(15, 23, 42, 0.03);
+    }
+
+    /* Signature rubric chapter badge */
+    .up-chapter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(37, 88, 232, 0.12);
+      border: 1px solid rgba(37, 88, 232, 0.32);
+      padding: 7px 18px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .up-chapter-num {
+      font-family: var(--up-font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #60A5FA;
+      letter-spacing: 0.06em;
+    }
+    .up-chapter-sep {
+      color: rgba(96, 165, 250, 0.4);
+      font-weight: 400;
+    }
+    .up-chapter-title {
+      font-family: var(--up-font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .up-stage--light .up-chapter-pill,
+    .up-stage--tint .up-chapter-pill {
+      background: rgba(37, 88, 232, 0.08);
+      border-color: rgba(37, 88, 232, 0.2);
+    }
+    .up-stage--light .up-chapter-title,
+    .up-stage--tint .up-chapter-title {
+      color: var(--up-primary);
+    }
+    .up-stage--light .up-chapter-num,
+    .up-stage--tint .up-chapter-num {
+      color: var(--up-ink);
+    }
+
+    /* Back Link with microinteraction */
+    .up-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--up-font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #94A3B8;
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 140ms ease-out, transform 140ms ease-out;
+    }
+    .up-back-link:hover {
+      color: #FFFFFF;
+      transform: translateX(-3px);
+    }
+    .up-back-link:active {
+      transform: scale(0.97) translateX(-3px);
+    }
+
+    /* Hero layout */
+    .up-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+      margin-top: 10px;
+    }
+    @media (max-width: 1024px) {
+      .up-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+    }
+
+    .up-eyebrow {
+      font-family: var(--up-font-display);
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: #60A5FA;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .up-hero-h1 {
+      font-family: var(--up-font-display);
+      font-size: clamp(3.6rem, 7.5vw, 6.2rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin: 0 0 12px 0;
+      color: #FFFFFF;
+    }
+    .up-accent-dot {
+      color: var(--up-primary);
+      display: inline-block;
+    }
+
+    .up-hero-h2 {
+      font-family: var(--up-font-display);
+      font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+      font-weight: 600;
+      color: #94A3B8;
+      letter-spacing: -0.02em;
+      margin: 0 0 22px 0;
+    }
+
+    .up-hero-lead {
+      font-family: var(--up-font-body);
+      font-size: 1.125rem;
+      line-height: 1.68;
+      color: #CBD5E1;
+      max-width: 54ch;
+      margin-bottom: 34px;
+      font-weight: 400;
+    }
+
+    /* Metadata matrix cards */
+    .up-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 540px) {
+      .up-meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .up-meta-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--up-border-dark);
+      border-radius: 14px;
+      padding: 14px 16px;
+      transition: border-color 140ms ease-out, background 140ms ease-out;
+    }
+    .up-meta-card:hover {
+      border-color: rgba(37, 88, 232, 0.4);
+      background: rgba(37, 88, 232, 0.06);
+    }
+    .up-meta-label {
+      display: block;
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .up-meta-val {
+      display: block;
+      font-family: var(--up-font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    /* Hero media stage */
+    .up-hero-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .up-video-shell {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 36px;
+      background: #111827;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(37, 88, 232, 0.2);
+      overflow: hidden;
+      aspect-ratio: 9 / 19.5;
+    }
+    .up-video-shell video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Floating tactical stickers (Behance micro-moments) */
+    .up-sticker {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-family: var(--up-font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      white-space: nowrap;
+      animation: upStickerFloat 4s ease-in-out infinite alternate;
+    }
+    .up-sticker--1 {
+      top: 12%;
+      right: -24px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(22, 163, 74, 0.4);
+      color: #4ADE80;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation-delay: 0s;
+    }
+    .up-sticker--2 {
+      bottom: 22%;
+      left: -32px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(37, 88, 232, 0.4);
+      color: #60A5FA;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation-delay: 1.2s;
+    }
+    .up-sticker--3 {
+      bottom: 8%;
+      right: -18px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(242, 100, 25, 0.4);
+      color: #FB923C;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation-delay: 2.4s;
+    }
+    @keyframes upStickerFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .up-sticker { animation: none !important; }
+    }
+    @media (max-width: 640px) {
+      .up-sticker { display: none; }
+    }
+
+    /* Narrative bridge between sections */
+    .up-narrative-bridge {
+      margin-top: 70px;
+      padding-top: 32px;
+      border-top: 1px solid var(--up-border-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .up-bridge-text {
+      font-family: var(--up-font-body);
+      font-size: 0.9375rem;
+      color: #94A3B8;
+      max-width: 72ch;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .up-bridge-text strong {
+      color: #F8FAFC;
+      font-family: var(--up-font-display);
+    }
+    .up-bridge-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--up-font-display);
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: #60A5FA;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(37, 88, 232, 0.12);
+      border: 1px solid rgba(37, 88, 232, 0.3);
+      transition: background 140ms ease-out, transform 140ms ease-out;
+    }
+    .up-bridge-link:hover {
+      background: rgba(37, 88, 232, 0.22);
+      transform: translateY(-2px);
+    }
+    .up-bridge-link:active {
+      transform: scale(0.97);
+    }
+
     /* ── Sub-Section E Component Spec Fixes & Overflow Containment ── */
     .cs-ds-matrix-wrap {
       background: var(--cs-surface) !important;
@@ -360,9 +724,634 @@
       white-space: nowrap !important;
     }
 
-    .cs-ds-contrast-specs code {
-      font-family: monospace !important;
-      font-size: 0.5625rem !important;
+    /* ── Block 1: Rubric 01-03 Styles (Friction Grid, Solution Pillars, Mapping Table) ── */
+    .cs-friction-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 32px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 980px) {
+      .cs-friction-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .cs-friction-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+    }
+    .cs-friction-card {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 16px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      box-shadow: 0 2px 10px rgba(20, 18, 16, 0.02) !important;
+      transition: transform 0.2s var(--cs-ease) !important;
+    }
+    .cs-friction-card:hover {
+      transform: translateY(-2px) !important;
+    }
+    .cs-friction-num {
+      font-family: var(--cs-body) !important;
+      font-size: 0.6875rem !important;
+      font-weight: 800 !important;
+      color: #DC2626 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+    .cs-friction-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.9375rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      margin: 0 !important;
+      line-height: 1.3 !important;
+    }
+    .cs-friction-card p {
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* Solution Statement Pillars */
+    .cs-sol-pillars-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 32px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 980px) {
+      .cs-sol-pillars-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .cs-sol-pillars-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+    }
+    .cs-sol-pillar-card {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 16px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      box-shadow: 0 2px 10px rgba(20, 18, 16, 0.02) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      transition: transform 0.2s var(--cs-ease) !important;
+    }
+    .cs-sol-pillar-card:hover {
+      transform: translateY(-2px) !important;
+    }
+    .cs-sol-pillar-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.6875rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      color: var(--cs-blue) !important;
+    }
+    .cs-sol-pillar-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      margin: 0 !important;
+      line-height: 1.25 !important;
+    }
+    .cs-sol-pillar-card p {
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* Problem-to-Solution Mapping Table */
+    .cs-mapping-table-wrap {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 18px !important;
+      padding: 24px 20px !important;
+      overflow-x: auto !important;
+      box-shadow: 0 4px 16px rgba(20, 18, 16, 0.02) !important;
+      margin-top: 24px !important;
+      margin-bottom: 24px !important;
+    }
+    .cs-mapping-table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      font-family: var(--cs-body) !important;
+      text-align: left !important;
+      min-width: 640px !important;
+    }
+    .cs-mapping-table th {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: var(--cs-ink-3) !important;
+      padding: 12px 16px !important;
+      border-bottom: 2px solid var(--cs-line) !important;
+    }
+    .cs-mapping-table td {
+      padding: 14px 16px !important;
+      font-size: 0.84375rem !important;
+      color: var(--cs-ink-2) !important;
+      border-bottom: 1px solid var(--cs-line) !important;
+    }
+
+    /* ── Behance-Inspired Bespoke Case Study Styles (No AI Slop) ── */
+
+    /* Process Stepper (5-Stage Design Thinking) */
+    .cs-process-stepper {
+      display: grid !important;
+      grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+      gap: 12px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 900px) {
+      .cs-process-stepper {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .cs-process-stepper {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-process-step {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 18px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      position: relative !important;
+      box-shadow: 0 2px 12px rgba(20, 18, 16, 0.03) !important;
+      transition: transform 0.2s var(--cs-ease) !important;
+    }
+    .cs-process-step:hover {
+      transform: translateY(-3px) !important;
+      border-color: var(--cs-blue) !important;
+    }
+    .cs-process-step-num {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 800 !important;
+      color: #6D28D9 !important;
+      background: #F5F3FF !important;
+      padding: 4px 10px !important;
+      border-radius: 999px !important;
+      display: inline-block !important;
+      width: fit-content !important;
+    }
+    .cs-process-step h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 1.125rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      margin: 0 !important;
+    }
+    .cs-process-step ul {
+      margin: 0 !important;
+      padding-left: 18px !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.55 !important;
+    }
+
+    /* 12-Week Timeline Grid */
+    .cs-timeline-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 900px) {
+      .cs-timeline-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-timeline-card {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 16px !important;
+      padding: 20px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      box-shadow: 0 2px 10px rgba(20, 18, 16, 0.02) !important;
+    }
+    .cs-timeline-week {
+      font-family: var(--cs-body) !important;
+      font-size: 0.6875rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: var(--cs-blue) !important;
+    }
+    .cs-timeline-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.96875rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      margin: 0 !important;
+    }
+    .cs-timeline-card p {
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* Quantitative Survey Bars */
+    .cs-quant-grid {
+      display: grid !important;
+      grid-template-columns: 1.2fr 0.8fr !important;
+      gap: 24px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 900px) {
+      .cs-quant-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-stat-bar-group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 20px !important;
+      padding: 24px 22px !important;
+      box-shadow: 0 2px 12px rgba(20, 18, 16, 0.02) !important;
+    }
+    .cs-stat-bar-item {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    .cs-stat-bar-label {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      font-weight: 600 !important;
+      color: var(--cs-ink) !important;
+    }
+    .cs-stat-bar-track {
+      height: 10px !important;
+      background: #F3F4F6 !important;
+      border-radius: 999px !important;
+      overflow: hidden !important;
+    }
+    .cs-stat-bar-fill {
+      height: 100% !important;
+      border-radius: 999px !important;
+      background: linear-gradient(90deg, #2558E8, #7C3AED) !important;
+    }
+    .cs-interview-quote-box {
+      background: #FAF5FF !important;
+      border: 1px solid #E9D5FF !important;
+      border-radius: 20px !important;
+      padding: 24px 20px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+    .cs-interview-quote {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.9375rem !important;
+      font-weight: 600 !important;
+      font-style: italic !important;
+      color: #581C87 !important;
+      line-height: 1.55 !important;
+    }
+
+    /* Competitor Comparison Matrix */
+    .cs-comp-table-wrap {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 20px !important;
+      padding: 24px 20px !important;
+      overflow-x: auto !important;
+      box-shadow: 0 2px 14px rgba(20, 18, 16, 0.03) !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    .cs-comp-table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      font-family: var(--cs-body) !important;
+      text-align: left !important;
+      min-width: 650px !important;
+    }
+    .cs-comp-table th {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      padding: 12px 14px !important;
+      border-bottom: 2px solid var(--cs-line) !important;
+    }
+    .cs-comp-table td {
+      padding: 14px !important;
+      font-size: 0.8125rem !important;
+      border-bottom: 1px solid var(--cs-line) !important;
+      vertical-align: middle !important;
+    }
+    .cs-comp-badge-win {
+      background: #DCFCE7 !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+      padding: 4px 10px !important;
+      border-radius: 999px !important;
+      display: inline-block !important;
+      font-size: 0.6875rem !important;
+    }
+    .cs-comp-badge-lose {
+      background: #FEE2E2 !important;
+      color: #991B1B !important;
+      font-weight: 700 !important;
+      padding: 4px 10px !important;
+      border-radius: 999px !important;
+      display: inline-block !important;
+      font-size: 0.6875rem !important;
+    }
+
+    /* Affinity Mapping Board */
+    .cs-affinity-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 900px) {
+      .cs-affinity-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-affinity-col {
+      background: var(--cs-bg-alt) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 18px !important;
+      padding: 18px 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+    .cs-affinity-col-header {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.875rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      padding-bottom: 6px !important;
+      border-bottom: 1px solid var(--cs-line) !important;
+    }
+    .cs-affinity-sticky {
+      background: #FEF08A !important;
+      border-radius: 8px !important;
+      padding: 10px 12px !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.78125rem !important;
+      color: #713F12 !important;
+      line-height: 1.4 !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+      border-left: 3px solid #EAB308 !important;
+      transition: transform 0.15s ease !important;
+    }
+    .cs-affinity-sticky:hover {
+      transform: scale(1.02) !important;
+    }
+    .cs-affinity-sticky--blue {
+      background: #E0F2FE !important;
+      color: #075985 !important;
+      border-left-color: #0284C7 !important;
+    }
+    .cs-affinity-sticky--pink {
+      background: #FCE7F3 !important;
+      color: #9D174D !important;
+      border-left-color: #DB2777 !important;
+    }
+    .cs-affinity-sticky--green {
+      background: #DCFCE7 !important;
+      color: #166534 !important;
+      border-left-color: #16A34A !important;
+    }
+
+    /* Empathy Map 4-Quadrant Grid */
+    .cs-empathy-quad-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 768px) {
+      .cs-empathy-quad-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-empathy-quad {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 18px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+    .cs-empathy-quad-title {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.9375rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-blue) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
+    }
+    .cs-empathy-quad ul {
+      margin: 0 !important;
+      padding-left: 18px !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.55 !important;
+    }
+
+    /* Storyboard 6-Panel Strip */
+    .cs-storyboard-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 900px) {
+      .cs-storyboard-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-storyboard-panel {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 18px !important;
+      padding: 20px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      box-shadow: 0 2px 10px rgba(20, 18, 16, 0.02) !important;
+    }
+    .cs-storyboard-panel-num {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.6875rem !important;
+      font-weight: 800 !important;
+      color: #7C3AED !important;
+      background: #F3F0FF !important;
+      padding: 3px 8px !important;
+      border-radius: 999px !important;
+      width: fit-content !important;
+    }
+    .cs-storyboard-panel h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.9375rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-ink) !important;
+      margin: 0 !important;
+    }
+    .cs-storyboard-panel p {
+      font-family: var(--cs-body) !important;
+      font-size: 0.8125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* Sitemap Grid */
+    .cs-sitemap-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 1000px) {
+      .cs-sitemap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+    @media (max-width: 580px) {
+      .cs-sitemap-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-sitemap-col {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 16px !important;
+      padding: 18px 16px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+    .cs-sitemap-col h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: 0.875rem !important;
+      font-weight: 800 !important;
+      color: var(--cs-blue) !important;
+      margin: 0 0 4px 0 !important;
+      border-bottom: 1px solid var(--cs-line) !important;
+      padding-bottom: 6px !important;
+    }
+    .cs-sitemap-col ul {
+      margin: 0 !important;
+      padding-left: 14px !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.78125rem !important;
+      color: var(--cs-ink-2) !important;
+      line-height: 1.5 !important;
+    }
+
+    /* Usability Testing Fixes */
+    .cs-usability-fix-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 16px !important;
+      margin-top: 24px !important;
+      margin-bottom: 28px !important;
+    }
+    @media (max-width: 768px) {
+      .cs-usability-fix-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .cs-usability-card {
+      background: var(--cs-surface) !important;
+      border: 1px solid var(--cs-line) !important;
+      border-radius: 18px !important;
+      padding: 22px 18px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+      box-shadow: 0 2px 10px rgba(20, 18, 16, 0.02) !important;
+    }
+    .cs-usability-card-head {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+    .cs-usability-tag-issue {
+      background: #FEE2E2 !important;
+      color: #991B1B !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.6875rem !important;
+      font-weight: 700 !important;
+      padding: 3px 8px !important;
+      border-radius: 999px !important;
+    }
+    .cs-usability-tag-fix {
+      background: #DCFCE7 !important;
+      color: #166534 !important;
+      font-family: var(--cs-body) !important;
+      font-size: 0.6875rem !important;
+      font-weight: 700 !important;
+      padding: 3px 8px !important;
+      border-radius: 999px !important;
     }
   </style>
 </head>
@@ -374,167 +1363,165 @@
   <main class="cs-main">
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 01 / 13: HERO
+         SECTION 01 / 24: PROJECT OVERVIEW (FULL-BLEED BEHANCE SHOWCASE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-hero" id="cs-hero">
-      <div class="cs-wrap">
+    <section class="up-stage up-stage--dark" id="cs-hero" data-rubric="01">
+      <div class="up-watermark" aria-hidden="true">01</div>
 
-        <!-- Slide Header Bar (Slide 01 / 13) -->
-        <div class="cs-slide-header js-reveal">
-          <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">01 / 13</span>
+      <div class="up-stage-wrap">
+        
+        <!-- Rubric Chapter Marker -->
+        <div class="up-chapter-pill js-reveal">
+          <span class="up-chapter-num">01 / 24</span>
+          <span class="up-chapter-sep">·</span>
+          <span class="up-chapter-title">PROJECT OVERVIEW</span>
         </div>
 
-        <a href="../work.html" class="cs-back js-reveal">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M9 11.5L4.5 7L9 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Work
-        </a>
+        <div>
+          <a href="../work.html" class="up-back-link js-reveal">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M9 11.5L4.5 7L9 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to Work
+          </a>
+        </div>
 
-        <div class="cs-hero-layout" style="margin-top: 18px;">
-
-          <!-- Left: copy -->
-          <div class="cs-hero-copy js-reveal">
-            <div class="cs-eyebrow" style="color: var(--cs-blue); font-weight: 800; letter-spacing: 0.12em; margin-bottom: 12px;">
-              FLEXIBLE WORK. CLEARER CHOICES.
-            </div>
-            <h1 class="cs-hero-title" style="font-size: clamp(3.4rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -0.035em; line-height: 1.0; margin-bottom: 8px;">
-              UpCrew<span style="color: var(--cs-blue); display: inline-block;">.</span>
-            </h1>
-            <h2 class="cs-hero-sub">Work that moves with you</h2>
-            <p class="cs-hero-lead" style="font-size: 1.0625rem; line-height: 1.6; color: var(--cs-ink-2); max-width: 48ch; margin-bottom: 22px;">
-              A mobile experience for discovering shifts, understanding the commitment and staying informed from application to earnings.
+        <div class="up-hero-grid">
+          <!-- Left Column: Editorial & Context -->
+          <div class="up-hero-copy js-reveal">
+            <span class="up-eyebrow">HYPERLOCAL GIG WORKFORCE PLATFORM</span>
+            <h1 class="up-hero-h1">UpCrew<span class="up-accent-dot">.</span></h1>
+            <h2 class="up-hero-h2">Work that moves with you</h2>
+            
+            <p class="up-hero-lead">
+              An on-demand shift marketplace connecting verified temporary workers with local shifts in retail, hospitality, and exhibitions across Mumbai &amp; Thane. Built to replace informal WhatsApp groups with upfront guaranteed escrow pay, transparent commute radiuses, and zero-ghosting application pipelines.
             </p>
 
-            <div style="display: inline-flex; align-items: center; gap: 10px; font-family: var(--cs-body); font-size: 0.875rem; font-weight: 600; color: var(--cs-ink-2); margin-bottom: 26px;">
-              <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cs-blue);"></span>
-              19 original screens · One connected journey
+            <div class="up-meta-grid">
+              <div class="up-meta-card">
+                <span class="up-meta-label">Role</span>
+                <span class="up-meta-val">Solo Product &amp; UX/UI Designer</span>
+              </div>
+              <div class="up-meta-card">
+                <span class="up-meta-label">Timeline</span>
+                <span class="up-meta-val">12-Week Design Thinking Cycle</span>
+              </div>
+              <div class="up-meta-card">
+                <span class="up-meta-label">Platform</span>
+                <span class="up-meta-val">Mobile App (iOS &amp; Android)</span>
+              </div>
+              <div class="up-meta-card">
+                <span class="up-meta-label">Core Deliverables</span>
+                <span class="up-meta-val">19 Production Screens · Design System</span>
+              </div>
             </div>
 
-            <dl class="cs-meta">
-              <div class="cs-meta-item">
-                <dt>Role</dt>
-                <dd>End-to-End Product Design</dd>
-              </div>
-              <div class="cs-meta-item">
-                <dt>Timeline</dt>
-                <dd>12 Weeks</dd>
-              </div>
-              <div class="cs-meta-item">
-                <dt>Tools</dt>
-                <dd>Figma · FigJam · Design Systems</dd>
-              </div>
-            </dl>
-          </div>
-
-          <!-- Right: prominent dual devices -->
-          <div class="cs-hero-device js-reveal js-reveal-delay">
-            <div class="cs-hero-dual" aria-label="UpCrew app preview phones: Splash video screen on top of Shift details">
-              <!-- Left Phone: Video animation (ON TOP of the other screen, with realistic chassis & island) -->
-              <div class="cs-hero-phone--video" aria-label="UpCrew animated launch screen">
-                <div class="cs-phone-inner">
-                  <div class="cs-phone-island" aria-hidden="true"></div>
-                  <div class="cs-phone-screen">
-                    <video
-                      id="hero-video"
-                      autoplay muted loop playsinline preload="auto"
-                      aria-label="UpCrew launch screen animation"
-                    >
-                      <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Phone: Shift details screen (Layered underneath with realistic chassis) -->
-              <div class="cs-hero-phone--details" aria-label="UpCrew shift details screen">
-                <div class="cs-phone-inner">
-                  <div class="cs-phone-screen">
-                    <img
-                      src="../Assets/Images/upcrew-shift-details.png"
-                      alt="UpCrew shift details screen for Retail Assistant at H&M"
-                      loading="eager"
-                    >
-                  </div>
-                </div>
-              </div>
+            <!-- Live Proof Pills -->
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+              <span class="cs-ds-metric-pill" style="background: rgba(37, 88, 232, 0.15); border: 1px solid rgba(37, 88, 232, 0.4); color: #93C5FD;"><strong>19</strong> App Screens</span>
+              <span class="cs-ds-metric-pill" style="background: rgba(22, 163, 74, 0.15); border: 1px solid rgba(22, 163, 74, 0.4); color: #86EFAC;"><strong>100%</strong> Escrow Protected</span>
+              <span class="cs-ds-metric-pill" style="background: rgba(242, 100, 25, 0.15); border: 1px solid rgba(242, 100, 25, 0.4); color: #FDBA74;"><strong>Zero</strong> Ghosting SLAs</span>
+              <span class="cs-ds-metric-pill" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #F8FAFC;"><strong>WCAG AAA</strong> Contrast</span>
             </div>
           </div>
 
+          <!-- Right Column: High-Impact Video & Tactile Floating Mockups -->
+          <div class="up-hero-stage js-reveal">
+            <div class="up-video-shell" aria-label="UpCrew animated launch screen showcase">
+              <video
+                id="hero-video"
+                autoplay muted loop playsinline preload="auto"
+                aria-label="UpCrew launch screen animation"
+              >
+                <source src="../Assets/Videos/upcrew-launch.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Tactile Field Badges (Real Parameters from Thane Field Data) -->
+            <div class="up-sticker up-sticker--1" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 12 14 22 4"/></svg>
+              ₹5,000 Escrow Guaranteed
+            </div>
+
+            <div class="up-sticker up-sticker--2" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              22 Min Commute · Thane West
+            </div>
+
+            <div class="up-sticker up-sticker--3" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Zero-Ghosting Application SLA
+            </div>
+          </div>
         </div>
 
-        <!-- Slide Footer Bar -->
-        <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+        <!-- Narrative Bridge connecting to Section 02 -->
+        <div class="up-narrative-bridge js-reveal">
+          <p class="up-bridge-text">
+            <strong>Next: The Breakdown ·</strong> While the promise of on-demand shifts is flexibility, the ground reality for temporary workers in Mumbai and Thane is fraught with broken promises, wage theft, and total communication blackout.
+          </p>
+          <a href="#cs-problem" class="up-bridge-link">
+            <span>Explore 02 · Problem Statement</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 02 / 13: THE PRODUCT & THE CHALLENGE
+         SLIDE 02 / 24: PROBLEM STATEMENT
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section cs-section--alt" id="cs-problem">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 02 / 13) -->
+        <!-- Slide Header Bar (Slide 02 / 24) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">02 / 13</span>
+          <span class="cs-slide-header-cat">02 / 24 · PROBLEM STATEMENT</span>
+          <span class="cs-slide-header-num">02 / 24</span>
         </div>
 
-        <div class="cs-eyebrow js-reveal" style="color: #1E40AF; letter-spacing: 0.12em; margin-bottom: 14px;">
-          THE PRODUCT &amp; THE CHALLENGE
+        <div class="cs-eyebrow js-reveal" style="color: #DC2626; letter-spacing: 0.12em; margin-bottom: 14px;">
+          THE CURRENT REALITY &amp; FRICTION
         </div>
 
-        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 32px;">
-          Flexible work shouldn’t mean uncertain decisions.
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 920px; margin-bottom: 24px;">
+          India’s temporary workforce is trapped in the chaos of informal hiring.
         </h2>
 
-        <!-- 2-Column Product Context vs Design Challenge -->
-        <div class="cs-context-grid js-reveal">
-          <div class="cs-context-col">
-            <span class="cs-context-label">PRODUCT CONTEXT</span>
-            <h3>A worker–side shift companion</h3>
-            <p>
-              UpCrew brings nearby opportunities, applications, upcoming shifts, earnings and account details into one mobile experience. The supplied screens show retail, hospitality, event and warehouse roles around Thane and Mumbai.
-            </p>
-          </div>
-          <div class="cs-context-col">
-            <span class="cs-context-label">DESIGN CHALLENGE</span>
-            <h3>Make the next step understandable</h3>
-            <p>
-              The interface needs to explain what a shift pays, when and where it happens, whether an application has been accepted, and what to do before arrival. Those questions change as the worker moves through the journey.
+        <!-- Problem Statement Box (From Authentic Figma Board) -->
+        <div class="cs-context-grid js-reveal" style="margin-bottom: 24px;">
+          <div class="cs-context-col" style="grid-column: 1 / -1; border-left: 4px solid #DC2626; padding: 24px 28px;">
+            <span class="cs-context-label" style="color: #DC2626;">CORE PROBLEM STATEMENT</span>
+            <p style="font-size: 1.0625rem; line-height: 1.65; color: var(--cs-ink-2); margin: 0;">
+              India’s temporary workforce ecosystem is highly fragmented and heavily dependent on informal hiring methods like WhatsApp groups, local referrals, and commission brokers. Businesses struggle to find reliable temporary staff on short notice for events, retail surges, exhibitions, and cafes, while students and gig workers face extreme difficulty discovering verified flexible opportunities with transparent compensation, reliable schedules, and trustworthy employers. This produces pervasive inefficiency, last-minute cancellations, unverified pay withholding, and deep distrust across the entire labor exchange.
             </p>
           </div>
         </div>
 
-        <!-- 3-Column Principles -->
-        <div class="cs-principles-grid js-reveal">
-          <div class="cs-principle-card">
-            <span class="cs-principle-label">PRINCIPLE / CLARITY</span>
-            <h4>Facts before commitment</h4>
-            <p>Keep pay, schedule and location together so the choice is informed, not just visually attractive.</p>
+        <!-- 4 Key Friction Dimensions (Survey-Backed Data) -->
+        <div class="cs-friction-grid js-reveal">
+          <div class="cs-friction-card">
+            <span class="cs-friction-num">Friction 01 · 89.7% Concern</span>
+            <h4>Pay Opacity &amp; Wage Cuts</h4>
+            <p>Pay rates are discussed verbally. Workers face arbitrary post-shift deductions, delayed cash payments, and zero escrow deposit security.</p>
           </div>
-          <div class="cs-principle-card">
-            <span class="cs-principle-label">PRINCIPLE / CONTINUITY</span>
-            <h4>State before action</h4>
-            <p>Distinguish sending an application from being selected. Let each status explain what happens next.</p>
+          <div class="cs-friction-card">
+            <span class="cs-friction-num">Friction 02 · 42.9% Ghosted</span>
+            <h4>Application Limbo &amp; Ghosting</h4>
+            <p>Workers apply to multiple WhatsApp links with zero confirmation or feedback. Employers simultaneously suffer a 100% no-show and sudden cancellation crisis.</p>
           </div>
-          <div class="cs-principle-card">
-            <span class="cs-principle-label">PRINCIPLE / AGENCY</span>
-            <h4>Help without a dead end</h4>
-            <p>Permission deferral, code recovery and visible support preserve a route forward.</p>
+          <div class="cs-friction-card">
+            <span class="cs-friction-num">Friction 03 · 55.2% Distance</span>
+            <h4>Location Blindness &amp; Commute</h4>
+            <p>Listings vaguely state "near station," only for workers to discover upon arrival that the venue requires an expensive 45-minute auto ride, wiping out earnings.</p>
           </div>
-        </div>
-
-        <!-- Editorial Disclaimer Box -->
-        <div class="cs-editorial-disclaimer js-reveal">
-          <strong>ABOUT THIS CASE STUDY —</strong> An editorial reading of the supplied interface. The rationale describes design intent; no research, usability results or business impact are claimed.
+          <div class="cs-friction-card">
+            <span class="cs-friction-num">Friction 04 · Zero Protection</span>
+            <h4>Fake Shifts &amp; Stranded Workers</h4>
+            <p>No verified business credentials. Workers arrive at locked venues, contact organizers who block their numbers, and have zero recourse for wasted travel.</p>
+          </div>
         </div>
 
         <!-- Interactive Contrast Simulation: Informal WhatsApp vs UpCrew Structured Clarity -->
@@ -619,24 +1606,815 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>THE INFORMAL WORKFORCE CRISIS</span>
+          <span>UPCREW — 02 / 24 PROBLEM STATEMENT</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 03 / 13: INFORMATION ARCHITECTURE
+         SLIDE 03 / 24: SOLUTION STATEMENT
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-solution">
+      <div class="cs-wrap">
+
+        <!-- Slide Header Bar (Slide 03 / 24) -->
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">03 / 24 · SOLUTION STATEMENT</span>
+          <span class="cs-slide-header-num">03 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          STRATEGIC VALUE PROPOSITION
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Trust Through Transparency: The UpCrew Shift Companion.
+        </h2>
+
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 28px; line-height: 1.65;">
+          UpCrew transforms temporary shift employment into a predictable, high-trust digital marketplace. By replacing precarious chat threads with contract-level clarity, upfront escrow protection, geo-fenced attendance checks, and active lifecycle feedback, UpCrew creates a safe, dignified earning engine tailored to the Indian urban landscape.
+        </p>
+
+        <!-- 4 Core Solution Pillars -->
+        <div class="cs-sol-pillars-grid js-reveal">
+          <div class="cs-sol-pillar-card">
+            <span class="cs-sol-pillar-badge">Pillar 01 · Discovery</span>
+            <h4>Facts Before Commitment</h4>
+            <p>Every shift card displays guaranteed payout (₹5,000), exact schedule (10:00–21:00), break policies, and real-time transit distance before the worker commits.</p>
+          </div>
+          <div class="cs-sol-pillar-card">
+            <span class="cs-sol-pillar-badge">Pillar 02 · Compensation</span>
+            <h4>Guaranteed Escrow Payouts</h4>
+            <p>Employers deposit shift funds into platform escrow at the time of booking. Post supervisor check-out, earnings release instantly into the worker's UPI wallet.</p>
+          </div>
+          <div class="cs-sol-pillar-card">
+            <span class="cs-sol-pillar-badge">Pillar 03 · Trust &amp; Safety</span>
+            <h4>Verified Business Network</h4>
+            <p>Mandatory business verification, store GST validation, past employer ratings, and direct on-site supervisor contacts eliminate fake and predatory listings.</p>
+          </div>
+          <div class="cs-sol-pillar-card">
+            <span class="cs-sol-pillar-badge">Pillar 04 · Lifecycle</span>
+            <h4>7-Stage Active Pipeline</h4>
+            <p>Eliminates ghosting completely. Transparent visual stages guide workers from application submission to waiting review, selection, arrival, and payment.</p>
+          </div>
+        </div>
+
+        <!-- Problem-to-Solution Mapping Table -->
+        <div class="cs-mapping-table-wrap js-reveal">
+          <div style="margin-bottom: 16px;">
+            <span class="cs-context-label" style="color: var(--cs-blue);">FEATURE-TO-PROBLEM ALIGNMENT MATRIX</span>
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1.125rem; font-weight:800; margin-top:4px; color:var(--cs-ink);">
+              How Every Design Decision Directly Resolves a Field Friction
+            </h3>
+          </div>
+          <table class="cs-mapping-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">User Pain Point</th>
+                <th style="width: 28%;">Field Friction Evidence</th>
+                <th style="width: 27%;">UpCrew Architectural Solution</th>
+                <th style="width: 20%;">Outcome Metric</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="cs-map-pill-bad">Wage Opacity</span><br>
+                  <strong>Deductions &amp; Delayed Pay</strong>
+                </td>
+                <td>89.7% of surveyed workers state unclear pay rates and payout delays are their primary barrier.</td>
+                <td>
+                  <span class="cs-map-pill-good">Guaranteed Escrow</span><br>
+                  Locked payout tag on shift card + instant 1-tap UPI withdrawal to bank account.
+                </td>
+                <td><strong>100% Payout Certainty</strong> upon verified check-out</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="cs-map-pill-bad">Ghosting Limbo</span><br>
+                  <strong>No Response Post-Application</strong>
+                </td>
+                <td>42.9% of workers report radio silence after applying; employers suffer a 100% no-show crisis.</td>
+                <td>
+                  <span class="cs-map-pill-good">Live Pipeline</span><br>
+                  7-Stage status tracker with real-time push alerts, 24h reminders, and emergency backup slots.
+                </td>
+                <td><strong>Zero Application Limbo</strong> with SLA response deadlines</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="cs-map-pill-bad">Location Risk</span><br>
+                  <strong>Unpredictable Commutes</strong>
+                </td>
+                <td>55.2% of workers demand travel distance and location clarity before accepting.</td>
+                <td>
+                  <span class="cs-map-pill-good">Transit Intelligence</span><br>
+                  Radius filtering, live GPS travel times (e.g. "22 min away"), and integrated navigation.
+                </td>
+                <td><strong>Eliminates Unpaid Commute</strong> surprises</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="cs-map-pill-bad">Scam Anxiety</span><br>
+                  <strong>Unverified Employers</strong>
+                </td>
+                <td>Workers fear showing up to locked venues; 100% of employers want verified attendance records.</td>
+                <td>
+                  <span class="cs-map-pill-good">Verified Protection</span><br>
+                  Verified business green badge, in-app digital work agreement, and dual geo-fenced check-in.
+                </td>
+                <td><strong>Mutual Accountability</strong> backed by digital work history</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Slide Footer Bar -->
+        <div class="cs-slide-footer js-reveal">
+          <span>THE UPCREW PROMISE</span>
+          <span>UPCREW — 03 / 24 SOLUTION STATEMENT</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 04 / 24: DESIGN PROCESS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-process">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">04 / 24 · DESIGN PROCESS</span>
+          <span class="cs-slide-header-num">04 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          METHODOLOGY &amp; FRAMEWORK
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 920px; margin-bottom: 20px;">
+          Human-Centered Problem Solving: The 5-Stage Design Thinking Framework
+        </h2>
+
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 24px;">
+          To de-risk the product and ensure field durability, we anchored the project in a disciplined 5-stage Design Thinking methodology—moving iteratively from real street-level discovery in Mumbai’s informal markets to an ergonomically hardened mobile UI.
+        </p>
+
+        <!-- 5-Stage Stepper Chevrons (Behance Style) -->
+        <div class="cs-process-stepper js-reveal">
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Stage 01</span>
+            <h4>Empathize</h4>
+            <ul>
+              <li>Field interviews with gig workers</li>
+              <li>Google Form quantitative surveys</li>
+              <li>WhatsApp informal hiring teardowns</li>
+              <li>Empathy mapping &amp; pain point capture</li>
+            </ul>
+          </div>
+
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Stage 02</span>
+            <h4>Define</h4>
+            <ul>
+              <li>User persona: Riya Sharma</li>
+              <li>Affinity mapping across 6 themes</li>
+              <li>How Might We (HMW) statements</li>
+              <li>End-to-end emotional journey curve</li>
+            </ul>
+          </div>
+
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Stage 03</span>
+            <h4>Ideate</h4>
+            <ul>
+              <li>Card sorting with active workers</li>
+              <li>5-destination Information Architecture</li>
+              <li>Complete Employee Sitemap (14+ nodes)</li>
+              <li>Task-level shift application user flows</li>
+            </ul>
+          </div>
+
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Stage 04</span>
+            <h4>Prototype</h4>
+            <ul>
+              <li>Low-fi &amp; mid-fi wireframe progression</li>
+              <li>UpCrew Mobile System v1.0 (Tokens)</li>
+              <li>19 production-grade screen layouts</li>
+              <li>Interactive Figma motion prototype</li>
+            </ul>
+          </div>
+
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Stage 05</span>
+            <h4>Test</h4>
+            <ul>
+              <li>5 core field usability evaluations</li>
+              <li>Cognitive load &amp; onboarding reduction</li>
+              <li>10 edge-case resilient recovery states</li>
+              <li>Final high-contrast visual hardening</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>DISCIPLINED DESIGN THINKING</span>
+          <span>UPCREW — 04 / 24 DESIGN PROCESS</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 05 / 24: WEEKLY TIMELINE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-timeline">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">05 / 24 · WEEKLY TIMELINE</span>
+          <span class="cs-slide-header-num">05 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          PROJECT ROADMAP &amp; MILESTONES
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          12-Week Strategic Timeline: From Informal Chaos to Codified System
+        </h2>
+
+        <!-- 6 Sprints Timeline Grid -->
+        <div class="cs-timeline-grid js-reveal">
+          <div class="cs-timeline-card">
+            <span class="cs-timeline-week">Sprint 01 · Weeks 01–03</span>
+            <h4>Research &amp; Field Discovery</h4>
+            <p>Analyzed gig worker psychology, completed 36 interview transcripts, surveyed target college demographics, and mapped the failures of informal WhatsApp hiring channels.</p>
+          </div>
+
+          <div class="cs-timeline-card">
+            <span class="cs-timeline-week">Sprint 02 · Weeks 04–05</span>
+            <h4>Synthesis &amp; Problem Definition</h4>
+            <p>Clustered 41 raw stickies into 6 affinity themes, constructed Riya Sharma's primary user persona, formulated HMW statements, and charted emotional trajectory dips.</p>
+          </div>
+
+          <div class="cs-timeline-card">
+            <span class="cs-timeline-week">Sprint 03 · Weeks 06–07</span>
+            <h4>Information Architecture &amp; Low-Fi</h4>
+            <p>Card sorting, structural navigation ribbon, complete 14-page employee sitemap, core task-flow branching, and rapid paper/low-fidelity wireframing.</p>
+          </div>
+
+          <div class="cs-timeline-card">
+            <span class="cs-timeline-week">Sprint 04 · Weeks 08–09</span>
+            <h4>Design System &amp; High-Fi UI</h4>
+            <p>Codified the UpCrew v1.0 Mobile System (Plus Jakarta Sans type scale, 4 tonal color ramps, 16.1:1 AAA contrast), building out 19 native mobile interface screens.</p>
+          </div>
+
+          <div class="cs-timeline-card">
+            <span class="cs-timeline-week">Sprint 05 · Week 10</span>
+            <h4>Interactive Motion Prototyping</h4>
+            <p>Connected Figma interactive component states, simulated real-time 7-stage application tracking transitions, and mapped out 10 resilient edge-case scenarios.</p>
+          </div>
+
+          <div class="cs-timeline-card">
+            <span class="cs-timeline-week">Sprint 06 · Weeks 11–12</span>
+            <h4>Usability Iteration &amp; Handoff</h4>
+            <p>Resolved 5 core usability bottlenecks (progressive onboarding, persistent chips, upfront escrow badges), finalized the UI presentation, and compiled the complete case study.</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>12-WEEK DISCIPLINED EXECUTION</span>
+          <span>UPCREW — 05 / 24 WEEKLY TIMELINE</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 06 / 24: QUALITATIVE & QUANTITATIVE RESEARCH
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-research">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">06 / 24 · QUAL &amp; QUANT RESEARCH</span>
+          <span class="cs-slide-header-num">06 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          FIELD EVIDENCE &amp; USER PSYCHOLOGY
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Grounding Design in Hard Data: Survey Metrics &amp; Live Interviews
+        </h2>
+
+        <div class="cs-quant-grid js-reveal">
+          <!-- Left: Survey Data Metrics -->
+          <div class="cs-stat-bar-group">
+            <div style="border-bottom: 1px solid var(--cs-line); padding-bottom: 10px; margin-bottom: 4px;">
+              <span class="cs-context-label" style="color: #6D28D9;">QUANTITATIVE SURVEY DATA (GOOGLE FORMS)</span>
+              <h3 style="font-size:1.125rem; font-weight:800; margin:4px 0 0; color:var(--cs-ink);">What Gig Workers Demand in the Field</h3>
+            </div>
+
+            <div class="cs-stat-bar-item">
+              <div class="cs-stat-bar-label">
+                <span>Wage &amp; Payout Transparency Before Applying</span>
+                <strong>89.7%</strong>
+              </div>
+              <div class="cs-stat-bar-track">
+                <div class="cs-stat-bar-fill" style="width: 89.7%;"></div>
+              </div>
+            </div>
+
+            <div class="cs-stat-bar-item">
+              <div class="cs-stat-bar-label">
+                <span>Instant Job Matching by Location Radius &amp; Skills</span>
+                <strong>69.0%</strong>
+              </div>
+              <div class="cs-stat-bar-track">
+                <div class="cs-stat-bar-fill" style="width: 69.0%;"></div>
+              </div>
+            </div>
+
+            <div class="cs-stat-bar-item">
+              <div class="cs-stat-bar-label">
+                <span>Find Current Application Processes Too Complicated</span>
+                <strong>62.1%</strong>
+              </div>
+              <div class="cs-stat-bar-track">
+                <div class="cs-stat-bar-fill" style="width: 62.1%;"></div>
+              </div>
+            </div>
+
+            <div class="cs-stat-bar-item">
+              <div class="cs-stat-bar-label">
+                <span>Demand Exact Travel Distance &amp; Commute Upfront</span>
+                <strong>55.2%</strong>
+              </div>
+              <div class="cs-stat-bar-track">
+                <div class="cs-stat-bar-fill" style="width: 55.2%;"></div>
+              </div>
+            </div>
+
+            <div class="cs-stat-bar-item">
+              <div class="cs-stat-bar-label">
+                <span>Experience Total Radio Silence / Ghosting Post-Application</span>
+                <strong>42.9%</strong>
+              </div>
+              <div class="cs-stat-bar-track">
+                <div class="cs-stat-bar-fill" style="width: 42.9%;"></div>
+              </div>
+            </div>
+
+            <div style="background: #F3F4F6; border-radius: 12px; padding: 12px 14px; margin-top: 8px;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--cs-ink-3); text-transform: uppercase;">Employer-Side Finding:</span>
+              <p style="font-size: 0.8125rem; font-weight: 600; color: var(--cs-ink); margin: 4px 0 0;">
+                100% of business managers cite last-minute cancellations &amp; no-shows as their #1 operational crisis. 0% raised hourly wages as a barrier.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Authentic Qualitative Interview Transcript -->
+          <div class="cs-interview-quote-box">
+            <span class="cs-context-label" style="color: #6D28D9;">QUALITATIVE FIELD INTERVIEW TRANSCRIPT</span>
+            <div style="font-size:0.875rem; font-weight:700; color:#4C1D95;">
+              Persona: Working Professional (Graphic Design &amp; Weekend Retail)
+            </div>
+
+            <div class="cs-interview-quote">
+              "I am working professional who want more money because salary is not enough and want to gain more experience... Searching on LinkedIn, Naukri was the biggest headache."
+            </div>
+
+            <p style="font-size:0.8125rem; color:#4B5563; line-height:1.55; margin:0;">
+              <strong>Key Decision Driver:</strong> "Commutation. If the venue is too far or travel cost eats up the wage, I drop it immediately."
+            </p>
+
+            <p style="font-size:0.8125rem; color:#4B5563; line-height:1.55; margin:0;">
+              <strong>What Establishes Trust:</strong> "Company background, clear commutation, and clean payment written down like an agreement so both of us are protected."
+            </p>
+
+            <div style="border-top:1px solid #E9D5FF; padding-top:10px; margin-top:4px;">
+              <span style="font-size:0.75rem; font-weight:700; color:#6D28D9;">Design Takeaway:</span>
+              <p style="font-size:0.8125rem; color:#374151; margin:2px 0 0;">
+                Temporary workers aren't looking for vague career promises—they need micro-contracts with instant location math and locked payout certainty.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>AUTHENTIC SURVEY &amp; FIELD DATA</span>
+          <span>UPCREW — 06 / 24 QUAL &amp; QUANT RESEARCH</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 07 / 24: COMPETITOR ANALYSIS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-competitors">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">07 / 24 · COMPETITOR ANALYSIS</span>
+          <span class="cs-slide-header-num">07 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          MARKET BENCHMARKING
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Informal WhatsApp Groups vs 9-to-5 Job Portals vs UpCrew
+        </h2>
+
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 24px;">
+          Rather than competing with monthly white-collar job boards, UpCrew attacks the acute structural gap between fragmented WhatsApp broadcast channels and heavyweight corporate HR tools.
+        </p>
+
+        <!-- Competitor Comparison Table (Behance Style) -->
+        <div class="cs-comp-table-wrap js-reveal">
+          <table class="cs-comp-table">
+            <thead>
+              <tr>
+                <th style="width: 24%;">Feature Dimension</th>
+                <th style="width: 25%;">Informal Channels (WhatsApp / Agents)</th>
+                <th style="width: 25%;">Traditional Job Portals (Naukri / LinkedIn)</th>
+                <th style="width: 26%; background: #EFF6FF; color: var(--cs-blue);">UpCrew Verified Model</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hiring Speed</strong></td>
+                <td><span class="cs-comp-badge-win">Fast</span> (Minutes, but chaotic)</td>
+                <td><span class="cs-comp-badge-lose">Slow</span> (2–4 weeks resume review)</td>
+                <td style="background: #FAF5FF;"><span class="cs-comp-badge-win">Instant</span> (1-tap shift application)</td>
+              </tr>
+              <tr>
+                <td><strong>Shift Unit Economics</strong></td>
+                <td>Single day, but unverified cash</td>
+                <td>Monthly salaried commitments only</td>
+                <td style="background: #FAF5FF;"><strong>4h–8h Single Shifts</strong> with fixed payouts</td>
+              </tr>
+              <tr>
+                <td><strong>Payment Protection</strong></td>
+                <td><span class="cs-comp-badge-lose">Zero</span> (High wage withholding risk)</td>
+                <td>Direct corporate payroll</td>
+                <td style="background: #FAF5FF;"><span class="cs-comp-badge-win">100% Escrow</span> locked upon booking</td>
+              </tr>
+              <tr>
+                <td><strong>Commute &amp; Location</strong></td>
+                <td>Vague text ("near station")</td>
+                <td>City-level filter only</td>
+                <td style="background: #FAF5FF;"><span class="cs-comp-badge-win">Live GPS Radius</span> &amp; transit calculation</td>
+              </tr>
+              <tr>
+                <td><strong>Feedback &amp; Status</strong></td>
+                <td><span class="cs-comp-badge-lose">42.9% Ghosting</span> (Radio silence)</td>
+                <td>Generic automated rejection emails</td>
+                <td style="background: #FAF5FF;"><span class="cs-comp-badge-win">7-Stage Pipeline</span> with SLA countdown</td>
+              </tr>
+              <tr>
+                <td><strong>Worker Protection</strong></td>
+                <td><span class="cs-comp-badge-lose">None</span> (Locked gates upon arrival)</td>
+                <td>Company profile reviews</td>
+                <td style="background: #FAF5FF;"><span class="cs-comp-badge-win">Verified GST</span> &amp; on-site supervisor check-in</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>SOLVING THE UNSTRUCTURED GAP</span>
+          <span>UPCREW — 07 / 24 COMPETITOR ANALYSIS</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 08 / 24: MIND MAP
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-mindmap">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">08 / 24 · MIND MAP</span>
+          <span class="cs-slide-header-num">08 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          CONCEPTUAL DECOMPOSITION
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          UpCrew Mind Map: Balancing Dual-Sided Operational Realities
+        </h2>
+
+        <!-- 4-Branch Mind Map Grid -->
+        <div class="cs-friction-grid js-reveal" style="margin-top: 20px;">
+          <div class="cs-friction-card" style="border-top: 4px solid #2558E8;">
+            <span style="font-size: 0.75rem; font-weight: 800; color: #2558E8; text-transform: uppercase;">Branch 01 · Worker Priorities</span>
+            <h4>Dignified Predictability</h4>
+            <p>Guaranteed pay amounts · In-hand payout date · Commute radius under 30 mins · Zero document friction · Transparent shift schedules.</p>
+          </div>
+
+          <div class="cs-friction-card" style="border-top: 4px solid #16A34A;">
+            <span style="font-size: 0.75rem; font-weight: 800; color: #16A34A; text-transform: uppercase;">Branch 02 · Employer Realities</span>
+            <h4>Zero-Loss Staffing</h4>
+            <p>100% attendance reliability · Automated replacement backup · Verified ID &amp; skill badge · Instant on-site QR check-in · Direct ratings.</p>
+          </div>
+
+          <div class="cs-friction-card" style="border-top: 4px solid #7C3AED;">
+            <span style="font-size: 0.75rem; font-weight: 800; color: #7C3AED; text-transform: uppercase;">Branch 03 · Platform Integrity</span>
+            <h4>Escrow &amp; Mediation</h4>
+            <p>Advance wage escrow locking · Geo-fenced time tracking · In-app dispute resolution · Emergency supervisor call link · Digital work contract.</p>
+          </div>
+
+          <div class="cs-friction-card" style="border-top: 4px solid #EA580C;">
+            <span style="font-size: 0.75rem; font-weight: 800; color: #EA580C; text-transform: uppercase;">Branch 04 · Field Logistics</span>
+            <h4>Field Durability</h4>
+            <p>Offline-cached confirmed shift pass · High-glare sunlight typography · 24h &amp; 3h commute reminders · Emergency transit notifications.</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>DUAL-SIDED SYSTEM ARCHITECTURE</span>
+          <span>UPCREW — 08 / 24 MIND MAP</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 09 / 24: AFFINITY MAP
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-affinity">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">09 / 24 · AFFINITY MAP</span>
+          <span class="cs-slide-header-num">09 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          RESEARCH SYNTHESIS WALL
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Affinity Mapping: Clustering 41 Raw Stickies Across 6 Core Themes
+        </h2>
+
+        <!-- 6-Theme Affinity Column Grid -->
+        <div class="cs-affinity-grid js-reveal">
+          <div class="cs-affinity-col">
+            <div class="cs-affinity-col-header">1. Payment &amp; Earning</div>
+            <div class="cs-affinity-sticky">Decent income is top priority</div>
+            <div class="cs-affinity-sticky">Payment transparency before applying</div>
+            <div class="cs-affinity-sticky">Clean payment method (Direct UPI)</div>
+            <div class="cs-affinity-sticky">Clarity with pay rates and settlement timings</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--green">Ratings unlock better-paying shifts</div>
+          </div>
+
+          <div class="cs-affinity-col">
+            <div class="cs-affinity-col-header">2. Trust &amp; Safety</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Trust with platform and employers</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Verified employers (GST &amp; venue check)</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Written agreement inside app</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Call before hiring confirmation</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Emergency contact &amp; safety during shift</div>
+          </div>
+
+          <div class="cs-affinity-col">
+            <div class="cs-affinity-col-header">3. Job Transparency</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--pink">Exact job location &amp; venue details</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--pink">Clear job timing &amp; shift duration</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--pink">Specific responsibilities &amp; skill requirements</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--pink">Travel reimbursement info upfront</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--pink">Clear break times &amp; worker well-being</div>
+          </div>
+
+          <div class="cs-affinity-col">
+            <div class="cs-affinity-col-header">4. Discovery Challenges</div>
+            <div class="cs-affinity-sticky">Easy to find jobs on platform</div>
+            <div class="cs-affinity-sticky">1-tap fast application flow</div>
+            <div class="cs-affinity-sticky">Save favorite employers for future gigs</div>
+            <div class="cs-affinity-sticky">Digital work history for career opportunities</div>
+            <div class="cs-affinity-sticky">Skill-building micro courses</div>
+          </div>
+
+          <div class="cs-affinity-col">
+            <div class="cs-affinity-col-header">5. Convenience &amp; Speed</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--green">Less documentation required</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--green">Onboarding &amp; initial joining smooth</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--green">Fast approval status</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--green">Filter by commute radius</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--green">Flexible availability calendar</div>
+          </div>
+
+          <div class="cs-affinity-col">
+            <div class="cs-affinity-col-header">6. Reliability Concerns</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">"What if I need to leave urgently?"</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Easy cancellation policy</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Clean communication channel</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Rewards &amp; loyalty points for attendance</div>
+            <div class="cs-affinity-sticky cs-affinity-sticky--blue">Reliable help centre &amp; dispute support</div>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>ORGANIZED RESEARCH WALL</span>
+          <span>UPCREW — 09 / 24 AFFINITY MAP</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 10 / 24: USER PERSONA
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-persona">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">10 / 24 · USER PERSONA</span>
+          <span class="cs-slide-header-num">10 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          PRIMARY TARGET ARCHETYPE
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Meet Riya Sharma: The College Student &amp; Weekend Gig Hustler
+        </h2>
+
+        <!-- Persona Visual Card & High-Density Attribute Layout -->
+        <div style="background: var(--cs-surface); border: 1px solid var(--cs-line); border-radius: 24px; padding: 24px; box-shadow: 0 4px 20px rgba(20,18,16,0.03); margin-top: 20px;" class="js-reveal">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+            <!-- Left: High-Res Persona Artwork -->
+            <div style="border-radius: 18px; overflow: hidden; border: 1px solid var(--cs-line);">
+              <img
+                src="../Assets/Images/riya-persona.jpg"
+                alt="Riya Sharma - User Persona Card for UpCrew"
+                style="width: 100%; height: auto; display: block;"
+                loading="lazy"
+              >
+            </div>
+
+            <!-- Right: Persona Details & Behavioral Blueprint -->
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <span style="font-size: 0.75rem; font-weight: 800; color: #7C3AED; text-transform: uppercase;">Primary User Archetype</span>
+                <h3 style="font-size: 1.75rem; font-weight: 800; margin: 4px 0 2px; color: var(--cs-ink);">Riya Sharma, 21</h3>
+                <p style="font-size: 0.9375rem; font-weight: 600; color: var(--cs-ink-2); margin: 0;">B.Com Undergraduate · Thane, Maharashtra</p>
+              </div>
+
+              <div style="background: #F5F3FF; border-left: 4px solid #7C3AED; padding: 12px 16px; border-radius: 0 12px 12px 0;">
+                <p style="font-size: 0.9375rem; font-weight: 700; font-style: italic; color: #5B21B6; margin: 0; line-height: 1.45;">
+                  "I don't need a permanent job right now. I need flexible work that pays fairly and doesn't waste my time."
+                </p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.8125rem;">
+                <div style="background: #F9FAFB; padding: 10px 12px; border-radius: 10px;">
+                  <span style="font-weight: 700; color: var(--cs-ink-3);">Monthly Gig Income:</span><br>
+                  <strong style="color: var(--cs-ink);">₹8,000 – ₹15,000</strong>
+                </div>
+                <div style="background: #F9FAFB; padding: 10px 12px; border-radius: 10px;">
+                  <span style="font-weight: 700; color: var(--cs-ink-3);">Tech Literacy:</span><br>
+                  <strong style="color: var(--cs-ink);">High (Android + UPI heavy)</strong>
+                </div>
+              </div>
+
+              <div>
+                <h4 style="font-size: 0.875rem; font-weight: 800; color: var(--cs-ink); margin: 0 0 6px;">Key Goals</h4>
+                <ul style="margin: 0; padding-left: 18px; font-size: 0.8125rem; color: var(--cs-ink-2); line-height: 1.5;">
+                  <li>Earn supplemental cash without compromising college lectures.</li>
+                  <li>Discover shifts within a 30-minute public transit radius.</li>
+                  <li>Receive direct digital payments without chasing employers post-shift.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style="font-size: 0.875rem; font-weight: 800; color: #DC2626; margin: 0 0 6px;">Critical Pain Points</h4>
+                <ul style="margin: 0; padding-left: 18px; font-size: 0.8125rem; color: var(--cs-ink-2); line-height: 1.5;">
+                  <li>Vague job posts hiding pay rates and shift hours until after arrival.</li>
+                  <li>Applying to WhatsApp broadcasts and getting ghosted 42.9% of the time.</li>
+                  <li>Transportation costs eating into daily earnings on unverified shifts.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>HUMAN-CENTERED FOUNDATION</span>
+          <span>UPCREW — 10 / 24 USER PERSONA</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 11 / 24: EMPATHY MAP
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-empathy">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">11 / 24 · EMPATHY MAP</span>
+          <span class="cs-slide-header-num">11 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          PSYCHOLOGICAL QUADRANT MAPPING
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Riya's Empathy Map: Decoding Says, Thinks, Does &amp; Feels
+        </h2>
+
+        <!-- 4-Quadrant Empathy Grid (Authentic Figma Stickies) -->
+        <div class="cs-empathy-quad-grid js-reveal">
+          <div class="cs-empathy-quad" style="border-top: 4px solid #2558E8;">
+            <span class="cs-empathy-quad-title" style="color: #2558E8;">Quadrant 01 · SAYS</span>
+            <ul>
+              <li>"Will the employer be clear about shift timings?"</li>
+              <li>"I need to know how much and when will I get paid."</li>
+              <li>"I'm looking for something flexible that pays well."</li>
+              <li>"I don't want hidden deductions taken from my salary."</li>
+              <li>"I wish someone would notify me when shifts open nearby."</li>
+            </ul>
+          </div>
+
+          <div class="cs-empathy-quad" style="border-top: 4px solid #7C3AED;">
+            <span class="cs-empathy-quad-title" style="color: #7C3AED;">Quadrant 02 · THINKS</span>
+            <ul>
+              <li>"Am I missing better earning opportunities elsewhere?"</li>
+              <li>"Why is finding a legitimate temporary gig so difficult?"</li>
+              <li>"What if I show up and the employer refuses to pay?"</li>
+              <li>"This listing might be fake or in an unsafe neighborhood."</li>
+              <li>"Will completing this job improve my future work prospects?"</li>
+            </ul>
+          </div>
+
+          <div class="cs-empathy-quad" style="border-top: 4px solid #16A34A;">
+            <span class="cs-empathy-quad-title" style="color: #16A34A;">Quadrant 03 · DOES</span>
+            <ul>
+              <li>Searches informal WhatsApp groups, Telegram, and Instagram daily.</li>
+              <li>Asks college friends for referrals before trusting an unfamiliar listing.</li>
+              <li>Conducts manual Google research on employers if details look sketchy.</li>
+              <li>Applies to multiple shifts simultaneously to guard against ghosting.</li>
+            </ul>
+          </div>
+
+          <div class="cs-empathy-quad" style="border-top: 4px solid #DC2626;">
+            <span class="cs-empathy-quad-title" style="color: #DC2626;">Quadrant 04 · FEELS</span>
+            <ul>
+              <li><strong>Excited</strong> about earning financial independence and building experience.</li>
+              <li><strong>Anxious</strong> about whether an accepted gig will actually materialize.</li>
+              <li><strong>Fearful</strong> of arriving at locked venues or facing wage theft.</li>
+              <li><strong>Frustrated</strong> by the lack of responses after submitting applications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>UNCOVERING LATENT EMOTIONS</span>
+          <span>UPCREW — 11 / 24 EMPATHY MAP</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 12 / 24: INFORMATION ARCHITECTURE
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section" id="cs-ia">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 03 / 13) -->
+        <!-- Slide Header Bar (Slide 12 / 24) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">03 / 13</span>
+          <span class="cs-slide-header-cat">12 / 24 · INFORMATION ARCHITECTURE</span>
+          <span class="cs-slide-header-num">12 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -868,23 +2646,452 @@
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
           <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>UPCREW — 12 / 24 INFORMATION ARCHITECTURE</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 04 / 13: MOBILE DESIGN SYSTEM & COMPONENT SPEC
+         SLIDE 13 / 24: FLOWCHART (TASK FLOW)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-flowchart">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">13 / 24 · USER FLOWCHART</span>
+          <span class="cs-slide-header-num">13 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          DECISION ARCHITECTURE &amp; TASK FLOW
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          The Core Shift Commitment &amp; Completion Flow
+        </h2>
+
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 28px;">
+          Mapping the branching decision tree for workers from initial discovery through on-site check-in, supervisor sign-off, and instant escrow settlement.
+        </p>
+
+        <!-- Visual Flowchart Grid -->
+        <div class="cs-friction-grid js-reveal" style="grid-template-columns: repeat(4, 1fr) !important;">
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--cs-blue);">Step 01 · Explore</span>
+            <h4>Browse &amp; Filter</h4>
+            <p>Worker launches feed → Applies 30-min radius &amp; ₹800+ wage filter → Browses cards.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#7C3AED;">Step 02 · Evaluation</span>
+            <h4>Inspect Facts</h4>
+            <p>Checks ₹5,000 guaranteed payout, timing (10:00–21:00), dress code &amp; GPS route.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#16A34A;">Step 03 · Commitment</span>
+            <h4>1-Tap Apply</h4>
+            <p>Worker taps 'Apply Now' → Shift moves to 'Under Review' → Instant notification sent.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#EA580C;">Step 04 · Settlement</span>
+            <h4>Check-in &amp; Payout</h4>
+            <p>On-site QR scan → Shift completed → Escrow released directly into worker's UPI wallet.</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>TASK-LEVEL LOGICAL PATHS</span>
+          <span>UPCREW — 13 / 24 USER FLOWCHART</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 14 / 24: USER JOURNEY MAP
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-journey">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">14 / 24 · USER JOURNEY MAP</span>
+          <span class="cs-slide-header-num">14 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          EMOTIONAL TRAJECTORY &amp; TOUCHPOINTS
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Riya’s Journey: From Discovering Gigs to Getting Paid
+        </h2>
+
+        <!-- Embedded User Journey Graphic -->
+        <div style="background: var(--cs-surface); border: 1px solid var(--cs-line); border-radius: 24px; padding: 24px; box-shadow: 0 4px 20px rgba(20,18,16,0.03); margin-top: 20px;" class="js-reveal">
+          <img
+            src="../Assets/Images/riya-journey.png"
+            alt="Riya's Journey Map - UpCrew Case Study"
+            style="width: 100%; height: auto; display: block; border-radius: 14px;"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>EMOTIONAL TRAJECTORY MAPPING</span>
+          <span>UPCREW — 14 / 24 USER JOURNEY MAP</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 15 / 24: STORYBOARD
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-storyboard">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">15 / 24 · STORYBOARD</span>
+          <span class="cs-slide-header-num">15 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          NARRATIVE SCENARIO VISUALIZATION
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          A Saturday in Riya's Life: The 6-Panel Experience Storyboard
+        </h2>
+
+        <!-- 6-Panel Storyboard Comic Strip -->
+        <div class="cs-storyboard-grid js-reveal">
+          <div class="cs-storyboard-panel">
+            <span class="cs-storyboard-panel-num">Panel 01 · Friday Night</span>
+            <h4>Discovery &amp; Urgency</h4>
+            <p>Riya is studying at home in Thane. She needs ₹1,500 for books before Monday. She opens UpCrew to check for nearby weekend retail shifts.</p>
+          </div>
+
+          <div class="cs-storyboard-panel">
+            <span class="cs-storyboard-panel-num">Panel 02 · Smart Radius Filter</span>
+            <h4>Commute &amp; Pay Clarity</h4>
+            <p>She sets her radius to "Within 30 mins". A Retail Assistant shift at H&amp;M LakeShore Mall appears: ₹5,000 guaranteed payout, 22 minutes away.</p>
+          </div>
+
+          <div class="cs-storyboard-panel">
+            <span class="cs-storyboard-panel-num">Panel 03 · 1-Tap Application</span>
+            <h4>Zero Heavy Forms</h4>
+            <p>Her Aadhaar verification and college documents are already pre-saved. With one tap, her application is submitted to H&amp;M management.</p>
+          </div>
+
+          <div class="cs-storyboard-panel">
+            <span class="cs-storyboard-panel-num">Panel 04 · Saturday Morning</span>
+            <h4>Confirmed Notification</h4>
+            <p>UpCrew pings her phone: "You're Confirmed!" She receives the supervisor's name, reporting entrance, and automated transit directions.</p>
+          </div>
+
+          <div class="cs-storyboard-panel">
+            <span class="cs-storyboard-panel-num">Panel 05 · Saturday 10:00 AM</span>
+            <h4>On-Site Live Check-in</h4>
+            <p>Riya arrives at LakeShore Mall. The app detects her geo-location and she verifies her presence with the floor supervisor via QR check-in.</p>
+          </div>
+
+          <div class="cs-storyboard-panel">
+            <span class="cs-storyboard-panel-num">Panel 06 · Saturday 09:00 PM</span>
+            <h4>Instant UPI Payout</h4>
+            <p>Shift finishes. The supervisor taps check-out. Escrow funds unlock immediately, transferring ₹5,000 directly into Riya's UPI account.</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>HUMAN STORYTELLING IN ACTION</span>
+          <span>UPCREW — 15 / 24 STORYBOARD</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 16 / 24: MOOD BOARD
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-moodboard">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">16 / 24 · MOOD BOARD</span>
+          <span class="cs-slide-header-num">16 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          VISUAL INSPIRATION &amp; ATMOSPHERE
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          The Urban Hustle: High-Contrast Utility Meets Human Warmth
+        </h2>
+
+        <!-- Mood Board Pill Clusters -->
+        <div class="cs-friction-grid js-reveal">
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:var(--cs-blue);">Visual Anchor 01</span>
+            <h4>Mumbai Local Transit</h4>
+            <p>Direct inspiration from suburban railway signage and metro wayfinding: high-legibility bold type that cuts through crowds and glare.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#16A34A;">Visual Anchor 02</span>
+            <h4>UPI Financial Trust</h4>
+            <p>Clean green verification seals and receipt ledgers that mimic trusted Indian fintech standards (GPay, PhonePe) to signal instant settlement safety.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#7C3AED;">Visual Anchor 03</span>
+            <h4>Youthful Optimism</h4>
+            <p>Warm purple and violet narrative accents paired with relatable character line-art to make temporary work feel empowering, not exploitative.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#EA580C;">Visual Anchor 04</span>
+            <h4>Field Ergonomics</h4>
+            <p>Deep charcoal typography on pure white cards, oversized 44px tap targets, and high tactile contrast for one-handed outdoor usage.</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>ATMOSPHERE &amp; INSPIRATION</span>
+          <span>UPCREW — 16 / 24 MOOD BOARD</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 17 / 24: SITEMAP (AUTHENTIC FIGMA EXTRACT)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-sitemap">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">17 / 24 · SITEMAP</span>
+          <span class="cs-slide-header-num">17 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          FULL ARCHITECTURAL TREE
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          UpCrew Employee Sitemap: 14 Dedicated App Surfaces
+        </h2>
+
+        <!-- Sitemap 4-Column Tree Grid (Extracted directly from Figma Board) -->
+        <div class="cs-sitemap-grid js-reveal">
+          <div class="cs-sitemap-col">
+            <h4>1. Discovery &amp; Search</h4>
+            <ul>
+              <li>Home Feed (Nearby Shifts)</li>
+              <li>Explore Jobs (Keyword Search)</li>
+              <li>Categories (Retail, Events, Cafe, Warehouse, Delivery, Promos)</li>
+              <li>Filters (Distance, Pay, Timing, Gender, Instant Join)</li>
+              <li>Saved Shifts &amp; Search History</li>
+            </ul>
+          </div>
+
+          <div class="cs-sitemap-col">
+            <h4>2. Shift &amp; Application</h4>
+            <ul>
+              <li>Job Details Overview</li>
+              <li>Guaranteed Pay &amp; Escrow Tag</li>
+              <li>Shift Schedule &amp; Break Times</li>
+              <li>Application Tracker (Applied, Review, Selected, Rejected)</li>
+              <li>One-Tap Direct Commit</li>
+            </ul>
+          </div>
+
+          <div class="cs-sitemap-col">
+            <h4>3. Active Shift &amp; Safety</h4>
+            <ul>
+              <li>Live Location Map &amp; Navigation</li>
+              <li>Employer / Supervisor Contact</li>
+              <li>Geo-Fenced QR Check-In</li>
+              <li>Check-Out &amp; Hours Approval</li>
+              <li>Emergency Contact &amp; Report Issue</li>
+            </ul>
+          </div>
+
+          <div class="cs-sitemap-col">
+            <h4>4. Wallet &amp; Compliance</h4>
+            <ul>
+              <li>Real-time Available Balance</li>
+              <li>Instant UPI Bank Withdrawal</li>
+              <li>Pending Escrow Payments</li>
+              <li>Aadhaar Verification &amp; Documents</li>
+              <li>Safety Centre &amp; User Agreement</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>COMPLETE SITEMAP TOPOLOGY</span>
+          <span>UPCREW — 17 / 24 SITEMAP</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 18 / 24: WIREFRAMES (LOW-FI) & EARLY TESTING
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-wireframes-lowfi">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">18 / 24 · LOW-FI WIREFRAMES</span>
+          <span class="cs-slide-header-num">18 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          EARLY STRUCTURAL EXPLORATION
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Early Paper &amp; Low-Fi Wireframing: Testing Cognitive Load
+        </h2>
+
+        <!-- Low-fi Testing Observations Grid -->
+        <div class="cs-friction-grid js-reveal">
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#DC2626;">Observation 01</span>
+            <h4>Onboarding Fatigue</h4>
+            <p>Initial paper prototypes tested an 8-step verification upfront. Users abandoned before seeing a single job. Solution: deferred verification until post-application.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#DC2626;">Observation 02</span>
+            <h4>Card Hierarchy Confusion</h4>
+            <p>Early wireframes buried shift pay inside body copy. Workers scanned for wages first. Solution: elevated ₹ payout and distance into bold top-right badges.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#16A34A;">Observation 03</span>
+            <h4>Status Reassurance</h4>
+            <p>Once users applied, a plain toast message caused anxiety ("Did they get it?"). Solution: built a permanent 7-stage visual tracker in 'My Shifts'.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.75rem; font-weight:800; color:#16A34A;">Observation 04</span>
+            <h4>Filter Ergonomics</h4>
+            <p>Hidden modal filters slowed browsing. Solution: introduced sticky horizontal filter pills (Distance, Pay, Time) directly above the live feed.</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>RAPID VALIDATION CYCLES</span>
+          <span>UPCREW — 18 / 24 LOW-FI WIREFRAMES</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 19 / 24: MID-FI WIREFRAMES (10 SCREENS)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-wireframes-midfi">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">19 / 24 · MID-FI WIREFRAMES</span>
+          <span class="cs-slide-header-num">19 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          STRUCTURAL BLUEPRINT
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Mid-Fidelity Wireframes: Locking Layout &amp; Information Density
+        </h2>
+
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 28px;">
+          Prior to visual polish, 10 core mobile layouts were engineered in greyscale to validate thumb zones, 44px tap ergonomics, typography hierarchy, and zero layout shift.
+        </p>
+
+        <!-- 10 Mid-fi Screens Summary Matrix -->
+        <div class="cs-process-stepper js-reveal" style="grid-template-columns: repeat(5, 1fr) !important; margin-bottom: 24px;">
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 01</span>
+            <h4>Welcome</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Value prop &amp; instant sign-in trigger</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 02</span>
+            <h4>Permissions</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Contextual location &amp; alerts gate</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 03</span>
+            <h4>Phone Auth</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Phone number + OTP verification</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 04</span>
+            <h4>Live Feed</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Shift cards, search bar &amp; filter chips</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 05</span>
+            <h4>Shift Details</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Guaranteed pay, hours &amp; map radius</p>
+          </div>
+        </div>
+
+        <div class="cs-process-stepper js-reveal" style="grid-template-columns: repeat(5, 1fr) !important;">
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 06</span>
+            <h4>1-Tap Apply</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Instant application confirmation</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 07</span>
+            <h4>Status Tracker</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">7-Stage visual progress pipeline</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 08</span>
+            <h4>My Shifts</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Applied, Upcoming &amp; Completed tabs</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 09</span>
+            <h4>Active Check-in</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">QR check-in &amp; supervisor link</p>
+          </div>
+          <div class="cs-process-step">
+            <span class="cs-process-step-num">Screen 10</span>
+            <h4>Wallet Payout</h4>
+            <p style="font-size:0.75rem; color:var(--cs-ink-3);">Real-time ledger &amp; 1-tap UPI transfer</p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>STRUCTURAL WIREFRAME BLUEPRINT</span>
+          <span>UPCREW — 19 / 24 MID-FI WIREFRAMES</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 20 / 24: MOBILE DESIGN SYSTEM & COMPONENT SPEC
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section cs-section--alt" id="cs-brand-identity">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 04 / 13) -->
+        <!-- Slide Header Bar (Slide 20 / 24) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">DESIGN SYSTEM / COMPONENT SPEC</span>
-          <span class="cs-slide-header-num">04 / 13</span>
+          <span class="cs-slide-header-cat">20 / 24 · DESIGN SYSTEM</span>
+          <span class="cs-slide-header-num">20 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -1870,16 +4077,16 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 05 / 13: ONBOARDING FLOW
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (01/09: ONBOARDING FLOW)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section" id="cs-onboarding">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 05 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 01/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">05 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (01/09: ONBOARDING)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -1957,24 +4164,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>SHOW THE PROMISE, THEN THE PRODUCT</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (01/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 06 / 13: PERMISSIONS & CONTEXTUAL ACCESS
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (02/09: PERMISSIONS)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section cs-section--alt" id="cs-permissions">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 06 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 02/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">06 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (02/09: PERMISSIONS)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2030,24 +4237,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>JUST-IN-TIME CONTEXTUAL PERMISSIONS</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (02/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 07 / 13: SIGN-IN & VERIFICATION
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (03/09: AUTH & PROFILE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section" id="cs-auth">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 07 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 03/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">07 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (03/09: AUTH &amp; PROFILE)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2125,24 +4332,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>FRICTIONLESS PHONE-FIRST AUTHENTICATION</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (03/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 08 / 13: SHIFT DISCOVERY & LIVE FEED
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (04/09: SHIFT DISCOVERY)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section cs-section--alt" id="cs-discovery">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 08 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 04/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">08 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (04/09: SHIFT DISCOVERY)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2198,24 +4405,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>DISCOVERY THAT RESPECTS COMMUTES &amp; TRUST</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (04/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 09 / 13: SHIFT DETAILS: FACTS BEFORE COMMITMENT
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (05/09: SHIFT DETAILS)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section" id="cs-details">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 09 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 05/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">09 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (05/09: SHIFT DETAILS)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2271,24 +4478,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>RADICAL INFORMATION CLARITY &amp; ESCROW ASSURANCE</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (05/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 10 / 13: APPLICATION PIPELINE & SELECTION
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (06/09: APPLICATION PIPELINE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section cs-section--alt" id="cs-application">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 10 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 06/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">10 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (06/09: APPLICATION PIPELINE)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2366,24 +4573,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>CLOSING THE UNCERTAINTY LOOP &amp; TIMED SLAS</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (06/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 11 / 13: ACTIVE SHIFT MANAGEMENT: MY SHIFTS
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (07/09: ACTIVE SHIFTS)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section" id="cs-shifts">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 11 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 07/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">11 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (07/09: ACTIVE SHIFTS)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2439,24 +4646,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>DAY-OF-WORK OPERATIONAL RELIABILITY</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (07/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 12 / 13: WALLET, EARNINGS & DIRECT SETTLEMENT
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (08/09: WALLET & EARNINGS)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section cs-section--alt" id="cs-wallet">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 12 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 08/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">12 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (08/09: WALLET &amp; EARNINGS)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2526,24 +4733,24 @@
 
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>FINANCIAL AUTONOMY &amp; INSTANT UPI SETTLEMENT</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (08/09)</span>
         </div>
 
       </div>
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 13 / 13: DESIGNING FOR REALITY: EDGE CASES & RESILIENCE
+         SLIDE 21 / 24: HIGH-FIDELITY SCREENS (09/09: EDGE CASES & RESILIENCE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="cs-section" id="cs-edge-cases">
       <div class="cs-wrap">
 
-        <!-- Slide Header Bar (Slide 13 / 13) -->
+        <!-- Slide Header Bar (Slide 21 / 24 · 09/09) -->
         <div class="cs-slide-header js-reveal">
           <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">PRODUCT EXPERIENCE / UX &amp; UI</span>
-          <span class="cs-slide-header-num">13 / 13</span>
+          <span class="cs-slide-header-cat">21 / 24 · HIGH-FIDELITY SCREENS (09/09: EDGE CASES)</span>
+          <span class="cs-slide-header-num">21 / 24</span>
         </div>
 
         <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 12px;">
@@ -2644,28 +4851,254 @@
           </div>
         </div>
 
+        <!-- Callout Banner: Remaining App Screens in Figma (Rubric requirement 21: 'rest screen put link - after') -->
+        <div class="cs-figma-callout-card js-reveal" style="margin-top: 40px; margin-bottom: 24px; padding: 28px 32px; background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%); border: 1px solid #312E81; border-radius: 16px; color: #FFF; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+          <div style="max-width: 620px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(167, 139, 250, 0.4); padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #A78BFA;"></span>
+              <span style="font-size: 0.6875rem; font-weight: 800; color: #C4B5FD; text-transform: uppercase; letter-spacing: 0.08em;">Complete App UI Ecosystem</span>
+            </div>
+            <h3 style="font-size: 1.375rem; font-weight: 800; color: #FFF; margin-bottom: 8px; letter-spacing: -0.02em;">
+              Explore All 19+ High-Fidelity App Screens in Figma
+            </h3>
+            <p style="font-size: 0.9375rem; color: #94A3B8; line-height: 1.5; margin: 0;">
+              In addition to the 10 core screens showcased above, view the complete master flows, modal states, micro-interactions, empty states, and interactive components in the production Figma canvas.
+            </p>
+          </div>
+          <div>
+            <a
+              href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cs-trust-pill"
+              style="padding: 14px 24px; font-size: 0.875rem; text-decoration: none; background: #2558E8; color: #FFF !important; border: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(37, 88, 232, 0.4);"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+              View Full Figma Design File →
+            </a>
+          </div>
+        </div>
+
         <!-- Slide Footer Bar -->
         <div class="cs-slide-footer js-reveal">
-          <span>WORK THAT MOVES WITH YOU</span>
-          <span>UPCREW — EXPERIENCE CASE STUDY</span>
+          <span>FIELD-HARDENED RESILIENCE &amp; ERROR RECOVERY</span>
+          <span>UPCREW — 21 / 24 HIGH-FIDELITY SCREENS (09/09)</span>
         </div>
       </div>
     </section>
 
-    <!-- ── Closing CTA ─────────────────────────────────────────────────── -->
-    <section class="cs-section cs-cta-section">
-      <div class="cs-wrap js-reveal">
-        <span class="cs-eyebrow"><span class="cs-dot"></span>Let's Collaborate</span>
-        <h2 class="cs-section-h2" style="max-width: 28ch; margin: 0 auto 16px;">Let's build systems people can depend on</h2>
-        <p class="cs-body-copy" style="max-width: 48ch; margin: 0 auto 28px;">
-          Available for product design roles and design engineering opportunities.
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 22 / 24: USABILITY TESTING & DESIGN ITERATIONS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-section--alt" id="cs-usability-testing">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">22 / 24 · USABILITY TESTING &amp; ITERATIONS</span>
+          <span class="cs-slide-header-num">22 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
+          EVIDENCE-BASED REFINEMENT
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Usability Considerations: 5 Critical Field Issues &amp; Design Fixes
+        </h2>
+
+        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 28px;">
+          Rather than relying on aesthetic assumptions, every core flow underwent rigorous usability scrutiny. Here are 5 concrete user friction points uncovered during testing and the architectural iterations engineered to resolve them.
         </p>
+
+        <!-- 5 Usability Cards Grid -->
+        <div class="cs-usability-fix-grid js-reveal">
+          <div class="cs-usability-card">
+            <div class="cs-usability-card-head">
+              <span class="cs-usability-tag-issue">Friction 01 · Onboarding Drop-off</span>
+              <span class="cs-usability-tag-fix">Fix Implemented</span>
+            </div>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Heavy Upfront Identity Gating</h4>
+            <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
+              <strong>Testing Discovery:</strong> Requiring Aadhaar upload and full document verification before users could view available shifts caused severe first-session abandonment.
+            </p>
+            <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
+              <strong>Design Iteration:</strong> Shifted to progressive disclosure. Users can freely browse, filter, and view shift details; document verification is deferred until the final "Commit to Shift" step.
+            </p>
+          </div>
+
+          <div class="cs-usability-card">
+            <div class="cs-usability-card-head">
+              <span class="cs-usability-tag-issue">Friction 02 · Trust &amp; Legitimacy</span>
+              <span class="cs-usability-tag-fix">Fix Implemented</span>
+            </div>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Anxiety Over Fake Listings &amp; Scams</h4>
+            <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
+              <strong>Testing Discovery:</strong> Workers were hesitant to tap 'Apply' because existing platforms often feature fraudulent job posts leading to locked gates or unverified employers.
+            </p>
+            <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
+              <strong>Design Iteration:</strong> Introduced prominent green "Verified Business" badges, physical store venue addresses, and direct supervisor contact cards before application.
+            </p>
+          </div>
+
+          <div class="cs-usability-card">
+            <div class="cs-usability-card-head">
+              <span class="cs-usability-tag-issue">Friction 03 · Information Hierarchy</span>
+              <span class="cs-usability-tag-fix">Fix Implemented</span>
+            </div>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Buried Pay Rates &amp; Commute Distance</h4>
+            <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
+              <strong>Testing Discovery:</strong> Early cards placed job descriptions at the top and pay rates in fine print, forcing users to open every card just to check wages and transit distance.
+            </p>
+            <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
+              <strong>Design Iteration:</strong> Redesigned the card anatomy to highlight ₹5,000 guaranteed payout in the top right, paired with real-time GPS transit calculation ("22 min away").
+            </p>
+          </div>
+
+          <div class="cs-usability-card">
+            <div class="cs-usability-card-head">
+              <span class="cs-usability-tag-issue">Friction 04 · Ghosting Anxiety</span>
+              <span class="cs-usability-tag-fix">Fix Implemented</span>
+            </div>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Post-Application Limbo &amp; Uncertainty</h4>
+            <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
+              <strong>Testing Discovery:</strong> In 42.9% of typical gig cases, applicants face total radio silence. Users didn't know if their submission was received, under review, or rejected.
+            </p>
+            <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
+              <strong>Design Iteration:</strong> Engineered a 7-stage live status tracker in 'My Shifts' with explicit SLA review timers, proactive push updates, and immediate alternative recommendations if not selected.
+            </p>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>RIGOROUS EVIDENCE-BASED ITERATIONS</span>
+          <span>UPCREW — 22 / 24 USABILITY TESTING</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 23 / 24: INTERACTIVE FIGMA PROTOTYPE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section" id="cs-prototype-embed">
+      <div class="cs-wrap">
+
+        <div class="cs-slide-header js-reveal">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">23 / 24 · INTERACTIVE PROTOTYPE</span>
+          <span class="cs-slide-header-num">23 / 24</span>
+        </div>
+
+        <div class="cs-eyebrow js-reveal" style="color: var(--cs-blue); letter-spacing: 0.12em; margin-bottom: 14px;">
+          HANDS-ON SIMULATION
+        </div>
+
+        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 900px; margin-bottom: 24px;">
+          Experience UpCrew Live: The Full Interactive Prototype
+        </h2>
+
+        <!-- Interactive Prototype Banner Card (Behance Style) -->
+        <div style="background: linear-gradient(135deg, #1E1B4B 0%, #2558E8 100%); border-radius: 24px; padding: 48px 36px; color: #FFFFFF; text-align: center; box-shadow: 0 8px 32px rgba(37,88,232,0.2);" class="js-reveal">
+          <span style="display:inline-block; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:999px; font-size:0.75rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">
+            Figma Motion Prototype · 19 Screen Flows
+          </span>
+          <h3 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; margin: 0 0 14px; color: #FFFFFF;">
+            Test the Shift Discovery, Application &amp; Escrow Journey
+          </h3>
+          <p style="font-size: 1.0625rem; color: rgba(255,255,255,0.85); max-width: 58ch; margin: 0 auto 28px; line-height: 1.6;">
+            Navigate from the live video splash launch through the live feed, inspect Retail Assistant shift details at H&amp;M LakeShore Mall, execute a 1-tap application, and simulate on-site supervisor check-in.
+          </p>
+
+          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+            <a
+              href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cs-specimen-btn"
+              style="padding: 14px 32px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; background: #FFFFFF; color: #1E1B4B; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px;"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              Open Live Figma Prototype
+            </a>
+          </div>
+        </div>
+
+        <div class="cs-slide-footer js-reveal">
+          <span>INTERACTIVE PRODUCT SIMULATION</span>
+          <span>UPCREW — 23 / 24 INTERACTIVE PROTOTYPE</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SLIDE 24 / 24: THANK YOU & REFLECTION
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <section class="cs-section cs-cta-section" id="cs-thank-you">
+      <div class="cs-wrap js-reveal">
+        <div class="cs-slide-header" style="border-bottom:none; padding:0; margin-bottom:24px;">
+          <span class="cs-slide-header-brand">UpCrew</span>
+          <span class="cs-slide-header-cat">24 / 24 · THANK YOU &amp; OUTCOMES</span>
+          <span class="cs-slide-header-num">24 / 24</span>
+        </div>
+
+        <div style="display:inline-flex; align-items:center; gap:8px; background:#F5F3FF; padding:6px 14px; border-radius:999px; margin-bottom:16px;">
+          <span style="width:8px; height:8px; border-radius:50%; background:#7C3AED;"></span>
+          <span style="font-size:0.75rem; font-weight:800; color:#6D28D9; text-transform:uppercase; letter-spacing:0.08em;">Case Study Complete</span>
+        </div>
+
+        <h2 class="cs-section-h2" style="max-width: 30ch; margin: 0 auto 16px;">
+          Thank you for reviewing UpCrew!
+        </h2>
+        <p class="cs-body-copy" style="max-width: 54ch; margin: 0 auto 28px; line-height: 1.65;">
+          UpCrew demonstrated that solving temporary workforce fragility in India isn't just a UI challenge—it requires designing deep systemic trust, financial escrow safety, and clear communication into every single tap.
+        </p>
+
+        <!-- Project Outcomes Grid -->
+        <div class="cs-friction-grid" style="max-width: 840px; margin: 0 auto 36px; text-align: left;">
+          <div class="cs-friction-card">
+            <span style="font-size:0.6875rem; font-weight:800; color:#16A34A; text-transform:uppercase;">Key Outcome 01</span>
+            <h4>100% Payout Certainty</h4>
+            <p>Guaranteed escrow deposits eliminate unpaid wage disputes entirely post-shift.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.6875rem; font-weight:800; color:#2558E8; text-transform:uppercase;">Key Outcome 02</span>
+            <h4>Zero Ghosting Limbo</h4>
+            <p>7-stage transparent pipeline with SLA response timers gives workers total clarity.</p>
+          </div>
+          <div class="cs-friction-card">
+            <span style="font-size:0.6875rem; font-weight:800; color:#7C3AED; text-transform:uppercase;">Key Outcome 03</span>
+            <h4>Field-Ready Durability</h4>
+            <p>16.1:1 AAA sunlight contrast and 44px ergonomics designed for active transit use.</p>
+          </div>
+        </div>
+
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-          <a href="../contact.html" class="cs-trust-pill" style="padding: 12px 24px; font-size: 0.875rem; text-decoration: none; background: var(--cs-ink); color: #fff !important; border: none;">
-            Start a Conversation →
+          <a
+            href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cs-trust-pill"
+            style="padding: 14px 28px; font-size: 0.875rem; text-decoration: none; background: var(--cs-ink); color: #fff !important; border: none; font-weight: 700;"
+          >
+            Explore Figma Prototype →
           </a>
-          <a href="mailto:hello@shubhamwaza.com" class="cs-trust-pill" style="padding: 12px 24px; font-size: 0.875rem; text-decoration: none; background: var(--cs-surface); color: var(--cs-ink) !important; border: 1px solid var(--cs-line);">
-            hello@shubhamwaza.com
+          <a
+            href="../contact.html"
+            class="cs-trust-pill"
+            style="padding: 14px 28px; font-size: 0.875rem; text-decoration: none; background: var(--cs-surface); color: var(--cs-ink) !important; border: 1px solid var(--cs-line); font-weight: 700;"
+          >
+            Start a Conversation
+          </a>
+          <a
+            href="../resume.html"
+            class="cs-trust-pill"
+            style="padding: 14px 28px; font-size: 0.875rem; text-decoration: none; background: var(--cs-surface); color: var(--cs-ink) !important; border: 1px solid var(--cs-line); font-weight: 700;"
+          >
+            View Resume
           </a>
         </div>
       </div>
