@@ -243,10 +243,20 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isRunning = true;
 
   function loop() {
-    curX += (targetX - curX) * 0.18;
-    curY += (targetY - curY) * 0.18;
+    const dx = targetX - curX;
+    const dy = targetY - curY;
+
+    // ⚡ Bolt Performance Optimization: Stop rAF loop when element is at rest to save CPU/battery
+    if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+      isRunning = false;
+      return;
+    }
+
+    curX += dx * 0.18;
+    curY += dy * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
     requestAnimationFrame(loop);
@@ -256,6 +266,12 @@ function initCursorPreview(itemSelector) {
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+
+    // ⚡ Bolt Performance Optimization: Restart rAF loop when mouse moves
+    if (!isRunning) {
+      isRunning = true;
+      requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
