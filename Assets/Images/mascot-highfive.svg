@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 220" width="100%" height="100%" fill="none" role="img" aria-label="Worker and Employer Mascots giving a celebratory high-five representing successful, reliable shift completion">
+  <!-- Dynamic High-Five Energy Sparks -->
+  <g id="spark-burst" transform="translate(190, 48)">
+    <line x1="0" y1="-14" x2="0" y2="-24" stroke="#2558E8" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="12" y1="-10" x2="20" y2="-18" stroke="#F26419" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-12" y1="-10" x2="-20" y2="-18" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="2" x2="25" y2="4" stroke="#2558E8" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-15" y1="2" x2="-25" y2="4" stroke="#F26419" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Center Impact Starlet -->
+    <circle cx="0" cy="0" r="4" fill="#FBBF24"/>
+  </g>
+
+  <!-- ━━━━━━━━━━━━━━ WORKER MASCOT (LEFT) ━━━━━━━━━━━━━━ -->
+  <g id="worker-mascot-happy" transform="translate(40, 20)">
+    <!-- High Bun with hair tie -->
+    <ellipse cx="68" cy="22" rx="16" ry="14" fill="#0F172A"/>
+    <ellipse cx="68" cy="32" rx="11" ry="3.5" fill="#2558E8" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- Head & Neck -->
+    <path d="M62 82 L62 98 C62 101 65 104 70 104 C75 104 78 101 78 98 L78 82 Z" fill="#FCE7D6"/>
+    <path d="M50 56 C50 42 59 34 70 34 C81 34 90 42 90 56 C90 74 81 86 70 86 C59 86 50 74 50 56 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.8"/>
+
+    <!-- Ears & Hair Strands -->
+    <ellipse cx="50" cy="60" rx="3.5" ry="5.5" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.75"/>
+    <path d="M49 52 C51 40 60 34 70 34 C80 34 88 38 90 48 C86 42 80 38 72 38 C62 38 56 42 52 48 Z" fill="#0F172A"/>
+    <!-- Side bangs -->
+    <path d="M51 48 C57 44 65 46 72 50 C77 53 82 58 85 64 C85 56 83 48 78 44 C73 40 62 40 54 44 Z" fill="#0F172A"/>
+
+    <!-- Joyful Face: Curved Arched Eyes & Broad Smile -->
+    <path d="M58 52 C60 50 64 50 66 52" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+    <path d="M74 52 C76 50 80 50 82 52" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+    <!-- Crescent squint eyes (smiling wide) -->
+    <path d="M60 58 C62 55 66 55 68 58" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M76 58 C78 55 82 55 84 58" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="56" cy="64" r="3" fill="#F87171" opacity="0.4"/>
+    <circle cx="86" cy="64" r="3" fill="#F87171" opacity="0.4"/>
+    <!-- Open Beaming Smile with tongue -->
+    <path d="M64 68 C64 76 76 76 76 68 Z" fill="#991B1B" stroke="#0F172A" stroke-width="1.5"/>
+    <path d="M67 72 C68 70 72 70 73 72" stroke="#F87171" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Torso (UpCrew Cobalt Blue T-shirt) -->
+    <path d="M36 128 C36 108 52 100 62 98 L78 98 C88 100 104 108 104 128 L106 195 L34 195 Z" fill="#2558E8" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M62 98 C65 103 75 103 78 98" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round" fill="none"/>
+    
+    <!-- Backpack Strap -->
+    <path d="M44 104 L48 195" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+    <path d="M44 104 L48 195" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- High-Five Arm (Right arm stretching diagonally up toward center) -->
+    <path d="M96 112 C108 104 126 80 144 40 L134 34 C116 72 100 96 88 102 Z" fill="#2558E8" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Hand & Fingers Touching Apex -->
+    <path d="M142 42 C146 34 150 28 152 28 C154 28 153 34 148 42 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.5"/>
+    <path d="M145 38 L154 26 C155 25 157 26 156 28 L149 42" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.5"/>
+  </g>
+
+  <!-- ━━━━━━━━━━━━━━ EMPLOYER MASCOT (RIGHT) ━━━━━━━━━━━━━━ -->
+  <g id="employer-mascot-happy" transform="translate(200, 20)">
+    <!-- Head & Neck -->
+    <path d="M62 84 L62 100 C62 103 65 106 70 106 C75 106 78 103 78 100 L78 84 Z" fill="#FCE7D6"/>
+    <path d="M48 56 C48 42 58 34 70 34 C82 34 92 42 92 56 C92 76 82 88 70 88 C58 88 48 76 48 56 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.8"/>
+
+    <!-- Textured Hair & Beard -->
+    <path d="M48 50 C50 36 60 30 70 30 C80 30 90 36 92 50 C88 44 82 40 74 40 C66 40 56 42 50 48 Z" fill="#0F172A"/>
+    <!-- Beard along jawline -->
+    <path d="M49 58 L49 70 C49 82 58 88 70 88 C82 88 91 82 91 70 L91 58 C87 64 85 72 85 76 C85 82 78 84 70 84 C62 84 55 82 55 76 C55 72 53 64 49 58 Z" fill="#0F172A"/>
+
+    <!-- Joyful Face: Crescent squint eyes & Broad Smile -->
+    <path d="M58 52 C60 50 64 50 66 52" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+    <path d="M74 52 C76 50 80 50 82 52" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+    <path d="M60 58 C62 55 66 55 68 58" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M76 58 C78 55 82 55 84 58" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <!-- Smile in beard -->
+    <path d="M64 70 C64 78 76 78 76 70 Z" fill="#991B1B" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- Torso (UpCrew Signal Orange Polo) -->
+    <path d="M36 130 C36 110 52 102 62 100 L78 100 C88 102 104 110 104 130 L106 195 L34 195 Z" fill="#F26419" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Polo Collar -->
+    <path d="M62 100 L54 114 L68 115 L70 102 Z" fill="#EA580C" stroke="#0F172A" stroke-width="1.5"/>
+    <path d="M78 100 L86 114 L72 115 L70 102 Z" fill="#EA580C" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- High-Five Arm (Left arm stretching diagonally up toward center to meet worker) -->
+    <path d="M44 112 C32 104 14 80 -4 40 L6 34 C24 72 40 96 52 102 Z" fill="#F26419" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Hand & Fingers Touching Apex -->
+    <path d="M-2 42 C-6 34 -10 28 -12 28 C-14 28 -13 34 -8 42 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.5"/>
+    <path d="M-5 38 L-14 26 C-15 25 -17 26 -16 28 L-9 42" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.5"/>
+  </g>
+
+  <!-- Ground Connection Baseline -->
+  <line x1="40" y1="215" x2="340" y2="215" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="100%" height="100%" fill="none" role="img" aria-label="Confused Gig Worker Mascot holding phone with cognitive clutter thought bubble">
+  <!-- Cognitive Scribble Knot (Visual Metaphor for Informal Hiring Chaos) -->
+  <g id="scribble-knot" transform="translate(140, 24)">
+    <!-- Scribble Cloud Body -->
+    <path d="M12 28 C8 20 18 8 28 12 C34 6 46 8 50 16 C58 12 68 18 66 28 C74 34 72 46 64 52 C66 60 56 68 46 64 C38 70 26 66 22 58 C12 60 6 50 10 40 C6 34 8 28 12 28 Z" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- Internal Tangle Paths (Hand-drawn knot loop effect) -->
+    <path d="M18 36 C24 22 42 20 48 32 C54 44 32 54 26 42 C20 30 52 24 60 38 C68 52 44 60 34 50 C24 40 40 28 52 34 C64 40 50 56 38 52 C26 48 30 32 44 30 C58 28 62 46 48 54 C34 62 20 44 26 34" stroke="#475569" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Thought Bubble Connectors (Small floating circles down toward mascot head) -->
+    <circle cx="16" cy="74" r="4" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
+    <circle cx="10" cy="86" r="2.5" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
+  </g>
+
+  <!-- Worker Mascot Figure -->
+  <g id="worker-figure">
+    <!-- Back Hair Volume -->
+    <ellipse cx="92" cy="78" rx="28" ry="34" fill="#0F172A"/>
+    <!-- Loose Strands Behind Neck -->
+    <path d="M72 110 C66 120 64 132 70 144" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M112 110 C118 120 120 132 114 144" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- High Casual Bun -->
+    <ellipse cx="90" cy="38" rx="22" ry="19" fill="#0F172A"/>
+    <path d="M82 42 C86 44 94 44 98 42" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <path d="M86 32 C90 30 94 32 96 34" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <!-- Hair Tie -->
+    <ellipse cx="90" cy="52" rx="15" ry="4.5" fill="#2558E8" stroke="#0F172A" stroke-width="1.75"/>
+
+    <!-- Neck -->
+    <path d="M80 114 L80 136 C80 140 85 145 92 145 C99 145 104 140 104 136 L104 114 Z" fill="#FCE7D6"/>
+    <path d="M80 118 C85 124 99 124 104 118 L104 124 C99 130 85 130 80 124 Z" fill="#F5CBA7"/>
+    <path d="M80 114 L80 136" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M104 114 L104 136" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Torso in UpCrew Cobalt Blue T-Shirt -->
+    <path d="M46 178 C46 152 66 142 80 140 L104 140 C118 142 138 152 138 178 L142 270 L42 270 Z" fill="#2558E8" stroke="#0F172A" stroke-width="2.2" stroke-linejoin="round"/>
+    <!-- Shirt Collar Arc -->
+    <path d="M80 140 C84 147 100 147 104 140" stroke="#0F172A" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Left Backpack Strap -->
+    <path d="M58 146 L62 270" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
+    <path d="M58 146 L62 270" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+    <!-- Right Backpack Strap -->
+    <path d="M126 146 L122 270" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
+    <path d="M126 146 L122 270" stroke="#334155" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Head & Jawline -->
+    <path d="M64 82 C64 64 76 54 92 54 C108 54 120 64 120 82 C120 104 108 120 92 120 C76 120 64 104 64 82 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Ears -->
+    <ellipse cx="64" cy="88" rx="5" ry="8" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+    <ellipse cx="120" cy="88" rx="5" ry="8" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Front Bangs (Side Swept) -->
+    <path d="M63 76 C65 60 78 54 92 54 C107 54 119 60 121 74 C117 66 108 61 97 61 C85 61 75 65 69 72 L63 76 Z" fill="#0F172A"/>
+    <path d="M65 70 C74 64 86 67 96 72 C103 76 110 82 114 90 C114 80 111 70 104 65 C97 60 83 60 70 65 Z" fill="#0F172A"/>
+
+    <!-- Eyebrows (Worried / Perplexed Slant: inward up, outward down) -->
+    <path d="M75 80 C78 77 84 79 88 82" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M96 82 C100 79 106 77 109 80" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Eyes (Worried Expression looking down at phone) -->
+    <ellipse cx="82" cy="88" rx="2.8" ry="3.8" fill="#0F172A"/>
+    <ellipse cx="102" cy="88" rx="2.8" ry="3.8" fill="#0F172A"/>
+    <circle cx="81.5" cy="89" r="0.9" fill="#FFFFFF"/>
+    <circle cx="101.5" cy="89" r="0.9" fill="#FFFFFF"/>
+
+    <!-- Nose Arc -->
+    <path d="M90 90 C91 95 94 96 95 96" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+
+    <!-- Frown / Worried Mouth -->
+    <path d="M85 106 C89 103 95 103 99 106" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Right Arm holding Smartphone -->
+    <path d="M138 178 C150 196 156 220 152 248 L140 248 C144 226 138 206 130 192 Z" fill="#2558E8" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Hand holding phone -->
+    <path d="M142 236 C144 230 152 230 156 236 L158 250 C158 254 154 258 148 258 C144 258 140 254 140 250 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.75"/>
+    <!-- Thumb wrapping around phone screen -->
+    <path d="M152 238 C154 240 156 244 154 248" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Smartphone Device -->
+    <rect x="150" y="206" width="36" height="64" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+    <!-- Screen Glass -->
+    <rect x="153" y="211" width="30" height="54" rx="4" fill="#FFFFFF"/>
+    <!-- Screen UI Elements (Unverified WhatsApp / Opaque job listing simulation) -->
+    <rect x="156" y="215" width="24" height="4" rx="1.5" fill="#DC2626" opacity="0.8"/>
+    <rect x="156" y="222" width="18" height="3" rx="1" fill="#94A3B8"/>
+    <rect x="156" y="227" width="22" height="3" rx="1" fill="#CBD5E1"/>
+    <!-- Red alert mark on phone screen -->
+    <circle cx="178" cy="246" r="4" fill="#DC2626"/>
+    <path d="M178 244 L178 246" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="178" cy="248" r="0.5" fill="#FFFFFF"/>
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="100%" height="100%" fill="none" role="img" aria-label="Stressed Retail Store Manager Mascot with operational clock drain and question mark">
+  <!-- Operational Clock (Visual Metaphor for 23.2% Shift Time Lost to Manual Staffing) -->
+  <g id="operational-clock" transform="translate(160, 24)">
+    <circle cx="28" cy="28" r="24" fill="#F8FAFC" stroke="#64748B" stroke-width="2"/>
+    <!-- Hour Ticks -->
+    <line x1="28" y1="8" x2="28" y2="12" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+    <line x1="28" y1="44" x2="28" y2="48" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+    <line x1="8" y1="28" x2="12" y2="28" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+    <line x1="44" y1="28" x2="48" y2="28" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+    <!-- Hands at 10:10 -->
+    <line x1="28" y1="28" x2="18" y2="16" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="28" y1="28" x2="38" y2="18" stroke="#EA580C" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="28" cy="28" r="2.5" fill="#0F172A"/>
+
+    <!-- Floating Red Exclamation/Warning Pill -->
+    <g transform="translate(40, -6)">
+      <rect x="0" y="0" width="18" height="18" rx="9" fill="#DC2626"/>
+      <path d="M9 5 L9 10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="9" cy="13" r="1" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <!-- Employer Mascot Figure -->
+  <g id="employer-figure">
+    <!-- Back Hair Volume -->
+    <ellipse cx="94" cy="80" rx="30" ry="34" fill="#0F172A"/>
+
+    <!-- Neck & Throat -->
+    <path d="M82 118 L82 142 C82 146 87 150 94 150 C101 150 106 146 106 142 L106 118 Z" fill="#FCE7D6"/>
+    <path d="M82 120 C87 126 101 126 106 120 L106 126 C101 132 87 132 82 126 Z" fill="#F5CBA7"/>
+    <path d="M82 118 L82 142" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M106 118 L106 142" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Collared Polo Torso in UpCrew Signal Orange (#F26419) -->
+    <path d="M46 182 C46 156 68 146 82 144 L106 144 C120 146 142 156 142 182 L146 270 L42 270 Z" fill="#F26419" stroke="#0F172A" stroke-width="2.2" stroke-linejoin="round"/>
+    
+    <!-- Polo Collar -->
+    <!-- Left Collar Wing -->
+    <path d="M82 144 L72 162 L88 164 L94 146 Z" fill="#EA580C" stroke="#0F172A" stroke-width="1.75" stroke-linejoin="round"/>
+    <!-- Right Collar Wing -->
+    <path d="M106 144 L116 162 L100 164 L94 146 Z" fill="#EA580C" stroke="#0F172A" stroke-width="1.75" stroke-linejoin="round"/>
+    <!-- Placket & Buttons -->
+    <line x1="94" y1="164" x2="94" y2="194" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="94" cy="172" r="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1"/>
+    <circle cx="94" cy="184" r="1.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1"/>
+
+    <!-- Head & Square Jawline -->
+    <path d="M66 82 C66 64 78 54 94 54 C110 54 122 64 122 82 C122 106 112 122 94 122 C76 122 66 106 66 82 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Ears -->
+    <ellipse cx="66" cy="88" rx="5" ry="8" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+    <ellipse cx="122" cy="88" rx="5" ry="8" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Textured Wavy Hairline -->
+    <path d="M66 74 C68 56 80 50 94 50 C108 50 120 56 122 74 C118 66 112 60 102 60 C94 60 88 64 80 62 C74 60 68 66 66 74 Z" fill="#0F172A"/>
+    <!-- Top Hair Wave Strands -->
+    <path d="M78 48 C82 44 90 46 94 48 C98 44 106 44 110 48" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Groomed Beard & Mustache (Signature Manager Identifier) -->
+    <!-- Sideburns descending to jawline -->
+    <path d="M67 80 L67 96 C67 114 78 122 94 122 C110 122 121 114 121 96 L121 80 C117 84 115 94 115 100 C115 110 106 116 94 116 C82 116 73 110 73 100 C73 94 71 84 67 80 Z" fill="#0F172A"/>
+    <!-- Mustache -->
+    <path d="M84 102 C88 99 94 99 94 102 C94 99 100 99 104 102 C100 106 94 106 94 103 C94 106 88 106 84 102 Z" fill="#0F172A"/>
+
+    <!-- Eyebrows (Stressed / Furrowed: angled downward toward nose) -->
+    <path d="M78 78 C82 81 87 81 90 79" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M98 79 C101 81 106 81 110 78" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Brow Crease Lines -->
+    <line x1="93" y1="77" x2="93" y2="81" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="95" y1="77" x2="95" y2="81" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Eyes (Tired / Stressed Expression) -->
+    <ellipse cx="84" cy="86" rx="2.8" ry="3.5" fill="#0F172A"/>
+    <ellipse cx="104" cy="86" rx="2.8" ry="3.5" fill="#0F172A"/>
+    <!-- Under-eye tired stress marks -->
+    <path d="M81 92 C84 94 87 93 89 92" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M101 92 C104 94 107 93 109 92" stroke="#64748B" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- Nose Arc -->
+    <path d="M93 87 C94 92 97 93 98 93" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+
+    <!-- Stressed Mouth Line -->
+    <line x1="88" y1="109" x2="100" y2="109" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Right Hand Rubbing Forehead / Temple (Classic Headache Gesture from Frame 3) -->
+    <!-- Raised Forearm -->
+    <path d="M138 182 C152 168 158 140 148 106 L134 110 C142 136 138 156 128 170 Z" fill="#F26419" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Hand on temple/head -->
+    <path d="M148 106 C144 94 134 84 122 84 L120 92 C128 92 134 98 138 108 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="1.75" stroke-linejoin="round"/>
+    <!-- Fingers curled against temple -->
+    <path d="M124 82 C122 78 116 78 116 82" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

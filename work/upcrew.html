@@ -872,8 +872,8 @@
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      border: 2px solid #7C3AED;
-      background: #EDE9FE;
+      border: 2px solid var(--up-primary);
+      background: #EFF6FF;
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -881,7 +881,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center;
     }
     .up-mascot-narrative-body {
       flex: 1;
@@ -898,8 +898,14 @@
       font-family: var(--up-font-display);
       font-size: 0.75rem;
       font-weight: 800;
-      color: #7C3AED;
+      color: var(--up-primary);
       letter-spacing: 0.04em;
+    }
+    .up-mascot-spot {
+      transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .up-mascot-spot:hover {
+      transform: translateY(-2px) scale(1.03);
     }
     .up-mascot-narrative-quote {
       font-family: var(--up-font-display);
@@ -2573,7 +2579,7 @@
         <!-- Mascot Field Insight (Human Narrative & Ground Reality) -->
         <div class="up-mascot-narrative js-reveal">
           <div class="up-mascot-narrative-avatar">
-            <img src="../Assets/Images/riya-persona.jpg" alt="Workforce Community Mascot" loading="eager">
+            <img src="../Assets/Images/mascot-avatar-worker.svg" alt="Workforce Community Mascot" loading="eager">
           </div>
           <div class="up-mascot-narrative-body">
             <div class="up-mascot-narrative-meta">
@@ -2621,9 +2627,14 @@
 
           <!-- Artifact 1: Worker Reality (Financial Arithmetic Breakdown) -->
           <div class="up-divide-card">
-            <div class="up-divide-card-header">
-              <h3>The Worker Reality: The Math of a Stolen Shift</h3>
-              <p>How verbal promises dissolve into sub-minimum wages</p>
+            <div class="up-divide-card-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+              <div style="flex: 1; min-width: 0;">
+                <h3>The Worker Reality: The Math of a Stolen Shift</h3>
+                <p>How verbal promises dissolve into sub-minimum wages</p>
+              </div>
+              <div class="up-mascot-spot" style="width: 76px; height: 88px; flex-shrink: 0;" title="Worker facing cognitive overload &amp; wage opacity">
+                <img src="../Assets/Images/mascot-worker-confused.svg" alt="Confused Worker Mascot with cognitive tangle knot" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
             </div>
 
             <!-- Financial Arithmetic Breakdown Component -->
@@ -2666,9 +2677,14 @@
 
           <!-- Artifact 2: Employer Crisis (Operational Timeline Breakdown) -->
           <div class="up-divide-card">
-            <div class="up-divide-card-header">
-              <h3>The Employer Crisis: Anatomy of a Staffing Collapse</h3>
-              <p>Why 100% no-show volatility paralyzes peak retail operations</p>
+            <div class="up-divide-card-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+              <div style="flex: 1; min-width: 0;">
+                <h3>The Employer Crisis: Anatomy of a Staffing Collapse</h3>
+                <p>Why 100% no-show volatility paralyzes peak retail operations</p>
+              </div>
+              <div class="up-mascot-spot" style="width: 76px; height: 88px; flex-shrink: 0;" title="Store operations lead stressed by sudden no-shows">
+                <img src="../Assets/Images/mascot-employer-stressed.svg" alt="Stressed Store Manager Mascot" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
             </div>
 
             <!-- Operational Timeline Component -->

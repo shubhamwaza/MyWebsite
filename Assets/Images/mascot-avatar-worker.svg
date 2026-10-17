@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" fill="none" role="img" aria-label="Workforce Community Mascot - Student and Retail Gig Worker">
+  <!-- Soft Circular Background -->
+  <circle cx="80" cy="80" r="76" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="2"/>
+  
+  <g id="mascot-worker">
+    <!-- Back Hair Volume & Neck wisps -->
+    <path d="M52 64 C50 82 56 94 62 102 C68 110 74 112 74 112 C74 112 80 110 86 102 C92 94 98 82 96 64 Z" fill="#0F172A"/>
+    <path d="M60 90 C56 96 54 106 58 114 C60 118 64 122 66 122" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M100 90 C104 96 106 106 102 114 C100 118 96 122 94 122" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- High Bun with hair texture -->
+    <ellipse cx="80" cy="28" rx="20" ry="17" fill="#0F172A"/>
+    <path d="M72 32 C76 34 84 34 88 32" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <path d="M76 22 C80 20 84 22 86 24" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+    <!-- Hair tie -->
+    <ellipse cx="80" cy="40" rx="14" ry="4" fill="#2558E8" stroke="#0F172A" stroke-width="1.75"/>
+
+    <!-- Neck & Shoulders -->
+    <path d="M71 94 L71 112 C71 116 75 120 80 120 C85 120 89 116 89 112 L89 94 Z" fill="#FCE7D6"/>
+    <!-- Chin Shadow on Neck -->
+    <path d="M71 96 C75 101 85 101 89 96 L89 102 C85 106 75 106 71 102 Z" fill="#F5CBA7"/>
+    <path d="M71 94 L71 112" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M89 94 L89 112" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Shoulders & Cobalt Blue Shirt -->
+    <path d="M42 148 C42 128 58 120 71 118 L89 118 C102 120 118 128 118 148 L118 156 L42 156 Z" fill="#2558E8" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Shirt Collar Arc -->
+    <path d="M71 118 C74 124 86 124 89 118" stroke="#0F172A" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Backpack Straps (Signature Student Hustler Identifier) -->
+    <!-- Left Strap -->
+    <path d="M52 124 L56 156" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+    <path d="M52 124 L56 156" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+    <!-- Right Strap -->
+    <path d="M108 124 L104 156" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
+    <path d="M108 124 L104 156" stroke="#334155" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Head & Face Contour -->
+    <path d="M56 66 C56 50 66 42 80 42 C94 42 104 50 104 66 C104 84 94 98 80 98 C66 98 56 84 56 66 Z" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Ears -->
+    <ellipse cx="56" cy="72" rx="4.5" ry="7" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+    <path d="M56 70 C55 72 56 74 57 74" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <ellipse cx="104" cy="72" rx="4.5" ry="7" fill="#FCE7D6" stroke="#0F172A" stroke-width="2"/>
+    <path d="M104 70 C105 72 104 74 103 74" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Front Hair & Side-Swept Bangs -->
+    <path d="M55 62 C57 48 68 42 80 42 C93 42 103 48 105 60 C102 54 94 49 84 49 C74 49 66 52 61 58 L55 62 Z" fill="#0F172A"/>
+    <!-- Swooping bangs across forehead -->
+    <path d="M57 56 C64 52 74 54 82 58 C88 61 94 66 98 72 C98 64 96 56 90 52 C84 48 72 48 60 52 Z" fill="#0F172A"/>
+    <path d="M57 60 C55 68 56 76 57 80 C58 76 60 70 61 64 Z" fill="#0F172A"/>
+
+    <!-- Subtle Warm Cheeks -->
+    <circle cx="67" cy="78" r="4" fill="#F87171" opacity="0.3"/>
+    <circle cx="93" cy="78" r="4" fill="#F87171" opacity="0.3"/>
+
+    <!-- Eyebrows (Warm & Empathetic) -->
+    <path d="M66 65 C68 63 73 63 76 65" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M84 65 C87 63 92 63 94 65" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Eyes (Clean Pill/Dots) -->
+    <ellipse cx="71" cy="71" rx="2.5" ry="3.5" fill="#0F172A"/>
+    <ellipse cx="89" cy="71" rx="2.5" ry="3.5" fill="#0F172A"/>
+    <circle cx="72" cy="70" r="0.8" fill="#FFFFFF"/>
+    <circle cx="90" cy="70" r="0.8" fill="#FFFFFF"/>
+
+    <!-- Nose Curve -->
+    <path d="M79 73 C80 77 82 78 83 78" stroke="#0F172A" stroke-width="1.75" stroke-linecap="round"/>
+
+    <!-- Mouth (Gentle, Warm Smile) -->
+    <path d="M75 84 C78 87 82 87 85 84" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
