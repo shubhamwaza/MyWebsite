@@ -777,13 +777,13 @@
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       SECTION 02 / 24: PROBLEM STATEMENT (FULL-BLEED BEHANCE SHOWCASE)
-       Tactile Bento, Authentic India-Wide Research, Dual-Sided Friction
-       Strict adherence to Anti-AI-Slop Rules & UpCrew 44-Glyph Icon System
+       SECTION 02 / 24: PROBLEM STATEMENT (EDITORIAL BEHANCE SHOWCASE)
+       Clean Opaque Surfaces · Zero AI Slop · True Asymmetrical Artifacts
+       No Colored Top Stripes · No Boxes-Inside-Boxes · No Cloned Cards
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
     .up-stage--problem {
-      background: radial-gradient(100% 60% at 50% 0%, #FFF5F5 0%, #FAFAFA 50%, #FFFFFF 100%);
+      background: #FFFFFF;
       color: var(--up-ink);
       border-bottom: 1px solid var(--up-border-light);
       padding: clamp(56px, 7vw, 100px) clamp(16px, 3.5vw, 60px);
@@ -812,7 +812,7 @@
       font-size: clamp(8rem, 18vw, 16rem);
       font-weight: 900;
       line-height: 0.9;
-      color: rgba(220, 38, 38, 0.035);
+      color: rgba(15, 23, 42, 0.03);
       pointer-events: none;
       user-select: none;
       z-index: 1;
@@ -826,21 +826,6 @@
       text-align: center;
       position: relative;
       z-index: 3;
-    }
-
-    .up-problem-eyebrow {
-      font-family: var(--up-font-display);
-      font-size: 0.8125rem;
-      font-weight: 800;
-      color: #DC2626;
-      background: #FEF2F2;
-      border: 1px solid #FECACA;
-      padding: 5px 14px;
-      border-radius: 999px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-bottom: 16px;
     }
 
     .up-problem-h2 {
@@ -862,175 +847,108 @@
       margin: 0 auto;
     }
 
-    /* Mascot Speech Callout Box - Fun, Playful, Human-Centered */
-    .up-mascot-callout {
+    /* Mascot Narrative Card - Organic, Editorial, Human */
+    .up-mascot-narrative {
       display: flex;
       align-items: center;
-      gap: 20px;
-      background: #FFFFFF;
-      border: 1.5px solid #DDD6FE;
-      border-radius: 24px;
-      padding: 20px 28px;
+      gap: 24px;
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      border-radius: 20px;
+      padding: 22px 28px;
       max-width: 1080px;
       margin: 0 auto 52px auto;
-      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
-      position: relative;
-      z-index: 4;
       text-align: left;
     }
     @media (max-width: 768px) {
-      .up-mascot-callout {
+      .up-mascot-narrative {
         flex-direction: column;
         align-items: flex-start;
-        padding: 18px 20px;
-        gap: 14px;
+        padding: 20px;
+        gap: 16px;
       }
     }
-    .up-mascot-avatar-wrap {
-      position: relative;
-      flex-shrink: 0;
-    }
-    .up-mascot-avatar {
-      width: 68px;
-      height: 68px;
+    .up-mascot-narrative-avatar {
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      border: 3px solid #7C3AED;
+      border: 2px solid #7C3AED;
       background: #EDE9FE;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.2);
+      flex-shrink: 0;
     }
-    .up-mascot-avatar img {
+    .up-mascot-narrative-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
     }
-    .up-mascot-badge-tag {
-      position: absolute;
-      bottom: -6px;
-      right: -6px;
-      background: #7C3AED;
-      color: #FFFFFF;
-      border-radius: 999px;
-      padding: 2px 7px;
-      font-family: var(--up-font-display);
-      font-size: 0.5625rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      border: 2px solid #FFFFFF;
-      white-space: nowrap;
-    }
-    .up-mascot-body {
+    .up-mascot-narrative-body {
       flex: 1;
       min-width: 0;
     }
-    .up-mascot-meta {
+    .up-mascot-narrative-meta {
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
       margin-bottom: 6px;
+      flex-wrap: wrap;
     }
-    .up-mascot-role {
+    .up-mascot-narrative-name {
       font-family: var(--up-font-display);
       font-size: 0.75rem;
       font-weight: 800;
       color: #7C3AED;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
     }
-    .up-mascot-loc {
+    .up-mascot-narrative-quote {
       font-family: var(--up-font-display);
-      font-size: 0.6875rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--up-ink-muted);
-      background: #F1F5F9;
-      padding: 2px 8px;
-      border-radius: 999px;
-    }
-    .up-mascot-quote {
-      font-family: var(--up-font-display);
-      font-size: 0.96875rem;
-      font-weight: 700;
-      color: #1E1B4B;
-      line-height: 1.5;
+      color: var(--up-ink);
+      line-height: 1.45;
       margin: 0 0 4px 0;
     }
-    .up-mascot-subquote {
+    .up-mascot-narrative-note {
       font-family: var(--up-font-body);
       font-size: 0.8125rem;
-      color: #475569;
-      line-height: 1.5;
+      color: var(--up-ink-muted);
       margin: 0;
+      line-height: 1.4;
     }
 
-    /* Quantitative Survey Metrics Strip (Across India) */
-    .up-stats-strip {
+    /* Quantitative Ground Truth (Clean Open Metrics Row) */
+    .up-data-strip {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
+      gap: 20px;
       margin-bottom: 56px;
     }
     @media (max-width: 1024px) {
-      .up-stats-strip {
+      .up-data-strip {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
     @media (max-width: 580px) {
-      .up-stats-strip {
+      .up-data-strip {
         grid-template-columns: 1fr;
       }
     }
-    .up-stat-card {
+    .up-data-col {
       background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
-      border-radius: 20px;
-      padding: 24px 22px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--up-border-light);
+      border-radius: 18px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      transition: transform 140ms ease-out, border-color 140ms ease-out, box-shadow 140ms ease-out;
+      gap: 6px;
+      transition: border-color 140ms ease, box-shadow 140ms ease;
     }
-    .up-stat-card:hover {
-      transform: translateY(-3px);
+    .up-data-col:hover {
       border-color: #CBD5E1;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
     }
-    .up-stat-card--highlight {
-      border-color: #FECACA;
-      background: #FFFDFD;
-    }
-    .up-stat-card--highlight:hover {
-      border-color: #F87171;
-    }
-    .up-stat-card-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .up-stat-badge {
-      font-family: var(--up-font-display);
-      font-size: 0.6875rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: #F1F5F9;
-      color: var(--up-ink-2);
-    }
-    .up-stat-badge--alert {
-      background: #FEE2E2;
-      color: #DC2626;
-    }
-    .up-stat-num {
+    .up-data-num {
       font-family: var(--up-font-display);
       font-size: clamp(2.4rem, 4vw, 3.4rem);
       font-weight: 900;
@@ -1039,18 +957,15 @@
       letter-spacing: -0.04em;
       font-variant-numeric: tabular-nums;
     }
-    .up-stat-num--alert {
-      color: #DC2626;
-    }
-    .up-stat-title {
+    .up-data-label {
       font-family: var(--up-font-display);
       font-size: 0.9375rem;
       font-weight: 800;
       color: var(--up-ink);
-      margin: 0;
+      margin: 4px 0 2px 0;
       line-height: 1.3;
     }
-    .up-stat-desc {
+    .up-data-desc {
       font-family: var(--up-font-body);
       font-size: 0.8125rem;
       color: var(--up-ink-2);
@@ -1058,244 +973,158 @@
       margin: 0;
     }
 
-    /* Dual-Sided Marketplace Bento: Worker Reality vs Employer Crisis */
-    .up-problem-bento {
+    /* The Structural Divide: Worker Reality vs Employer Crisis (Asymmetrical Artifacts) */
+    .up-divide-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 28px;
       margin-bottom: 56px;
     }
     @media (max-width: 960px) {
-      .up-problem-bento {
+      .up-divide-grid {
         grid-template-columns: 1fr;
       }
     }
-    .up-bento-card {
+    .up-divide-card {
       background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
-      border-radius: 24px;
+      border: 1px solid var(--up-border-light);
+      border-radius: 20px;
       padding: clamp(24px, 3.5vw, 36px);
-      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.04);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
       position: relative;
     }
-    .up-bento-card--worker {
-      border-top: 4px solid #DC2626;
-    }
-    .up-bento-card--employer {
-      border-top: 4px solid #F26419;
-    }
-    .up-bento-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .up-bento-card-title-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .up-bento-card-cat {
-      font-family: var(--up-font-display);
-      font-size: 0.6875rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .up-bento-card-cat--worker { color: #DC2626; }
-    .up-bento-card-cat--employer { color: #EA580C; }
-    .up-bento-card-title {
+    .up-divide-card-header h3 {
       font-family: var(--up-font-display);
       font-size: 1.4375rem;
       font-weight: 800;
       color: var(--up-ink);
-      margin: 0;
+      margin: 0 0 6px 0;
       letter-spacing: -0.02em;
     }
-    .up-bento-pill {
-      display: inline-flex;
+    .up-divide-card-header p {
+      font-family: var(--up-font-body);
+      font-size: 0.875rem;
+      color: var(--up-ink-muted);
+      margin: 0;
+    }
+
+    /* Artifact 1: The Math of a Slashed Shift (Financial Arithmetic Breakdown) */
+    .up-calc-ledger {
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .up-calc-row {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
+      font-family: var(--up-font-body);
+      font-size: 0.875rem;
+      color: var(--up-ink-2);
+    }
+    .up-calc-row strong {
+      font-family: var(--up-font-display);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .up-calc-row--deduct {
+      color: #DC2626;
+    }
+    .up-calc-row--total {
+      border-top: 1px solid #CBD5E1;
+      padding-top: 10px;
+      margin-top: 4px;
+      font-size: 0.9375rem;
+      color: var(--up-ink);
+    }
+    .up-calc-row--total strong {
+      font-size: 1.125rem;
+      color: var(--up-ink);
+    }
+
+    /* Artifact 2: The Saturday No-Show Timeline */
+    .up-timeline-track {
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .up-timeline-node {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.84375rem;
+      line-height: 1.45;
+    }
+    .up-timeline-time {
       font-family: var(--up-font-display);
       font-size: 0.75rem;
       font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 999px;
-      white-space: nowrap;
+      color: var(--up-ink-muted);
+      flex-shrink: 0;
+      width: 68px;
     }
-    .up-bento-pill--alert {
-      background: #FEE2E2;
-      color: #991B1B;
-      border: 1px solid #FECACA;
+    .up-timeline-desc {
+      font-family: var(--up-font-body);
+      color: var(--up-ink-2);
+      flex: 1;
     }
-    .up-bento-pill--warning {
-      background: #FFEDD5;
-      color: #9A3412;
-      border: 1px solid #FED7AA;
+    .up-timeline-desc strong {
+      font-family: var(--up-font-display);
+      color: var(--up-ink);
+      font-weight: 700;
     }
-    .up-bento-points {
+
+    /* Narrative takeaways in divide card */
+    .up-divide-points {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-    }
-    .up-bento-point {
-      display: flex;
-      align-items: flex-start;
       gap: 12px;
     }
-    .up-bento-point-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .up-bento-point-icon--alert {
-      background: #FEF2F2;
-      color: #DC2626;
-      border: 1px solid #FEE2E2;
-    }
-    .up-bento-point-icon--warning {
-      background: #FFF7ED;
-      color: #EA580C;
-      border: 1px solid #FFEDD5;
-    }
-    .up-bento-point-text {
+    .up-divide-point {
       font-family: var(--up-font-body);
       font-size: 0.875rem;
       line-height: 1.55;
       color: var(--up-ink-2);
-      margin: 0;
     }
-    .up-bento-point-text strong {
+    .up-divide-point strong {
+      font-family: var(--up-font-display);
       color: var(--up-ink);
-      font-family: var(--up-font-display);
       font-weight: 700;
-    }
-    .up-bento-quote-pill {
-      background: #F8FAFC;
-      border: 1px dashed #CBD5E1;
-      border-radius: 14px;
-      padding: 14px 18px;
-      font-family: var(--up-font-display);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: #334155;
-      line-height: 1.5;
-      font-style: normal;
     }
 
-    /* 4 Friction Dimensions Grid (Official SVG Glyphs) */
-    .up-friction-quad {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 56px;
+    /* Editorial Quote with Clean Left Border (No Dashed Box!) */
+    .up-editorial-quote {
+      border-left: 3px solid var(--up-ink);
+      padding: 4px 0 4px 18px;
+      margin: 8px 0 0 0;
     }
-    @media (max-width: 1024px) {
-      .up-friction-quad {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 600px) {
-      .up-friction-quad {
-        grid-template-columns: 1fr;
-      }
-    }
-    .up-friction-card {
-      background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
-      border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: transform 140ms ease-out, border-color 140ms ease-out, box-shadow 140ms ease-out;
-    }
-    .up-friction-card:hover {
-      transform: translateY(-3px);
-      border-color: #C7D2FE;
-      box-shadow: 0 10px 24px rgba(37, 88, 232, 0.08);
-    }
-    .up-friction-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .up-friction-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .up-friction-icon-wrap--red {
-      background: #FEF2F2;
-      color: #DC2626;
-      border: 1px solid #FECACA;
-    }
-    .up-friction-icon-wrap--orange {
-      background: #FFF7ED;
-      color: #EA580C;
-      border: 1px solid #FED7AA;
-    }
-    .up-friction-icon-wrap--purple {
-      background: #F5F3FF;
-      color: #7C3AED;
-      border: 1px solid #DDD6FE;
-    }
-    .up-friction-icon-wrap--blue {
-      background: #EFF6FF;
-      color: #2558E8;
-      border: 1px solid #BFDBFE;
-    }
-    .up-friction-tag {
+    .up-editorial-quote p {
       font-family: var(--up-font-display);
-      font-size: 0.625rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #F1F5F9;
-      color: var(--up-ink-2);
-    }
-    .up-friction-card h4 {
-      font-family: var(--up-font-display);
-      font-size: 1.0625rem;
-      font-weight: 800;
+      font-size: 0.9375rem;
+      font-weight: 600;
       color: var(--up-ink);
-      line-height: 1.25;
-      margin: 0;
+      line-height: 1.5;
+      margin: 0 0 4px 0;
     }
-    .up-friction-card p {
+    .up-editorial-quote cite {
       font-family: var(--up-font-body);
-      font-size: 0.8125rem;
-      line-height: 1.55;
-      color: var(--up-ink-2);
-      margin: 0;
-      flex: 1;
-    }
-    .up-friction-note {
-      font-family: var(--up-font-display);
-      font-size: 0.6875rem;
-      font-weight: 700;
-      color: #64748B;
-      border-top: 1px solid var(--up-border-light);
-      padding-top: 8px;
-      margin: 0;
+      font-size: 0.75rem;
+      color: var(--up-ink-muted);
+      font-style: normal;
+      display: block;
     }
 
     /* Reality Simulator: WhatsApp Informal Group vs UpCrew Shift Model */
@@ -1312,21 +1141,12 @@
     }
     .up-compare-box {
       background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
-      border-radius: 24px;
-      padding: clamp(20px, 3vw, 30px);
-      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+      border: 1px solid var(--up-border-light);
+      border-radius: 20px;
+      padding: clamp(20px, 3vw, 28px);
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-    .up-compare-box--bad {
-      background: #FFFBFB;
-      border-color: #FECACA;
-    }
-    .up-compare-box--good {
-      background: #F9FBFF;
-      border-color: #BFDBFE;
+      gap: 18px;
     }
     .up-compare-header {
       display: flex;
@@ -1335,34 +1155,17 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-    .up-compare-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .up-compare-title {
       font-family: var(--up-font-display);
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .up-compare-badge--bad {
-      background: #FEE2E2;
-      color: #991B1B;
-      border: 1px solid #FECACA;
-    }
-    .up-compare-badge--good {
-      background: #DBEAFE;
-      color: #1E40AF;
-      border: 1px solid #BFDBFE;
+      color: var(--up-ink);
     }
     .up-compare-status {
       font-family: var(--up-font-display);
       font-size: 0.6875rem;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
     }
     .up-compare-status--bad { color: #DC2626; }
     .up-compare-status--good { color: #16A34A; }
@@ -1371,7 +1174,7 @@
     .up-whatsapp-stream {
       background: #EFEAE2;
       border: 1px solid #DDD6C9;
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -1433,16 +1236,14 @@
       color: #DC2626;
       padding: 2px 6px;
       border-radius: 4px;
-      border: 1px solid #FECACA;
     }
 
     /* Simulated UpCrew Shift Specimen */
     .up-specimen-card {
-      background: #FFFFFF;
+      background: #F8FAFC;
       border: 1.5px solid #C7D2FE;
-      border-radius: 20px;
+      border-radius: 18px;
       padding: 20px;
-      box-shadow: 0 8px 24px rgba(37, 88, 232, 0.08);
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -1498,7 +1299,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      background: #F8FAFC;
+      background: #FFFFFF;
       border: 1px solid var(--up-border-light);
       border-radius: 12px;
       padding: 12px;
@@ -2741,7 +2542,7 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SECTION 02 / 24: PROBLEM STATEMENT (FULL-BLEED BEHANCE SHOWCASE)
+         SECTION 02 / 24: PROBLEM STATEMENT (EDITORIAL BEHANCE SHOWCASE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="up-stage up-stage--problem" id="cs-problem" data-rubric="02">
 
@@ -2750,257 +2551,162 @@
 
       <div class="up-stage-wrap up-stage-wrap--problem">
 
-        <!-- Chapter Pill & Top Meta Bar -->
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;">
-          <div class="up-chapter-pill js-reveal" style="margin-bottom: 0; background: #FEF2F2; border-color: #FECACA;">
-            <span class="up-chapter-num" style="color: #DC2626;">02 / 24</span>
+        <!-- Chapter Pill Navigation Bar -->
+        <div style="margin-bottom: 32px;">
+          <div class="up-chapter-pill js-reveal" style="margin-bottom: 0;">
+            <span class="up-chapter-num" style="color: var(--up-primary);">02 / 24</span>
             <span class="up-chapter-sep">·</span>
-            <span class="up-chapter-title" style="color: #991B1B;">PROBLEM STATEMENT</span>
-          </div>
-          <div class="js-reveal" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--up-font-display); font-size: 0.75rem; font-weight: 800; color: #DC2626; background: #FEF2F2; border: 1px solid #FECACA; padding: 6px 14px; border-radius: 999px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span>INFORMAL LABOR MARKET BREAKDOWN · ALL OVER INDIA</span>
+            <span class="up-chapter-title">PROBLEM STATEMENT</span>
           </div>
         </div>
 
         <!-- Editorial Section Header -->
         <div class="up-problem-header js-reveal">
-          <span class="up-problem-eyebrow">THE GROUND REALITY ACROSS INDIA</span>
           <h2 class="up-problem-h2">
             India’s temporary workforce is trapped in predatory, informal hiring chaos.
           </h2>
           <p class="up-problem-lead">
-            Across urban commercial centers and college hubs nationwide, India’s ₹2.4 Lakh Crore temporary workforce operates almost entirely on chaotic WhatsApp groups, word-of-mouth referrals, and unregulated commission brokers. For students and temporary gig workers, every shift is a high-stakes gamble with wage cuts, ghosted applications, and zero safety recourse. For businesses, sudden no-shows destroy peak sales.
+            Across urban commercial centers and college hubs nationwide, India’s ₹2.4 Lakh Crore temporary workforce operates almost entirely through informal WhatsApp groups, unregulated commission middlemen, and word-of-mouth. For students and gig workers, shifts are plagued by wage cuts and ghosted applications. For businesses, sudden no-shows destroy peak retail revenue.
           </p>
         </div>
 
-        <!-- Mascot Speech Callout Box (Fun, Playful & Grounded in Field Reality) -->
-        <div class="up-mascot-callout js-reveal">
-          <div class="up-mascot-avatar-wrap">
-            <div class="up-mascot-avatar">
-              <img src="../Assets/Images/riya-persona.jpg" alt="Workforce Community Mascot" loading="eager">
-            </div>
-            <span class="up-mascot-badge-tag">Mascot</span>
+        <!-- Mascot Field Insight (Human Narrative & Ground Reality) -->
+        <div class="up-mascot-narrative js-reveal">
+          <div class="up-mascot-narrative-avatar">
+            <img src="../Assets/Images/riya-persona.jpg" alt="Workforce Community Mascot" loading="eager">
           </div>
-          <div class="up-mascot-body">
-            <div class="up-mascot-meta">
-              <span class="up-mascot-role">Workforce Community Mascot · Student &amp; Retail Gig Worker</span>
-              <span class="up-mascot-loc">All Over India</span>
+          <div class="up-mascot-narrative-body">
+            <div class="up-mascot-narrative-meta">
+              <span class="up-mascot-narrative-name">Workforce Community Mascot · Student &amp; Retail Gig Worker</span>
+              <span style="font-family: var(--up-font-display); font-size: 0.6875rem; color: var(--up-ink-muted);">· Pan-India Field Observation</span>
             </div>
-            <p class="up-mascot-quote">
+            <p class="up-mascot-narrative-quote">
               "Whether you're in Bengaluru, Delhi-NCR, Mumbai, or Kolkata, every gig worker has the exact same nightmare: waking up to an unverified WhatsApp shift, commuting 18 km, and having the floor supervisor say 'sorry, someone else arrived first'."
             </p>
-            <p class="up-mascot-subquote">
-              Representing millions of young Indians balancing college degrees, family bills, and retail gigs with zero escrow safety net.
+            <p class="up-mascot-narrative-note">
+              Ground reality drawn from 100+ field interviews and 48 survey responses across India's urban retail corridors.
             </p>
           </div>
         </div>
 
-        <!-- Quantitative Survey Metrics Strip (Hard Data Across India) -->
-        <div class="up-stats-strip js-reveal">
-          <div class="up-stat-card up-stat-card--highlight">
-            <div class="up-stat-card-head">
-              <span class="up-stat-badge up-stat-badge--alert">#1 Anxiety</span>
-              <span style="font-family: var(--up-font-display); font-size: 0.6875rem; font-weight: 800; color: #DC2626;">n = 48 Workers</span>
-            </div>
-            <div class="up-stat-num up-stat-num--alert">89.7%</div>
-            <h4 class="up-stat-title">Pay Opacity &amp; Wage Cuts</h4>
-            <p class="up-stat-desc">Workers demand verified compensation and escrow settlement before stepping out the door.</p>
+        <!-- Quantitative Ground Truth (Clean Open Metrics Row) -->
+        <div class="up-data-strip js-reveal">
+          <div class="up-data-col">
+            <div class="up-data-num" style="color: #DC2626;">89.7%</div>
+            <h4 class="up-data-label">Pay Opacity &amp; Deductions</h4>
+            <p class="up-data-desc">Workers demand verified compensation and escrow settlement before stepping out the door.</p>
           </div>
 
-          <div class="up-stat-card">
-            <div class="up-stat-card-head">
-              <span class="up-stat-badge">Business Crisis</span>
-              <span style="font-family: var(--up-font-display); font-size: 0.6875rem; font-weight: 800; color: var(--up-ink-muted);">Employer Survey</span>
-            </div>
-            <div class="up-stat-num" style="color: #EA580C;">100%</div>
-            <h4 class="up-stat-title">No-Show &amp; Cancellation Volatility</h4>
-            <p class="up-stat-desc">Every surveyed retailer and event manager cited last-minute worker dropouts as their #1 operational headache.</p>
+          <div class="up-data-col">
+            <div class="up-data-num" style="color: #EA580C;">100%</div>
+            <h4 class="up-data-label">No-Show Volatility</h4>
+            <p class="up-data-desc">Every surveyed retailer and event lead cited sudden worker dropouts as their #1 operational headache.</p>
           </div>
 
-          <div class="up-stat-card">
-            <div class="up-stat-card-head">
-              <span class="up-stat-badge">Hiring Limbo</span>
-              <span style="font-family: var(--up-font-display); font-size: 0.6875rem; font-weight: 800; color: var(--up-ink-muted);">Field Transcripts</span>
-            </div>
-            <div class="up-stat-num" style="color: #7C3AED;">42.9%</div>
-            <h4 class="up-stat-title">Application Ghosting Rate</h4>
-            <p class="up-stat-desc">Workers apply to multiple WhatsApp links and never receive any response, feedback, or delivery receipt.</p>
+          <div class="up-data-col">
+            <div class="up-data-num" style="color: #7C3AED;">42.9%</div>
+            <h4 class="up-data-label">Application Ghosting</h4>
+            <p class="up-data-desc">Workers apply to multiple WhatsApp links and never receive any response, feedback, or status receipt.</p>
           </div>
 
-          <div class="up-stat-card">
-            <div class="up-stat-card-head">
-              <span class="up-stat-badge">Transit Barrier</span>
-              <span style="font-family: var(--up-font-display); font-size: 0.6875rem; font-weight: 800; color: var(--up-ink-muted);">Transit Logs</span>
-            </div>
-            <div class="up-stat-num" style="color: #2558E8;">55.2%</div>
-            <h4 class="up-stat-title">Commute Distance Blindness</h4>
-            <p class="up-stat-desc">Vague listings conceal 60+ min transit times, causing expensive auto-rickshaw fares that erase 25% of daily wages.</p>
+          <div class="up-data-col">
+            <div class="up-data-num" style="color: #2558E8;">55.2%</div>
+            <h4 class="up-data-label">Commute Blindness</h4>
+            <p class="up-data-desc">Vague listings conceal 60+ min travel times, with transit fares consuming 25% of daily shift earnings.</p>
           </div>
         </div>
 
-        <!-- Dual-Sided Marketplace Bento: Worker Reality vs Employer Crisis -->
-        <div class="up-problem-bento js-reveal">
+        <!-- The Structural Divide: Worker Reality vs Employer Crisis (Asymmetrical Artifacts) -->
+        <div class="up-divide-grid js-reveal">
 
-          <!-- Card 1: Worker Lived Reality -->
-          <div class="up-bento-card up-bento-card--worker">
-            <div class="up-bento-card-top">
-              <div class="up-bento-card-title-group">
-                <span class="up-bento-card-cat up-bento-card-cat--worker">Demand Side · Field Findings</span>
-                <h3 class="up-bento-card-title">The Worker Reality: Exploitation &amp; Insecurity</h3>
-              </div>
-              <span class="up-bento-pill up-bento-pill--alert">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                High Risk · Zero Escrow
-              </span>
+          <!-- Artifact 1: Worker Reality (Financial Arithmetic Breakdown) -->
+          <div class="up-divide-card">
+            <div class="up-divide-card-header">
+              <h3>The Worker Reality: The Math of a Stolen Shift</h3>
+              <p>How verbal promises dissolve into sub-minimum wages</p>
             </div>
 
-            <ul class="up-bento-points">
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--alert">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13l8.5 8"/><path d="M6 13h3a4 4 0 0 0 0-8"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Arbitrary Post-Shift Wage Deductions:</strong> Oral agreements of ₹800/shift are slashed to ₹500 at check-out, with informal contractors claiming "agency cuts" or "unpaid break times."
-                </p>
+            <!-- Financial Arithmetic Breakdown Component -->
+            <div class="up-calc-ledger">
+              <div class="up-calc-row">
+                <span>Oral Promise on WhatsApp</span>
+                <strong>₹800</strong>
+              </div>
+              <div class="up-calc-row up-calc-row--deduct">
+                <span>Middleman Agency Commission (Unregulated)</span>
+                <strong>− ₹180</strong>
+              </div>
+              <div class="up-calc-row up-calc-row--deduct">
+                <span>Uncompensated Transit (45-min auto ride)</span>
+                <strong>− ₹120</strong>
+              </div>
+              <div class="up-calc-row up-calc-row--total">
+                <span>Actual Net Earnings (10-Hour Shift)</span>
+                <strong>₹500 (₹50 / hr)</strong>
+              </div>
+            </div>
+
+            <ul class="up-divide-points">
+              <li class="up-divide-point">
+                <strong>Post-Shift Wage Arbitrage:</strong> Oral agreements of ₹800 are slashed at cashout, with informal brokers citing "commission fees" or "unpaid break times."
               </li>
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--alert">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Location Blindness &amp; Uncompensated Transit:</strong> Listings vaguely say "near metro," only for workers to discover upon arrival that the warehouse is 8 km off the main road.
-                </p>
+              <li class="up-divide-point">
+                <strong>Location Blindness &amp; Travel Drain:</strong> Listings vaguely state "near station," only for workers to discover an 8 km last-mile trip that erases a quarter of daily pay.
               </li>
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--alert">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Endless Application Limbo:</strong> Workers send Aadhaar cards and photos across 15+ WhatsApp groups without knowing if they are confirmed or when they will be hired.
-                </p>
-              </li>
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--alert">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Zero Recourse for Cancelled Shifts:</strong> Workers travel 2 hours early morning, only to find the retail stall cancelled and the organizer blocking their phone numbers.
-                </p>
+              <li class="up-divide-point">
+                <strong>Zero Recourse for Cancelled Shifts:</strong> When organizers cancel shifts upon arrival, workers absorb the full cost of transit and lost time with no safety net.
               </li>
             </ul>
 
-            <div class="up-bento-quote-pill">
-              "We take local trains and buses at 6 AM only to find out the agency cancelled the contract without informing us. Who pays for our travel?"
-              <span style="display: block; font-size: 0.6875rem; color: #64748B; margin-top: 4px; font-weight: 700;">— Field Interview, Retail Assistant (All Over India)</span>
-            </div>
+            <blockquote class="up-editorial-quote">
+              <p>"We take local trains and buses at 6 AM only to find out the agency cancelled the contract without informing us. Who pays for our travel?"</p>
+              <cite>— Retail Floor Assistant, Field Interview (All Over India)</cite>
+            </blockquote>
           </div>
 
-          <!-- Card 2: Employer Operational Crisis -->
-          <div class="up-bento-card up-bento-card--employer">
-            <div class="up-bento-card-top">
-              <div class="up-bento-card-title-group">
-                <span class="up-bento-card-cat up-bento-card-cat--employer">Supply Side · Retail &amp; Event Operations</span>
-                <h3 class="up-bento-card-title">The Employer Crisis: Unreliability &amp; Lost Revenue</h3>
-              </div>
-              <span class="up-bento-pill up-bento-pill--warning">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                100% No-Show Risk
-              </span>
+          <!-- Artifact 2: Employer Crisis (Operational Timeline Breakdown) -->
+          <div class="up-divide-card">
+            <div class="up-divide-card-header">
+              <h3>The Employer Crisis: Anatomy of a Staffing Collapse</h3>
+              <p>Why 100% no-show volatility paralyzes peak retail operations</p>
             </div>
 
-            <ul class="up-bento-points">
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--warning">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="13"/><line x1="23" y1="8" x2="18" y2="13"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Crippling Last-Minute No-Shows:</strong> 100% of surveyed retail stores and event managers experience catastrophic worker dropouts on critical weekend sale peaks.
-                </p>
+            <!-- Operational Timeline Component -->
+            <div class="up-timeline-track">
+              <div class="up-timeline-node">
+                <span class="up-timeline-time">08:00 AM</span>
+                <span class="up-timeline-desc"><strong>Agency Confirmation:</strong> Broker confirms 6 temporary workers are "on the way."</span>
+              </div>
+              <div class="up-timeline-node">
+                <span class="up-timeline-time">09:30 AM</span>
+                <span class="up-timeline-desc"><strong>First Dropout Wave:</strong> Only 2 workers arrive; 4 phone numbers switched off.</span>
+              </div>
+              <div class="up-timeline-node">
+                <span class="up-timeline-time">10:00 AM</span>
+                <span class="up-timeline-desc"><strong>Doors Open Understaffed:</strong> Weekend festive sale begins with 40% floor coverage.</span>
+              </div>
+              <div class="up-timeline-node">
+                <span class="up-timeline-time">11:30 AM</span>
+                <span class="up-timeline-desc"><strong>Management Derailment:</strong> Senior store manager pulled off floor to manually ring up billing registers.</span>
+              </div>
+            </div>
+
+            <ul class="up-divide-points">
+              <li class="up-divide-point">
+                <strong>Crippling Unreliability:</strong> Traditional manpower agencies extract 30–40% markups with zero attendance guarantee or verified screening.
               </li>
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--warning">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Operational Screening Burnout:</strong> Shift supervisors lose 23.2% of their productive working hours manually calling 40+ people to fill 4 temporary floor assistant roles.
-                </p>
+              <li class="up-divide-point">
+                <strong>Operational Screening Burnout:</strong> Shift supervisors lose 23.2% of their working hours making 40+ manual coordination calls to fill temporary slots.
               </li>
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--warning">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Predatory Agency Commissions:</strong> Traditional manpower agencies extract 30–40% markups without vetting candidates or guaranteeing attendance.
-                </p>
-              </li>
-              <li class="up-bento-point">
-                <div class="up-bento-point-icon up-bento-point-icon--warning">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="12" cy="14" r="4"/></svg>
-                </div>
-                <p class="up-bento-point-text">
-                  <strong>Zero Verified Work History:</strong> Employers have no way to verify candidate reliability, punctuality ratings, or past shift completion track records.
-                </p>
+              <li class="up-divide-point">
+                <strong>Lost Store Revenue:</strong> Unmanned trial rooms and long checkout queues cause frustrated customers to abandon purchases during peak hours.
               </li>
             </ul>
 
-            <div class="up-bento-quote-pill">
-              "During festive sales, half our temporary workers disappear after lunch. We end up pulling senior store managers onto the cash counter just to survive."
-              <span style="display: block; font-size: 0.6875rem; color: #64748B; margin-top: 4px; font-weight: 700;">— Field Interview, Retail Store Operations Lead (All Over India)</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- 4 Friction Dimensions (Tactile Quad Grid with Official SVG Icons) -->
-        <div class="up-friction-quad js-reveal">
-
-          <div class="up-friction-card">
-            <div class="up-friction-head">
-              <div class="up-friction-icon-wrap up-friction-icon-wrap--red">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13l8.5 8"/><path d="M6 13h3a4 4 0 0 0 0-8"/></svg>
-              </div>
-              <span class="up-friction-tag" style="background: #FEE2E2; color: #DC2626;">89.7% Concern</span>
-            </div>
-            <h4>Pay Opacity &amp; Wage Cuts</h4>
-            <p>Pay rates are discussed verbally. Workers face arbitrary post-shift deductions, delayed cash payments, and zero escrow deposit security.</p>
-            <p class="up-friction-note">Average 22% wage leakage to middlemen</p>
-          </div>
-
-          <div class="up-friction-card">
-            <div class="up-friction-head">
-              <div class="up-friction-icon-wrap up-friction-icon-wrap--purple">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="12" cy="14" r="4"/><polyline points="12 12 12 14 14 15"/></svg>
-              </div>
-              <span class="up-friction-tag" style="background: #F3E8FF; color: #7C3AED;">42.9% Ghosted</span>
-            </div>
-            <h4>Application Limbo &amp; Ghosting</h4>
-            <p>Workers apply to multiple WhatsApp links with zero confirmation or feedback. Employers simultaneously suffer a 100% no-show and sudden cancellation crisis.</p>
-            <p class="up-friction-note">Workers apply to 5+ gigs concurrently</p>
-          </div>
-
-          <div class="up-friction-card">
-            <div class="up-friction-head">
-              <div class="up-friction-icon-wrap up-friction-icon-wrap--blue">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <span class="up-friction-tag" style="background: #EFF6FF; color: #2558E8;">55.2% Distance</span>
-            </div>
-            <h4>Location Blindness &amp; Commute</h4>
-            <p>Listings vaguely state "near station," only for workers to discover upon arrival that the venue requires an expensive 45-minute auto ride, wiping out earnings.</p>
-            <p class="up-friction-note">Transit expense consumes 25% of shift pay</p>
-          </div>
-
-          <div class="up-friction-card">
-            <div class="up-friction-head">
-              <div class="up-friction-icon-wrap up-friction-icon-wrap--orange">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              </div>
-              <span class="up-friction-tag" style="background: #FFEDD5; color: #C2410C;">Zero Safety</span>
-            </div>
-            <h4>Fake Shifts &amp; Stranded Workers</h4>
-            <p>No verified business credentials. Workers arrive at locked venues, contact organizers who block their numbers, and have zero recourse for wasted travel.</p>
-            <p class="up-friction-note">0% formal legal protection in informal chats</p>
+            <blockquote class="up-editorial-quote">
+              <p>"During festive sales, half our temporary workers disappear after lunch. We end up pulling senior store managers onto the cash counter just to survive."</p>
+              <cite>— Retail Store Operations Lead, Field Interview (All Over India)</cite>
+            </blockquote>
           </div>
 
         </div>
@@ -3009,9 +2715,9 @@
         <div class="up-compare-stage js-reveal">
 
           <!-- Left: WhatsApp Simulation -->
-          <div class="up-compare-box up-compare-box--bad">
+          <div class="up-compare-box">
             <div class="up-compare-header">
-              <span class="up-compare-badge up-compare-badge--bad">Status Quo · Informal WhatsApp Group</span>
+              <span class="up-compare-title">Status Quo · Informal WhatsApp Group</span>
               <span class="up-compare-status up-compare-status--bad">Unverified · High Risk</span>
             </div>
 
@@ -3043,9 +2749,9 @@
           </div>
 
           <!-- Right: UpCrew Structured Specimen -->
-          <div class="up-compare-box up-compare-box--good">
+          <div class="up-compare-box">
             <div class="up-compare-header">
-              <span class="up-compare-badge up-compare-badge--good">UpCrew · Verified Shift Standard</span>
+              <span class="up-compare-title">UpCrew · Verified Shift Standard</span>
               <span class="up-compare-status up-compare-status--good">100% Escrow Guaranteed</span>
             </div>
 
