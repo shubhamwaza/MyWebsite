@@ -211,37 +211,67 @@
       font-weight: 400;
     }
 
-    /* Workforce Mascot Character Speech Pill */
-    .up-hero-character-badge {
+    /* Prominent Dual-Mascot Hero Showcase */
+    .up-hero-mascot-showcase {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
-      background: #F5F3FF;
-      border: 1.5px solid #DDD6FE;
-      border-radius: 999px;
-      padding: 6px 20px 6px 8px;
+      gap: 20px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      border-radius: 20px;
+      padding: 12px 24px 12px 16px;
       margin: 0 auto 36px auto;
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
       text-align: left;
+      max-width: 720px;
+      transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms cubic-bezier(0.23, 1, 0.32, 1);
     }
-    .up-char-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid #7C3AED;
+    .up-hero-mascot-showcase:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .up-hero-mascot-illustration {
+      height: 78px;
+      width: auto;
       flex-shrink: 0;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(15, 23, 42, 0.06));
     }
-    .up-char-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-    .up-char-bubble {
+    .up-hero-mascot-content {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
+    }
+    .up-hero-mascot-tag {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: var(--up-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .up-hero-mascot-quote {
+      font-family: var(--up-font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--up-ink);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .up-hero-mascot-sub {
+      font-family: var(--up-font-body);
+      font-size: 0.75rem;
+      color: var(--up-ink-muted);
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .up-hero-mascot-showcase {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 18px 20px;
+        gap: 12px;
+      }
     }
     .up-char-name {
       font-family: var(--up-font-display);
@@ -2432,15 +2462,14 @@
             </a>
           </div>
 
-          <!-- Workforce Mascot Character Speech Badge (Narrative Anchor) -->
+          <!-- Prominent Dual-Mascot Hero Showcase (Grounding Both Sides of the Marketplace) -->
           <div style="text-align: center;">
-            <div class="up-hero-character-badge js-reveal">
-              <div class="up-char-avatar">
-                <img src="../Assets/Images/riya-persona.jpg" alt="Workforce Mascot - UpCrew Community Persona" loading="eager">
-              </div>
-              <div class="up-char-bubble">
-                <span class="up-char-name">Workforce Mascot · Retail &amp; Gig Hustler (All Over India)</span>
-                <p class="up-char-quote">"Flexibility shouldn't mean chasing WhatsApp admins for last week's pay."</p>
+            <div class="up-hero-mascot-showcase js-reveal">
+              <img src="../Assets/Images/upcrew-mascot-standoff-blue.png" alt="UpCrew Community Mascots - Student Gig Worker and Retail Store Operations Lead" class="up-hero-mascot-illustration" loading="eager">
+              <div class="up-hero-mascot-content">
+                <span class="up-hero-mascot-tag">Pan-India Workforce Reality · Two Sides of the Market</span>
+                <p class="up-hero-mascot-quote">"Flexibility shouldn't mean chasing WhatsApp admins for pay. And peak retail shifts shouldn't collapse from 50% no-shows."</p>
+                <p class="up-hero-mascot-sub">Connecting student &amp; retail gig hustlers with verified employers across India's urban commercial corridors.</p>
               </div>
             </div>
           </div>
