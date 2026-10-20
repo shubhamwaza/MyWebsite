@@ -243,19 +243,34 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
   function loop() {
-    curX += (targetX - curX) * 0.18;
-    curY += (targetY - curY) * 0.18;
+    // ⚡ Bolt: Pause the animation loop if the element has reached its target to save CPU
+    const diffX = targetX - curX;
+    const diffY = targetY - curY;
+    if (Math.abs(diffX) < 0.1 && Math.abs(diffY) < 0.1) {
+      curX = targetX;
+      curY = targetY;
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+      rafId = null;
+      return;
+    }
+
+    curX += diffX * 0.18;
+    curY += diffY * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    if (!rafId) {
+      rafId = requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
