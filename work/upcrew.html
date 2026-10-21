@@ -31,7 +31,7 @@
       --up-purple: #7C3AED;
       --up-ink: #0F172A;
       --up-ink-2: #334155;
-      --up-ink-muted: #64748B;
+      --up-ink-muted: #475569;
       --up-border-light: #E2E8F0;
       --up-surface-white: #FFFFFF;
       --up-surface-soft: #F8FAFC;
@@ -91,20 +91,9 @@
       z-index: 4;
     }
 
-    /* Giant editorial watermark */
+    /* Watermarks removed for clean, authentic craft */
     .up-watermark {
-      position: absolute;
-      right: clamp(10px, 3vw, 50px);
-      top: 10px;
-      font-family: var(--up-font-display);
-      font-size: clamp(8rem, 18vw, 16rem);
-      font-weight: 900;
-      line-height: 0.9;
-      color: rgba(37, 88, 232, 0.04);
-      pointer-events: none;
-      user-select: none;
-      z-index: 1;
-      letter-spacing: -0.05em;
+      display: none !important;
     }
 
     /* Signature rubric chapter badge */
@@ -213,64 +202,98 @@
 
     /* Prominent Dual-Mascot Hero Showcase */
     .up-hero-mascot-showcase {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 28px;
       background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
-      border-radius: 20px;
-      padding: 12px 24px 12px 16px;
+      border: 1px solid var(--up-border-light);
+      border-radius: 22px;
+      padding: 22px 28px;
       margin: 0 auto 36px auto;
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
       text-align: left;
-      max-width: 720px;
+      max-width: 860px;
       transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms cubic-bezier(0.23, 1, 0.32, 1);
     }
     .up-hero-mascot-showcase:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
     }
     .up-hero-mascot-illustration {
-      height: 78px;
+      height: 96px;
       width: auto;
       flex-shrink: 0;
       object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(15, 23, 42, 0.06));
+      filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.07));
     }
     .up-hero-mascot-content {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 6px;
+      flex: 1;
+      min-width: 0;
     }
     .up-hero-mascot-tag {
       font-family: var(--up-font-display);
-      font-size: 0.6875rem;
+      font-size: 0.75rem;
       font-weight: 800;
       color: var(--up-primary);
       text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .up-hero-mascot-title {
+      font-family: var(--up-font-display);
+      font-size: 1.0625rem;
+      font-weight: 800;
+      color: var(--up-ink);
+      line-height: 1.35;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .up-hero-mascot-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--up-border-light);
+    }
+    .up-hero-mascot-duo-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .up-hero-mascot-duo-role {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .up-hero-mascot-quote {
-      font-family: var(--up-font-display);
-      font-size: 0.9375rem;
-      font-weight: 700;
-      color: var(--up-ink);
+    .up-hero-mascot-duo-role--worker {
+      color: var(--up-primary);
+    }
+    .up-hero-mascot-duo-role--employer {
+      color: #EA580C;
+    }
+    .up-hero-mascot-duo-text {
+      font-family: var(--up-font-body);
+      font-size: 0.8125rem;
+      color: var(--up-ink-2);
       line-height: 1.4;
       margin: 0;
     }
-    .up-hero-mascot-sub {
-      font-family: var(--up-font-body);
-      font-size: 0.75rem;
-      color: var(--up-ink-muted);
-      margin: 0;
-    }
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .up-hero-mascot-showcase {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 18px 20px;
-        gap: 12px;
+        padding: 20px;
+        gap: 16px;
+      }
+      .up-hero-mascot-duo {
+        grid-template-columns: 1fr;
+        text-align: left;
       }
     }
     .up-char-name {
@@ -520,179 +543,109 @@
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       APPLE DESIGN FLUID ACCENTS & TACTILE FIELD CARDS
-       Clean, Opaque Surfaces · Zero AI Slop · Crisp SVG Geometry · Uncut Text
+       GROUNDED MARKETPLACE PILLARS (AUTHENTIC UX ARCHITECTURE)
+       Responsive, High-Contrast Cards · Clean 1px Neutral Borders
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-    .up-float-card {
-      position: absolute;
-      z-index: 5;
-      width: auto;
-      min-width: 285px;
-      max-width: 360px;
-      box-sizing: border-box;
+    .up-hero-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 1400px;
+      margin: 48px auto 0 auto;
+      text-align: left;
+    }
+    @media (max-width: 1024px) {
+      .up-hero-pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 540px) {
+      .up-hero-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+    .up-pillar-card {
       background: #FFFFFF;
-      border: 1.5px solid var(--up-border-light);
+      border: 1px solid var(--up-border-light);
       border-radius: 18px;
-      padding: 12px 16px;
-      box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.02);
-      display: inline-flex;
-      align-items: center;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
       gap: 12px;
-      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease, border-color 220ms ease;
-      cursor: default;
-      user-select: none;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+      transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms ease, border-color 160ms ease;
     }
-    .up-float-card:hover {
-      transform: translateY(-4px) scale(1.02) rotate(0deg) !important;
-      border-color: #C7D2FE;
-      box-shadow: 0 20px 42px -8px rgba(37, 88, 232, 0.16);
+    .up-pillar-card:hover {
+      transform: translateY(-2px);
+      border-color: #CBD5E1;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     }
-    .up-float-card:active {
-      transform: scale(0.98) !important;
+    .up-pillar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
-
-    .up-float-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+    .up-pillar-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .up-float-icon--orange {
+    .up-pillar-icon--orange {
       background: #FFF7ED;
       color: #EA580C;
       border: 1px solid #FED7AA;
     }
-    .up-float-icon--green {
+    .up-pillar-icon--green {
       background: #F0FDF4;
       color: #16A34A;
       border: 1px solid #BBF7D0;
     }
-    .up-float-icon--blue {
+    .up-pillar-icon--blue {
       background: #EFF6FF;
       color: #2558E8;
       border: 1px solid #BFDBFE;
     }
-
-    .up-float-body {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      flex: 1;
-      min-width: 0;
-    }
-    .up-float-label {
+    .up-pillar-tag {
       font-family: var(--up-font-display);
-      font-size: 0.625rem;
-      font-weight: 800;
-      color: var(--up-ink-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .up-float-title {
-      font-family: var(--up-font-display);
-      font-size: 0.84375rem;
-      font-weight: 800;
-      color: var(--up-ink);
-      line-height: 1.25;
-      margin: 0;
-      white-space: normal;
-    }
-    .up-float-sub {
-      font-family: var(--up-font-body);
-      font-size: 0.71875rem;
-      color: var(--up-ink-2);
-      line-height: 1.35;
-      margin: 0;
-      white-space: normal;
-    }
-    .up-float-tag {
-      font-family: var(--up-font-display);
-      font-size: 0.625rem;
+      font-size: 0.6875rem;
       font-weight: 800;
       padding: 3px 8px;
       border-radius: 999px;
-      background: #F1F5F9;
-      color: var(--up-ink-2);
+      background: #F8FAFC;
+      color: var(--up-ink-muted);
       border: 1px solid var(--up-border-light);
-      margin-left: auto;
-      align-self: center;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
-    .up-float-tag--green {
-      background: #ECFDF5;
-      color: #065F46;
-      border-color: #A7F3D0;
-    }
-    .up-float-tag--blue {
+    .up-pillar-tag--blue {
       background: #EFF6FF;
       color: #1E40AF;
       border-color: #BFDBFE;
     }
-
-    /* Floats layout positions (Only on screens with wide whitespace margins >= 1240px) */
-    .up-float--top-left {
-      top: 90px;
-      left: clamp(16px, 2.5vw, 48px);
-      transform: rotate(-2.5deg);
+    .up-pillar-tag--green {
+      background: #ECFDF5;
+      color: #065F46;
+      border-color: #A7F3D0;
     }
-    .up-float--top-right {
-      top: 100px;
-      right: clamp(16px, 2.5vw, 48px);
-      transform: rotate(2.5deg);
+    .up-pillar-title {
+      font-family: var(--up-font-display);
+      font-size: 0.9375rem;
+      font-weight: 800;
+      color: var(--up-ink);
+      line-height: 1.3;
+      margin: 0;
     }
-    .up-float--mid-left {
-      top: 310px;
-      left: clamp(16px, 2.5vw, 48px);
-      transform: rotate(-1.5deg);
-    }
-    .up-float--mid-right {
-      top: 320px;
-      right: clamp(16px, 2.5vw, 48px);
-      transform: rotate(2deg);
-    }
-
-    @media (max-width: 1240px) {
-      .up-float-card {
-        display: none !important;
-      }
-    }
-
-    /* Vector Sparkles in Outer Flanks */
-    .up-sparkle {
-      position: absolute;
-      pointer-events: none;
-      user-select: none;
-      color: var(--up-primary);
-      opacity: 0.35;
-      z-index: 1;
-      transition: opacity 200ms ease;
-    }
-    .up-sparkle--1 {
-      top: 80px;
-      left: 18%;
-      color: var(--up-primary);
-    }
-    .up-sparkle--2 {
-      top: 100px;
-      right: 18%;
-      color: var(--up-orange);
-    }
-    .up-sparkle--3 {
-      top: 380px;
-      left: 16%;
-      color: var(--up-orange);
-    }
-    .up-sparkle--4 {
-      top: 400px;
-      right: 16%;
-      color: var(--up-primary);
+    .up-pillar-sub {
+      font-family: var(--up-font-body);
+      font-size: 0.8125rem;
+      color: var(--up-ink-2);
+      line-height: 1.45;
+      margin: 0;
     }
 
     /* Hand-drawn Arrow Pointer to Center Phone */
@@ -715,32 +668,19 @@
     }
     .up-fan-pointer span {
       font-family: var(--up-font-display);
-      font-size: 0.6875rem;
+      font-size: 0.75rem;
       font-weight: 800;
       color: var(--up-primary);
       background: #EFF6FF;
       border: 1px solid #BFDBFE;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
-      box-shadow: 0 2px 8px rgba(37, 88, 232, 0.1);
+      box-shadow: 0 2px 8px rgba(37, 88, 232, 0.08);
       white-space: nowrap;
     }
-
     @media (max-width: 1220px) {
-      .up-float-card {
-        display: none !important;
-      }
       .up-fan-pointer {
         display: none !important;
-      }
-      .up-sparkle {
-        display: none !important;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .up-float-card,
-      .up-sparkle {
-        animation: none !important;
       }
     }
 
@@ -835,18 +775,7 @@
 
     /* Watermark for Section 02 */
     .up-watermark--problem {
-      position: absolute;
-      right: clamp(10px, 3vw, 50px);
-      top: 10px;
-      font-family: var(--up-font-display);
-      font-size: clamp(8rem, 18vw, 16rem);
-      font-weight: 900;
-      line-height: 0.9;
-      color: rgba(15, 23, 42, 0.03);
-      pointer-events: none;
-      user-select: none;
-      z-index: 1;
-      letter-spacing: -0.05em;
+      display: none !important;
     }
 
     /* Problem Section Editorial Header */
@@ -1141,11 +1070,13 @@
       font-weight: 700;
     }
 
-    /* Editorial Quote with Clean Left Border (No Dashed Box!) */
+    /* Editorial Field Quote - Clean Contained Block */
     .up-editorial-quote {
-      border-left: 3px solid var(--up-ink);
-      padding: 4px 0 4px 18px;
-      margin: 8px 0 0 0;
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 12px 0 0 0;
     }
     .up-editorial-quote p {
       font-family: var(--up-font-display);
@@ -1193,9 +1124,11 @@
     }
     .up-compare-title {
       font-family: var(--up-font-display);
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       font-weight: 800;
       color: var(--up-ink);
+      margin: 0;
+      line-height: 1.3;
     }
     .up-compare-status {
       font-family: var(--up-font-display);
@@ -2369,79 +2302,10 @@
   <main class="cs-main">
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SECTION 01 / 24: PROJECT OVERVIEW (FULL-BLEED BEHANCE SHOWCASE)
+         SECTION 01 / 24: PROJECT OVERVIEW (FULL-BLEED EDITORIAL SHOWCASE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="up-stage up-stage--hero" id="cs-hero" data-rubric="01">
-      <div class="up-watermark" aria-hidden="true">01</div>
-
       <div class="up-stage-wrap up-stage-wrap--hero">
-        
-        <!-- Ambient Vector Sparkles in Whitespace (Apple Fluid Accent) -->
-        <svg class="up-sparkle up-sparkle--1" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-        <svg class="up-sparkle up-sparkle--2" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-        <svg class="up-sparkle up-sparkle--3" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-        <svg class="up-sparkle up-sparkle--4" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
-
-        <!-- Floating Tactile Badges in Whitespace (Official UpCrew Icon System) -->
-        <div class="up-float-card up-float--top-left js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--orange">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>
-          </div>
-          <div class="up-float-body">
-            <span class="up-float-label">Metro Hub Cluster</span>
-            <h4 class="up-float-title">14 Live Shifts Today</h4>
-            <p class="up-float-sub">Top Retailers &amp; Malls</p>
-          </div>
-          <span class="up-float-tag up-float-tag--blue">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            2.4 km
-          </span>
-        </div>
-
-        <div class="up-float-card up-float--top-right js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-          <div class="up-float-body">
-            <span class="up-float-label">Smart Escrow Lock</span>
-            <h4 class="up-float-title">100% Guaranteed Pay</h4>
-            <p class="up-float-sub">Pre-funded before check-in</p>
-          </div>
-          <span class="up-float-tag up-float-tag--green">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>
-            Verified
-          </span>
-        </div>
-
-        <div class="up-float-card up-float--mid-left js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13l8.5 8"/><path d="M6 13h3a4 4 0 0 0 0-8"/></svg>
-          </div>
-          <div class="up-float-body">
-            <span class="up-float-label">Zero Intermediaries</span>
-            <h4 class="up-float-title">"No 20% WhatsApp Cuts"</h4>
-            <p class="up-float-sub">Instant UPI direct to worker</p>
-          </div>
-          <span class="up-float-tag up-float-tag--green">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
-            Direct UPI
-          </span>
-        </div>
-
-        <div class="up-float-card up-float--mid-right js-reveal" aria-hidden="true">
-          <div class="up-float-icon up-float-icon--blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="up-float-body">
-            <span class="up-float-label">Commute Guard</span>
-            <h4 class="up-float-title">22-Min Radius Cap</h4>
-            <p class="up-float-sub">Strict local train route filter</p>
-          </div>
-          <span class="up-float-tag up-float-tag--blue">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            Transit Cap
-          </span>
-        </div>
 
         <!-- Center Editorial Column (High Readability & Focus) -->
         <div class="up-hero-editorial">
@@ -2468,15 +2332,23 @@
               <img src="../Assets/Images/upcrew-mascot-standoff-blue.png" alt="UpCrew Community Mascots - Student Gig Worker and Retail Store Operations Lead" class="up-hero-mascot-illustration" loading="eager">
               <div class="up-hero-mascot-content">
                 <span class="up-hero-mascot-tag">Pan-India Workforce Reality · Two Sides of the Market</span>
-                <p class="up-hero-mascot-quote">"Flexibility shouldn't mean chasing WhatsApp admins for pay. And peak retail shifts shouldn't collapse from 50% no-shows."</p>
-                <p class="up-hero-mascot-sub">Connecting student &amp; retail gig hustlers with verified employers across India's urban commercial corridors.</p>
+                <h3 class="up-hero-mascot-title">"Flexibility shouldn't mean chasing WhatsApp admins for pay. And peak retail shifts shouldn't collapse from 50% no-shows."</h3>
+                <div class="up-hero-mascot-duo">
+                  <div class="up-hero-mascot-duo-col">
+                    <span class="up-hero-mascot-duo-role up-hero-mascot-duo-role--worker">Frontline Gig Hustler</span>
+                    <p class="up-hero-mascot-duo-text">Navigating unverified WhatsApp links, losing 25% of wages to broker cuts, and absorbing cancelled commute costs.</p>
+                  </div>
+                  <div class="up-hero-mascot-duo-col">
+                    <span class="up-hero-mascot-duo-role up-hero-mascot-duo-role--employer">Retail Store Lead</span>
+                    <p class="up-hero-mascot-duo-text">Suffering 100% no-show volatility on festive sales, 40+ manual screening calls, and pulled managers running billing counters.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Editorial Hero Title & Positioning -->
+          <!-- Editorial Hero Title & Positioning (No Eyebrow - Pure Typographic Confidence) -->
           <div class="up-hero-header js-reveal">
-            <span class="up-eyebrow">ON-DEMAND TEMPORARY WORKFORCE PLATFORM · ALL OVER INDIA</span>
             <h1 class="up-hero-h1">UpCrew<span class="up-accent-dot">.</span></h1>
             <h2 class="up-hero-h2">Work that moves with you</h2>
             <p class="up-hero-lead">
@@ -2562,6 +2434,53 @@
           </div><!-- /.up-fan-track -->
         </div><!-- /.up-hero-fan-wrap -->
 
+        <!-- Grounded Marketplace Pillars (Replacing Floating Cards with High-Craft Architecture) -->
+        <div class="up-hero-pillars js-reveal">
+          <div class="up-pillar-card">
+            <div class="up-pillar-header">
+              <div class="up-pillar-icon up-pillar-icon--green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="up-pillar-tag up-pillar-tag--green">Guaranteed Pay</span>
+            </div>
+            <h3 class="up-pillar-title">100% Smart Escrow Lock</h3>
+            <p class="up-pillar-sub">Every shift is pre-funded into escrow before check-in. Zero post-shift deductions or oral wage renegotiation.</p>
+          </div>
+
+          <div class="up-pillar-card">
+            <div class="up-pillar-header">
+              <div class="up-pillar-icon up-pillar-icon--blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="up-pillar-tag up-pillar-tag--blue">Transit SLA</span>
+            </div>
+            <h3 class="up-pillar-title">22-Min Commute Cap</h3>
+            <p class="up-pillar-sub">Hard geographic and transit radius filters tied to suburban transit lines, eliminating 60+ min commute traps.</p>
+          </div>
+
+          <div class="up-pillar-card">
+            <div class="up-pillar-header">
+              <div class="up-pillar-icon up-pillar-icon--green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13l8.5 8"/><path d="M6 13h3a4 4 0 0 0 0-8"/></svg>
+              </div>
+              <span class="up-pillar-tag up-pillar-tag--green">Direct UPI</span>
+            </div>
+            <h3 class="up-pillar-title">Zero Broker Cuts</h3>
+            <p class="up-pillar-sub">100% of shift earnings released instantly to worker UPI accounts upon supervisor checkout. No 20% middleman cut.</p>
+          </div>
+
+          <div class="up-pillar-card">
+            <div class="up-pillar-header">
+              <div class="up-pillar-icon up-pillar-icon--orange">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>
+              </div>
+              <span class="up-pillar-tag">Verified Hubs</span>
+            </div>
+            <h3 class="up-pillar-title">Verified National Brands</h3>
+            <p class="up-pillar-sub">GST &amp; corporate-verified employers with transparent floor policies and a strict zero-ghosting application SLA.</p>
+          </div>
+        </div>
+
         <!-- Narrative Bridge connecting to Section 02 -->
         <div class="up-narrative-bridge js-reveal">
           <p class="up-bridge-text">
@@ -2577,13 +2496,9 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SECTION 02 / 24: PROBLEM STATEMENT (EDITORIAL BEHANCE SHOWCASE)
+         SECTION 02 / 24: PROBLEM STATEMENT (EDITORIAL SHOWCASE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <section class="up-stage up-stage--problem" id="cs-problem" data-rubric="02">
-
-      <!-- Editorial Watermark in Background -->
-      <div class="up-watermark--problem" aria-hidden="true">02</div>
-
       <div class="up-stage-wrap up-stage-wrap--problem">
 
         <!-- Chapter Pill Navigation Bar -->
@@ -2628,25 +2543,25 @@
         <div class="up-data-strip js-reveal">
           <div class="up-data-col">
             <div class="up-data-num" style="color: #DC2626;">89.7%</div>
-            <h4 class="up-data-label">Pay Opacity &amp; Deductions</h4>
+            <h3 class="up-data-label">Pay Opacity &amp; Deductions</h3>
             <p class="up-data-desc">Workers demand verified compensation and escrow settlement before stepping out the door.</p>
           </div>
 
           <div class="up-data-col">
             <div class="up-data-num" style="color: #EA580C;">100%</div>
-            <h4 class="up-data-label">No-Show Volatility</h4>
+            <h3 class="up-data-label">No-Show Volatility</h3>
             <p class="up-data-desc">Every surveyed retailer and event lead cited sudden worker dropouts as their #1 operational headache.</p>
           </div>
 
           <div class="up-data-col">
             <div class="up-data-num" style="color: #7C3AED;">42.9%</div>
-            <h4 class="up-data-label">Application Ghosting</h4>
+            <h3 class="up-data-label">Application Ghosting</h3>
             <p class="up-data-desc">Workers apply to multiple WhatsApp links and never receive any response, feedback, or status receipt.</p>
           </div>
 
           <div class="up-data-col">
             <div class="up-data-num" style="color: #2558E8;">55.2%</div>
-            <h4 class="up-data-label">Commute Blindness</h4>
+            <h3 class="up-data-label">Commute Blindness</h3>
             <p class="up-data-desc">Vague listings conceal 60+ min travel times, with transit fares consuming 25% of daily shift earnings.</p>
           </div>
         </div>
@@ -2762,7 +2677,7 @@
           <!-- Left: WhatsApp Simulation -->
           <div class="up-compare-box">
             <div class="up-compare-header">
-              <span class="up-compare-title">Status Quo · Informal WhatsApp Group</span>
+              <h3 class="up-compare-title">Status Quo · Informal WhatsApp Group</h3>
               <span class="up-compare-status up-compare-status--bad">Unverified · High Risk</span>
             </div>
 
@@ -2796,7 +2711,7 @@
           <!-- Right: UpCrew Structured Specimen -->
           <div class="up-compare-box">
             <div class="up-compare-header">
-              <span class="up-compare-title">UpCrew · Verified Shift Standard</span>
+              <h3 class="up-compare-title">UpCrew · Verified Shift Standard</h3>
               <span class="up-compare-status up-compare-status--good">100% Escrow Guaranteed</span>
             </div>
 
