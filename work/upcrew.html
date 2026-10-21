@@ -274,7 +274,7 @@
       color: var(--up-primary);
     }
     .up-hero-mascot-duo-role--employer {
-      color: #EA580C;
+      color: #C2410C;
     }
     .up-hero-mascot-duo-text {
       font-family: var(--up-font-body);
@@ -459,8 +459,8 @@
       z-index: 5;
     }
     .up-fan--3 .up-fan-phone {
-      border: 2.5px solid var(--up-primary);
-      box-shadow: 0 35px 85px -15px rgba(37, 88, 232, 0.42), 0 0 0 2px rgba(37, 88, 232, 0.25);
+      border: 2px solid var(--up-primary);
+      box-shadow: 0 32px 72px -16px rgba(15, 23, 42, 0.22), 0 0 0 1.5px rgba(37, 88, 232, 0.35);
     }
     .up-fan--4 {
       width: clamp(215px, 16.5vw, 275px);
@@ -548,7 +548,7 @@
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     .up-hero-pillars {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       max-width: 1400px;
       margin: 48px auto 0 auto;
@@ -559,7 +559,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
-    @media (max-width: 540px) {
+    @media (max-width: 680px) {
       .up-hero-pillars {
         grid-template-columns: 1fr;
       }
@@ -568,9 +568,10 @@
       background: #FFFFFF;
       border: 1px solid var(--up-border-light);
       border-radius: 18px;
-      padding: 20px;
+      padding: 22px 24px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       gap: 12px;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
       transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms ease, border-color 160ms ease;
@@ -579,6 +580,24 @@
       transform: translateY(-2px);
       border-color: #CBD5E1;
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+    .up-pillar-card--featured-left {
+      grid-column: span 2;
+    }
+    .up-pillar-card--featured-right {
+      grid-column: span 2;
+    }
+    @media (max-width: 1024px) {
+      .up-pillar-card--featured-left,
+      .up-pillar-card--featured-right {
+        grid-column: span 2;
+      }
+    }
+    @media (max-width: 680px) {
+      .up-pillar-card--featured-left,
+      .up-pillar-card--featured-right {
+        grid-column: span 1;
+      }
     }
     .up-pillar-header {
       display: flex;
@@ -597,12 +616,12 @@
     }
     .up-pillar-icon--orange {
       background: #FFF7ED;
-      color: #EA580C;
+      color: #C2410C;
       border: 1px solid #FED7AA;
     }
     .up-pillar-icon--green {
       background: #F0FDF4;
-      color: #16A34A;
+      color: #15803D;
       border: 1px solid #BBF7D0;
     }
     .up-pillar-icon--blue {
@@ -647,41 +666,71 @@
       line-height: 1.45;
       margin: 0;
     }
-
-    /* Hand-drawn Arrow Pointer to Center Phone */
-    .up-fan-pointer {
-      position: absolute;
-      top: 4px;
-      left: 50%;
-      transform: translateX(clamp(80px, 8vw, 130px));
-      z-index: 6;
+    .up-pillar-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--up-border-light);
+      flex-wrap: wrap;
+    }
+    .up-pillar-step {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      pointer-events: none;
-      user-select: none;
-    }
-    .up-fan-pointer svg {
-      width: 32px;
-      height: 32px;
-      color: var(--up-primary);
-    }
-    .up-fan-pointer span {
       font-family: var(--up-font-display);
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--up-primary);
-      background: #EFF6FF;
-      border: 1px solid #BFDBFE;
-      padding: 4px 12px;
-      border-radius: 999px;
-      box-shadow: 0 2px 8px rgba(37, 88, 232, 0.08);
-      white-space: nowrap;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--up-ink-2);
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-variant-numeric: tabular-nums;
     }
-    @media (max-width: 1220px) {
-      .up-fan-pointer {
-        display: none !important;
-      }
+    .up-pillar-arrow {
+      color: var(--up-ink-muted);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+    .up-pillar-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--up-border-light);
+      flex-wrap: wrap;
+    }
+    .up-pillar-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--up-ink-2);
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .up-pillar-stat-pill {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--up-ink-2);
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+      font-variant-numeric: tabular-nums;
     }
 
     /* Narrative bridge between sections */
@@ -1041,7 +1090,6 @@
       width: 68px;
       font-variant-numeric: tabular-nums;
       font-feature-settings: "tnum" 1;
-      font-feature-settings: "tnum" 1;
     }
     .up-timeline-desc {
       font-family: var(--up-font-body);
@@ -1142,7 +1190,7 @@
       letter-spacing: 0.04em;
     }
     .up-compare-status--bad { color: #DC2626; }
-    .up-compare-status--good { color: #16A34A; }
+    .up-compare-status--good { color: #15803D; }
 
     /* Simulated WhatsApp Chat Stream */
     .up-whatsapp-stream {
@@ -1191,24 +1239,25 @@
       display: block;
       font-size: 0.6875rem;
       font-weight: 700;
-      color: #128C7E;
+      color: #0D6E63;
       margin-bottom: 3px;
     }
     .up-whatsapp-time {
       display: block;
-      font-size: 0.5625rem;
-      color: #667781;
+      font-size: 0.6875rem;
+      color: #475569;
       text-align: right;
       margin-top: 4px;
+      font-variant-numeric: tabular-nums;
     }
     .up-whatsapp-tag {
       display: inline-block;
       margin-top: 6px;
-      font-size: 0.625rem;
+      font-size: 0.6875rem;
       font-weight: 700;
       background: #FEE2E2;
-      color: #DC2626;
-      padding: 2px 6px;
+      color: #991B1B;
+      padding: 2px 8px;
       border-radius: 4px;
     }
 
@@ -1252,18 +1301,19 @@
       font-family: var(--up-font-display);
       font-size: 1.375rem;
       font-weight: 900;
-      color: #16A34A;
+      color: #15803D;
       line-height: 1.0;
       letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
     }
     .up-specimen-escrow-badge {
       display: block;
       font-family: var(--up-font-display);
-      font-size: 0.5625rem;
+      font-size: 0.6875rem;
       font-weight: 800;
       color: #065F46;
       background: #D1FAE5;
-      padding: 2px 6px;
+      padding: 2px 8px;
       border-radius: 999px;
       margin-top: 4px;
       text-transform: uppercase;
@@ -1285,7 +1335,7 @@
     }
     .up-specimen-meta-label {
       font-family: var(--up-font-display);
-      font-size: 0.5625rem;
+      font-size: 0.6875rem;
       font-weight: 800;
       color: var(--up-ink-muted);
       text-transform: uppercase;
@@ -2337,7 +2387,7 @@
               <img src="../Assets/Images/upcrew-mascot-standoff-blue.png" alt="UpCrew Community Mascots - Student Gig Worker and Retail Store Operations Lead" class="up-hero-mascot-illustration" loading="eager">
               <div class="up-hero-mascot-content">
                 <span class="up-hero-mascot-tag">Pan-India Workforce Reality · Two Sides of the Market</span>
-                <h3 class="up-hero-mascot-title">"Flexibility shouldn't mean chasing WhatsApp admins for pay. And peak retail shifts shouldn't collapse from 50% no-shows."</h3>
+                <h3 class="up-hero-mascot-title">“Flexibility shouldn’t mean chasing WhatsApp admins for pay. And peak retail shifts shouldn’t collapse from 50% no-shows.”</h3>
                 <div class="up-hero-mascot-duo">
                   <div class="up-hero-mascot-duo-col">
                     <span class="up-hero-mascot-duo-role up-hero-mascot-duo-role--worker">Frontline Gig Hustler</span>
@@ -2386,14 +2436,6 @@
         <!-- The Panoramic 5-Screen Fan (Behance Showpiece Device Cascade · Edge-to-Edge) -->
         <div class="up-hero-fan-wrap js-reveal">
 
-          <!-- Hand-drawn vector arrow pointing to Centerpiece Phone -->
-          <div class="up-fan-pointer" aria-hidden="true">
-            <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 8C14 8 26 14 26 28M26 28L20 22M26 28L32 22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3"/>
-            </svg>
-            <span>Top Verified Match · Tier 1 Retail Hub</span>
-          </div>
-
           <div class="up-fan-track">
             <!-- Screen 1: Welcome & Onboarding -->
             <div class="up-fan-device up-fan--1">
@@ -2415,7 +2457,9 @@
 
             <!-- Screen 3: Centerpiece Hero (Elevated, Cobalt Glow) -->
             <div class="up-fan-device up-fan--3">
-              <span class="up-fan-tag up-fan-tag--primary">03 · Live Shifts</span>
+              <span class="up-fan-tag up-fan-tag--primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: -1px;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>03 · Live Shift Feed · Escrow Verified
+              </span>
               <div class="up-fan-phone">
                 <img src="../Assets/Images/upcrew-browse-shifts.png" alt="UpCrew Live Shift Discovery Feed" loading="eager">
               </div>
@@ -2439,50 +2483,91 @@
           </div><!-- /.up-fan-track -->
         </div><!-- /.up-hero-fan-wrap -->
 
-        <!-- Grounded Marketplace Pillars (Replacing Floating Cards with High-Craft Architecture) -->
+        <!-- Grounded Marketplace Pillars (Asymmetric Architectural Bento · Hallmark Standard) -->
         <div class="up-hero-pillars js-reveal">
-          <div class="up-pillar-card">
-            <div class="up-pillar-header">
-              <div class="up-pillar-icon up-pillar-icon--green">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <!-- Pillar 1: Flagship Escrow Protection (Spans 2 columns) -->
+          <div class="up-pillar-card up-pillar-card--featured-left">
+            <div>
+              <div class="up-pillar-header">
+                <div class="up-pillar-icon up-pillar-icon--green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <span class="up-pillar-tag up-pillar-tag--green">Guaranteed Pay · Zero Wage Theft</span>
               </div>
-              <span class="up-pillar-tag up-pillar-tag--green">Guaranteed Pay</span>
+              <h3 class="up-pillar-title" style="margin-top: 10px;">100% Smart Escrow Lock</h3>
+              <p class="up-pillar-sub" style="margin-top: 6px;">
+                Every shift is pre-funded into bank-grade escrow before worker check-in. Eliminating post-shift deductions, oral wage disputes, and supervisor holdouts across India.
+              </p>
             </div>
-            <h3 class="up-pillar-title">100% Smart Escrow Lock</h3>
-            <p class="up-pillar-sub">Every shift is pre-funded into escrow before check-in. Zero post-shift deductions or oral wage renegotiation.</p>
+            <div class="up-pillar-flow">
+              <span class="up-pillar-step">1. ₹5,000 Deposit Locked</span>
+              <span class="up-pillar-arrow">→</span>
+              <span class="up-pillar-step">2. QR Check-In &amp; Attended</span>
+              <span class="up-pillar-arrow">→</span>
+              <span class="up-pillar-step" style="color: #15803D; border-color: #BBF7D0; background: #F0FDF4;">3. Instant UPI Release (₹0 Deductions)</span>
+            </div>
           </div>
 
+          <!-- Pillar 2: Transit SLA (Spans 1 column) -->
           <div class="up-pillar-card">
-            <div class="up-pillar-header">
-              <div class="up-pillar-icon up-pillar-icon--blue">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <div class="up-pillar-header">
+                <div class="up-pillar-icon up-pillar-icon--blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <span class="up-pillar-tag up-pillar-tag--blue">Transit SLA</span>
               </div>
-              <span class="up-pillar-tag up-pillar-tag--blue">Transit SLA</span>
+              <h3 class="up-pillar-title" style="margin-top: 10px;">22-Min Commute Cap</h3>
+              <p class="up-pillar-sub" style="margin-top: 6px;">
+                Hard geographic and transit radius filters tied to local suburban rail and metro lines, eliminating 60+ min commute traps.
+              </p>
             </div>
-            <h3 class="up-pillar-title">22-Min Commute Cap</h3>
-            <p class="up-pillar-sub">Hard geographic and transit radius filters tied to suburban transit lines, eliminating 60+ min commute traps.</p>
+            <div class="up-pillar-stat-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Max 4.2 km · Sub-₹30 Transit Cost</span>
+            </div>
           </div>
 
+          <!-- Pillar 3: Zero Broker Cuts (Spans 1 column) -->
           <div class="up-pillar-card">
-            <div class="up-pillar-header">
-              <div class="up-pillar-icon up-pillar-icon--green">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13l8.5 8"/><path d="M6 13h3a4 4 0 0 0 0-8"/></svg>
+            <div>
+              <div class="up-pillar-header">
+                <div class="up-pillar-icon up-pillar-icon--green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13l8.5 8"/><path d="M6 13h3a4 4 0 0 0 0-8"/></svg>
+                </div>
+                <span class="up-pillar-tag up-pillar-tag--green">Direct UPI</span>
               </div>
-              <span class="up-pillar-tag up-pillar-tag--green">Direct UPI</span>
+              <h3 class="up-pillar-title" style="margin-top: 10px;">Zero Broker Cuts</h3>
+              <p class="up-pillar-sub" style="margin-top: 6px;">
+                100% of shift earnings released instantly to worker UPI accounts upon supervisor checkout. Eliminating 20–30% agency cuts.
+              </p>
             </div>
-            <h3 class="up-pillar-title">Zero Broker Cuts</h3>
-            <p class="up-pillar-sub">100% of shift earnings released instantly to worker UPI accounts upon supervisor checkout. No 20% middleman cut.</p>
+            <div class="up-pillar-stat-pill" style="color: #15803D; border-color: #BBF7D0; background: #F0FDF4;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>0% Contractor Margin · Instant Credit</span>
+            </div>
           </div>
 
-          <div class="up-pillar-card">
-            <div class="up-pillar-header">
-              <div class="up-pillar-icon up-pillar-icon--orange">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>
+          <!-- Pillar 4: Verified National Brands & Enforced SLAs (Spans 2 columns) -->
+          <div class="up-pillar-card up-pillar-card--featured-right">
+            <div>
+              <div class="up-pillar-header">
+                <div class="up-pillar-icon up-pillar-icon--orange">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 13h20"/></svg>
+                </div>
+                <span class="up-pillar-tag">Verified Hubs · Anti-Ghosting</span>
               </div>
-              <span class="up-pillar-tag">Verified Hubs</span>
+              <h3 class="up-pillar-title" style="margin-top: 10px;">Verified National Brands &amp; Enforced SLAs</h3>
+              <p class="up-pillar-sub" style="margin-top: 6px;">
+                GST &amp; corporate-verified employers with transparent floor policies and a strict 2-hour application decision SLA, backed by automated cancellation compensation.
+              </p>
             </div>
-            <h3 class="up-pillar-title">Verified National Brands</h3>
-            <p class="up-pillar-sub">GST &amp; corporate-verified employers with transparent floor policies and a strict zero-ghosting application SLA.</p>
+            <div class="up-pillar-badges">
+              <span class="up-pillar-badge-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2558E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>GST Registered</span>
+              <span class="up-pillar-badge-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2-Hour Application SLA</span>
+              <span class="up-pillar-badge-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/></svg>Floor Policy Disclosed</span>
+              <span class="up-pillar-badge-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Escrow Protected Cancellation</span>
+            </div>
           </div>
         </div>
 
@@ -2536,10 +2621,10 @@
               <span style="font-family: var(--up-font-display); font-size: 0.6875rem; color: var(--up-ink-muted);">· Pan-India Field Observation</span>
             </div>
             <p class="up-mascot-narrative-quote">
-              "Whether you're in Bengaluru, Delhi-NCR, Mumbai, or Kolkata, every gig worker has the exact same nightmare: waking up to an unverified WhatsApp shift, commuting 18 km, and having the floor supervisor say 'sorry, someone else arrived first'."
+              “Whether you’re in Bengaluru, Delhi-NCR, Mumbai, or Kolkata, every gig worker has the exact same nightmare: waking up to an unverified WhatsApp shift, commuting 18 km, and having the floor supervisor say ‘sorry, someone else arrived first’.”
             </p>
             <p class="up-mascot-narrative-note">
-              Ground reality drawn from 100+ field interviews and 48 survey responses across India's urban retail corridors.
+              Ground reality drawn from 100+ field interviews and 48 survey responses across India’s urban retail corridors.
             </p>
           </div>
         </div>
@@ -2553,7 +2638,7 @@
           </div>
 
           <div class="up-data-col">
-            <div class="up-data-num" style="color: #EA580C;">100%</div>
+            <div class="up-data-num" style="color: #C2410C;">100%</div>
             <h3 class="up-data-label">No-Show Volatility</h3>
             <p class="up-data-desc">Every surveyed retailer and event lead cited sudden worker dropouts as their #1 operational headache.</p>
           </div>
@@ -2608,10 +2693,10 @@
 
             <ul class="up-divide-points">
               <li class="up-divide-point">
-                <strong>Post-Shift Wage Arbitrage:</strong> Oral agreements of ₹800 are slashed at cashout, with informal brokers citing "commission fees" or "unpaid break times."
+                <strong>Post-Shift Wage Arbitrage:</strong> Oral agreements of ₹800 are slashed at cashout, with informal brokers citing “commission fees” or “unpaid break times.”
               </li>
               <li class="up-divide-point">
-                <strong>Location Blindness &amp; Travel Drain:</strong> Listings vaguely state "near station," only for workers to discover an 8 km last-mile trip that erases a quarter of daily pay.
+                <strong>Location Blindness &amp; Travel Drain:</strong> Listings vaguely state “near station,” only for workers to discover an 8 km last-mile trip that erases a quarter of daily pay.
               </li>
               <li class="up-divide-point">
                 <strong>Zero Recourse for Cancelled Shifts:</strong> When organizers cancel shifts upon arrival, workers absorb the full cost of transit and lost time with no safety net.
@@ -2619,7 +2704,7 @@
             </ul>
 
             <blockquote class="up-editorial-quote">
-              <p>"We take local trains and buses at 6 AM only to find out the agency cancelled the contract without informing us. Who pays for our travel?"</p>
+              <p>“We take local trains and buses at 6 AM only to find out the agency cancelled the contract without informing us. Who pays for our travel?”</p>
               <cite>— Retail Floor Assistant, Field Interview (All Over India)</cite>
             </blockquote>
           </div>
@@ -2640,7 +2725,7 @@
             <div class="up-timeline-track">
               <div class="up-timeline-node">
                 <span class="up-timeline-time">08:00 AM</span>
-                <span class="up-timeline-desc"><strong>Agency Broker Verbal Promise:</strong> Middleman confirms 6 temporary workers are "dispatched and en route."</span>
+                <span class="up-timeline-desc"><strong>Agency Broker Verbal Promise:</strong> Middleman confirms 6 temporary workers are “dispatched and en route.”</span>
               </div>
               <div class="up-timeline-node">
                 <span class="up-timeline-time">09:30 AM</span>
@@ -2669,7 +2754,7 @@
             </ul>
 
             <blockquote class="up-editorial-quote">
-              <p>"During festive sales, half our temporary workers disappear after lunch. We end up pulling senior store managers onto the cash counter just to survive."</p>
+              <p>“During festive sales, half our temporary workers disappear after lunch. We end up pulling senior store managers onto the cash counter just to survive.”</p>
               <cite>— Retail Store Operations Lead, Field Interview (All Over India)</cite>
             </blockquote>
           </div>
@@ -2706,8 +2791,8 @@
               </div>
 
               <div class="up-whatsapp-bubble up-whatsapp-bubble--alert">
-                <strong>Worker arrives at 8:30 AM:</strong> Store manager says: "We already filled slots with walk-ins at 8:00 AM. Shift cancelled." Agency broker has blocked the worker's phone number.
-                <div class="up-whatsapp-tag" style="background: #FFFFFF; color: #DC2626;">Wasted ₹140 transit · Zero accountability</div>
+                <strong>Worker arrives at 8:30 AM:</strong> Store manager says: “We already filled slots with walk-ins at 8:00 AM. Shift cancelled.” Agency broker has blocked the worker’s phone number.
+                <div class="up-whatsapp-tag" style="background: #FFFFFF; color: #B91C1C;">Wasted ₹140 transit · Zero accountability</div>
                 <span class="up-whatsapp-time">8:45 AM</span>
               </div>
             </div>
