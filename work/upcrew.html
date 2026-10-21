@@ -1623,6 +1623,232 @@
       font-variant-numeric: tabular-nums;
     }
 
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SECTION 04 / 24: DESIGN PROCESS (EDITORIAL SHOWCASE)
+       Clean Opaque Surfaces · Hallmark Standards · Methodological Rigor
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .up-stage--process {
+      background: #F8FAFC;
+      color: var(--up-ink);
+      border-bottom: 1px solid var(--up-border-light);
+      padding: clamp(56px, 7vw, 100px) clamp(16px, 3.5vw, 60px);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .up-process-header {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 40px auto;
+    }
+    .up-process-h2 {
+      font-family: var(--up-font-display);
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      color: var(--up-ink);
+      margin: 0 0 16px 0;
+    }
+    .up-process-lead {
+      font-family: var(--up-font-body);
+      font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+      line-height: 1.65;
+      color: var(--up-ink-2);
+      max-width: 78ch;
+      margin: 0 auto;
+    }
+    .up-process-mascot-card {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: #FFFFFF;
+      border: 1px solid var(--up-border-light);
+      border-radius: 22px;
+      padding: 24px 30px;
+      max-width: 1080px;
+      margin: 0 auto 48px auto;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    }
+    @media (max-width: 840px) {
+      .up-process-mascot-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 16px;
+      }
+    }
+    .up-process-mascot-duo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .up-process-mascot-img {
+      width: 68px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.06));
+    }
+    .up-process-mascot-body {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+    }
+    .up-process-mascot-tag {
+      font-family: var(--up-font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--up-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .up-process-mascot-quote {
+      font-family: var(--up-font-display);
+      font-size: 1.0625rem;
+      font-weight: 800;
+      color: var(--up-ink);
+      line-height: 1.35;
+      margin: 0 0 10px 0;
+    }
+    .up-process-mascot-notes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding-top: 10px;
+      border-top: 1px solid var(--up-border-light);
+    }
+    @media (max-width: 640px) {
+      .up-process-mascot-notes {
+        grid-template-columns: 1fr;
+      }
+    }
+    .up-process-mascot-note-item {
+      font-family: var(--up-font-body);
+      font-size: 0.8125rem;
+      color: var(--up-ink-2);
+      line-height: 1.45;
+    }
+    .up-process-mascot-note-item strong {
+      font-family: var(--up-font-display);
+      color: var(--up-ink);
+    }
+
+    /* 5-Stage Methodology Grid */
+    .up-stages-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    @media (max-width: 1200px) {
+      .up-stages-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 820px) {
+      .up-stages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 540px) {
+      .up-stages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .up-stage-card {
+      background: #FFFFFF;
+      border: 1px solid var(--up-border-light);
+      border-radius: 18px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+      transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms ease, border-color 160ms ease;
+    }
+    .up-stage-card:hover {
+      transform: translateY(-2px);
+      border-color: #CBD5E1;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+    .up-stage-card-num {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: var(--up-primary);
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      width: fit-content;
+      margin-bottom: 8px;
+    }
+    .up-stage-card-title {
+      font-family: var(--up-font-display);
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--up-ink);
+      line-height: 1.25;
+      margin: 0 0 6px 0;
+    }
+    .up-stage-card-desc {
+      font-family: var(--up-font-body);
+      font-size: 0.8125rem;
+      color: var(--up-ink-2);
+      line-height: 1.5;
+      margin: 0 0 12px 0;
+    }
+    .up-stage-card-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--up-border-light);
+    }
+    .up-stage-tag-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--up-font-body);
+      font-size: 0.75rem;
+      color: var(--up-ink-2);
+      line-height: 1.35;
+    }
+    .up-stage-tag-bullet {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--up-primary);
+      flex-shrink: 0;
+    }
+    .up-stage-gate {
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-family: var(--up-font-body);
+      font-size: 0.75rem;
+      color: var(--up-ink-muted);
+      line-height: 1.4;
+    }
+    .up-stage-gate strong {
+      font-family: var(--up-font-display);
+      color: var(--up-primary);
+      font-weight: 800;
+      display: block;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+
     /* ── Sub-Section E Component Spec Fixes & Overflow Containment ── */
     .cs-ds-matrix-wrap {
       background: var(--cs-surface) !important;
@@ -3364,90 +3590,171 @@
     </section>
 
     <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         SLIDE 04 / 24: DESIGN PROCESS
+         SECTION 04 / 24: DESIGN PROCESS (EDITORIAL SHOWCASE)
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-    <section class="cs-section cs-section--alt" id="cs-process">
-      <div class="cs-wrap">
+    <section class="up-stage up-stage--process" id="cs-process" data-rubric="04">
+      <div class="up-stage-wrap up-stage-wrap--process">
 
-        <div class="cs-slide-header js-reveal">
-          <span class="cs-slide-header-brand">UpCrew</span>
-          <span class="cs-slide-header-cat">04 / 24 · DESIGN PROCESS</span>
-          <span class="cs-slide-header-num">04 / 24</span>
-        </div>
-
-        <div class="cs-eyebrow js-reveal" style="color: #6D28D9; letter-spacing: 0.12em; margin-bottom: 14px;">
-          METHODOLOGY &amp; FRAMEWORK
-        </div>
-
-        <h2 class="cs-section-h2 js-reveal" style="font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--cs-ink); max-width: 920px; margin-bottom: 20px;">
-          Human-Centered Problem Solving: The 5-Stage Design Thinking Framework
-        </h2>
-
-        <p class="cs-body-copy js-reveal" style="font-size: 1.0625rem; max-width: 76ch; margin-bottom: 24px;">
-          To de-risk the product and ensure field durability, we anchored the project in a disciplined 5-stage Design Thinking methodology—moving iteratively from real street-level discovery in Mumbai’s informal markets to an ergonomically hardened mobile UI.
-        </p>
-
-        <!-- 5-Stage Stepper Chevrons (Behance Style) -->
-        <div class="cs-process-stepper js-reveal">
-          <div class="cs-process-step">
-            <span class="cs-process-step-num">Stage 01</span>
-            <h4>Empathize</h4>
-            <ul>
-              <li>Field interviews with gig workers</li>
-              <li>Google Form quantitative surveys</li>
-              <li>WhatsApp informal hiring teardowns</li>
-              <li>Empathy mapping &amp; pain point capture</li>
-            </ul>
-          </div>
-
-          <div class="cs-process-step">
-            <span class="cs-process-step-num">Stage 02</span>
-            <h4>Define</h4>
-            <ul>
-              <li>User persona: Riya Sharma</li>
-              <li>Affinity mapping across 6 themes</li>
-              <li>How Might We (HMW) statements</li>
-              <li>End-to-end emotional journey curve</li>
-            </ul>
-          </div>
-
-          <div class="cs-process-step">
-            <span class="cs-process-step-num">Stage 03</span>
-            <h4>Ideate</h4>
-            <ul>
-              <li>Card sorting with active workers</li>
-              <li>5-destination Information Architecture</li>
-              <li>Complete Employee Sitemap (14+ nodes)</li>
-              <li>Task-level shift application user flows</li>
-            </ul>
-          </div>
-
-          <div class="cs-process-step">
-            <span class="cs-process-step-num">Stage 04</span>
-            <h4>Prototype</h4>
-            <ul>
-              <li>Low-fi &amp; mid-fi wireframe progression</li>
-              <li>UpCrew Mobile System v1.0 (Tokens)</li>
-              <li>19 production-grade screen layouts</li>
-              <li>Interactive Figma motion prototype</li>
-            </ul>
-          </div>
-
-          <div class="cs-process-step">
-            <span class="cs-process-step-num">Stage 05</span>
-            <h4>Test</h4>
-            <ul>
-              <li>5 core field usability evaluations</li>
-              <li>Cognitive load &amp; onboarding reduction</li>
-              <li>10 edge-case resilient recovery states</li>
-              <li>Final high-contrast visual hardening</li>
-            </ul>
+        <!-- Chapter Pill Navigation Bar -->
+        <div style="margin-bottom: 32px;">
+          <div class="up-chapter-pill js-reveal" style="margin-bottom: 0;">
+            <span class="up-chapter-num" style="color: var(--up-primary);">04 / 24</span>
+            <span class="up-chapter-sep">·</span>
+            <span class="up-chapter-title">DESIGN PROCESS</span>
           </div>
         </div>
 
-        <div class="cs-slide-footer js-reveal">
-          <span>DISCIPLINED DESIGN THINKING</span>
-          <span>UPCREW — 04 / 24 DESIGN PROCESS</span>
+        <!-- Editorial Section Header -->
+        <div class="up-process-header js-reveal">
+          <h2 class="up-process-h2">
+            Human-centered problem solving: the 5-stage Design Thinking framework.
+          </h2>
+          <p class="up-process-lead">
+            To de-risk the product and ensure field durability, we anchored UpCrew in a disciplined 5-stage Design Thinking methodology—moving iteratively from street-level discovery across retail, hospitality, and event corridors all over India to an ergonomically hardened mobile marketplace.
+          </p>
+        </div>
+
+        <!-- Mascot Research Ground Truth Showcase -->
+        <div class="up-process-mascot-card js-reveal">
+          <div class="up-process-mascot-duo">
+            <img src="../Assets/Images/upcrew-mascot-worker-smile-blue.png" alt="Frontline Worker Mascot reviewing mobile wireframes" class="up-process-mascot-img" loading="eager">
+            <img src="../Assets/Images/upcrew-mascot-employer-laptop-blue.png" alt="Store Operations Lead Mascot analyzing staffing rosters" class="up-process-mascot-img" loading="eager">
+          </div>
+          <div class="up-process-mascot-body">
+            <span class="up-process-mascot-tag">Field-Tested Methodology · Real Street Reality</span>
+            <h3 class="up-process-mascot-quote">
+              “Design Thinking wasn’t an abstract desktop exercise. Every single wireframe was stress-tested against the real commute bottlenecks, intermittent data connectivity, and cashout anxieties of workers all over India.”
+            </h3>
+            <div class="up-process-mascot-notes">
+              <div class="up-process-mascot-note-item">
+                <strong>Worker-Centric Rigor:</strong> 100+ field interviews, 48 quantitative surveys, and direct observational shadowing across crowded transit interchanges.
+              </div>
+              <div class="up-process-mascot-note-item">
+                <strong>Employer-Centric Rigor:</strong> Operational interviews with store leads, event organizers, and hiring managers navigating festive retail surges.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-Stage Methodology Grid (High-Craft Architecture) -->
+        <div class="up-stages-grid js-reveal">
+
+          <!-- Stage 01: Empathize -->
+          <div class="up-stage-card">
+            <div>
+              <span class="up-stage-card-num">Stage 01</span>
+              <h3 class="up-stage-card-title">Empathize</h3>
+              <p class="up-stage-card-desc">
+                Immersive discovery unearthing the unvarnished realities of informal temporary work and retail volatility.
+              </p>
+              <div class="up-stage-card-tags">
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>100+ field worker interviews</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>48 quantitative surveys</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>WhatsApp hiring teardowns</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>Dual-sided empathy maps</span>
+              </div>
+            </div>
+            <div class="up-stage-gate">
+              <strong>Key Decision Gate</strong>
+              Identified wage opacity &amp; no-shows as the dual systemic friction to solve.
+            </div>
+          </div>
+
+          <!-- Stage 02: Define -->
+          <div class="up-stage-card">
+            <div>
+              <span class="up-stage-card-num">Stage 02</span>
+              <h3 class="up-stage-card-title">Define</h3>
+              <p class="up-stage-card-desc">
+                Synthesizing qualitative chaos into structured thematic clusters, archetypes, and actionable design mandates.
+              </p>
+              <div class="up-stage-card-tags">
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>2 primary market archetypes</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>6 affinity cluster themes</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>Strategic HMW statements</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>End-to-end journey dips</span>
+              </div>
+            </div>
+            <div class="up-stage-gate">
+              <strong>Key Decision Gate</strong>
+              Reframed the product thesis around guaranteed pre-funded escrow locks.
+            </div>
+          </div>
+
+          <!-- Stage 03: Ideate -->
+          <div class="up-stage-card">
+            <div>
+              <span class="up-stage-card-num">Stage 03</span>
+              <h3 class="up-stage-card-title">Ideate</h3>
+              <p class="up-stage-card-desc">
+                Structuring mental models, information architecture, and seamless zero-ghosting application pathways.
+              </p>
+              <div class="up-stage-card-tags">
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>Open/closed card sorting</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>5-destination core IA</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>14-page employee sitemap</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>Task-level branch flows</span>
+              </div>
+            </div>
+            <div class="up-stage-gate">
+              <strong>Key Decision Gate</strong>
+              Eliminated deep hierarchical menus in favor of a 1-tap live shift feed.
+            </div>
+          </div>
+
+          <!-- Stage 04: Prototype -->
+          <div class="up-stage-card">
+            <div>
+              <span class="up-stage-card-num">Stage 04</span>
+              <h3 class="up-stage-card-title">Prototype</h3>
+              <p class="up-stage-card-desc">
+                Progressing from greyscale wireframes to a tokenized design system and interactive production screens.
+              </p>
+              <div class="up-stage-card-tags">
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>Low &amp; mid-fi wireframes</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>UpCrew design system v1.0</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>19 native mobile screens</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>Interactive motion prototype</span>
+              </div>
+            </div>
+            <div class="up-stage-gate">
+              <strong>Key Decision Gate</strong>
+              Engineered the 7-stage transparent status tracker with 2-hour SLAs.
+            </div>
+          </div>
+
+          <!-- Stage 05: Test -->
+          <div class="up-stage-card">
+            <div>
+              <span class="up-stage-card-num">Stage 05</span>
+              <h3 class="up-stage-card-title">Test</h3>
+              <p class="up-stage-card-desc">
+                Stress-testing prototypes with active gig workers on entry-level Android devices and noisy transit environments.
+              </p>
+              <div class="up-stage-card-tags">
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>5 critical field usability fixes</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>10 resilient recovery states</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>44px tap zone verification</span>
+                <span class="up-stage-tag-item"><span class="up-stage-tag-bullet"></span>WCAG AA contrast audit</span>
+              </div>
+            </div>
+            <div class="up-stage-gate">
+              <strong>Key Decision Gate</strong>
+              Replaced heavy upfront Aadhaar gating with progressive onboarding.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Narrative Bridge connecting to Section 05 -->
+        <div class="up-narrative-bridge js-reveal">
+          <p class="up-bridge-text">
+            <strong>Next: The Execution Rhythm ·</strong> How these 5 Design Thinking phases were orchestrated across a fast-paced, 12-week design sprint from initial field research to design handoff.
+          </p>
+          <a href="#cs-timeline" class="up-bridge-link" style="background: #2558E8; color: #FFFFFF !important;">
+            <span style="color: #FFFFFF !important; font-weight: 800;">Explore 05 · Weekly Timeline</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="stroke: #FFFFFF !important;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
         </div>
 
       </div>
