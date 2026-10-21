@@ -43,7 +43,14 @@ function renderNav() {
   const active = currentPage();
   const prefix = getPathPrefix();
 
+  const mainEl = document.querySelector("main");
+  if (mainEl && !mainEl.id) {
+    mainEl.id = "main-content";
+  }
+  const skipHref = mainEl ? "#" + mainEl.id : "#";
+
   el.innerHTML = `
+    <a href="${skipHref}" class="skip-link">Skip to main content</a>
     <header class="site-nav" id="siteNav">
       <div class="container">
         <a href="${prefix}index.html" class="nav-logo" aria-label="Shubham Waza - Home" style="display:flex; align-items:center;">
