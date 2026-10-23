@@ -1,0 +1,3 @@
+## 2024-10-23 - Add aria-current to navigation items
+**Learning:** The application systematically renders its navigation menus via JavaScript (desktop, mobile, and footer) and dynamically applies an .active CSS class to indicate the current page. However, it lacks the semantic aria-current="page" attribute, leaving screen reader users without a programmatic way to determine their current location in the site's navigation architecture.
+**Action:** When dynamically generating navigation links, always pair visual state classes like .active with their corresponding semantic attributes like aria-current="page" to ensure equal access to navigational context.
