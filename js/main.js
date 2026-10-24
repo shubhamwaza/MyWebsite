@@ -243,19 +243,37 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
+  let hideTimeout = null;
+  let isVisible = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
-    box.style.left = curX + "px";
-    box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    if (isVisible) {
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+    }
+
+    if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      rafId = null;
+      return;
+    }
+
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+
+    if (!isVisible) {
+      curX = targetX;
+      curY = targetY;
+    } else if (!rafId) {
+      rafId = requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -265,10 +283,21 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      isVisible = true;
+      clearTimeout(hideTimeout);
+
+      box.style.left = curX + "px";
+      box.style.top = curY + "px";
+
+      if (!rafId) rafId = requestAnimationFrame(loop);
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
       active = false;
+
+      hideTimeout = setTimeout(() => {
+        isVisible = false;
+      }, 300);
     });
   });
 }
