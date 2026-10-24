@@ -1,0 +1,135 @@
+<svg viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew mascots — gig worker and retail store manager in a tense standoff, arms crossed, facing each other">
+
+  <!-- Ground shadows -->
+  <ellipse cx="148" cy="406" rx="68" ry="11" fill="#1C1917" opacity="0.07"/>
+  <ellipse cx="412" cy="406" rx="68" ry="11" fill="#1C1917" opacity="0.07"/>
+
+
+  <!-- ═══════════════════════════════════════════════
+       WORKER — Left · Cobalt blue shirt · Arms crossed · Tired
+  ═══════════════════════════════════════════════ -->
+
+  <!-- Shoes -->
+  <rect x="102" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+  <rect x="152" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+
+  <!-- Legs (dark warm slate) -->
+  <rect x="115" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+  <rect x="152" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+
+  <!-- Body — cobalt blue t-shirt -->
+  <path d="M96 168 Q84 174 82 190 L80 268 L216 268 L214 190 Q212 174 200 168 L178 156 Q165 151 148 151 Q131 151 118 156 Z" fill="#2558E8"/>
+  <!-- Subtle shirt fold -->
+  <path d="M118 170 Q116 210 118 248" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <!-- Collar V -->
+  <path d="M132 156 L148 168 L164 156" stroke="#1D4ED8" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Neck -->
+  <rect x="137" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- CROSSED ARMS — front layer (left arm crossing over right) -->
+  <rect x="86" y="204" width="80" height="27" rx="13" fill="#1D4ED8"/>
+  <!-- Back layer (right arm going left, slightly lower) -->
+  <rect x="134" y="211" width="80" height="27" rx="13" fill="#2558E8"/>
+  <!-- Hand left (far right) -->
+  <circle cx="212" cy="217" r="17" fill="#FBBE8E"/>
+  <!-- Hand right (far left) -->
+  <circle cx="90" cy="217" r="17" fill="#FBBE8E"/>
+  <!-- Knuckle lines on visible hands -->
+  <path d="M204 213 Q212 210 218 215" stroke="#E8A06A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+  <!-- Head -->
+  <circle cx="148" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair — dark, slightly tousled -->
+  <path d="M104 76 Q108 50 148 48 Q188 50 192 76 Q180 61 148 60 Q116 61 104 76 Z" fill="#1C1917"/>
+  <path d="M104 76 Q100 90 105 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M192 76 Q196 90 191 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- A little hair tuft sticking up slightly (casual) -->
+  <path d="M138 50 Q142 40 148 48 Q154 40 158 50" stroke="#1C1917" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- FACE — Tired / frustrated -->
+  <!-- Eyes — heavy-lidded -->
+  <ellipse cx="133" cy="88" rx="8" ry="7" fill="#1C1917"/>
+  <ellipse cx="163" cy="88" rx="8" ry="7" fill="#1C1917"/>
+  <!-- Tired eyelid overlay (drooping) -->
+  <path d="M125 84 Q133 89 141 84" stroke="#FBBE8E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M155 84 Q163 89 171 84" stroke="#FBBE8E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Drooping eyebrows (outer corners low = sad/tired) -->
+  <path d="M123 74 Q133 79 143 75" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M153 75 Q163 79 173 74" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Slight frown -->
+  <path d="M136 117 Q148 112 160 117" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Sweat drop (stress indicator) -->
+  <path d="M187 65 Q191 55 187 52 Q183 55 187 65 Z" fill="#93C5FD" opacity="0.85"/>
+
+
+  <!-- ═══════════════════════════════════════════════
+       VS · Center tension badge
+  ═══════════════════════════════════════════════ -->
+  <circle cx="280" cy="210" r="26" fill="#F7F6F2" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="280" y="216" text-anchor="middle" font-family="'Plus Jakarta Sans',system-ui" font-weight="800" font-size="14" fill="#78716C" letter-spacing="-0.5">VS</text>
+
+
+  <!-- ═══════════════════════════════════════════════
+       EMPLOYER — Right · Brick/coral shirt · Hand on hip · Assertive
+  ═══════════════════════════════════════════════ -->
+
+  <!-- Shoes -->
+  <rect x="362" y="360" width="46" height="24" rx="12" fill="#44403C"/>
+  <rect x="412" y="360" width="46" height="24" rx="12" fill="#44403C"/>
+
+  <!-- Legs (warm khaki) -->
+  <rect x="375" y="268" width="29" height="98" rx="14" fill="#78716C"/>
+  <rect x="412" y="268" width="29" height="98" rx="14" fill="#78716C"/>
+
+  <!-- Body — coral/brick polo shirt -->
+  <path d="M348 168 Q336 174 334 190 L332 268 L476 268 L474 190 Q472 174 460 168 L438 156 Q425 151 408 151 Q391 151 378 156 Z" fill="#C2410C"/>
+  <!-- Collar V -->
+  <path d="M392 156 L408 168 L424 156" stroke="#B03A0A" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M378 170 Q376 210 378 248" stroke="#B03A0A" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Neck -->
+  <rect x="397" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- RIGHT ARM — Hand on hip (arm goes rightward, hand rests at hip) -->
+  <!-- Upper arm: right side, going down from shoulder -->
+  <rect x="464" y="162" width="28" height="70" rx="14" fill="#C2410C"/>
+  <!-- Elbow bend — forearm going inward/hip direction -->
+  <rect x="428" y="220" width="66" height="26" rx="13" fill="#C2410C"/>
+  <!-- Hand resting at hip -->
+  <circle cx="432" cy="233" r="17" fill="#FBBE8E"/>
+
+  <!-- LEFT ARM — hanging, slightly tense -->
+  <rect x="318" y="162" width="28" height="72" rx="14" fill="#C2410C"/>
+  <rect x="318" y="226" width="28" height="54" rx="14" fill="#C2410C"/>
+  <circle cx="332" cy="281" r="17" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="408" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair — neater, professional cut -->
+  <path d="M366 80 Q370 52 408 50 Q446 52 450 80 Q438 63 408 62 Q378 63 366 80 Z" fill="#44403C"/>
+  <path d="M366 80 Q362 93 367 115" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M450 80 Q454 93 449 115" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- FACE — Assertive / stressed -->
+  <!-- Eyes — wide, alert -->
+  <ellipse cx="393" cy="88" rx="8.5" ry="8" fill="#1C1917"/>
+  <ellipse cx="423" cy="88" rx="8.5" ry="8" fill="#1C1917"/>
+  <!-- Eye highlights -->
+  <circle cx="390" cy="85" r="3" fill="white" opacity="0.45"/>
+  <circle cx="420" cy="85" r="3" fill="white" opacity="0.45"/>
+  <!-- Furrowed eyebrows (inner corners pulled DOWN = stressed/determined) -->
+  <path d="M382 74 Q393 68 402 75" stroke="#44403C" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M414 75 Q423 68 434 74" stroke="#44403C" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Tight, straight mouth (tense) -->
+  <path d="M394 117 Q408 120 422 117" stroke="#1C1917" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Stress radiating lines near right temple -->
+  <path d="M448 66 L457 57" stroke="#EF4444" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <path d="M453 79 L464 76" stroke="#EF4444" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <path d="M444 56 L449 45" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+
+</svg>

@@ -1,0 +1,94 @@
+<svg viewBox="0 0 340 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew gig worker mascot conducting field research with clipboard">
+  <!-- Ground shadow -->
+  <ellipse cx="150" cy="406" rx="72" ry="11" fill="#1C1917" opacity="0.07"/>
+
+  <!-- Shoes -->
+  <rect x="104" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+  <rect x="154" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+
+  <!-- Legs (dark warm slate) -->
+  <rect x="117" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+  <rect x="154" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+
+  <!-- Body — cobalt blue t-shirt -->
+  <path d="M98 168 Q86 174 84 190 L82 268 L218 268 L216 190 Q214 174 202 168 L180 156 Q167 151 150 151 Q133 151 120 156 Z" fill="#2558E8"/>
+  <path d="M120 170 Q118 210 120 248" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M134 156 L150 168 L166 156" stroke="#1D4ED8" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Neck -->
+  <rect x="138" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="150" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair — dark, slightly tousled -->
+  <path d="M106 76 Q110 50 150 48 Q190 50 194 76 Q182 61 150 60 Q118 61 106 76 Z" fill="#1C1917"/>
+  <path d="M106 76 Q102 90 107 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M194 76 Q198 90 193 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M140 50 Q144 40 150 48 Q156 40 160 50" stroke="#1C1917" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- FACE — Curious, thoughtful, engaged -->
+  <ellipse cx="135" cy="88" rx="8" ry="7.5" fill="#1C1917"/>
+  <ellipse cx="165" cy="88" rx="8" ry="7.5" fill="#1C1917"/>
+  <circle cx="133" cy="85" r="2.8" fill="white" opacity="0.5"/>
+  <circle cx="163" cy="85" r="2.8" fill="white" opacity="0.5"/>
+  <!-- Inquisitive eyebrows — slightly raised, active -->
+  <path d="M124 73 Q134 68 144 72" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M156 72 Q166 69 176 74" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Slight interested smile -->
+  <path d="M138 114 Q150 122 162 114" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- LEFT ARM — holding clipboard (worker's right, viewer's left) -->
+  <rect x="76" y="165" width="28" height="65" rx="14" fill="#2558E8"/>
+  <rect x="76" y="215" width="58" height="26" rx="13" fill="#1D4ED8"/>
+  <circle cx="132" cy="228" r="16" fill="#FBBE8E"/>
+
+  <!-- CLIPBOARD IN HANDS -->
+  <g id="clipboard">
+    <!-- Board backing -->
+    <rect x="22" y="172" width="76" height="106" rx="8" fill="#FDFBF7" stroke="#D6D3D1" stroke-width="2"/>
+    <rect x="22" y="172" width="76" height="106" rx="8" fill="#FFFFFF" opacity="0.8"/>
+    <!-- Clip -->
+    <rect x="44" y="166" width="32" height="12" rx="4" fill="#78716C"/>
+    <circle cx="60" cy="172" r="3" fill="#E7E5E4"/>
+    <!-- Paper content lines -->
+    <rect x="32" y="190" width="42" height="4" rx="2" fill="#2558E8" opacity="0.75"/>
+    <rect x="32" y="200" width="54" height="3" rx="1.5" fill="#A8A29E"/>
+    <rect x="32" y="208" width="48" height="3" rx="1.5" fill="#A8A29E"/>
+    <rect x="32" y="216" width="52" height="3" rx="1.5" fill="#A8A29E"/>
+    <rect x="32" y="224" width="38" height="3" rx="1.5" fill="#A8A29E"/>
+    <!-- Checkmarks -->
+    <path d="M32 238 L36 242 L44 234" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="236" width="38" height="3" rx="1.5" fill="#78716C"/>
+    <path d="M32 250 L36 254 L44 246" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="248" width="32" height="3" rx="1.5" fill="#78716C"/>
+    <!-- Left hand thumb gripping clipboard edge -->
+    <rect x="88" y="218" width="16" height="22" rx="8" fill="#FBBE8E"/>
+  </g>
+
+  <!-- RIGHT ARM — gesturing/pointing toward clipboard/notes -->
+  <rect x="200" y="165" width="28" height="60" rx="14" fill="#2558E8"/>
+  <rect x="186" y="212" width="55" height="25" rx="12" fill="#2558E8"/>
+  <!-- Pointing hand -->
+  <circle cx="178" cy="224" r="14" fill="#FBBE8E"/>
+  <rect x="160" y="221" width="22" height="8" rx="4" fill="#FBBE8E"/>
+
+  <!-- FLOATING DATA SATELLITES (Research atmosphere) -->
+  <!-- Satellite 1: Top right mini-badge (n=48) -->
+  <g transform="translate(225, 60)">
+    <rect x="0" y="0" width="95" height="36" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="drop-shadow(0 4px 12px rgba(28,25,23,0.06))"/>
+    <circle cx="16" cy="18" r="6" fill="#2558E8"/>
+    <text x="30" y="22" font-family="'Plus Jakarta Sans',system-ui" font-weight="700" font-size="12" fill="#1C1917">n=48 field</text>
+  </g>
+
+  <!-- Satellite 2: Sticky note yellow vibe -->
+  <g transform="translate(235, 120)">
+    <rect x="0" y="0" width="82" height="32" rx="10" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1.5"/>
+    <text x="41" y="20" text-anchor="middle" font-family="'Space Grotesk',system-ui" font-weight="600" font-size="11" fill="#92400E">1:1 Voice</text>
+  </g>
+
+  <!-- Sparkles/insight stars -->
+  <path d="M216 40 L219 46 L225 49 L219 52 L216 58 L213 52 L207 49 L213 46 Z" fill="#F59E0B"/>
+  <circle cx="28" cy="140" r="3" fill="#2558E8" opacity="0.6"/>
+  <circle cx="310" cy="180" r="3.5" fill="#10B981" opacity="0.6"/>
+</svg>

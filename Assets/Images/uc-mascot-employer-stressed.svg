@@ -1,0 +1,52 @@
+<svg viewBox="0 0 280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew retail store manager mascot — stressed, hand on hip">
+  <!-- Ground shadow -->
+  <ellipse cx="140" cy="406" rx="68" ry="11" fill="#1C1917" opacity="0.07"/>
+
+  <!-- Shoes -->
+  <rect x="94" y="360" width="46" height="24" rx="12" fill="#44403C"/>
+  <rect x="144" y="360" width="46" height="24" rx="12" fill="#44403C"/>
+
+  <!-- Legs (warm khaki) -->
+  <rect x="107" y="268" width="29" height="98" rx="14" fill="#78716C"/>
+  <rect x="144" y="268" width="29" height="98" rx="14" fill="#78716C"/>
+
+  <!-- Body — coral/brick polo shirt -->
+  <path d="M80 168 Q68 174 66 190 L64 268 L208 268 L206 190 Q204 174 192 168 L170 156 Q157 151 140 151 Q123 151 110 156 Z" fill="#C2410C"/>
+  <path d="M124 156 L140 168 L156 156" stroke="#B03A0A" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M110 170 Q108 210 110 248" stroke="#B03A0A" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Neck -->
+  <rect x="129" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- RIGHT ARM — Hand on hip -->
+  <rect x="196" y="162" width="28" height="70" rx="14" fill="#C2410C"/>
+  <rect x="160" y="220" width="66" height="26" rx="13" fill="#C2410C"/>
+  <circle cx="164" cy="233" r="17" fill="#FBBE8E"/>
+
+  <!-- LEFT ARM — hanging, slightly tense -->
+  <rect x="50" y="162" width="28" height="72" rx="14" fill="#C2410C"/>
+  <rect x="50" y="226" width="28" height="54" rx="14" fill="#C2410C"/>
+  <circle cx="64" cy="281" r="17" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="140" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair — professional cut -->
+  <path d="M98 80 Q102 52 140 50 Q178 52 182 80 Q170 63 140 62 Q110 63 98 80 Z" fill="#44403C"/>
+  <path d="M98 80 Q94 93 99 115" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M182 80 Q186 93 181 115" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- FACE — Assertive / stressed -->
+  <ellipse cx="125" cy="88" rx="8.5" ry="8" fill="#1C1917"/>
+  <ellipse cx="155" cy="88" rx="8.5" ry="8" fill="#1C1917"/>
+  <circle cx="122" cy="85" r="3" fill="white" opacity="0.45"/>
+  <circle cx="152" cy="85" r="3" fill="white" opacity="0.45"/>
+  <path d="M114 74 Q125 68 134 75" stroke="#44403C" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M146 75 Q155 68 166 74" stroke="#44403C" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M126 117 Q140 120 154 117" stroke="#1C1917" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Stress radiating lines -->
+  <path d="M180 66 L189 57" stroke="#EF4444" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <path d="M185 79 L196 76" stroke="#EF4444" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <path d="M176 56 L181 45" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+</svg>

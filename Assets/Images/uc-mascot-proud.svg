@@ -1,0 +1,85 @@
+<svg viewBox="0 0 320 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew gig worker mascot proudly holding up phone with confirmed earnings">
+  <!-- Ground shadow -->
+  <ellipse cx="140" cy="426" rx="70" ry="11" fill="#1C1917" opacity="0.07"/>
+
+  <!-- Shoes -->
+  <rect x="94" y="380" width="46" height="24" rx="12" fill="#1C1917"/>
+  <rect x="144" y="380" width="46" height="24" rx="12" fill="#1C1917"/>
+
+  <!-- Legs -->
+  <rect x="107" y="288" width="29" height="98" rx="14" fill="#3D3935"/>
+  <rect x="144" y="288" width="29" height="98" rx="14" fill="#3D3935"/>
+
+  <!-- Body — cobalt blue t-shirt, standing tall & proud -->
+  <path d="M88 188 Q76 194 74 210 L72 288 L208 288 L206 210 Q204 194 192 188 L170 176 Q157 171 140 171 Q123 171 110 176 Z" fill="#2558E8"/>
+  <path d="M110 190 Q108 230 110 268" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M124 176 L140 188 L156 176" stroke="#1D4ED8" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Neck -->
+  <rect x="128" y="157" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="140" cy="115" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair -->
+  <path d="M96 96 Q100 70 140 68 Q180 70 184 96 Q172 81 140 80 Q108 81 96 96 Z" fill="#1C1917"/>
+  <path d="M96 96 Q92 110 97 132" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M184 96 Q188 110 183 132" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M130 70 Q134 60 140 68 Q146 60 150 70" stroke="#1C1917" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- FACE — Big cheerful smile, crinkled happy eyes -->
+  <!-- Crinkled happy eyes (curved arcs) -->
+  <path d="M117 106 Q125 99 133 106" stroke="#1C1917" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+  <path d="M147 106 Q155 99 163 106" stroke="#1C1917" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+  <!-- Rosy cheeks -->
+  <ellipse cx="116" cy="118" rx="8" ry="4.5" fill="#F472B6" opacity="0.4"/>
+  <ellipse cx="164" cy="118" rx="8" ry="4.5" fill="#F472B6" opacity="0.4"/>
+  <!-- Happy raised eyebrows -->
+  <path d="M115 92 Q125 86 135 90" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M145 90 Q155 86 165 92" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Big open smile showing teeth -->
+  <path d="M124 126 Q140 146 156 126 Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M124 126 Q140 134 156 126" stroke="#1C1917" stroke-width="2" fill="none"/>
+
+  <!-- LEFT ARM — Hand on hip or relaxed celebration -->
+  <rect x="68" y="184" width="28" height="66" rx="14" fill="#2558E8"/>
+  <rect x="64" y="238" width="56" height="26" rx="13" fill="#1D4ED8"/>
+  <circle cx="116" cy="251" r="15" fill="#FBBE8E"/>
+
+  <!-- RIGHT ARM — Extended high holding phone up in victory! -->
+  <!-- Upper arm going up and right -->
+  <rect x="186" y="145" width="28" height="65" rx="14" fill="#2558E8" transform="rotate(-30 186 145)"/>
+  <!-- Forearm reaching up toward phone -->
+  <rect x="218" y="92" width="26" height="65" rx="13" fill="#1D4ED8" transform="rotate(-15 218 92)"/>
+  <!-- Hand gripping phone -->
+  <circle cx="236" cy="92" r="16" fill="#FBBE8E"/>
+  <rect x="226" y="86" width="20" height="10" rx="5" fill="#FBBE8E"/>
+
+  <!-- TRIUMPH PHONE (Displaying confirmed earnings) -->
+  <g id="triumph-phone" transform="translate(216, 12)">
+    <!-- Glow -->
+    <rect x="-4" y="-4" width="84" height="116" rx="18" fill="#10B981" opacity="0.15" filter="blur(8px)"/>
+    <!-- Phone chassis -->
+    <rect x="0" y="0" width="76" height="108" rx="14" fill="#1C1917" stroke="#3D3935" stroke-width="1.5"/>
+    <rect x="3" y="3" width="70" height="102" rx="11" fill="#FFFFFF"/>
+
+    <!-- Screen Content: Green Success State -->
+    <rect x="8" y="12" width="60" height="82" rx="8" fill="#F0FDF4"/>
+    <!-- Check circle -->
+    <circle cx="38" cy="34" r="13" fill="#16A34A"/>
+    <path d="M32 34 L36 38 L44 30" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Amount -->
+    <text x="38" y="58" text-anchor="middle" font-family="'Plus Jakarta Sans',system-ui" font-weight="800" font-size="10" fill="#14532D">₹5,000</text>
+    <text x="38" y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="6.5" fill="#16A34A">CONFIRMED</text>
+    <!-- Micro button -->
+    <rect x="15" y="74" width="46" height="12" rx="4" fill="#16A34A"/>
+    <text x="38" y="82.5" text-anchor="middle" font-family="'Space Grotesk',system-ui" font-weight="700" font-size="6" fill="#FFFFFF">Withdraw to UPI</text>
+  </g>
+
+  <!-- Sparkles & Celebration Stars around the phone -->
+  <path d="M210 18 L213 24 L219 27 L213 30 L210 36 L207 30 L201 27 L207 24 Z" fill="#F59E0B"/>
+  <path d="M298 68 L300 73 L305 75 L300 77 L298 82 L296 77 L291 75 L296 73 Z" fill="#F59E0B"/>
+  <path d="M304 22 L306 26 L310 28 L306 30 L304 34 L302 30 L298 28 L302 26 Z" fill="#10B981"/>
+  <circle cx="196" cy="62" r="3" fill="#2558E8"/>
+  <circle cx="312" cy="110" r="3" fill="#E11D48"/>
+</svg>

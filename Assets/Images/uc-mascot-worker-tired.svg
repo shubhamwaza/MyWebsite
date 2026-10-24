@@ -1,0 +1,49 @@
+<svg viewBox="0 0 280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew gig worker mascot — tired, crossed arms">
+  <!-- Ground shadow -->
+  <ellipse cx="140" cy="406" rx="68" ry="11" fill="#1C1917" opacity="0.07"/>
+
+  <!-- Shoes -->
+  <rect x="94" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+  <rect x="144" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+
+  <!-- Legs (dark warm slate) -->
+  <rect x="107" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+  <rect x="144" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+
+  <!-- Body — cobalt blue t-shirt -->
+  <path d="M88 168 Q76 174 74 190 L72 268 L208 268 L206 190 Q204 174 192 168 L170 156 Q157 151 140 151 Q123 151 110 156 Z" fill="#2558E8"/>
+  <path d="M110 170 Q108 210 110 248" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <!-- Collar V -->
+  <path d="M124 156 L140 168 L156 156" stroke="#1D4ED8" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Neck -->
+  <rect x="128" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- CROSSED ARMS -->
+  <rect x="78" y="204" width="80" height="27" rx="13" fill="#1D4ED8"/>
+  <rect x="126" y="211" width="80" height="27" rx="13" fill="#2558E8"/>
+  <circle cx="204" cy="217" r="17" fill="#FBBE8E"/>
+  <circle cx="82" cy="217" r="17" fill="#FBBE8E"/>
+  <path d="M196 213 Q204 210 210 215" stroke="#E8A06A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+  <!-- Head -->
+  <circle cx="140" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair — dark, slightly tousled -->
+  <path d="M96 76 Q100 50 140 48 Q180 50 184 76 Q172 61 140 60 Q108 61 96 76 Z" fill="#1C1917"/>
+  <path d="M96 76 Q92 90 97 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M184 76 Q188 90 183 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M130 50 Q134 40 140 48 Q146 40 150 50" stroke="#1C1917" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- FACE — Tired / frustrated -->
+  <ellipse cx="125" cy="88" rx="8" ry="7" fill="#1C1917"/>
+  <ellipse cx="155" cy="88" rx="8" ry="7" fill="#1C1917"/>
+  <path d="M117 84 Q125 89 133 84" stroke="#FBBE8E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M147 84 Q155 89 163 84" stroke="#FBBE8E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M115 74 Q125 79 135 75" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M145 75 Q155 79 165 74" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M128 117 Q140 112 152 117" stroke="#1C1917" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Sweat drop -->
+  <path d="M179 65 Q183 55 179 52 Q175 55 179 65 Z" fill="#93C5FD" opacity="0.85"/>
+</svg>

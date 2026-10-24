@@ -1,0 +1,155 @@
+<svg viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew mascots — gig worker and employer united around a verified escrow digital contract">
+  <!-- Ground shadows -->
+  <ellipse cx="130" cy="406" rx="66" ry="11" fill="#1C1917" opacity="0.07"/>
+  <ellipse cx="390" cy="406" rx="66" ry="11" fill="#1C1917" opacity="0.07"/>
+  <ellipse cx="260" cy="385" rx="42" ry="7" fill="#2558E8" opacity="0.08"/>
+
+  <!-- ═══════════════════════════════════════════════
+       WORKER (Left) — Leaning inward, smiling warmly
+  ═══════════════════════════════════════════════ -->
+  <!-- Shoes -->
+  <rect x="88" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+  <rect x="138" y="360" width="46" height="24" rx="12" fill="#1C1917"/>
+
+  <!-- Legs -->
+  <rect x="101" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+  <rect x="138" y="268" width="29" height="98" rx="14" fill="#3D3935"/>
+
+  <!-- Body — cobalt blue t-shirt, leaning right toward center -->
+  <path d="M82 170 Q70 176 68 192 L72 268 L204 268 L202 192 Q198 174 186 168 L164 156 Q151 151 134 151 Q117 151 104 156 Z" fill="#2558E8"/>
+  <path d="M106 172 Q108 212 110 248" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M120 156 L134 168 L150 156" stroke="#1D4ED8" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Neck -->
+  <rect x="124" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="134" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair -->
+  <path d="M90 76 Q94 50 134 48 Q174 50 178 76 Q166 61 134 60 Q102 61 90 76 Z" fill="#1C1917"/>
+  <path d="M90 76 Q86 90 91 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M178 76 Q182 90 177 112" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M124 50 Q128 40 134 48 Q140 40 144 50" stroke="#1C1917" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- Face — Optimistic, warm smile -->
+  <ellipse cx="120" cy="88" rx="8" ry="7.5" fill="#1C1917"/>
+  <ellipse cx="150" cy="88" rx="8" ry="7.5" fill="#1C1917"/>
+  <circle cx="118" cy="85" r="2.8" fill="white" opacity="0.55"/>
+  <circle cx="148" cy="85" r="2.8" fill="white" opacity="0.55"/>
+  <!-- Friendly eyebrows -->
+  <path d="M110 74 Q120 70 128 73" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M142 73 Q150 70 160 74" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Warm upturned smile -->
+  <path d="M122 113 Q134 123 146 113" stroke="#1C1917" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Left arm hanging relaxed -->
+  <rect x="58" y="166" width="28" height="66" rx="14" fill="#2558E8"/>
+  <rect x="58" y="222" width="28" height="50" rx="14" fill="#2558E8"/>
+  <circle cx="72" cy="275" r="16" fill="#FBBE8E"/>
+
+  <!-- Right arm extended toward center phone -->
+  <rect x="180" y="168" width="28" height="62" rx="14" fill="#2558E8"/>
+  <rect x="175" y="210" width="58" height="26" rx="13" fill="#1D4ED8"/>
+  <!-- Hand gesturing at the phone -->
+  <circle cx="228" cy="223" r="15" fill="#FBBE8E"/>
+
+
+  <!-- ═══════════════════════════════════════════════
+       EMPLOYER (Right) — Relaxed, confident, smiling
+  ═══════════════════════════════════════════════ -->
+  <!-- Shoes -->
+  <rect x="348" y="360" width="46" height="24" rx="12" fill="#44403C"/>
+  <rect x="398" y="360" width="46" height="24" rx="12" fill="#44403C"/>
+
+  <!-- Legs -->
+  <rect x="361" y="268" width="29" height="98" rx="14" fill="#78716C"/>
+  <rect x="398" y="268" width="29" height="98" rx="14" fill="#78716C"/>
+
+  <!-- Body — coral polo shirt, leaning left toward center -->
+  <path d="M336 170 Q324 176 320 192 L320 268 L452 268 L454 192 Q452 174 440 168 L418 156 Q405 151 388 151 Q371 151 358 156 Z" fill="#C2410C"/>
+  <path d="M374 156 L388 168 L404 156" stroke="#B03A0A" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M360 170 Q358 210 360 248" stroke="#B03A0A" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Neck -->
+  <rect x="378" y="137" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="388" cy="95" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair — professional cut -->
+  <path d="M346 80 Q350 52 388 50 Q426 52 430 80 Q418 63 388 62 Q358 63 346 80 Z" fill="#44403C"/>
+  <path d="M346 80 Q342 93 347 115" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M430 80 Q434 93 429 115" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- Face — Reassured, satisfied smile -->
+  <ellipse cx="373" cy="88" rx="8.5" ry="8" fill="#1C1917"/>
+  <ellipse cx="403" cy="88" rx="8.5" ry="8" fill="#1C1917"/>
+  <circle cx="371" cy="85" r="3" fill="white" opacity="0.5"/>
+  <circle cx="401" cy="85" r="3" fill="white" opacity="0.5"/>
+  <!-- Relaxed, happy eyebrows -->
+  <path d="M363 72 Q373 68 382 72" stroke="#44403C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M394 72 Q403 68 413 72" stroke="#44403C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Genuine smile -->
+  <path d="M375 113 Q388 123 401 113" stroke="#1C1917" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Left arm extended toward center phone -->
+  <rect x="316" y="168" width="28" height="62" rx="14" fill="#C2410C"/>
+  <rect x="290" y="210" width="58" height="26" rx="13" fill="#B03A0A"/>
+  <!-- Hand gesturing at phone -->
+  <circle cx="292" cy="223" r="15" fill="#FBBE8E"/>
+
+  <!-- Right arm hanging relaxed -->
+  <rect x="438" y="166" width="28" height="66" rx="14" fill="#C2410C"/>
+  <rect x="438" y="222" width="28" height="50" rx="14" fill="#C2410C"/>
+  <circle cx="452" cy="275" r="16" fill="#FBBE8E"/>
+
+
+  <!-- ═══════════════════════════════════════════════
+       THE TRUST ENGINE — Floating Glowing Escrow Phone
+  ═══════════════════════════════════════════════ -->
+  <!-- Ambient soft glow behind phone -->
+  <rect x="200" y="125" width="120" height="190" rx="28" fill="#2558E8" opacity="0.12" filter="blur(16px)"/>
+  <rect x="204" y="130" width="112" height="180" rx="24" fill="#10B981" opacity="0.08" filter="blur(12px)"/>
+
+  <!-- Phone Body -->
+  <g id="escrow-phone">
+    <!-- Outer phone frame -->
+    <rect x="210" y="135" width="100" height="170" rx="20" fill="#1C1917" stroke="#3D3935" stroke-width="2"/>
+    <!-- Phone Screen -->
+    <rect x="214" y="139" width="92" height="162" rx="16" fill="#FFFFFF"/>
+
+    <!-- Screen Speaker Pill Notch -->
+    <rect x="246" y="144" width="28" height="4" rx="2" fill="#E2E8F0"/>
+
+    <!-- Escrow Card Inside Screen -->
+    <rect x="220" y="156" width="80" height="88" rx="12" fill="#EEF2FF" stroke="#DBEAFE" stroke-width="1.5"/>
+
+    <!-- Shield Icon in circle -->
+    <circle cx="260" cy="178" r="14" fill="#2558E8"/>
+    <path d="M255 178 L259 182 L266 174" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Badge text -->
+    <text x="260" y="202" text-anchor="middle" font-family="'Plus Jakarta Sans',system-ui" font-weight="800" font-size="10" fill="#1C1917">₹1,200 LOCKED</text>
+    <text x="260" y="214" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="7.5" fill="#2558E8">UPCREW ESCROW</text>
+
+    <!-- Mini status row -->
+    <rect x="228" y="222" width="64" height="14" rx="7" fill="#DCFCE7"/>
+    <circle cx="236" cy="229" r="3" fill="#16A34A"/>
+    <text x="244" y="232" font-family="'Space Grotesk',system-ui" font-weight="700" font-size="7" fill="#166534">Bank Guaranteed</text>
+
+    <!-- OTP verification teaser -->
+    <rect x="222" y="252" width="76" height="18" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="260" y="264" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="8" fill="#475569">OTP: 4 8 2 1</text>
+
+    <!-- Home bar -->
+    <rect x="244" y="292" width="32" height="3" rx="1.5" fill="#CBD5E1"/>
+  </g>
+
+  <!-- Sparkles & Trust Nodes around Phone -->
+  <!-- Top sparkle -->
+  <path d="M260 108 L263 115 L270 118 L263 121 L260 128 L257 121 L250 118 L257 115 Z" fill="#2558E8"/>
+  <circle cx="196" cy="150" r="3" fill="#10B981"/>
+  <circle cx="324" cy="150" r="3" fill="#2558E8"/>
+  <circle cx="260" cy="324" r="3" fill="#F59E0B"/>
+</svg>

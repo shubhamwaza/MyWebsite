@@ -1,0 +1,132 @@
+<svg viewBox="0 0 520 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UpCrew mascots — gig worker and employer celebrating with an energetic high five">
+  <!-- Ground shadows -->
+  <ellipse cx="140" cy="426" rx="66" ry="11" fill="#1C1917" opacity="0.07"/>
+  <ellipse cx="380" cy="426" rx="66" ry="11" fill="#1C1917" opacity="0.07"/>
+
+  <!-- ═══════════════════════════════════════════════
+       WORKER (Left) — Leaning inward with arm raised high for high-five
+  ═══════════════════════════════════════════════ -->
+  <!-- Shoes -->
+  <rect x="98" y="380" width="46" height="24" rx="12" fill="#1C1917"/>
+  <rect x="148" y="380" width="46" height="24" rx="12" fill="#1C1917"/>
+
+  <!-- Legs -->
+  <rect x="111" y="288" width="29" height="98" rx="14" fill="#3D3935"/>
+  <rect x="148" y="288" width="29" height="98" rx="14" fill="#3D3935"/>
+
+  <!-- Body — cobalt blue t-shirt, leaning diagonally right toward center -->
+  <path d="M92 188 Q80 194 78 210 L82 288 L214 288 L212 210 Q208 194 196 188 L174 176 Q161 171 144 171 Q127 171 114 176 Z" fill="#2558E8"/>
+  <path d="M116 190 Q118 230 120 268" stroke="#1D4ED8" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M130 176 L144 188 L160 176" stroke="#1D4ED8" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Neck -->
+  <rect x="134" y="157" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="144" cy="115" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair -->
+  <path d="M100 96 Q104 70 144 68 Q184 70 188 96 Q176 81 144 80 Q112 81 100 96 Z" fill="#1C1917"/>
+  <path d="M100 96 Q96 110 101 132" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M188 96 Q192 110 187 132" stroke="#1C1917" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M134 70 Q138 60 144 68 Q150 60 154 70" stroke="#1C1917" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+  <!-- Face — Joyful celebration, open smile -->
+  <path d="M121 106 Q129 99 137 106" stroke="#1C1917" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+  <path d="M151 106 Q159 99 167 106" stroke="#1C1917" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+  <ellipse cx="120" cy="118" rx="8" ry="4.5" fill="#F472B6" opacity="0.4"/>
+  <ellipse cx="168" cy="118" rx="8" ry="4.5" fill="#F472B6" opacity="0.4"/>
+  <path d="M119 92 Q129 86 139 90" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M149 90 Q159 86 169 92" stroke="#1C1917" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M128 126 Q144 146 160 126 Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Left arm hanging relaxed -->
+  <rect x="68" y="184" width="28" height="66" rx="14" fill="#2558E8"/>
+  <rect x="68" y="240" width="28" height="50" rx="14" fill="#2558E8"/>
+  <circle cx="82" cy="293" r="16" fill="#FBBE8E"/>
+
+  <!-- Worker High-Five Right Arm (reaching up and right) -->
+  <rect x="188" y="152" width="28" height="70" rx="14" fill="#2558E8" transform="rotate(-40 188 152)"/>
+  <rect x="220" y="126" width="26" height="68" rx="13" fill="#1D4ED8" transform="rotate(-25 220 126)"/>
+  <!-- Open palm meeting center -->
+  <circle cx="254" cy="136" r="17" fill="#FBBE8E"/>
+  <rect x="246" y="120" width="10" height="20" rx="5" fill="#FBBE8E"/>
+
+
+  <!-- ═══════════════════════════════════════════════
+       EMPLOYER (Right) — Leaning inward with arm raised high for high-five
+  ═══════════════════════════════════════════════ -->
+  <!-- Shoes -->
+  <rect x="338" y="380" width="46" height="24" rx="12" fill="#44403C"/>
+  <rect x="388" y="380" width="46" height="24" rx="12" fill="#44403C"/>
+
+  <!-- Legs -->
+  <rect x="351" y="288" width="29" height="98" rx="14" fill="#78716C"/>
+  <rect x="388" y="288" width="29" height="98" rx="14" fill="#78716C"/>
+
+  <!-- Body — coral polo shirt, leaning diagonally left toward center -->
+  <path d="M326 188 Q314 194 310 210 L310 288 L442 288 L444 210 Q442 194 430 188 L408 176 Q395 171 378 171 Q361 171 348 176 Z" fill="#C2410C"/>
+  <path d="M364 176 L378 188 L394 176" stroke="#B03A0A" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M350 190 Q348 230 350 268" stroke="#B03A0A" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Neck -->
+  <rect x="368" y="157" width="24" height="20" rx="9" fill="#FBBE8E"/>
+
+  <!-- Head -->
+  <circle cx="378" cy="115" r="44" fill="#FBBE8E"/>
+
+  <!-- Hair -->
+  <path d="M336 100 Q340 72 378 70 Q416 72 420 100 Q408 83 378 82 Q348 83 336 100 Z" fill="#44403C"/>
+  <path d="M336 100 Q332 113 337 135" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M420 100 Q424 113 419 135" stroke="#44403C" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- Face — Happy celebration -->
+  <path d="M355 106 Q363 99 371 106" stroke="#1C1917" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+  <path d="M385 106 Q393 99 401 106" stroke="#1C1917" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+  <ellipse cx="354" cy="118" rx="8" ry="4.5" fill="#F472B6" opacity="0.4"/>
+  <ellipse cx="402" cy="118" rx="8" ry="4.5" fill="#F472B6" opacity="0.4"/>
+  <path d="M353 92 Q363 86 373 90" stroke="#44403C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M383 90 Q393 86 403 92" stroke="#44403C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M362 126 Q378 146 394 126 Z" fill="#FFFFFF" stroke="#1C1917" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Employer High-Five Left Arm (reaching up and left) -->
+  <rect x="312" y="152" width="28" height="70" rx="14" fill="#C2410C" transform="rotate(40 312 152)"/>
+  <rect x="280" y="126" width="26" height="68" rx="13" fill="#B03A0A" transform="rotate(25 280 126)"/>
+  <!-- Open palm meeting center -->
+  <circle cx="266" cy="136" r="17" fill="#FBBE8E"/>
+  <rect x="264" y="120" width="10" height="20" rx="5" fill="#FBBE8E"/>
+
+  <!-- Right arm hanging relaxed -->
+  <rect x="428" y="184" width="28" height="66" rx="14" fill="#C2410C"/>
+  <rect x="428" y="240" width="28" height="50" rx="14" fill="#C2410C"/>
+  <circle cx="442" cy="293" r="16" fill="#FBBE8E"/>
+
+
+  <!-- ═══════════════════════════════════════════════
+       HIGH-FIVE IMPACT BURST & CELEBRATION
+  ═══════════════════════════════════════════════ -->
+  <!-- Radial burst lines from the clapping hands -->
+  <g id="impact-burst">
+    <!-- Starburst center -->
+    <circle cx="260" cy="134" r="12" fill="#FDE047" opacity="0.8"/>
+    <circle cx="260" cy="134" r="6" fill="#F59E0B"/>
+
+    <!-- Radiating burst rays -->
+    <path d="M260 110 L260 92" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M276 116 L290 102" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M244 116 L230 102" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M282 134 L300 134" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M238 134 L220 134" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M275 149 L288 160" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M245 149 L232 160" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Confetti and celebration particles -->
+  <path d="M205 70 L208 76 L214 79 L208 82 L205 88 L202 82 L196 79 L202 76 Z" fill="#2558E8"/>
+  <path d="M315 70 L318 76 L324 79 L318 82 L315 88 L312 82 L306 79 L312 76 Z" fill="#16A34A"/>
+  <circle cx="218" cy="100" r="3.5" fill="#EF4444"/>
+  <circle cx="302" cy="100" r="3.5" fill="#8B5CF6"/>
+  <circle cx="260" cy="65" r="4" fill="#F59E0B"/>
+  <circle cx="170" cy="140" r="3" fill="#10B981"/>
+  <circle cx="350" cy="140" r="3" fill="#2558E8"/>
+</svg>

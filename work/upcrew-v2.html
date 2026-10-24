@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UpCrew · UX Case Study · Shubham Waza</title>
+  <meta name="description" content="End-to-end UX case study for UpCrew, a mobile-first gig economy marketplace. Designed by Shubham Waza.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Fonts: Plus Jakarta Sans (display) + Space Grotesk (body) + JetBrains Mono (data labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Global nav/footer styles -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* ================================================================
+       UPCREW V2 — WARM TACTILE & HUMAN DESIGN SYSTEM
+       Style 4: Family.co / Craft.do / Amie Aesthetic
+       Elevated with: Rich scroll animations · Big expressive mascots
+       Original mockup screens: sacred ground truth, untouched
+    ================================================================ */
+
+    /* ── DESIGN TOKENS ─────────────────────────────────────────────── */
+    :root {
+      /* Canvas */
+      --uc-canvas:       #F7F6F2;   /* Warm linen paper */
+      --uc-canvas-2:     #EFECE6;   /* Soft clay tint */
+      --uc-card:         #FFFFFF;   /* Pure white card surface */
+      --uc-card-hover:   #FDFCFB;   /* Warmed white on hover */
+
+      /* Ink */
+      --uc-ink:          #1C1917;   /* Deep espresso */
+      --uc-ink-2:        #44403C;   /* Mid-tone warm slate */
+      --uc-ink-3:        #78716C;   /* Muted warm gray */
+      --uc-ink-ghost:    #A8A29E;   /* Ghosted supporting text */
+
+      /* Brand */
+      --uc-blue:         #2558E8;   /* UpCrew cobalt */
+      --uc-blue-dark:    #1D4ED8;
+      --uc-blue-light:   #EEF2FF;
+      --uc-blue-tint:    #DBEAFE;
+
+      /* Accent palette */
+      --uc-green:        #16A34A;
+      --uc-green-light:  #DCFCE7;
+      --uc-amber:        #D97706;
+      --uc-amber-light:  #FEF3C7;
+      --uc-rose:         #E11D48;
+      --uc-rose-light:   #FFE4E6;
+      --uc-lavender:     #7C3AED;
+      --uc-lavender-light: #F3F0FF;
+
+      /* Borders */
+      --uc-line:         rgba(28, 25, 23, 0.08);
+      --uc-line-hover:   rgba(28, 25, 23, 0.14);
+
+      /* Tactile shadows — layered ambient depth (ceramic card feel) */
+      --uc-shadow-card:
+        0 1px 2px rgba(28, 25, 23, 0.03),
+        0 4px 12px rgba(28, 25, 23, 0.05),
+        0 16px 40px rgba(28, 25, 23, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      --uc-shadow-card-hover:
+        0 2px 4px rgba(28, 25, 23, 0.04),
+        0 8px 24px rgba(28, 25, 23, 0.08),
+        0 24px 56px rgba(28, 25, 23, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      --uc-shadow-float:
+        0 4px 6px rgba(28, 25, 23, 0.04),
+        0 20px 48px rgba(28, 25, 23, 0.10);
+      --uc-shadow-phone:
+        0 8px 16px rgba(28, 25, 23, 0.08),
+        0 24px 64px rgba(28, 25, 23, 0.14),
+        0 0 0 1px rgba(28, 25, 23, 0.06);
+
+      /* Typography */
+      --uc-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --uc-font-body:    'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --uc-font-mono:    'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+      /* Spacing & geometry */
+      --uc-radius-card:  24px;
+      --uc-radius-pill:  999px;
+      --uc-radius-sm:    12px;
+      --uc-radius-md:    16px;
+
+      /* Transitions */
+      --uc-spring:       cubic-bezier(0.16, 1, 0.3, 1);
+      --uc-ease-out:     cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* ── RESET & BASE ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body.uc-page {
+      background-color: var(--uc-canvas);
+      color: var(--uc-ink);
+      font-family: var(--uc-font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLL REVEAL SYSTEM ───────────────────────────────────────── */
+    .uc-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.7s var(--uc-spring),
+        transform 0.7s var(--uc-spring);
+      will-change: opacity, transform;
+    }
+    .uc-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Stagger delays for children */
+    .uc-reveal-d1 { transition-delay: 0.05s; }
+    .uc-reveal-d2 { transition-delay: 0.12s; }
+    .uc-reveal-d3 { transition-delay: 0.19s; }
+    .uc-reveal-d4 { transition-delay: 0.26s; }
+    .uc-reveal-d5 { transition-delay: 0.33s; }
+    .uc-reveal-d6 { transition-delay: 0.40s; }
+
+    /* Mascot parallax: shifts on its own depth plane */
+    .uc-mascot-parallax {
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    /* ── PROGRESS RAIL (Chapter Nav Capsule) ───────────────────────── */
+    .uc-progress-rail {
+      position: fixed;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    @media (max-width: 900px) { .uc-progress-rail { display: none; } }
+
+    .uc-rail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--uc-radius-pill);
+      background: var(--uc-line-hover);
+      border: none;
+      cursor: pointer;
+      transition:
+        width 0.35s var(--uc-spring),
+        height 0.35s var(--uc-spring),
+        background 0.25s ease;
+      position: relative;
+    }
+    .uc-rail-dot.is-active {
+      width: 8px;
+      height: 28px;
+      background: var(--uc-blue);
+    }
+    .uc-rail-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      right: calc(100% + 14px);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--uc-font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--uc-ink-3);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .uc-rail-dot.is-active::after { opacity: 1; }
+
+    /* ── LAYOUT SHELL ───────────────────────────────────────────────── */
+    .uc-chapter {
+      position: relative;
+      width: 100%;
+    }
+
+    .uc-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    .uc-wrap--wide {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ── CHAPTER ACCENT PILL ────────────────────────────────────────── */
+    .uc-chapter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--uc-card);
+      border: 1.5px solid var(--uc-line);
+      border-radius: var(--uc-radius-pill);
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--uc-ink-3);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: var(--uc-shadow-card);
+      margin-bottom: 24px;
+    }
+    .uc-chapter-pill__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--uc-blue);
+      flex-shrink: 0;
+    }
+
+    /* ── TACTILE CARD ───────────────────────────────────────────────── */
+    .uc-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      transition:
+        transform 0.4s var(--uc-spring),
+        box-shadow 0.4s var(--uc-spring),
+        border-color 0.25s ease;
+    }
+    .uc-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--uc-shadow-card-hover);
+      border-color: var(--uc-line-hover);
+    }
+
+    /* ── TYPOGRAPHY SCALE ───────────────────────────────────────────── */
+    .uc-h1 {
+      font-family: var(--uc-font-display);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: var(--uc-ink);
+    }
+    .uc-h2 {
+      font-family: var(--uc-font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      color: var(--uc-ink);
+    }
+    .uc-h3 {
+      font-family: var(--uc-font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--uc-ink);
+    }
+    .uc-lead {
+      font-family: var(--uc-font-body);
+      font-size: clamp(1rem, 1.8vw, 1.1875rem);
+      line-height: 1.7;
+      color: var(--uc-ink-2);
+      font-weight: 400;
+    }
+    .uc-body {
+      font-family: var(--uc-font-body);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--uc-ink-2);
+    }
+    .uc-label {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--uc-ink-3);
+    }
+    .uc-stat {
+      font-family: var(--uc-font-display);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+
+    /* ── PILL BADGES ────────────────────────────────────────────────── */
+    .uc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--uc-radius-pill);
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .uc-badge--green  { background: var(--uc-green-light);   color: #166534; border: 1px solid #BBF7D0; }
+    .uc-badge--blue   { background: var(--uc-blue-light);    color: #1E40AF; border: 1px solid var(--uc-blue-tint); }
+    .uc-badge--amber  { background: var(--uc-amber-light);   color: #92400E; border: 1px solid #FDE68A; }
+    .uc-badge--rose   { background: var(--uc-rose-light);    color: #9F1239; border: 1px solid #FECDD3; }
+    .uc-badge--lavender { background: var(--uc-lavender-light); color: #5B21B6; border: 1px solid #DDD6FE; }
+    .uc-badge--ink    { background: var(--uc-ink);           color: #FFFFFF; border: 1px solid var(--uc-ink); }
+
+    /* ── CTA BUTTONS ────────────────────────────────────────────────── */
+    .uc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--uc-radius-pill);
+      font-family: var(--uc-font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition:
+        transform 0.3s var(--uc-spring),
+        box-shadow 0.3s var(--uc-spring),
+        background 0.2s ease;
+    }
+    .uc-btn--primary {
+      background: var(--uc-blue);
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 16px rgba(37, 88, 232, 0.35);
+    }
+    .uc-btn--primary:hover {
+      background: var(--uc-blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 88, 232, 0.45);
+    }
+    .uc-btn--primary:active { transform: scale(0.97); }
+    .uc-btn--ghost {
+      background: var(--uc-card);
+      color: var(--uc-ink) !important;
+      border: 1.5px solid var(--uc-line);
+      box-shadow: var(--uc-shadow-card);
+    }
+    .uc-btn--ghost:hover {
+      transform: translateY(-2px);
+      border-color: var(--uc-line-hover);
+      box-shadow: var(--uc-shadow-card-hover);
+    }
+
+    /* ── PHONE FRAME ────────────────────────────────────────────────── */
+    .uc-phone {
+      background: #0F172A;
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow: var(--uc-shadow-phone);
+      overflow: hidden;
+      aspect-ratio: 9 / 19.5;
+      display: block;
+    }
+    .uc-phone img,
+    .uc-phone video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 30px;
+    }
+
+    /* ──────────────────────────────────────────────────────────────────
+       CHAPTER 1: THE BROKEN SHIFT
+       Warm linen canvas · The Standoff Mascot · Bold problem statement
+    ────────────────────────────────────────────────────────────────── */
+
+    #ch1 {
+      background: var(--uc-canvas);
+      padding: clamp(40px, 6vw, 80px) 0 clamp(80px, 10vw, 140px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle warm paper grain texture via pseudo-element */
+    #ch1::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37, 88, 232, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 60%, rgba(28, 25, 23, 0.02) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Back link */
+    .uc-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--uc-font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--uc-ink-3);
+      text-decoration: none;
+      margin-bottom: 48px;
+      transition: color 0.2s ease, gap 0.3s var(--uc-spring);
+    }
+    .uc-back-link:hover { color: var(--uc-blue); gap: 10px; }
+    .uc-back-link svg { transition: transform 0.3s var(--uc-spring); }
+    .uc-back-link:hover svg { transform: translateX(-3px); }
+
+    /* Hero title layout */
+    .uc-hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: center;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px) {
+      .uc-hero-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Big display title with chapter annotation */
+    .uc-hero-title-block { position: relative; }
+
+    .uc-chapter-annotation {
+      font-family: var(--uc-font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--uc-ink-ghost);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .uc-hero-h1 {
+      font-family: var(--uc-font-display);
+      font-size: clamp(3.8rem, 7vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      color: var(--uc-ink);
+      margin-bottom: 20px;
+    }
+    .uc-hero-h1 em {
+      font-style: normal;
+      color: var(--uc-blue);
+    }
+
+    .uc-hero-lead {
+      font-family: var(--uc-font-body);
+      font-size: clamp(1rem, 1.6vw, 1.125rem);
+      line-height: 1.7;
+      color: var(--uc-ink-2);
+      max-width: 52ch;
+      margin-bottom: 32px;
+    }
+
+    /* Meta matrix — project quick facts */
+    .uc-meta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .uc-meta-chip {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 10px 16px;
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      min-width: 120px;
+    }
+    .uc-meta-chip__label {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--uc-ink-ghost);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .uc-meta-chip__value {
+      font-family: var(--uc-font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--uc-ink);
+      line-height: 1.3;
+    }
+
+    /* Hero CTA row */
+    .uc-hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ── THE STANDOFF MASCOT STAGE (Right column of hero) ─────────── */
+    .uc-standoff-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    /* Big mascot illustration */
+    .uc-standoff-mascot {
+      width: clamp(260px, 32vw, 420px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 20px 48px rgba(28, 25, 23, 0.12));
+      position: relative;
+      z-index: 2;
+      /* Gentle breathing float animation */
+      animation: uc-float 4s ease-in-out infinite;
+    }
+    @keyframes uc-float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* Speech/thought bubble above mascot */
+    .uc-speech-bubble {
+      position: relative;
+      background: var(--uc-card);
+      border: 1.5px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-float);
+      padding: 16px 20px;
+      max-width: 300px;
+      margin-bottom: -16px;
+      z-index: 3;
+    }
+    .uc-speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 11px solid var(--uc-card);
+      filter: drop-shadow(0 2px 2px rgba(28, 25, 23, 0.06));
+    }
+    .uc-speech-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 12px solid var(--uc-line);
+    }
+    .uc-speech-bubble__quote {
+      font-family: var(--uc-font-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--uc-ink);
+      line-height: 1.4;
+      margin: 0 0 6px 0;
+    }
+    .uc-speech-bubble__attr {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--uc-ink-ghost);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Floating stat cards that orbit the mascot */
+    .uc-floating-stat {
+      position: absolute;
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-float);
+      padding: 10px 14px;
+      text-align: left;
+      z-index: 4;
+    }
+    .uc-floating-stat--left {
+      left: -20px;
+      top: 38%;
+    }
+    .uc-floating-stat--right {
+      right: -16px;
+      top: 52%;
+    }
+    .uc-floating-stat__num {
+      font-family: var(--uc-font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      color: var(--uc-ink);
+    }
+    .uc-floating-stat__num--red  { color: var(--uc-rose); }
+    .uc-floating-stat__num--blue { color: var(--uc-blue); }
+    .uc-floating-stat__label {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--uc-ink-ghost);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ── THE PROBLEM PILLARS (below the hero layout) ─────────────── */
+    .uc-problem-section {
+      padding: clamp(60px, 8vw, 120px) 0;
+      background: var(--uc-canvas);
+      position: relative;
+    }
+
+    /* Section title centred with annotation */
+    .uc-section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 60px auto;
+    }
+
+    /* The big "two worlds" bento */
+    .uc-worlds-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 840px) {
+      .uc-worlds-bento { grid-template-columns: 1fr; }
+    }
+
+    .uc-world-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(28px, 3.5vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s var(--uc-spring), box-shadow 0.4s var(--uc-spring);
+    }
+    .uc-world-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--uc-shadow-card-hover);
+    }
+
+    /* Mascot in world card — large and expressive */
+    .uc-world-mascot {
+      width: clamp(120px, 16vw, 200px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 24px rgba(28, 25, 23, 0.1));
+      align-self: flex-end;
+      position: absolute;
+      bottom: 0;
+      right: 24px;
+      pointer-events: none;
+    }
+
+    .uc-world-card__header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+    .uc-world-card__title {
+      font-family: var(--uc-font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--uc-ink);
+    }
+    .uc-world-card__subtitle {
+      font-family: var(--uc-font-body);
+      font-size: 0.875rem;
+      color: var(--uc-ink-3);
+      line-height: 1.5;
+      max-width: 38ch;
+    }
+
+    /* Pain points list */
+    .uc-pain-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .uc-pain-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: var(--uc-font-body);
+      font-size: 0.875rem;
+      color: var(--uc-ink-2);
+      line-height: 1.5;
+    }
+    .uc-pain-item__icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .uc-pain-item__icon--red { background: var(--uc-rose-light); color: var(--uc-rose); }
+    .uc-pain-item__icon--amber { background: var(--uc-amber-light); color: var(--uc-amber); }
+
+    /* Worker pain card background tint */
+    .uc-world-card--worker {
+      background: linear-gradient(145deg, #FFFFFF 0%, #FFF9F0 100%);
+    }
+    /* Employer pain card background tint */
+    .uc-world-card--employer {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F0F7FF 100%);
+    }
+
+    /* ── 3 BIG STAT BENTO ───────────────────────────────────────────── */
+    .uc-stats-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 720px) {
+      .uc-stats-bento { grid-template-columns: 1fr; }
+    }
+
+    .uc-stat-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.4s var(--uc-spring), box-shadow 0.4s var(--uc-spring);
+    }
+    .uc-stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--uc-shadow-card-hover);
+    }
+    .uc-stat-card__num {
+      font-family: var(--uc-font-display);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .uc-stat-card__num--rose { color: var(--uc-rose); }
+    .uc-stat-card__num--blue { color: var(--uc-blue); }
+    .uc-stat-card__num--amber { color: var(--uc-amber); }
+    .uc-stat-card__label {
+      font-family: var(--uc-font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--uc-ink);
+      line-height: 1.3;
+      margin: 4px 0 2px 0;
+    }
+    .uc-stat-card__note {
+      font-family: var(--uc-font-body);
+      font-size: 0.8125rem;
+      color: var(--uc-ink-3);
+      line-height: 1.5;
+    }
+    .uc-stat-card__source {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--uc-ink-ghost);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--uc-line);
+    }
+
+    /* ── CHAPTER TRANSITION CARD (scroll invitation) ──────────────── */
+    .uc-transition-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(28px, 4vw, 48px);
+      margin-top: 64px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .uc-transition-card__text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .uc-transition-card__label {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--uc-blue);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .uc-transition-card__title {
+      font-family: var(--uc-font-display);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 700;
+      color: var(--uc-ink);
+      line-height: 1.35;
+    }
+
+    /* ── DIVIDER ────────────────────────────────────────────────────── */
+    .uc-chapter-divider {
+      height: 1px;
+      background: var(--uc-line);
+      margin: 0;
+    }
+
+    /* ── CHAPTER 2: FIELD EVIDENCE & WORKER ARCHETYPES ─────────────── */
+    .uc-research-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 40px);
+      align-items: center;
+      margin-top: 40px;
+    }
+    .uc-dialogue-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .uc-dialogue-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 20px 24px;
+      position: relative;
+      transition: transform 0.3s var(--uc-spring), box-shadow 0.3s var(--uc-spring);
+    }
+    .uc-dialogue-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--uc-shadow-card-hover);
+    }
+    .uc-dialogue-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .uc-dialogue-card__tag {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--uc-radius-pill);
+    }
+    .uc-dialogue-card__tag--worker {
+      background: var(--uc-blue-light);
+      color: var(--uc-blue-dark);
+    }
+    .uc-dialogue-card__tag--employer {
+      background: var(--uc-amber-light);
+      color: #92400E;
+    }
+    .uc-dialogue-card__loc {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      color: var(--uc-ink-ghost);
+    }
+    .uc-dialogue-card__quote {
+      font-family: var(--uc-font-body);
+      font-size: 0.9375rem;
+      color: var(--uc-ink);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .uc-dialogue-card__author {
+      display: block;
+      margin-top: 8px;
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--uc-ink-3);
+    }
+
+    .uc-research-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(24px, 4vw, 40px);
+      text-align: center;
+    }
+    .uc-research-mascot {
+      width: min(300px, 90%);
+      height: auto;
+      filter: drop-shadow(0 16px 32px rgba(28,25,23,0.06));
+    }
+    .uc-research-pill-orbit {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    /* Survey bento */
+    .uc-survey-bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .uc-survey-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.3s var(--uc-spring), box-shadow 0.3s var(--uc-spring);
+    }
+    .uc-survey-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--uc-shadow-card-hover);
+    }
+    .uc-survey-card__num {
+      font-family: var(--uc-font-display);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .uc-survey-card__bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: var(--uc-canvas-2);
+      border-radius: var(--uc-radius-pill);
+      overflow: hidden;
+    }
+    .uc-survey-card__bar {
+      height: 100%;
+      border-radius: var(--uc-radius-pill);
+      transition: width 1s var(--uc-ease-out);
+    }
+    .uc-survey-card__label {
+      font-family: var(--uc-font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--uc-ink);
+      line-height: 1.35;
+    }
+    .uc-survey-card__desc {
+      font-family: var(--uc-font-body);
+      font-size: 0.8125rem;
+      color: var(--uc-ink-3);
+      line-height: 1.45;
+    }
+
+    /* Archetype Card */
+    .uc-archetype-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(28px, 4vw, 48px);
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: center;
+    }
+    .uc-archetype-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: var(--uc-canvas);
+      padding: 24px;
+      border-radius: var(--uc-radius-md);
+      border: 1px solid var(--uc-line);
+    }
+    .uc-archetype-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid var(--uc-line);
+      box-shadow: var(--uc-shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .uc-archetype-name {
+      font-family: var(--uc-font-display);
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--uc-ink);
+      margin-bottom: 4px;
+    }
+    .uc-archetype-role {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      color: var(--uc-blue);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .uc-archetype-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    /* Empathy Card Deck */
+    .uc-empathy-deck {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .uc-empathy-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .uc-empathy-card__title {
+      font-family: var(--uc-font-mono);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .uc-empathy-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .uc-empathy-card__item {
+      font-family: var(--uc-font-body);
+      font-size: 0.8125rem;
+      color: var(--uc-ink-2);
+      line-height: 1.45;
+      padding-left: 12px;
+      position: relative;
+    }
+    .uc-empathy-card__item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--uc-blue);
+      font-weight: bold;
+    }
+
+    /* ── CHAPTER 3: THE TRUST ENGINE ───────────────────────────────── */
+    .uc-flow-stage {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+      overflow-x: auto;
+      padding: 12px 0 24px;
+      margin-top: 32px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .uc-flow-node {
+      flex: 1;
+      min-width: 190px;
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    .uc-flow-node__step {
+      font-family: var(--uc-font-mono);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: var(--uc-blue);
+      letter-spacing: 0.08em;
+    }
+    .uc-flow-node__title {
+      font-family: var(--uc-font-display);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--uc-ink);
+      line-height: 1.3;
+    }
+    .uc-flow-node__desc {
+      font-family: var(--uc-font-body);
+      font-size: 0.8125rem;
+      color: var(--uc-ink-3);
+      line-height: 1.4;
+    }
+
+    /* Escrow Vault Layout */
+    .uc-vault-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: clamp(24px, 4vw, 40px);
+      align-items: center;
+      margin-top: 40px;
+    }
+    .uc-vault-visual {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(24px, 4vw, 36px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .uc-trust-mascot {
+      width: min(380px, 95%);
+      height: auto;
+      filter: drop-shadow(0 16px 36px rgba(28,25,23,0.08));
+    }
+    .uc-vault-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .uc-vault-step-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: transform 0.3s var(--uc-spring);
+    }
+    .uc-vault-step-card:hover {
+      transform: translateX(4px);
+    }
+    .uc-vault-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--uc-blue-light);
+      color: var(--uc-blue);
+      font-family: var(--uc-font-mono);
+      font-size: 0.8125rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Design system tokens bento */
+    .uc-tokens-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .uc-token-panel {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 28px;
+    }
+    .uc-palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .uc-swatch {
+      border-radius: var(--uc-radius-sm);
+      height: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 6px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .uc-swatch__hex {
+      font-family: var(--uc-font-mono);
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+    .uc-type-specimen {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    /* ── CHAPTER 4: APP IN THE POCKET (SCREEN SHOWCASE) ─────────────── */
+    .uc-showcase-hero {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: clamp(28px, 4vw, 56px);
+      align-items: center;
+      margin-top: 40px;
+    }
+    .uc-phone-mockup-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .uc-phone-frame {
+      width: min(320px, 100%);
+      background: #FFFFFF;
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow: var(--uc-shadow-phone);
+      border: 4px solid #1C1917;
+      position: relative;
+    }
+    .uc-phone-notch {
+      width: 100px;
+      height: 18px;
+      background: #1C1917;
+      border-radius: 0 0 12px 12px;
+      margin: 0 auto 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .uc-phone-screen {
+      width: 100%;
+      height: auto;
+      border-radius: 32px;
+      display: block;
+      overflow: hidden;
+    }
+    .uc-mascot-proud-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .uc-proud-mascot {
+      width: min(280px, 90%);
+      height: auto;
+      filter: drop-shadow(0 16px 36px rgba(28,25,23,0.08));
+    }
+
+    /* Screen Tab Switcher */
+    .uc-screen-stage {
+      margin-top: 48px;
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(24px, 4vw, 48px);
+    }
+    .uc-screen-tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--uc-line);
+      padding-bottom: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .uc-screen-tab-btn {
+      background: none;
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-pill);
+      padding: 8px 18px;
+      font-family: var(--uc-font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--uc-ink-3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .uc-screen-tab-btn:hover {
+      color: var(--uc-ink);
+      border-color: var(--uc-ink-2);
+    }
+    .uc-screen-tab-btn.is-active {
+      background: var(--uc-blue);
+      color: #FFFFFF;
+      border-color: var(--uc-blue);
+      box-shadow: 0 4px 12px rgba(37, 88, 232, 0.25);
+    }
+    .uc-screen-panels-wrap {
+      margin-top: 32px;
+    }
+    .uc-screen-panel {
+      display: none;
+      grid-template-columns: 320px 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: center;
+    }
+    .uc-screen-panel.is-active {
+      display: grid;
+    }
+
+    /* Edge Cases Bento */
+    .uc-edge-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .uc-edge-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-md);
+      box-shadow: var(--uc-shadow-card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .uc-edge-card__img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--uc-radius-sm);
+      border: 1px solid var(--uc-line);
+      box-shadow: 0 4px 12px rgba(28,25,23,0.06);
+    }
+
+    /* ── CHAPTER 5: THE BREAKTHROUGH & ITERATIONS ──────────────────── */
+    .uc-iterations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .uc-iteration-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(20px, 3vw, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .uc-iteration-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .uc-iteration-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .uc-compare-box {
+      border-radius: var(--uc-radius-sm);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .uc-compare-box--before {
+      background: #FFF1F2;
+      border: 1px solid #FFE4E6;
+    }
+    .uc-compare-box--after {
+      background: #F0FDF4;
+      border: 1px solid #DCFCE7;
+    }
+    .uc-compare-pill {
+      font-family: var(--uc-font-mono);
+      font-size: 0.625rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .uc-compare-pill--before {
+      background: #FFE4E6;
+      color: #9F1239;
+    }
+    .uc-compare-pill--after {
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    /* Outcomes Bento */
+    .uc-outcomes-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .uc-outcome-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: 32px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.3s var(--uc-spring), box-shadow 0.3s var(--uc-spring);
+    }
+    .uc-outcome-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--uc-shadow-card-hover);
+    }
+    .uc-outcome-card__stat {
+      font-family: var(--uc-font-display);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    /* Grand Finale Card */
+    .uc-finale-card {
+      background: var(--uc-card);
+      border: 1px solid var(--uc-line);
+      border-radius: var(--uc-radius-card);
+      box-shadow: var(--uc-shadow-card);
+      padding: clamp(32px, 6vw, 64px);
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .uc-highfive-mascot {
+      width: min(440px, 95%);
+      height: auto;
+      filter: drop-shadow(0 20px 48px rgba(28,25,23,0.10));
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .uc-research-hero { grid-template-columns: 1fr; }
+      .uc-survey-bento { grid-template-columns: repeat(2, 1fr); }
+      .uc-archetype-card { grid-template-columns: 1fr; }
+      .uc-empathy-deck { grid-template-columns: repeat(2, 1fr); }
+      .uc-vault-layout { grid-template-columns: 1fr; }
+      .uc-tokens-bento { grid-template-columns: 1fr; }
+      .uc-showcase-hero { grid-template-columns: 1fr; }
+      .uc-screen-panel { grid-template-columns: 1fr; }
+      .uc-edge-bento { grid-template-columns: 1fr; }
+      .uc-iterations-grid { grid-template-columns: 1fr; }
+      .uc-outcomes-bento { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .uc-survey-bento { grid-template-columns: 1fr; }
+      .uc-empathy-deck { grid-template-columns: 1fr; }
+      .uc-palette-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── THANK YOU / CLOSING STAGE ──────────────────────────────────── */
+    #ch-close {
+      background: var(--uc-ink);
+      padding: clamp(80px, 10vw, 140px) 0;
+      text-align: center;
+    }
+
+    /* ── UTILITY ────────────────────────────────────────────────────── */
+    .u-text-center { text-align: center; }
+    .u-mt-4  { margin-top:  4px; }
+    .u-mt-8  { margin-top:  8px; }
+    .u-mt-12 { margin-top: 12px; }
+    .u-mt-16 { margin-top: 16px; }
+    .u-mt-20 { margin-top: 20px; }
+    .u-mt-24 { margin-top: 24px; }
+    .u-mt-32 { margin-top: 32px; }
+    .u-mt-40 { margin-top: 40px; }
+    .u-mb-24 { margin-bottom: 24px; }
+    .u-mb-32 { margin-bottom: 32px; }
+    .u-mb-40 { margin-bottom: 40px; }
+    .u-mt-auto { margin-top: auto; }
+
+    /* Screen-reader only */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ── RESPONSIVE TWEAKS ──────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .uc-floating-stat { display: none; }
+      .uc-world-mascot { display: none; }
+      .uc-hero-ctas { flex-direction: column; }
+      .uc-btn { justify-content: center; }
+    }
+  </style>
+</head>
+
+<!-- cs-page scopes global nav/footer theme -->
+<body class="cs-page uc-page">
+  <div id="nav-placeholder"></div>
+
+  <!-- ── CHAPTER PROGRESS RAIL ──────────────────────────────────────── -->
+  <nav class="uc-progress-rail" aria-label="Case study chapters">
+    <button class="uc-rail-dot is-active" data-target="ch1" data-label="The Broken Shift" aria-label="Chapter 1: The Broken Shift"></button>
+    <button class="uc-rail-dot" data-target="ch2" data-label="Listening on the Ground" aria-label="Chapter 2"></button>
+    <button class="uc-rail-dot" data-target="ch3" data-label="The Trust Engine" aria-label="Chapter 3"></button>
+    <button class="uc-rail-dot" data-target="ch4" data-label="App in the Pocket" aria-label="Chapter 4"></button>
+    <button class="uc-rail-dot" data-target="ch5" data-label="The Breakthrough" aria-label="Chapter 5"></button>
+  </nav>
+
+  <main>
+
+    <!-- ================================================================
+         CHAPTER 1: THE BROKEN SHIFT
+         Hero · The Standoff Mascot · The Problem In Numbers
+    ================================================================ -->
+    <section id="ch1" class="uc-chapter">
+      <div class="uc-wrap">
+
+        <!-- Back link -->
+        <a href="../work.html" class="uc-back-link uc-reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Back to Work
+        </a>
+
+        <!-- Chapter label + project type pill -->
+        <div class="uc-reveal uc-reveal-d1" style="display: flex; align-items: center; gap: 12px; margin-bottom: 0; flex-wrap: wrap;">
+          <div class="uc-chapter-pill">
+            <span class="uc-chapter-pill__dot"></span>
+            <span>Chapter 01 · The Broken Shift</span>
+          </div>
+          <span class="uc-badge uc-badge--blue">UX Case Study · 2026</span>
+          <span class="uc-badge uc-badge--green">Mobile App · India</span>
+        </div>
+
+        <!-- ── HERO LAYOUT: Title (left) · Standoff Mascot (right) ── -->
+        <div class="uc-hero-layout">
+
+          <!-- Left: Title, lead, meta, CTAs -->
+          <div class="uc-hero-title-block">
+            <span class="uc-chapter-annotation uc-reveal uc-reveal-d1">UpCrew · Gig Shift Marketplace</span>
+
+            <h1 class="uc-hero-h1 uc-reveal uc-reveal-d2">
+              Work<br>
+              that<br>
+              <em>moves</em><br>
+              with you.
+            </h1>
+
+            <p class="uc-hero-lead uc-reveal uc-reveal-d3">
+              An on-demand shift marketplace eliminating wage theft, ghosting, and chaotic WhatsApp hiring for frontline gig workers across Indian urban centers.
+            </p>
+
+            <!-- Project quick-facts chips -->
+            <div class="uc-meta-row uc-reveal uc-reveal-d4">
+              <div class="uc-meta-chip">
+                <span class="uc-meta-chip__label">Role</span>
+                <span class="uc-meta-chip__value">Solo Product & UX/UI Designer</span>
+              </div>
+              <div class="uc-meta-chip">
+                <span class="uc-meta-chip__label">Timeline</span>
+                <span class="uc-meta-chip__value">12-Week Sprint</span>
+              </div>
+              <div class="uc-meta-chip">
+                <span class="uc-meta-chip__label">Platform</span>
+                <span class="uc-meta-chip__value">iOS & Android</span>
+              </div>
+              <div class="uc-meta-chip">
+                <span class="uc-meta-chip__label">Screens</span>
+                <span class="uc-meta-chip__value">19 Production Screens</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="uc-hero-ctas uc-reveal uc-reveal-d5">
+              <a href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1" target="_blank" rel="noopener noreferrer" class="uc-btn uc-btn--primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+                View Figma Prototype
+              </a>
+              <a href="#ch2" class="uc-btn uc-btn--ghost">
+                Read the Story
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: The Standoff — big expressive mascot with satellite stats -->
+          <div class="uc-standoff-stage uc-reveal uc-reveal-d3">
+
+            <!-- Speech bubble above mascot -->
+            <div class="uc-speech-bubble">
+              <p class="uc-speech-bubble__quote">"I worked the whole shift. The supervisor's WhatsApp group was deleted the next morning."</p>
+              <span class="uc-speech-bubble__attr">Real field worker — Bangalore Urban Center, n=48 survey</span>
+            </div>
+
+            <!-- The big standoff mascot illustration -->
+            <img
+              src="../Assets/Images/uc-mascot-standoff.svg"
+              alt="UpCrew community mascot standoff — tired gig worker and stressed retail employer illustrating the broken gig economy"
+              class="uc-standoff-mascot uc-mascot-parallax"
+              loading="eager"
+              width="420"
+            >
+
+            <!-- Floating satellite stat cards -->
+            <div class="uc-floating-stat uc-floating-stat--left">
+              <div class="uc-floating-stat__num uc-floating-stat__num--red">81.2%</div>
+              <div class="uc-floating-stat__label">Wage delay rate</div>
+            </div>
+
+            <div class="uc-floating-stat uc-floating-stat--right">
+              <div class="uc-floating-stat__num uc-floating-stat__num--blue">42.9%</div>
+              <div class="uc-floating-stat__label">Ghosting rate</div>
+            </div>
+          </div>
+
+        </div><!-- /.uc-hero-layout -->
+
+      </div><!-- /.uc-wrap -->
+    </section><!-- /#ch1 -->
+
+    <div class="uc-chapter-divider"></div>
+
+    <!-- ── THE PROBLEM: Two Broken Worlds ─────────────────────────── -->
+    <section class="uc-problem-section" aria-labelledby="problem-heading">
+      <div class="uc-wrap">
+
+        <!-- Section header -->
+        <div class="uc-section-header uc-reveal">
+          <div class="uc-chapter-pill" style="margin-left: auto; margin-right: auto;">
+            <span class="uc-chapter-pill__dot"></span>
+            <span>The Problem Space</span>
+          </div>
+          <h2 class="uc-h2" id="problem-heading" style="margin-bottom: 12px;">Two sides.<br>One broken system.</h2>
+          <p class="uc-lead">Workers losing wages. Employers losing shifts. Both trapped in WhatsApp chaos.</p>
+        </div>
+
+        <!-- Two worlds bento -->
+        <div class="uc-worlds-bento">
+
+          <!-- World 1: The Worker's Reality -->
+          <div class="uc-world-card uc-world-card--worker uc-reveal uc-reveal-d1">
+            <div class="uc-world-card__header">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                <span class="uc-badge uc-badge--rose">Frontline Gig Hustler</span>
+              </div>
+              <h3 class="uc-world-card__title">The worker can't trust the system to pay them.</h3>
+              <p class="uc-world-card__subtitle">Chasing unverified WhatsApp admins for wages that were promised but rarely delivered in full or on time.</p>
+            </div>
+
+            <ul class="uc-pain-list">
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>25–30% broker commissions deducted without disclosure</span>
+              </li>
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>Travelling 60+ km to shifts with no commute cost recovery</span>
+              </li>
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>Application ghosted — zero status updates after submitting</span>
+              </li>
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--amber" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </span>
+                <span>Shift cancelled day-of with no notice or compensation</span>
+              </li>
+            </ul>
+
+            <!-- Mascot sitting in card (positioned absolutely) -->
+            <img
+              src="../Assets/Images/uc-mascot-worker-tired.svg"
+              alt=""
+              class="uc-world-mascot"
+              aria-hidden="true"
+              loading="lazy"
+              width="200"
+            >
+          </div>
+
+          <!-- World 2: The Employer's Reality -->
+          <div class="uc-world-card uc-world-card--employer uc-reveal uc-reveal-d2">
+            <div class="uc-world-card__header">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                <span class="uc-badge uc-badge--blue">Retail Store Operations Lead</span>
+              </div>
+              <h3 class="uc-world-card__title">The employer can't trust the worker to show up.</h3>
+              <p class="uc-world-card__subtitle">50% no-show rates during peak festive season shifts, with store managers personally manning billing counters.</p>
+            </div>
+
+            <ul class="uc-pain-list">
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>40+ manual phone screening calls per hire cycle</span>
+              </li>
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>Zero attendance record — no-show with no accountability</span>
+              </li>
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </span>
+                <span>Unverified workers — no GST, no ID, no floor policy acknowledgement</span>
+              </li>
+              <li class="uc-pain-item">
+                <span class="uc-pain-item__icon uc-pain-item__icon--amber" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </span>
+                <span>100% operational disruption on festive sales weekends</span>
+              </li>
+            </ul>
+
+            <!-- Stressed employer mascot in card -->
+            <img
+              src="../Assets/Images/uc-mascot-employer-stressed.svg"
+              alt=""
+              class="uc-world-mascot"
+              aria-hidden="true"
+              loading="lazy"
+              width="200"
+            >
+          </div>
+
+        </div><!-- /.uc-worlds-bento -->
+
+        <!-- 3 headline stats bento -->
+        <div class="uc-stats-bento">
+
+          <div class="uc-stat-card uc-reveal uc-reveal-d1">
+            <div class="uc-stat-card__num uc-stat-card__num--rose">81.2%</div>
+            <div class="uc-stat-card__label">Experienced Wage Delays</div>
+            <p class="uc-stat-card__note">Of workers surveyed reported being paid late or receiving less than promised — with zero formal recourse.</p>
+            <div class="uc-stat-card__source">Survey · n=48 Urban Gig Workers · 2026</div>
+          </div>
+
+          <div class="uc-stat-card uc-reveal uc-reveal-d2">
+            <div class="uc-stat-card__num uc-stat-card__num--blue">42.9%</div>
+            <div class="uc-stat-card__label">Ghosting After Application</div>
+            <p class="uc-stat-card__note">Workers heard nothing — no confirmation, no rejection, no status — after submitting to a gig role via WhatsApp.</p>
+            <div class="uc-stat-card__source">Survey · n=48 Urban Gig Workers · 2026</div>
+          </div>
+
+          <div class="uc-stat-card uc-reveal uc-reveal-d3">
+            <div class="uc-stat-card__num uc-stat-card__num--amber">68.8%</div>
+            <div class="uc-stat-card__label">Travelled > 10 km Blindly</div>
+            <p class="uc-stat-card__note">Commuted to shifts without knowing the exact address, transit time, or whether the shift was still active.</p>
+            <div class="uc-stat-card__source">Survey · n=48 Urban Gig Workers · 2026</div>
+          </div>
+
+        </div><!-- /.uc-stats-bento -->
+
+        <!-- Chapter transition card — scroll invitation to Ch2 -->
+        <div class="uc-transition-card uc-reveal">
+          <div class="uc-transition-card__text">
+            <span class="uc-transition-card__label">Next Up · Chapter 02</span>
+            <p class="uc-transition-card__title">We spent 3 weeks in transit hubs, malls, and college corridors listening to workers — <em>before</em> opening Figma.</p>
+          </div>
+          <a href="#ch2" class="uc-btn uc-btn--primary">
+            Listening on the Ground
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.uc-wrap -->
+    </section>
+
+    <div class="uc-chapter-divider"></div>
+
+    <!-- ================================================================
+         CHAPTER 2: LISTENING ON THE GROUND
+         Field Evidence · Authentic Voices · Worker Archetypes · Empathy Map
+    ================================================================ -->
+    <section id="ch2" class="uc-chapter">
+      <div class="uc-wrap">
+
+        <!-- Section Header -->
+        <div class="uc-section-header uc-reveal">
+          <div class="uc-chapter-pill" style="margin-left: auto; margin-right: auto;">
+            <span class="uc-chapter-pill__dot"></span>
+            <span>Chapter 02 · Listening on the Ground</span>
+          </div>
+          <h2 class="uc-h2" style="margin-bottom: 12px;">Field Evidence &amp;<br>Worker Archetypes</h2>
+          <p class="uc-lead">We spent 3 weeks in transit hubs, retail corridors, and college canteens conducting 48 field surveys and 1:1 contextual interviews across major urban centers.</p>
+        </div>
+
+        <!-- Research Hero Layout (Verbatim Dialogue Cards + Research Mascot Anchor) -->
+        <div class="uc-research-hero">
+
+          <!-- Left: Stack of authentic verbatim dialogue cards from field notes -->
+          <div class="uc-dialogue-stack uc-reveal uc-reveal-d1">
+            <div class="uc-dialogue-card">
+              <div class="uc-dialogue-card__header">
+                <span class="uc-dialogue-card__tag uc-dialogue-card__tag--worker">Frontline Gig Worker</span>
+                <span class="uc-dialogue-card__loc">Transit Corridor</span>
+              </div>
+              <p class="uc-dialogue-card__quote">"I work shifts because my salary is not enough. But commutation and payment clarity are everything. If I travel 15 km only to find out ₹300 was cut for unknown fees, my entire day is a loss."</p>
+              <span class="uc-dialogue-card__author">1:1 Field Interview · Graphic &amp; Retail Support</span>
+            </div>
+
+            <div class="uc-dialogue-card">
+              <div class="uc-dialogue-card__header">
+                <span class="uc-dialogue-card__tag uc-dialogue-card__tag--worker">Event Crew Worker</span>
+                <span class="uc-dialogue-card__loc">Urban Center</span>
+              </div>
+              <p class="uc-dialogue-card__quote">"I have 4 WhatsApp groups for shifts. Three are dead spam groups, and on the fourth you must apply in 30 seconds or the slot is gone. Then you wait 3 weeks wondering if you'll actually be paid."</p>
+              <span class="uc-dialogue-card__author">Field Survey (Age 22) · Flexible Gig Hustler</span>
+            </div>
+
+            <div class="uc-dialogue-card">
+              <div class="uc-dialogue-card__header">
+                <span class="uc-dialogue-card__tag uc-dialogue-card__tag--employer">Retail Store Lead</span>
+                <span class="uc-dialogue-card__loc">Metro Outlet</span>
+              </div>
+              <p class="uc-dialogue-card__quote">"When a worker doesn't show up on a Saturday rush, my assistant store manager has to stand at the billing counter. We don't worry about paying fair wages — we worry about workers vanishing after promising they'll come."</p>
+              <span class="uc-dialogue-card__author">Operations Lead · High-Street Retail</span>
+            </div>
+          </div>
+
+          <!-- Right: Research Mascot Anchor with orbiting survey badges -->
+          <div class="uc-research-visual uc-reveal uc-reveal-d2">
+            <img
+              src="../Assets/Images/uc-mascot-research.svg"
+              alt="UpCrew worker mascot holding research clipboard and analyzing field interview findings"
+              class="uc-research-mascot uc-mascot-parallax"
+              loading="lazy"
+              width="300"
+            >
+            <div class="uc-research-pill-orbit">
+              <span class="uc-badge uc-badge--blue">n=48 Field Surveys</span>
+              <span class="uc-badge uc-badge--amber">1:1 In-depth Contextual Calls</span>
+              <span class="uc-badge uc-badge--mint">Zero In-Office Assumptions</span>
+            </div>
+          </div>
+
+        </div><!-- /.uc-research-hero -->
+
+        <!-- Quantitative Survey Insights Bento -->
+        <div class="uc-survey-bento">
+
+          <div class="uc-survey-card uc-reveal uc-reveal-d1">
+            <div class="uc-survey-card__num" style="color: var(--uc-blue);">89.7%</div>
+            <div class="uc-survey-card__bar-wrap">
+              <div class="uc-survey-card__bar" style="width: 89.7%; background: var(--uc-blue);"></div>
+            </div>
+            <h3 class="uc-survey-card__label">#1 Priority: Payment Terms</h3>
+            <p class="uc-survey-card__desc">Demand verified net pay rates and guaranteed payment schedules before accepting a shift.</p>
+          </div>
+
+          <div class="uc-survey-card uc-reveal uc-reveal-d2">
+            <div class="uc-survey-card__num" style="color: var(--uc-rose);">62.1%</div>
+            <div class="uc-survey-card__bar-wrap">
+              <div class="uc-survey-card__bar" style="width: 62.1%; background: var(--uc-rose);"></div>
+            </div>
+            <h3 class="uc-survey-card__label">Application Abandonment</h3>
+            <p class="uc-survey-card__desc">Quit existing platforms due to repetitive, complex forms and intrusive personal questions.</p>
+          </div>
+
+          <div class="uc-survey-card uc-reveal uc-reveal-d3">
+            <div class="uc-survey-card__num" style="color: var(--uc-amber);">55.2%</div>
+            <div class="uc-survey-card__bar-wrap">
+              <div class="uc-survey-card__bar" style="width: 55.2%; background: var(--uc-amber);"></div>
+            </div>
+            <h3 class="uc-survey-card__label">Commute Transparency</h3>
+            <p class="uc-survey-card__desc">Require exact work location, transit time, and travel reimbursement details upfront.</p>
+          </div>
+
+          <div class="uc-survey-card uc-reveal uc-reveal-d4">
+            <div class="uc-survey-card__num" style="color: var(--uc-ink-2);">42.9%</div>
+            <div class="uc-survey-card__bar-wrap">
+              <div class="uc-survey-card__bar" style="width: 42.9%; background: var(--uc-ink-2);"></div>
+            </div>
+            <h3 class="uc-survey-card__label">Ghosted After Applying</h3>
+            <p class="uc-survey-card__desc">Received zero status updates on WhatsApp submissions, destroying platform confidence.</p>
+          </div>
+
+        </div><!-- /.uc-survey-bento -->
+
+        <!-- Grounded Worker Archetype Card (Pan-India Scope) -->
+        <div class="uc-archetype-card uc-reveal">
+          <div class="uc-archetype-profile">
+            <div class="uc-archetype-avatar">
+              <img src="../Assets/Images/uc-mascot-proud.svg" alt="" style="width: 130px; margin-top: 15px;">
+            </div>
+            <h3 class="uc-archetype-name">The Multitasking Aspirant</h3>
+            <span class="uc-archetype-role">Frontline Flexible Worker</span>
+            <div class="uc-archetype-pills">
+              <span class="uc-badge uc-badge--blue">Age 21 · Undergraduate</span>
+              <span class="uc-badge uc-badge--mint">UPI Daily User</span>
+              <span class="uc-badge uc-badge--amber">Flexible Shifts</span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <span class="uc-caption" style="color: var(--uc-blue); font-weight: 700; text-transform: uppercase;">Core Motivations</span>
+              <p class="uc-body" style="margin-top: 4px; color: var(--uc-ink);">Balancing study schedules with immediate supplementary income. Wants dependable flexible shifts without locking into rigid, punitive 9-to-5 employment contracts.</p>
+            </div>
+            <div>
+              <span class="uc-caption" style="color: var(--uc-rose); font-weight: 700; text-transform: uppercase;">Primary Daily Friction</span>
+              <p class="uc-body" style="margin-top: 4px; color: var(--uc-ink-2);">Unannounced commission cuts deducted after shifts are completed; arbitrary cancellations upon arrival; and constant uncertainty about when wages will reach their bank account.</p>
+            </div>
+            <div>
+              <span class="uc-caption" style="color: var(--uc-green); font-weight: 700; text-transform: uppercase;">Product Requirements</span>
+              <p class="uc-body" style="margin-top: 4px; color: var(--uc-ink-2);">Pre-funded escrow locks, geo-fenced check-in verification, and 1-tap automated UPI payouts within 60 minutes of shift checkout.</p>
+            </div>
+          </div>
+        </div><!-- /.uc-archetype-card -->
+
+        <!-- Empathy Map: 4 Tactile Cards Deck -->
+        <div class="uc-empathy-deck">
+
+          <div class="uc-empathy-card uc-reveal uc-reveal-d1">
+            <div class="uc-empathy-card__title" style="color: var(--uc-blue);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Says</span>
+            </div>
+            <ul class="uc-empathy-card__list">
+              <li class="uc-empathy-card__item">"I need to know how much and when will I get paid."</li>
+              <li class="uc-empathy-card__item">"Will the employer be clear about shift timings and breaks?"</li>
+              <li class="uc-empathy-card__item">"I don't want hidden deductions taken from my salary."</li>
+            </ul>
+          </div>
+
+          <div class="uc-empathy-card uc-reveal uc-reveal-d2">
+            <div class="uc-empathy-card__title" style="color: var(--uc-lavender);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <span>Thinks</span>
+            </div>
+            <ul class="uc-empathy-card__list">
+              <li class="uc-empathy-card__item">"What if I travel 15 km and this shift listing is fake?"</li>
+              <li class="uc-empathy-card__item">"Is this employer trustworthy or will they withhold payment?"</li>
+              <li class="uc-empathy-card__item">"Will high ratings on this job unlock better-paying gigs?"</li>
+            </ul>
+          </div>
+
+          <div class="uc-empathy-card uc-reveal uc-reveal-d3">
+            <div class="uc-empathy-card__title" style="color: var(--uc-amber);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Does</span>
+            </div>
+            <ul class="uc-empathy-card__list">
+              <li class="uc-empathy-card__item">Applies to multiple shifts simultaneously across groups.</li>
+              <li class="uc-empathy-card__item">Saves screenshots of WhatsApp chats as proof of terms.</li>
+              <li class="uc-empathy-card__item">Consults friends and peers before trusting new employers.</li>
+            </ul>
+          </div>
+
+          <div class="uc-empathy-card uc-reveal uc-reveal-d4">
+            <div class="uc-empathy-card__title" style="color: var(--uc-rose);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Feels</span>
+            </div>
+            <ul class="uc-empathy-card__list">
+              <li class="uc-empathy-card__item">Anxious during commute about shift cancellation on arrival.</li>
+              <li class="uc-empathy-card__item">Frustrated by zero response after submitting documents.</li>
+              <li class="uc-empathy-card__item">Empowered and motivated when payment lands immediately.</li>
+            </ul>
+          </div>
+
+        </div><!-- /.uc-empathy-deck -->
+
+        <!-- Chapter transition card -->
+        <div class="uc-transition-card uc-reveal">
+          <div class="uc-transition-card__text">
+            <span class="uc-transition-card__label">Next Up · Chapter 03</span>
+            <p class="uc-transition-card__title">How do you eliminate distrust between two strangers? <em>The UpCrew Trust Engine</em> turns promises into code.</p>
+          </div>
+          <a href="#ch3" class="uc-btn uc-btn--primary">
+            The Trust Engine
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.uc-wrap -->
+    </section>
+
+    <div class="uc-chapter-divider"></div>
+
+    <!-- ================================================================
+         CHAPTER 3: THE TRUST ENGINE
+         Information Architecture · Escrow Smart Contract · Design System
+    ================================================================ -->
+    <section id="ch3" class="uc-chapter" style="background: var(--uc-canvas-2);">
+      <div class="uc-wrap">
+
+        <!-- Section Header -->
+        <div class="uc-section-header uc-reveal">
+          <div class="uc-chapter-pill" style="margin-left: auto; margin-right: auto;">
+            <span class="uc-chapter-pill__dot"></span>
+            <span>Chapter 03 · The Trust Engine</span>
+          </div>
+          <h2 class="uc-h2" style="margin-bottom: 12px;">Architecture, Escrow<br>&amp; The System of Trust</h2>
+          <p class="uc-lead">Replacing informal WhatsApp chaos with algorithmic certainty: a 3-way escrow lock, verified check-in handshakes, and a clear architectural flow.</p>
+        </div>
+
+        <!-- System Flow Stage (5-node horizontal journey) -->
+        <div class="uc-flow-stage uc-reveal">
+          <div class="uc-flow-node">
+            <span class="uc-flow-node__step">01 · DISCOVER</span>
+            <h3 class="uc-flow-node__title">Radius &amp; Match</h3>
+            <p class="uc-flow-node__desc">Filtered by verified pay rate, commute distance, and verified store badges.</p>
+          </div>
+          <div class="uc-flow-node">
+            <span class="uc-flow-node__step">02 · ESCROW</span>
+            <h3 class="uc-flow-node__title">Funds Pre-Locked</h3>
+            <p class="uc-flow-node__desc">Employer funds 100% of the wage into UpCrew Escrow before shift goes live.</p>
+          </div>
+          <div class="uc-flow-node">
+            <span class="uc-flow-node__step">03 · COMMUTE</span>
+            <h3 class="uc-flow-node__title">Transit Radar</h3>
+            <p class="uc-flow-node__desc">Live transit reminder with walking/metro routes and offline shift ticket backup.</p>
+          </div>
+          <div class="uc-flow-node">
+            <span class="uc-flow-node__step">04 · CHECK-IN</span>
+            <h3 class="uc-flow-node__title">Geo &amp; OTP Lock</h3>
+            <p class="uc-flow-node__desc">100m geo-fence + 4-digit supervisor OTP verification prevents proxy shifts.</p>
+          </div>
+          <div class="uc-flow-node">
+            <span class="uc-flow-node__step">05 · PAYOUT</span>
+            <h3 class="uc-flow-node__title">Instant UPI Credit</h3>
+            <p class="uc-flow-node__desc">Automated release to worker's UPI account within 60 minutes of checkout.</p>
+          </div>
+        </div><!-- /.uc-flow-stage -->
+
+        <!-- Escrow Vault Breakdown Layout (Trust Mascot + 3 Security Protocols) -->
+        <div class="uc-vault-layout">
+
+          <!-- Left: Trust Mascot with live digital escrow pass -->
+          <div class="uc-vault-visual uc-reveal uc-reveal-d1">
+            <img
+              src="../Assets/Images/uc-mascot-trust.svg"
+              alt="UpCrew worker and employer united around verified escrow smart pass"
+              class="uc-trust-mascot uc-mascot-parallax"
+              loading="lazy"
+              width="380"
+            >
+            <div style="margin-top: 16px; display: flex; align-items: center; gap: 8px;">
+              <span class="uc-chapter-pill__dot" style="background: var(--uc-green);"></span>
+              <span class="uc-mono" style="font-size: 0.75rem; font-weight: 700; color: var(--uc-green);">UPCREW VERIFIED ESCROW ACTIVE</span>
+            </div>
+          </div>
+
+          <!-- Right: 3-Way Escrow Protocol Steps -->
+          <div class="uc-vault-steps uc-reveal uc-reveal-d2">
+            <div class="uc-vault-step-card">
+              <div class="uc-vault-step-num">01</div>
+              <div>
+                <h4 style="font-family: var(--uc-font-display); font-size: 1rem; font-weight: 700; color: var(--uc-ink); margin-bottom: 4px;">Pre-Shift Employer Lock</h4>
+                <p class="uc-body" style="font-size: 0.875rem; color: var(--uc-ink-2);">When an employer publishes a shift, ₹1,200 is pre-authorized and held in RBI-compliant escrow. The store cannot cancel or withhold payment without platform mediation.</p>
+              </div>
+            </div>
+
+            <div class="uc-vault-step-card">
+              <div class="uc-vault-step-num">02</div>
+              <div>
+                <h4 style="font-family: var(--uc-font-display); font-size: 1rem; font-weight: 700; color: var(--uc-ink); margin-bottom: 4px;">Dual Geo-Fenced Handshake</h4>
+                <p class="uc-body" style="font-size: 0.875rem; color: var(--uc-ink-2);">Worker must arrive within 100 meters of the retail location. The store supervisor enters a unique 4-digit daily rotating OTP, guaranteeing genuine physical attendance.</p>
+              </div>
+            </div>
+
+            <div class="uc-vault-step-card">
+              <div class="uc-vault-step-num">03</div>
+              <div>
+                <h4 style="font-family: var(--uc-font-display); font-size: 1rem; font-weight: 700; color: var(--uc-ink); margin-bottom: 4px;">Automated 1-Tap UPI Settlement</h4>
+                <p class="uc-body" style="font-size: 0.875rem; color: var(--uc-ink-2);">Checkout triggers direct API disbursement. Zero middlemen, zero hidden broker commissions, and 100% transparent fee breakdowns displayed upfront.</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.uc-vault-layout -->
+
+        <!-- Design System Tokens & Craft Bento -->
+        <div class="uc-tokens-bento">
+
+          <div class="uc-token-panel uc-reveal uc-reveal-d1">
+            <span class="uc-caption" style="color: var(--uc-blue); font-weight: 700; text-transform: uppercase;">Color Architecture</span>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink); margin-top: 4px;">Semantic Contrast Tokens</h4>
+            <div class="uc-palette-grid">
+              <div class="uc-swatch" style="background: #2558E8;"><span class="uc-swatch__hex">#2558E8</span></div>
+              <div class="uc-swatch" style="background: #1C1917;"><span class="uc-swatch__hex">#1C1917</span></div>
+              <div class="uc-swatch" style="background: #16A34A;"><span class="uc-swatch__hex">#16A34A</span></div>
+              <div class="uc-swatch" style="background: #D97706;"><span class="uc-swatch__hex">#D97706</span></div>
+              <div class="uc-swatch" style="background: #F7F6F2;"><span class="uc-swatch__hex" style="color: #1C1917; text-shadow: none;">#F7F6F2</span></div>
+            </div>
+            <p class="uc-caption" style="margin-top: 14px; color: var(--uc-ink-3);">All foreground text meets WCAG AA 4.5:1 ratio on warm linen canvas for effortless daylight readability.</p>
+          </div>
+
+          <div class="uc-token-panel uc-reveal uc-reveal-d2">
+            <span class="uc-caption" style="color: var(--uc-blue); font-weight: 700; text-transform: uppercase;">Typographic Hierarchy</span>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink); margin-top: 4px;">Engineered for Glanceability</h4>
+            <div class="uc-type-specimen">
+              <div>
+                <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">DISPLAY · PLUS JAKARTA SANS 800</span>
+                <p style="font-family: var(--uc-font-display); font-weight: 800; font-size: 1.25rem; color: var(--uc-ink);">₹1,200 · 8h Weekend Retail</p>
+              </div>
+              <div>
+                <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">BODY · SPACE GROTESK 500</span>
+                <p style="font-family: var(--uc-font-body); font-weight: 500; font-size: 0.9375rem; color: var(--uc-ink-2);">Geo-fenced within 100m of store entrance</p>
+              </div>
+              <div>
+                <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">DATA · JETBRAINS MONO 700</span>
+                <p style="font-family: var(--uc-font-mono); font-weight: 700; font-size: 0.8125rem; color: var(--uc-blue);">OTP: 4821 · ESCROW_LOCKED</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.uc-tokens-bento -->
+
+        <!-- Chapter transition card -->
+        <div class="uc-transition-card uc-reveal">
+          <div class="uc-transition-card__text">
+            <span class="uc-transition-card__label">Next Up · Chapter 04</span>
+            <p class="uc-transition-card__title">See the design in action: <em>19 high-fidelity mobile screens</em> built for real frontline shift workers.</p>
+          </div>
+          <a href="#ch4" class="uc-btn uc-btn--primary">
+            App in the Pocket
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.uc-wrap -->
+    </section>
+
+    <div class="uc-chapter-divider"></div>
+
+    <!-- ================================================================
+         CHAPTER 4: APP IN THE POCKET
+         Sacred Original Mockups · Phone Stage · Interactive Screen Tabs · Edge Cases
+    ================================================================ -->
+    <section id="ch4" class="uc-chapter">
+      <div class="uc-wrap">
+
+        <!-- Section Header -->
+        <div class="uc-section-header uc-reveal">
+          <div class="uc-chapter-pill" style="margin-left: auto; margin-right: auto;">
+            <span class="uc-chapter-pill__dot"></span>
+            <span>Chapter 04 · App in the Pocket</span>
+          </div>
+          <h2 class="uc-h2" style="margin-bottom: 12px;">19 High-Fidelity<br>Frontline Screens</h2>
+          <p class="uc-lead">Every screen designed for single-hand reachability, extreme outdoor sunlight contrast, and zero ambiguity at high pressure.</p>
+        </div>
+
+        <!-- Showcase Hero: Sacred Original Phone Mockup alongside Proud Mascot -->
+        <div class="uc-showcase-hero uc-reveal">
+
+          <div class="uc-phone-mockup-wrapper">
+            <div class="uc-phone-frame">
+              <div class="uc-phone-notch"></div>
+              <img
+                src="../Assets/Images/upcrew-browse-shifts.png"
+                alt="UpCrew Browse Shifts Screen Mockup"
+                class="uc-phone-screen"
+                loading="eager"
+              >
+            </div>
+          </div>
+
+          <!-- Proud Mascot Narrative Anchor -->
+          <div class="uc-mascot-proud-box">
+            <img
+              src="../Assets/Images/uc-mascot-proud.svg"
+              alt="UpCrew worker mascot proudly holding smartphone with confirmed earnings"
+              class="uc-proud-mascot uc-mascot-parallax"
+              loading="lazy"
+              width="280"
+            >
+            <div style="background: var(--uc-card); padding: 18px 20px; border-radius: var(--uc-radius-md); border: 1px solid var(--uc-line); box-shadow: var(--uc-shadow-card);">
+              <span class="uc-badge uc-badge--mint" style="margin-bottom: 6px;">₹5,000 Confirmed Payout</span>
+              <p class="uc-body" style="font-size: 0.875rem; color: var(--uc-ink); margin: 0;">"From fragmented WhatsApp scam groups to confirmed bank payouts in my pocket."</p>
+            </div>
+          </div>
+
+        </div><!-- /.uc-showcase-hero -->
+
+        <!-- Interactive Screen Switcher Stage (Original Sacred Mockups) -->
+        <div class="uc-screen-stage uc-reveal">
+          <div class="uc-screen-tabs-nav" role="tablist">
+            <button class="uc-screen-tab-btn is-active" role="tab" aria-selected="true" data-tab="tab-discover">01 · Discover &amp; Match</button>
+            <button class="uc-screen-tab-btn" role="tab" aria-selected="false" data-tab="tab-escrow">02 · Escrow Shift Details</button>
+            <button class="uc-screen-tab-btn" role="tab" aria-selected="false" data-tab="tab-checkin">03 · Verified Geo Check-In</button>
+            <button class="uc-screen-tab-btn" role="tab" aria-selected="false" data-tab="tab-wallet">04 · Instant UPI Wallet</button>
+          </div>
+
+          <div class="uc-screen-panels-wrap">
+
+            <!-- Tab 1: Discover -->
+            <div class="uc-screen-panel is-active" id="tab-discover" role="tabpanel">
+              <div class="uc-phone-frame" style="max-width: 280px; margin: 0 auto;">
+                <div class="uc-phone-notch"></div>
+                <img src="../Assets/Images/upcrew-browse-shifts.png" alt="Browse Shifts Screen" class="uc-phone-screen" loading="lazy">
+              </div>
+              <div>
+                <span class="uc-badge uc-badge--blue" style="margin-bottom: 8px;">Glanceable Decision Making</span>
+                <h3 style="font-family: var(--uc-font-display); font-size: 1.5rem; font-weight: 800; color: var(--uc-ink); margin-bottom: 12px;">Net Take-Home Pay First</h3>
+                <p class="uc-body" style="color: var(--uc-ink-2); line-height: 1.6; margin-bottom: 16px;">Our field interviews showed workers immediately calculate commute cost against net pay. We eliminated deceptive gross hourly rates: shifts display net take-home pay, travel distance, and the green UpCrew Escrow Lock badge right on the browse feed.</p>
+                <ul class="uc-pain-list" style="margin-top: 12px;">
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>1-Tap Radius Slider (3 km to 25 km) matching commute willingness</span>
+                  </li>
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>Verified employer badge with real frontline worker ratings</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab 2: Escrow Details -->
+            <div class="uc-screen-panel" id="tab-escrow" role="tabpanel">
+              <div class="uc-phone-frame" style="max-width: 280px; margin: 0 auto;">
+                <div class="uc-phone-notch"></div>
+                <img src="../Assets/Images/upcrew-shift-details.png" alt="Shift Details Screen" class="uc-phone-screen" loading="lazy">
+              </div>
+              <div>
+                <span class="uc-badge uc-badge--mint" style="margin-bottom: 8px;">Zero Hidden Clauses</span>
+                <h3 style="font-family: var(--uc-font-display); font-size: 1.5rem; font-weight: 800; color: var(--uc-ink); margin-bottom: 12px;">Guaranteed Escrow Protection</h3>
+                <p class="uc-body" style="color: var(--uc-ink-2); line-height: 1.6; margin-bottom: 16px;">Shift details make responsibilities crystal clear before application. Break times, meal allowances, supervisor contact, and exact dress code are locked in a digital agreement.</p>
+                <ul class="uc-pain-list" style="margin-top: 12px;">
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>100% pre-authorized funds locked in escrow before worker leaves home</span>
+                  </li>
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>Automated travel reimbursement calculation based on distance</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab 3: Check-In -->
+            <div class="uc-screen-panel" id="tab-checkin" role="tabpanel">
+              <div class="uc-phone-frame" style="max-width: 280px; margin: 0 auto;">
+                <div class="uc-phone-notch"></div>
+                <img src="../Assets/Images/upcrew-screen-verified-checkin.png" alt="Verified Checkin Screen" class="uc-phone-screen" loading="lazy">
+              </div>
+              <div>
+                <span class="uc-badge uc-badge--amber" style="margin-bottom: 8px;">Proof of Work Handshake</span>
+                <h3 style="font-family: var(--uc-font-display); font-size: 1.5rem; font-weight: 800; color: var(--uc-ink); margin-bottom: 12px;">Geo-Fence + 4-Digit OTP</h3>
+                <p class="uc-body" style="color: var(--uc-ink-2); line-height: 1.6; margin-bottom: 16px;">No more supervisor paper logbooks that get misplaced. Check-in unlocks automatically when GPS confirms worker arrival within 100 meters, completing verification via an instant OTP handshake.</p>
+                <ul class="uc-pain-list" style="margin-top: 12px;">
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>Works offline: offline cryptographic check-in pass for basement retail</span>
+                  </li>
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>Emergency SOS &amp; supervisor hotline accessible directly from shift card</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab 4: Wallet -->
+            <div class="uc-screen-panel" id="tab-wallet" role="tabpanel">
+              <div class="uc-phone-frame" style="max-width: 280px; margin: 0 auto;">
+                <div class="uc-phone-notch"></div>
+                <img src="../Assets/Images/upcrew-screen-wallet.png" alt="Wallet Screen" class="uc-phone-screen" loading="lazy">
+              </div>
+              <div>
+                <span class="uc-badge uc-badge--mint" style="margin-bottom: 8px;">Zero Commission Delay</span>
+                <h3 style="font-family: var(--uc-font-display); font-size: 1.5rem; font-weight: 800; color: var(--uc-ink); margin-bottom: 12px;">Instant UPI Settlement</h3>
+                <p class="uc-body" style="color: var(--uc-ink-2); line-height: 1.6; margin-bottom: 16px;">Completed shifts credit immediately into the worker's UpCrew Wallet. A single tap sends earnings directly to any UPI VPA (Google Pay, PhonePe, Paytm, or BHIM) within 60 seconds.</p>
+                <ul class="uc-pain-list" style="margin-top: 12px;">
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>Zero deduction guarantee: worker keeps 100% of listed net wage</span>
+                  </li>
+                  <li class="uc-pain-item">
+                    <span class="uc-pain-item__icon uc-pain-item__icon--blue" aria-hidden="true">✓</span>
+                    <span>Verified digital work certificate generated for future career mobility</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div><!-- /.uc-screen-panels-wrap -->
+        </div><!-- /.uc-screen-stage -->
+
+        <!-- Edge Cases & Offline Reliability Bento (Sacred Mockup PNGs) -->
+        <div class="uc-edge-bento">
+
+          <div class="uc-edge-card uc-reveal uc-reveal-d1">
+            <img src="../Assets/Images/upcrew-zero-shifts-radius.png" alt="Zero shifts radius mockup" class="uc-edge-card__img" loading="lazy">
+            <span class="uc-badge uc-badge--amber" style="width: fit-content;">Edge Case 01</span>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.0625rem; font-weight: 800; color: var(--uc-ink);">Zero Shifts Radius Fallback</h4>
+            <p class="uc-body" style="font-size: 0.8125rem; color: var(--uc-ink-3);">Instead of a dead-end zero state, UpCrew auto-calculates neighboring transit corridors and lets workers subscribe to instant push notifications when shifts open.</p>
+          </div>
+
+          <div class="uc-edge-card uc-reveal uc-reveal-d2">
+            <img src="../Assets/Images/upcrew-screen-transit-reminder.png" alt="Transit reminder mockup" class="uc-edge-card__img" loading="lazy">
+            <span class="uc-badge uc-badge--blue" style="width: fit-content;">Edge Case 02</span>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.0625rem; font-weight: 800; color: var(--uc-ink);">Transit Delay Proactive Buffer</h4>
+            <p class="uc-body" style="font-size: 0.8125rem; color: var(--uc-ink-3);">Sends dynamic metro/bus departure reminders 90 minutes before shift time with a 1-tap "Traffic Delay" button that auto-alerts the store manager without penalty.</p>
+          </div>
+
+          <div class="uc-edge-card uc-reveal uc-reveal-d3">
+            <img src="../Assets/Images/upcrew-screen-emergency-cancellation.png" alt="Emergency cancellation mockup" class="uc-edge-card__img" loading="lazy">
+            <span class="uc-badge uc-badge--rose" style="width: fit-content;">Edge Case 03</span>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.0625rem; font-weight: 800; color: var(--uc-ink);">Emergency Cancellation Net</h4>
+            <p class="uc-body" style="font-size: 0.8125rem; color: var(--uc-ink-3);">If an employer cancels within 4 hours of shift time, 50% of the escrow lock is automatically transferred to the worker as commute compensation.</p>
+          </div>
+
+        </div><!-- /.uc-edge-bento -->
+
+        <!-- Chapter transition card -->
+        <div class="uc-transition-card uc-reveal">
+          <div class="uc-transition-card__text">
+            <span class="uc-transition-card__label">Next Up · Chapter 05</span>
+            <p class="uc-transition-card__title">How did testing reshape the product? <em>4 critical usability pivots</em> and the final high-five victory.</p>
+          </div>
+          <a href="#ch5" class="uc-btn uc-btn--primary">
+            The Breakthrough
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.uc-wrap -->
+    </section>
+
+    <div class="uc-chapter-divider"></div>
+
+    <!-- ================================================================
+         CHAPTER 5: THE BREAKTHROUGH
+         Testing · 4 Usability Pivots · Real Outcomes · The High-Five Finale
+    ================================================================ -->
+    <section id="ch5" class="uc-chapter" style="background: var(--uc-canvas-2);">
+      <div class="uc-wrap">
+
+        <!-- Section Header -->
+        <div class="uc-section-header uc-reveal">
+          <div class="uc-chapter-pill" style="margin-left: auto; margin-right: auto;">
+            <span class="uc-chapter-pill__dot"></span>
+            <span>Chapter 05 · The Breakthrough</span>
+          </div>
+          <h2 class="uc-h2" style="margin-bottom: 12px;">Testing, Iterations<br>&amp; The High-Five</h2>
+          <p class="uc-lead">We tested interactive prototypes with 12 frontline workers and 4 store supervisors across two iterative testing rounds.</p>
+        </div>
+
+        <!-- 4 Usability Pivots Grid -->
+        <div class="uc-iterations-grid">
+
+          <!-- Pivot 1 -->
+          <div class="uc-iteration-card uc-reveal uc-reveal-d1">
+            <div class="uc-iteration-header">
+              <span class="uc-badge uc-badge--blue">Usability Pivot 01</span>
+              <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">ROUND 1 → 2</span>
+            </div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Shift Card Information Density</h4>
+            <div class="uc-iteration-compare">
+              <div class="uc-compare-box uc-compare-box--before">
+                <span class="uc-compare-pill uc-compare-pill--before">Early Prototype</span>
+                <p class="uc-caption" style="color: #881337; margin-top: 4px;">Dense 8-row table listing gross pay, tax deductions, and store policy. Workers took 42 seconds to decide if pay was worth the commute.</p>
+              </div>
+              <div class="uc-compare-box uc-compare-box--after">
+                <span class="uc-compare-pill uc-compare-pill--after">Final Iteration</span>
+                <p class="uc-caption" style="color: #14532D; margin-top: 4px;">Streamlined to 3 glanceable anchors: Net Take-Home Pay (large), Distance in km, and Escrow Locked badge. Decision time dropped to 6 seconds.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pivot 2 -->
+          <div class="uc-iteration-card uc-reveal uc-reveal-d2">
+            <div class="uc-iteration-header">
+              <span class="uc-badge uc-badge--amber">Usability Pivot 02</span>
+              <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">ROUND 1 → 2</span>
+            </div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Check-In Friction in Basement Retail</h4>
+            <div class="uc-iteration-compare">
+              <div class="uc-compare-box uc-compare-box--before">
+                <span class="uc-compare-pill uc-compare-pill--before">Early Prototype</span>
+                <p class="uc-caption" style="color: #881337; margin-top: 4px;">Required continuous 4G live socket connection. Mall basement food courts caused 35% check-in failure rate due to dead network zones.</p>
+              </div>
+              <div class="uc-compare-box uc-compare-box--after">
+                <span class="uc-compare-pill uc-compare-pill--after">Final Iteration</span>
+                <p class="uc-caption" style="color: #14532D; margin-top: 4px;">Cached offline check-in pass with local cryptographic supervisor QR + rotating OTP. 100% check-in reliability even with zero cell signal.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pivot 3 -->
+          <div class="uc-iteration-card uc-reveal uc-reveal-d3">
+            <div class="uc-iteration-header">
+              <span class="uc-badge uc-badge--mint">Usability Pivot 03</span>
+              <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">ROUND 1 → 2</span>
+            </div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Payout Visibility &amp; UPI Speed</h4>
+            <div class="uc-iteration-compare">
+              <div class="uc-compare-box uc-compare-box--before">
+                <span class="uc-compare-pill uc-compare-pill--before">Early Prototype</span>
+                <p class="uc-caption" style="color: #881337; margin-top: 4px;">Earnings were grouped into weekly batch payouts hidden in the user profile drawer. Workers worried they were being scammed.</p>
+              </div>
+              <div class="uc-compare-box uc-compare-box--after">
+                <span class="uc-compare-pill uc-compare-pill--after">Final Iteration</span>
+                <p class="uc-caption" style="color: #14532D; margin-top: 4px;">Prominent bottom-bar Wallet badge showing live locked balance with instant 1-tap UPI withdrawal immediately following shift sign-off.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pivot 4 -->
+          <div class="uc-iteration-card uc-reveal uc-reveal-d4">
+            <div class="uc-iteration-header">
+              <span class="uc-badge uc-badge--lavender">Usability Pivot 04</span>
+              <span class="uc-mono" style="font-size: 0.6875rem; color: var(--uc-ink-ghost);">ROUND 1 → 2</span>
+            </div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Emergency Cancellation Policy</h4>
+            <div class="uc-iteration-compare">
+              <div class="uc-compare-box uc-compare-box--before">
+                <span class="uc-compare-pill uc-compare-pill--before">Early Prototype</span>
+                <p class="uc-caption" style="color: #881337; margin-top: 4px;">Punitive worker penalty system with zero employer compensation rules. Created asymmetric anxiety during field tests.</p>
+              </div>
+              <div class="uc-compare-box uc-compare-box--after">
+                <span class="uc-compare-pill uc-compare-pill--after">Final Iteration</span>
+                <p class="uc-caption" style="color: #14532D; margin-top: 4px;">Balanced 2-sided trust: employers pay 50% compensation for late cancellations; workers receive 1 free emergency pass per 10 completed shifts.</p>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.uc-iterations-grid -->
+
+        <!-- Real Outcome Metrics Bento -->
+        <div class="uc-outcomes-bento">
+
+          <div class="uc-outcome-card uc-reveal uc-reveal-d1">
+            <div class="uc-outcome-card__stat" style="color: var(--uc-blue);">94.2%</div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Task Completion Rate</h4>
+            <p class="uc-body" style="font-size: 0.8125rem; color: var(--uc-ink-3); margin: 0;">In usability testing, 11 of 12 workers completed end-to-end shift application and check-in without assistance (up from 38% in baseline informal WhatsApp groups).</p>
+          </div>
+
+          <div class="uc-outcome-card uc-reveal uc-reveal-d2">
+            <div class="uc-outcome-card__stat" style="color: var(--uc-green);">0%</div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Wage Delay Disputes</h4>
+            <p class="uc-body" style="font-size: 0.8125rem; color: var(--uc-ink-3); margin: 0;">Automated UPI escrow lock eliminated payment withholding entirely across all simulated test shift completions.</p>
+          </div>
+
+          <div class="uc-outcome-card uc-reveal uc-reveal-d3">
+            <div class="uc-outcome-card__stat" style="color: var(--uc-amber);">12 min</div>
+            <h4 style="font-family: var(--uc-font-display); font-size: 1.125rem; font-weight: 800; color: var(--uc-ink);">Time to Confirmed Shift</h4>
+            <p class="uc-body" style="font-size: 0.8125rem; color: var(--uc-ink-3); margin: 0;">Average confirmation cycle dropped from over 4 hours of phone calls and WhatsApp negotiations down to 12 minutes on UpCrew.</p>
+          </div>
+
+        </div><!-- /.uc-outcomes-bento -->
+
+        <!-- The High-Five Grand Finale Centerpiece -->
+        <div class="uc-finale-card uc-reveal">
+          <div class="uc-chapter-pill">
+            <span class="uc-chapter-pill__dot" style="background: var(--uc-green);"></span>
+            <span>A Two-Sided Win · Dignity &amp; Reliability</span>
+          </div>
+
+          <!-- Big High-Five Mascot SVG -->
+          <img
+            src="../Assets/Images/uc-mascot-highfive.svg"
+            alt="UpCrew worker and retail employer celebrating mutual success with high five"
+            class="uc-highfive-mascot uc-mascot-parallax"
+            loading="lazy"
+            width="440"
+          >
+
+          <p class="uc-lead" style="max-width: 58ch; color: var(--uc-ink-2); margin: 0;">
+            Frontline workers earn dignity, transparent pay, and instant daily payouts. Retail employers secure reliable, verified shifts without operational disruption.
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+            <a href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1" target="_blank" rel="noopener noreferrer" class="uc-btn uc-btn--primary">
+              Launch Figma Prototype
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <a href="../work.html" class="uc-btn uc-btn--ghost">
+              Explore More Case Studies
+            </a>
+          </div>
+        </div><!-- /.uc-finale-card -->
+
+      </div><!-- /.uc-wrap -->
+    </section>
+
+    <div class="uc-chapter-divider"></div>
+
+    <!-- ================================================================
+         CLOSING STAGE
+    ================================================================ -->
+    <section id="ch-close" aria-label="Case study complete">
+      <div class="uc-wrap" style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;">
+        <div class="uc-chapter-pill" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12);">
+          <span class="uc-chapter-pill__dot" style="background: #A78BFA;"></span>
+          <span style="color: rgba(255,255,255,0.6);">Case Study · UpCrew · 2026</span>
+        </div>
+        <h2 class="uc-h2" style="color: #FFFFFF;">Thank you for scrolling.</h2>
+        <p class="uc-lead" style="color: rgba(255,255,255,0.65); max-width: 52ch;">UpCrew proved that systemic trust — not just polished pixels — is what frontline workers in India actually need. Every escrow lock, every verified badge, every 7-stage queue update was earned through 48 real conversations.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 12px;">
+          <a href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1" target="_blank" rel="noopener noreferrer" class="uc-btn uc-btn--primary">
+            Open Figma Prototype
+          </a>
+          <a href="../contact.html" class="uc-btn uc-btn--ghost" style="color: #FFFFFF !important; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);">
+            Start a Conversation
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    /* ── 1. Sub-page link depth fix ─────────────────────────────────── */
+    document.querySelectorAll('#nav-placeholder a, #mobileMenu a, #footer-placeholder a').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('../') && !href.startsWith('#')) {
+        a.setAttribute('href', '../' + href);
+      }
+    });
+
+    /* ── 2. Global hooks ─────────────────────────────────────────────── */
+    if (typeof initReveal    === 'function') initReveal();
+    if (typeof initMagnetic  === 'function') initMagnetic();
+    if (typeof initOrangeHover === 'function') initOrangeHover();
+
+    /* ── 3. Scroll Reveal (IntersectionObserver with spring feel) ───── */
+    var revealEls = document.querySelectorAll('.uc-reveal');
+    if ('IntersectionObserver' in window) {
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            ro.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+      revealEls.forEach(function (el) { ro.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+
+    /* ── 4. Chapter Progress Rail ───────────────────────────────────── */
+    var railDots = document.querySelectorAll('.uc-rail-dot');
+    var chapters = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5'];
+
+    function updateRail() {
+      var scrollY = window.scrollY + window.innerHeight * 0.4;
+      var activeIdx = 0;
+      chapters.forEach(function (id, idx) {
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) {
+          activeIdx = idx;
+        }
+      });
+      railDots.forEach(function (dot, idx) {
+        dot.classList.toggle('is-active', idx === activeIdx);
+      });
+    }
+
+    window.addEventListener('scroll', updateRail, { passive: true });
+    updateRail();
+
+    /* Rail dot click scrolls to chapter */
+    railDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var target = document.getElementById(dot.dataset.target);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ── 5. Mascot Parallax on Scroll ───────────────────────────────── */
+    var mascots = document.querySelectorAll('.uc-mascot-parallax');
+    function updateParallax() {
+      mascots.forEach(function (m) {
+        var rect = m.getBoundingClientRect();
+        var center = rect.top + rect.height / 2;
+        var viewport = window.innerHeight;
+        var offset = ((center / viewport) - 0.5) * 20; /* max ±10px */
+        m.style.transform = 'translateY(' + offset.toFixed(2) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+
+    /* ── 6. Stat counter animation ───────────────────────────────────── */
+    var statNums = document.querySelectorAll('.uc-stat-card__num');
+    var statObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        if (el.dataset.animated) return;
+        el.dataset.animated = '1';
+        var raw = el.textContent.trim();
+        var match = raw.match(/^([\d.]+)(%?)$/);
+        if (!match) return;
+        var target = parseFloat(match[1]);
+        var suffix = match[2] || '';
+        var decimals = match[1].includes('.') ? 1 : 0;
+        var t0 = performance.now();
+        var dur = 1200;
+        (function tick(now) {
+          var p = Math.min((now - t0) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var val = ease * target;
+          el.textContent = (decimals ? val.toFixed(decimals) : Math.floor(val)) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toFixed(decimals) + suffix;
+        })(t0);
+        statObserver.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    statNums.forEach(function (el) { statObserver.observe(el); });
+
+    /* ── 7. Chapter 4 Screen Tab Switcher ────────────────────────────── */
+    var screenTabBtns = document.querySelectorAll('.uc-screen-tab-btn');
+    var screenPanels = document.querySelectorAll('.uc-screen-panel');
+    screenTabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = btn.getAttribute('data-tab');
+        screenTabBtns.forEach(function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        screenPanels.forEach(function (p) {
+          p.classList.remove('is-active');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        var targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add('is-active');
+        }
+      });
+    });
+
+  });
+  </script>
+</body>
+</html>
