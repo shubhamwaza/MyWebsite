@@ -243,19 +243,32 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isRunning = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
+
+    // Performance optimization: Pause the animation loop when the cursor is stationary
+    // and the floating box has caught up, saving CPU cycles.
+    if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isRunning = false;
+      return;
+    }
     requestAnimationFrame(loop);
   }
-  loop();
+  isRunning = true;
+  requestAnimationFrame(loop);
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    if (!isRunning) {
+      isRunning = true;
+      requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
