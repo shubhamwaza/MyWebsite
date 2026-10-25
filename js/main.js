@@ -182,8 +182,8 @@ function initReveal() {
 
 function escapeHtml(str) {
   const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  div.textContent = String(str);
+  return div.innerHTML.replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
