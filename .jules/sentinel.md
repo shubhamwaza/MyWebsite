@@ -1,0 +1,4 @@
+## 2024-10-25 - Fix XSS Vulnerability in escapeHtml
+**Vulnerability:** The `escapeHtml` function in `js/main.js` used a DOM-based `textContent` to `innerHTML` conversion which failed to escape quote characters (`"` and `'`) and was vulnerable to Type Confusion XSS bypasses if the input was not a string.
+**Learning:** Native DOM `textContent` to `innerHTML` conversions leave quotes unescaped, which can lead to Attribute XSS when the escaped string is used in HTML attributes (e.g. `alt` or `src` tags). Additionally, failing to cast input to a string can allow malicious objects with custom `toString` methods to bypass sanitization.
+**Prevention:** Always explicitly cast input to a string (e.g., `String(str)`) before sanitization and use regex-based replacement to explicitly escape quote characters when implementing custom HTML escaping functions.
