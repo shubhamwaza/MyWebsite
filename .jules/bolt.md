@@ -1,0 +1,3 @@
+## 2024-05-18 - Stop Continuous requestAnimationFrame loops
+**Learning:** `requestAnimationFrame` called endlessly without a terminating condition runs continuously on every frame, consuming CPU and battery even when the user isn't interacting and nothing is visually changing on the page. In this codebase, the cursor preview animation loop was doing exactly this.
+**Action:** When using `requestAnimationFrame` for easing/interpolation (like `cur += (target - cur) * ease`), always include a threshold check (e.g. `Math.abs(target - cur) > 0.1`) to stop the loop when the target is reached, and restart it inside the event listener when the target changes.
