@@ -1,0 +1,4 @@
+## 2024-05-20 - XSS in escapeHtml via innerHTML conversion and Type Confusion
+**Vulnerability:** The \`escapeHtml\` function relies on setting \`textContent\` and reading \`innerHTML\`. This fails to escape quote characters (\`"\` and \`'\`), leading to Attribute XSS. Furthermore, it lacks string casting, making it vulnerable to Type Confusion bypasses if non-strings (like objects with a custom \`toString\`) are passed.
+**Learning:** Native DOM conversion from \`textContent\` to \`innerHTML\` does not escape quotes because quotes are valid in HTML text nodes. Also, missing type casting in sanitizers allows complex objects to bypass security logic.
+**Prevention:** Always cast inputs to strings explicitly (e.g., \`String(input)\`) before sanitization. Use comprehensive regex replacements that include \`&\`, \`<\`, \`>\`, \`"\`, and \`'\` rather than relying on DOM text node behaviors.
