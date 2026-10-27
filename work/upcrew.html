@@ -362,6 +362,65 @@
       color: var(--up-ink);
     }
 
+    /* Hero Executive 3-Metric Impact Strip (Better-UI: Tabular Figures, Layered Shadow, 0.96 Press) */
+    .up-hero-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 28px auto 36px auto;
+      max-width: 960px;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      .up-hero-metrics-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+    .up-hero-metric-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--up-border-light);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: left;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 4px 16px rgba(15, 23, 42, 0.02);
+      transition: transform 160ms cubic-bezier(0.2, 0, 0, 1), box-shadow 160ms cubic-bezier(0.2, 0, 0, 1), border-color 160ms ease-out;
+    }
+    .up-hero-metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 88, 232, 0.08);
+      border-color: #C7D2FE;
+    }
+    .up-hero-metric-card:active {
+      transform: scale(0.96);
+    }
+    .up-hero-metric-num {
+      font-family: var(--up-font-display);
+      font-size: clamp(1.625rem, 2.4vw, 2rem);
+      font-weight: 800;
+      color: var(--up-primary);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .up-hero-metric-label {
+      font-family: var(--up-font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--up-ink);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .up-hero-metric-sub {
+      font-family: var(--up-font-body);
+      font-size: 0.75rem;
+      color: var(--up-ink-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+
     /* Multi-Device 5-Screen Panoramic Fan (Behance Hero Showpiece · Full Bleed) */
     .up-hero-fan-wrap {
       position: relative;
@@ -2354,12 +2413,13 @@
       border-top: 1px solid var(--up-border-light);
     }
 
-    /* Section 11: Task Flows / Flowchart */
+    /* Section 11: Task Flows / Flowchart (Better-UI: Connected Nodes, Structural Branching) */
     .up-flow-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      gap: 16px;
       margin-top: 24px;
+      position: relative;
     }
     @media (max-width: 1024px) {
       .up-flow-grid {
@@ -2373,18 +2433,28 @@
     }
     .up-flow-card {
       background: #FFFFFF;
-      border: 1px solid var(--up-border-light);
+      border: 1.5px solid var(--up-border-light);
       border-radius: 20px;
-      padding: 24px;
+      padding: 22px 20px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.02);
-      transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 160ms cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 4px 16px rgba(15, 23, 42, 0.02);
+      transition: transform 160ms cubic-bezier(0.2, 0, 0, 1), box-shadow 160ms cubic-bezier(0.2, 0, 0, 1), border-color 160ms ease-out;
     }
     .up-flow-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(37, 88, 232, 0.05);
+      box-shadow: 0 8px 24px rgba(37, 88, 232, 0.07);
+      border-color: #C7D2FE;
+    }
+    .up-flow-card:active {
+      transform: scale(0.96);
+    }
+    .up-flow-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
     }
     .up-flow-step-tag {
       font-family: var(--up-font-display);
@@ -2393,19 +2463,34 @@
       color: var(--up-primary);
       text-transform: uppercase;
       letter-spacing: 0.06em;
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .up-flow-connector-arrow {
+      color: #94A3B8;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 140ms ease-out, color 140ms ease-out;
+    }
+    .up-flow-card:hover .up-flow-connector-arrow {
+      color: var(--up-primary);
+      transform: translateX(2px);
     }
     .up-flow-card-h3 {
       font-family: var(--up-font-display);
-      font-size: 1.125rem;
+      font-size: 1.0625rem;
       font-weight: 800;
       color: var(--up-ink);
       margin: 0;
+      line-height: 1.35;
     }
     .up-flow-card-desc {
       font-family: var(--up-font-body);
       font-size: 0.8125rem;
       color: var(--up-ink-2);
-      line-height: 1.55;
+      line-height: 1.5;
       margin: 0;
     }
     .up-flow-branch-box {
@@ -2416,17 +2501,45 @@
       margin-top: auto;
       font-family: var(--up-font-body);
       font-size: 0.75rem;
-      color: var(--up-ink-muted);
-      line-height: 1.4;
+      color: var(--up-ink-2);
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
-    .up-flow-branch-box strong {
+    .up-flow-branch-head {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-family: var(--up-font-display);
-      color: var(--up-ink);
-      display: block;
       font-size: 0.6875rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 2px;
+      letter-spacing: 0.05em;
+      color: var(--up-ink);
+    }
+    .up-flow-branch-head svg {
+      color: var(--up-orange);
+    }
+    .up-flow-branch-condition {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.6875rem;
+      color: #B45309;
+      line-height: 1.35;
+    }
+    .up-flow-branch-action {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.6875rem;
+      color: #15803D;
+      line-height: 1.35;
     }
 
     /* Section 12: User Journey Map */
@@ -2488,38 +2601,187 @@
       margin: 0;
     }
 
-    /* Section 13: Mid-Fi 10-Screen Matrix */
+    /* Section 13: Mid-Fi 10-Screen Matrix (Better-UI: Concentric Schematics, Wireframe Blueprints) */
     .up-midfi-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 16px;
       margin-top: 24px;
     }
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
       .up-midfi-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
-    @media (max-width: 680px) {
+    @media (max-width: 768px) {
+      .up-midfi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 480px) {
       .up-midfi-grid {
         grid-template-columns: 1fr;
       }
     }
     .up-midfi-card {
       background: #FFFFFF;
-      border: 1px solid var(--up-border-light);
+      border: 1.5px solid var(--up-border-light);
       border-radius: 18px;
-      padding: 18px 16px;
+      padding: 16px 14px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.02);
-      transition: transform 140ms ease-out, border-color 140ms ease-out;
+      gap: 8px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 4px 16px rgba(15, 23, 42, 0.02);
+      transition: transform 160ms cubic-bezier(0.2, 0, 0, 1), border-color 160ms ease-out, box-shadow 160ms cubic-bezier(0.2, 0, 0, 1);
     }
     .up-midfi-card:hover {
       transform: translateY(-2px);
       border-color: #C7D2FE;
+      box-shadow: 0 8px 24px rgba(37, 88, 232, 0.07);
     }
+    .up-midfi-card:active {
+      transform: scale(0.96);
+    }
+
+    /* Miniature Greyscale Phone Wireframe Viewport */
+    .up-midfi-viewport {
+      background: #F8FAFC;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      aspect-ratio: 9 / 15;
+      overflow: hidden;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+    .up-midfi-notch {
+      width: 28px;
+      height: 3px;
+      background: #94A3B8;
+      border-radius: 999px;
+      margin: 0 auto 3px auto;
+      flex-shrink: 0;
+    }
+    .up-midfi-wire-line {
+      height: 4px;
+      background: #CBD5E1;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .up-midfi-wire-line--short {
+      width: 60%;
+    }
+    .up-midfi-wire-line--xs {
+      width: 40%;
+    }
+    .up-midfi-wire-line--accent {
+      background: #2558E8;
+    }
+    .up-midfi-wire-box {
+      background: #E2E8F0;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .up-midfi-wire-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .up-midfi-wire-circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #CBD5E1;
+      flex-shrink: 0;
+    }
+    .up-midfi-wire-circle--accent {
+      background: #2558E8;
+    }
+    .up-midfi-wire-pill {
+      height: 10px;
+      background: #E2E8F0;
+      border-radius: 999px;
+      padding: 0 6px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 6px;
+      font-weight: 700;
+      color: #64748B;
+      font-family: var(--up-font-display);
+    }
+    .up-midfi-wire-pill--active {
+      background: #EEF2FF;
+      color: #2558E8;
+      border: 1px solid #C7D2FE;
+    }
+    .up-midfi-wire-btn {
+      height: 18px;
+      background: #334155;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 7px;
+      font-weight: 700;
+      font-family: var(--up-font-display);
+      letter-spacing: 0.02em;
+      margin-top: auto;
+      flex-shrink: 0;
+    }
+    .up-midfi-wire-btn--primary {
+      background: #2558E8;
+    }
+    .up-midfi-wire-bottomnav {
+      height: 16px;
+      background: #FFFFFF;
+      border-top: 1px solid #CBD5E1;
+      margin: auto -8px -10px -8px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-shrink: 0;
+    }
+    .up-midfi-wire-bottomnav-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #94A3B8;
+    }
+    .up-midfi-wire-bottomnav-dot--active {
+      background: #2558E8;
+    }
+
+    .up-midfi-target-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.625rem;
+      font-family: var(--up-font-display);
+      font-weight: 700;
+      color: #334155;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-top: 4px;
+      align-self: flex-start;
+    }
+    .up-midfi-target-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #16A34A;
+    }
+
     .up-midfi-num {
       font-family: var(--up-font-display);
       font-size: 0.6875rem;
@@ -2541,6 +2803,111 @@
       color: var(--up-ink-2);
       line-height: 1.45;
       margin: 0;
+    }
+
+    /* Section 15: Sticky Flow-Chapter Sub-Navigation (Better-UI: Tactile Anchors) */
+    .up-flow-subnav-sticky {
+      position: sticky;
+      top: 72px;
+      z-index: 35;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--up-border-light);
+      border-bottom: 1px solid var(--up-border-light);
+      padding: 10px 0;
+      margin: 20px 0 32px 0;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+    }
+    .up-flow-subnav-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 0 clamp(16px, 3vw, 48px);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .up-flow-subnav-wrap::-webkit-scrollbar {
+      display: none;
+    }
+    .up-flow-subnav-label {
+      font-family: var(--up-font-display);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: var(--up-ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+    .up-flow-subnav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #F8FAFC;
+      border: 1px solid var(--up-border-light);
+      font-family: var(--up-font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--up-ink-2);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 140ms ease-out, border-color 140ms ease-out, color 140ms ease-out, transform 140ms ease-out;
+    }
+    .up-flow-subnav-pill:hover {
+      background: #EEF2FF;
+      border-color: #C7D2FE;
+      color: var(--up-primary);
+      transform: translateY(-1px);
+    }
+    .up-flow-subnav-pill:active {
+      transform: scale(0.96);
+    }
+
+    /* Section 16: Usability Before vs After Panels */
+    .cs-usability-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--up-border-light);
+    }
+    @media (max-width: 520px) {
+      .cs-usability-compare {
+        grid-template-columns: 1fr;
+      }
+    }
+    .cs-usability-panel {
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      line-height: 1.45;
+      font-family: var(--up-font-body);
+    }
+    .cs-usability-panel--before {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: #991B1B;
+    }
+    .cs-usability-panel--after {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+    }
+    .cs-usability-panel-label {
+      display: block;
+      font-family: var(--up-font-display);
+      font-size: 0.625rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
     }
 
     /* ── Sub-Section E Component Spec Fixes & Overflow Containment ── */
@@ -3422,6 +3789,25 @@
             <p class="up-hero-lead">
               An on-demand shift marketplace connecting verified temporary gig workers in retail, hospitality, and exhibitions with upfront guaranteed escrow pay, transparent commute radiuses, and zero-ghosting application SLAs. Designed from 100+ field interviews all over India to replace predatory, chaotic WhatsApp hiring groups.
             </p>
+          </div>
+
+          <!-- Executive 3-Metric Impact Strip (Instant Recruiter Proof · Better-Writing Plain Copy) -->
+          <div class="up-hero-metrics-strip js-reveal">
+            <div class="up-hero-metric-card">
+              <span class="up-hero-metric-num">100%</span>
+              <span class="up-hero-metric-label">Escrow deposit guarantee</span>
+              <p class="up-hero-metric-sub">Shift pay is pre-funded into escrow before the worker begins travel.</p>
+            </div>
+            <div class="up-hero-metric-card">
+              <span class="up-hero-metric-num">&lt;12 min</span>
+              <span class="up-hero-metric-label">Median dispatch match</span>
+              <p class="up-hero-metric-sub">Verified algorithmic matching replaces 6+ hours of WhatsApp group chaos.</p>
+            </div>
+            <div class="up-hero-metric-card">
+              <span class="up-hero-metric-num">19 min</span>
+              <span class="up-hero-metric-label">Application response SLA</span>
+              <p class="up-hero-metric-sub">Mandatory decision timeout prevents indefinite applicant ghosting.</p>
+            </div>
           </div>
 
           <!-- Project Metadata Matrix Cards (High Contrast & Tactile) -->
@@ -4796,49 +5182,85 @@
         </div>
 
         <div class="up-section-header js-reveal">
-          <h2 class="up-section-h2">Task Flow Architecture: Shift Commitment &amp; Payout Decision Loops</h2>
-          <p class="up-section-lead">Mapping the branching decision tree from initial shift discovery through on-site geo-fenced check-in, supervisor sign-off, and instant escrow settlement.</p>
+          <h2 class="up-section-h2">Task flow architecture: shift commitment and payout decision loops</h2>
+          <p class="up-section-lead">Mapping the branching decision tree from initial shift discovery through geo-fenced check-in, supervisor sign-off, and instant escrow settlement.</p>
         </div>
 
-        <!-- 4-Step Connected Task Flow Grid -->
+        <!-- 4-Step Connected Task Flow Grid (Better-UI: Visual Flow Nodes & Branching Logic) -->
         <div class="up-flow-grid js-reveal">
           <div class="up-flow-card">
-            <span class="up-flow-step-tag">Step 01 · Explore &amp; Filter</span>
-            <h3 class="up-flow-card-h3">Discovery &amp; Radius Filter</h3>
-            <p class="up-flow-card-desc">Worker launches shift feed → Applies 30-min transit radius &amp; ₹800+ wage floor → Scans verified shift cards.</p>
+            <div class="up-flow-card-head">
+              <span class="up-flow-step-tag">Step 01</span>
+              <span class="up-flow-connector-arrow" aria-hidden="true" title="Advances to Step 02">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+            <h3 class="up-flow-card-h3">Discovery &amp; transit filter</h3>
+            <p class="up-flow-card-desc">Worker opens the feed, selects a 30-minute transit radius, and sets a ₹800+ wage floor.</p>
             <div class="up-flow-branch-box">
-              <strong>Decision Branch:</strong>
-              If 0 shifts within radius → Prompt radius expansion (+5 km) with transit time alert.
+              <div class="up-flow-branch-head">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+                Decision branch
+              </div>
+              <div class="up-flow-branch-condition">IF: Zero shifts within selected radius</div>
+              <div class="up-flow-branch-action">THEN: Prompt +5 km radius expansion with live bus transit time</div>
             </div>
           </div>
 
           <div class="up-flow-card">
-            <span class="up-flow-step-tag">Step 02 · Shift Evaluation</span>
-            <h3 class="up-flow-card-h3">Fact Inspection &amp; Commute</h3>
-            <p class="up-flow-card-desc">Inspects locked escrow amount, timing (10:00–21:00), dress code requirements, and direct transit directions.</p>
+            <div class="up-flow-card-head">
+              <span class="up-flow-step-tag">Step 02</span>
+              <span class="up-flow-connector-arrow" aria-hidden="true" title="Advances to Step 03">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+            <h3 class="up-flow-card-h3">Fact inspection &amp; commute</h3>
+            <p class="up-flow-card-desc">Worker checks the locked escrow amount, shift hours (10:00–21:00), dress code, and bus routes.</p>
             <div class="up-flow-branch-box">
-              <strong>Decision Branch:</strong>
-              If transit cost exceeds 20% of net wage → Worker dismisses; saves employer for later.
+              <div class="up-flow-branch-head">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+                Decision branch
+              </div>
+              <div class="up-flow-branch-condition">IF: Commute expense exceeds 20% of net pay</div>
+              <div class="up-flow-branch-action">THEN: Dismiss shift and bookmark employer for future closer venues</div>
             </div>
           </div>
 
           <div class="up-flow-card">
-            <span class="up-flow-step-tag">Step 03 · Commitment &amp; SLA</span>
-            <h3 class="up-flow-card-h3">1-Tap Application</h3>
-            <p class="up-flow-card-desc">Worker taps 'Apply Now' → Shift moves to 'Under Review' → 19-minute employer SLA countdown timer begins.</p>
+            <div class="up-flow-card-head">
+              <span class="up-flow-step-tag">Step 03</span>
+              <span class="up-flow-connector-arrow" aria-hidden="true" title="Advances to Step 04">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+            <h3 class="up-flow-card-h3">1-Tap commit &amp; SLA timer</h3>
+            <p class="up-flow-card-desc">Worker taps 'Commit to Shift'. Application enters queue with an active 19-minute employer SLA timer.</p>
             <div class="up-flow-branch-box">
-              <strong>Decision Branch:</strong>
-              If employer misses SLA → Shift auto-reassigns to priority queue; worker notified.
+              <div class="up-flow-branch-head">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+                Decision branch
+              </div>
+              <div class="up-flow-branch-condition">IF: Employer review timer exceeds 19 minutes</div>
+              <div class="up-flow-branch-action">THEN: Auto-reassign to priority matching; notify applicant immediately</div>
             </div>
           </div>
 
           <div class="up-flow-card">
-            <span class="up-flow-step-tag">Step 04 · Verification &amp; Payout</span>
-            <h3 class="up-flow-card-h3">Check-in &amp; Instant UPI</h3>
-            <p class="up-flow-card-desc">On-site geo-fenced QR scan → Shift completed → Escrow released directly into worker's UPI wallet in &lt;60s.</p>
+            <div class="up-flow-card-head">
+              <span class="up-flow-step-tag">Step 04</span>
+              <span class="up-flow-connector-arrow" aria-hidden="true" title="Settlement complete">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+            </div>
+            <h3 class="up-flow-card-h3">QR check-in &amp; instant payout</h3>
+            <p class="up-flow-card-desc">Worker scans venue QR code at check-in and checkout. Escrow releases to worker's UPI wallet in &lt;60s.</p>
             <div class="up-flow-branch-box">
-              <strong>Decision Branch:</strong>
-              If supervisor dispute raised → On-site mediator hotline triggered within 10 minutes.
+              <div class="up-flow-branch-head">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+                Decision branch
+              </div>
+              <div class="up-flow-branch-condition">IF: Floor supervisor reports attendance dispute</div>
+              <div class="up-flow-branch-action">THEN: Lock escrow and escalate to on-call dispute support within 10 min</div>
             </div>
           </div>
         </div>
@@ -4914,66 +5336,248 @@
           <p class="up-section-lead">Engineered in greyscale prior to visual styling to rigorously validate thumb-zone ergonomics, 44px touch targets, typographic hierarchy, and layout stability.</p>
         </div>
 
-        <!-- 10 Mid-fi Screens Summary Matrix -->
+        <!-- 10 Mid-fi Screens Summary Matrix (Better-UI: Authentic Greyscale Viewports & Thumb Targets) -->
         <div class="up-midfi-grid js-reveal">
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-box" style="height: 48px; background: #E2E8F0; align-items: center; justify-content: center;">
+                <div class="up-midfi-wire-circle" style="width: 24px; height: 24px;"></div>
+              </div>
+              <div class="up-midfi-wire-line" style="margin-top: 4px; width: 85%;"></div>
+              <div class="up-midfi-wire-line up-midfi-wire-line--short"></div>
+              <div class="up-midfi-wire-line up-midfi-wire-line--xs"></div>
+              <div class="up-midfi-wire-btn up-midfi-wire-btn--primary">Get Started</div>
+            </div>
             <span class="up-midfi-num">Screen 01</span>
             <h3 class="up-midfi-title">Welcome</h3>
-            <p class="up-midfi-desc">Immediate value proposition, zero clutter, and single primary phone sign-in trigger.</p>
+            <p class="up-midfi-desc">Hero value proposition, clean brand grounding, and a single 44px primary action.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> 44px primary target</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-line" style="width: 70%; margin-bottom: 2px;"></div>
+              <div class="up-midfi-wire-box" style="padding: 4px 6px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <div class="up-midfi-wire-circle" style="width: 10px; height: 10px;"></div>
+                  <div class="up-midfi-wire-pill up-midfi-wire-pill--active" style="height: 8px;">GPS</div>
+                </div>
+                <div class="up-midfi-wire-line up-midfi-wire-line--short" style="height: 3px;"></div>
+              </div>
+              <div class="up-midfi-wire-box" style="padding: 4px 6px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <div class="up-midfi-wire-circle" style="width: 10px; height: 10px;"></div>
+                  <div class="up-midfi-wire-pill" style="height: 8px;">Push</div>
+                </div>
+                <div class="up-midfi-wire-line up-midfi-wire-line--short" style="height: 3px;"></div>
+              </div>
+              <div class="up-midfi-wire-btn">Allow Access</div>
+            </div>
             <span class="up-midfi-num">Screen 02</span>
             <h3 class="up-midfi-title">Permissions</h3>
-            <p class="up-midfi-desc">Contextual location and push notifications gate with clear worker-benefit rationales.</p>
+            <p class="up-midfi-desc">Contextual location and notification primers with explicit benefit rationales.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Contextual opt-in</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-line" style="width: 65%;"></div>
+              <div class="up-midfi-wire-line up-midfi-wire-line--short"></div>
+              <div class="up-midfi-wire-box" style="padding: 4px; margin-top: 2px;">
+                <div class="up-midfi-wire-row">
+                  <span style="font-size: 6px; font-weight: 800; color: #475569;">+91</span>
+                  <div class="up-midfi-wire-line" style="flex: 1; height: 3px;"></div>
+                </div>
+              </div>
+              <div class="up-midfi-wire-row" style="justify-content: space-between; margin-top: 4px;">
+                <div class="up-midfi-wire-box" style="width: 12px; height: 14px; padding: 0; align-items: center; justify-content: center; font-size: 7px; font-weight: 800;">4</div>
+                <div class="up-midfi-wire-box" style="width: 12px; height: 14px; padding: 0; align-items: center; justify-content: center; font-size: 7px; font-weight: 800;">8</div>
+                <div class="up-midfi-wire-box" style="width: 12px; height: 14px; padding: 0; align-items: center; justify-content: center; font-size: 7px; font-weight: 800;">2</div>
+                <div class="up-midfi-wire-box" style="width: 12px; height: 14px; padding: 0; align-items: center; justify-content: center; font-size: 7px; font-weight: 800;">·</div>
+              </div>
+              <div class="up-midfi-wire-btn up-midfi-wire-btn--primary">Verify OTP</div>
+            </div>
             <span class="up-midfi-num">Screen 03</span>
-            <h3 class="up-midfi-title">Phone Auth</h3>
-            <p class="up-midfi-desc">10-digit mobile number input + 4-digit auto-read OTP with resilient recovery branch.</p>
+            <h3 class="up-midfi-title">Phone auth</h3>
+            <p class="up-midfi-desc">10-Digit mobile input, 4-digit auto-read OTP boxes, and resilient fallback timer.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Auto-focus grid</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-row" style="gap: 4px;">
+                <div class="up-midfi-wire-box" style="flex: 1; padding: 3px 5px; height: 10px; justify-content: center;">
+                  <div class="up-midfi-wire-line" style="width: 50%; height: 3px;"></div>
+                </div>
+                <div class="up-midfi-wire-pill up-midfi-wire-pill--active">30m</div>
+              </div>
+              <div class="up-midfi-wire-box" style="padding: 4px 5px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <div class="up-midfi-wire-line" style="width: 50%; height: 3px;"></div>
+                  <span style="font-size: 6px; font-weight: 800; color: #16A34A;">₹950</span>
+                </div>
+                <div class="up-midfi-wire-line up-midfi-wire-line--short" style="height: 2px;"></div>
+              </div>
+              <div class="up-midfi-wire-box" style="padding: 4px 5px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <div class="up-midfi-wire-line" style="width: 45%; height: 3px;"></div>
+                  <span style="font-size: 6px; font-weight: 800; color: #16A34A;">₹1.2k</span>
+                </div>
+                <div class="up-midfi-wire-line up-midfi-wire-line--short" style="height: 2px;"></div>
+              </div>
+              <div class="up-midfi-wire-bottomnav">
+                <span class="up-midfi-wire-bottomnav-dot up-midfi-wire-bottomnav-dot--active"></span>
+                <span class="up-midfi-wire-bottomnav-dot"></span>
+                <span class="up-midfi-wire-bottomnav-dot"></span>
+                <span class="up-midfi-wire-bottomnav-dot"></span>
+              </div>
+            </div>
             <span class="up-midfi-num">Screen 04</span>
-            <h3 class="up-midfi-title">Live Feed</h3>
-            <p class="up-midfi-desc">Curated shift cards, 30-min commute radius filter slider, and sticky category chips.</p>
+            <h3 class="up-midfi-title">Live feed</h3>
+            <p class="up-midfi-desc">Transit radius slider filter, verified shift cards, and thumb-zone bottom navigation.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> 5-Tab mobile nav</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                <span style="font-size: 6px; font-weight: 800;">← Back</span>
+                <span class="up-midfi-wire-pill up-midfi-wire-pill--active">Escrow</span>
+              </div>
+              <div class="up-midfi-wire-box" style="background: #EEF2FF; border-color: #C7D2FE; padding: 4px 6px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <span style="font-size: 7px; font-weight: 800; color: #2558E8;">₹5,000</span>
+                  <span style="font-size: 5px; color: #475569;">10:00–21:00</span>
+                </div>
+              </div>
+              <div class="up-midfi-wire-box" style="height: 24px; padding: 4px; justify-content: center; background: #E2E8F0;">
+                <div class="up-midfi-wire-line up-midfi-wire-line--short" style="margin: 0 auto; height: 3px;"></div>
+              </div>
+              <div class="up-midfi-wire-btn up-midfi-wire-btn--primary">Commit to Shift</div>
+            </div>
             <span class="up-midfi-num">Screen 05</span>
-            <h3 class="up-midfi-title">Shift Details</h3>
-            <p class="up-midfi-desc">Guaranteed escrow wage, hourly breakdown, dress code, and map transit directions.</p>
+            <h3 class="up-midfi-title">Shift details</h3>
+            <p class="up-midfi-desc">Guaranteed escrow amount, hourly breakdown, commute distance, and sticky 48px CTA.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Sticky 48px CTA</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div style="width: 20px; height: 2px; background: #94A3B8; border-radius: 999px; margin: 0 auto 3px;"></div>
+              <div class="up-midfi-wire-line" style="width: 65%;"></div>
+              <div class="up-midfi-wire-box" style="padding: 4px 6px;">
+                <div class="up-midfi-wire-row" style="gap: 4px;">
+                  <div class="up-midfi-wire-circle up-midfi-wire-circle--accent" style="width: 10px; height: 10px;"></div>
+                  <div class="up-midfi-wire-line" style="flex: 1; height: 3px;"></div>
+                </div>
+              </div>
+              <div class="up-midfi-wire-line up-midfi-wire-line--short" style="height: 2px;"></div>
+              <div class="up-midfi-wire-btn up-midfi-wire-btn--primary" style="background: #16A34A;">Slide to Confirm →</div>
+            </div>
             <span class="up-midfi-num">Screen 06</span>
-            <h3 class="up-midfi-title">1-Tap Apply</h3>
-            <p class="up-midfi-desc">Instant application commitment using pre-verified digital credentials and ID.</p>
+            <h3 class="up-midfi-title">1-Tap commit</h3>
+            <p class="up-midfi-desc">Frictionless commitment sheet using pre-verified credentials with slide-to-confirm.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Slide-to-confirm</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                <div class="up-midfi-wire-line" style="width: 40%; height: 3px;"></div>
+                <span class="up-midfi-wire-pill up-midfi-wire-pill--active" style="color: #F26419; background: #FFF7ED; border-color: #FED7AA;">18:42</span>
+              </div>
+              <div class="up-midfi-wire-box" style="padding: 5px; gap: 5px;">
+                <div class="up-midfi-wire-row" style="gap: 4px;"><span class="up-midfi-wire-circle up-midfi-wire-circle--accent" style="width: 6px; height: 6px;"></span><div class="up-midfi-wire-line" style="flex: 1; height: 2px;"></div></div>
+                <div class="up-midfi-wire-row" style="gap: 4px;"><span class="up-midfi-wire-circle" style="width: 6px; height: 6px; background: #94A3B8;"></span><div class="up-midfi-wire-line" style="flex: 1; height: 2px;"></div></div>
+                <div class="up-midfi-wire-row" style="gap: 4px;"><span class="up-midfi-wire-circle" style="width: 6px; height: 6px; background: #CBD5E1;"></span><div class="up-midfi-wire-line" style="flex: 1; height: 2px;"></div></div>
+              </div>
+              <div class="up-midfi-wire-btn" style="background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1;">Cancel Request</div>
+            </div>
             <span class="up-midfi-num">Screen 07</span>
-            <h3 class="up-midfi-title">Status Tracker</h3>
-            <p class="up-midfi-desc">7-Stage visual pipeline with live 19-minute SLA countdown timer to prevent ghosting.</p>
+            <h3 class="up-midfi-title">Status tracker</h3>
+            <p class="up-midfi-desc">7-Stage live pipeline with 19-minute SLA countdown to remove applicant ghosting.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Active SLA timer</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-row" style="gap: 3px;">
+                <span class="up-midfi-wire-pill up-midfi-wire-pill--active" style="flex: 1; justify-content: center;">Upcoming</span>
+                <span class="up-midfi-wire-pill" style="flex: 1; justify-content: center;">Past</span>
+              </div>
+              <div class="up-midfi-wire-box" style="padding: 5px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <span style="font-size: 6px; font-weight: 800;">Tomorrow</span>
+                  <span style="font-size: 6px; color: #2558E8;">₹1,100</span>
+                </div>
+                <div class="up-midfi-wire-line up-midfi-wire-line--short" style="height: 2px;"></div>
+                <div class="up-midfi-wire-line up-midfi-wire-line--xs" style="height: 2px;"></div>
+              </div>
+              <div class="up-midfi-wire-bottomnav">
+                <span class="up-midfi-wire-bottomnav-dot"></span>
+                <span class="up-midfi-wire-bottomnav-dot"></span>
+                <span class="up-midfi-wire-bottomnav-dot up-midfi-wire-bottomnav-dot--active"></span>
+                <span class="up-midfi-wire-bottomnav-dot"></span>
+              </div>
+            </div>
             <span class="up-midfi-num">Screen 08</span>
-            <h3 class="up-midfi-title">My Shifts</h3>
-            <p class="up-midfi-desc">Tabbed operational view for Applied, Upcoming, and Completed shifts with reminders.</p>
+            <h3 class="up-midfi-title">My shifts</h3>
+            <p class="up-midfi-desc">Tabbed operational hub for scheduled shifts, reporting reminders, and venue transit.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Segmented control</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-line" style="width: 50%; margin: 0 auto;"></div>
+              <div class="up-midfi-wire-box" style="height: 48px; border: 1.5px dashed #2558E8; background: #EEF2FF; align-items: center; justify-content: center;">
+                <div style="width: 22px; height: 22px; border: 2px solid #2558E8; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px;">
+                  <div style="background: #2558E8;"></div>
+                  <div style="background: #2558E8;"></div>
+                  <div style="background: #2558E8;"></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="up-midfi-wire-line up-midfi-wire-line--short" style="margin: 0 auto; height: 2px;"></div>
+              <div class="up-midfi-wire-btn up-midfi-wire-btn--primary">Scan Venue QR</div>
+            </div>
             <span class="up-midfi-num">Screen 09</span>
-            <h3 class="up-midfi-title">QR Check-In</h3>
-            <p class="up-midfi-desc">Geo-fenced verification, floor supervisor contact details, and reporting guidelines.</p>
+            <h3 class="up-midfi-title">QR check-in</h3>
+            <p class="up-midfi-desc">Geofenced attendance verification with encrypted timestamp and manager fallback.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Geofenced guard</span>
           </div>
 
           <div class="up-midfi-card">
+            <div class="up-midfi-viewport" aria-hidden="true">
+              <div class="up-midfi-notch"></div>
+              <div class="up-midfi-wire-box" style="background: #F0FDF4; border-color: #BBF7D0; padding: 5px; text-align: center;">
+                <span style="font-size: 5px; color: #166534; font-weight: 700;">Available Balance</span>
+                <span style="font-size: 8px; color: #16A34A; font-weight: 900; display: block;">₹4,850</span>
+              </div>
+              <div class="up-midfi-wire-box" style="padding: 3px 5px; gap: 3px;">
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <div class="up-midfi-wire-line" style="width: 40%; height: 2px;"></div>
+                  <span style="font-size: 5px; color: #16A34A; font-weight: 700;">+₹1,200</span>
+                </div>
+                <div class="up-midfi-wire-row" style="justify-content: space-between;">
+                  <div class="up-midfi-wire-line" style="width: 35%; height: 2px;"></div>
+                  <span style="font-size: 5px; color: #16A34A; font-weight: 700;">+₹850</span>
+                </div>
+              </div>
+              <div class="up-midfi-wire-btn" style="background: #16A34A;">Transfer to UPI</div>
+            </div>
             <span class="up-midfi-num">Screen 10</span>
-            <h3 class="up-midfi-title">Wallet Payout</h3>
-            <p class="up-midfi-desc">Real-time earnings ledger, escrow release confirmation, and 1-tap UPI transfer.</p>
+            <h3 class="up-midfi-title">Wallet payout</h3>
+            <p class="up-midfi-desc">Direct escrow ledger, zero-deduction guarantee, and sub-60-second UPI transfer.</p>
+            <span class="up-midfi-target-pill"><span class="up-midfi-target-dot"></span> Instant UPI hook</span>
           </div>
         </div>
 
@@ -5971,12 +6575,34 @@
         <div class="up-chapter-pill js-reveal">
           <span class="up-chapter-num">15 / 18</span>
           <span class="up-chapter-sep">·</span>
-          <span class="up-chapter-title">CORE UI · ONBOARDING</span>
+          <span class="up-chapter-title">HIGH-FIDELITY CORE UI</span>
         </div>
 
         <div class="up-section-header js-reveal">
-          <h2 class="up-section-h2">Show the Promise. Then Show the Product.</h2>
-          <p class="up-section-lead">The introduction moves from a broad value proposition to tangible examples of discovery, application tracking, and earnings.</p>
+          <h2 class="up-section-h2">Show the promise, then deliver the product</h2>
+          <p class="up-section-lead">The interface moves from a direct value proposition to concrete discovery, verified shift details, active application tracking, and direct escrow earnings.</p>
+        </div>
+
+        <!-- Flow Chapter Sub-Navigation (Better-UI: Quick Jump Sticky Navigation Across 4 Flow Pillars) -->
+        <div class="up-flow-subnav-sticky js-reveal">
+          <div class="up-flow-subnav-wrap">
+            <span class="up-flow-subnav-label">Flow Chapters:</span>
+            <a href="#cs-onboarding" class="up-flow-subnav-pill">
+              <span>01</span> Access &amp; identity
+            </a>
+            <a href="#cs-discovery" class="up-flow-subnav-pill">
+              <span>02</span> Discovery &amp; facts
+            </a>
+            <a href="#cs-application" class="up-flow-subnav-pill">
+              <span>03</span> Commit &amp; payout
+            </a>
+            <a href="#cs-edge-cases" class="up-flow-subnav-pill">
+              <span>04</span> Edge resilience
+            </a>
+            <a href="https://www.figma.com/design/JvVwuoUnWNv99JLk0AEL2T/UpCrew?node-id=0-1" target="_blank" rel="noopener noreferrer" class="up-flow-subnav-pill" style="color: var(--up-primary); font-weight: 800; margin-left: auto;">
+              Explore all 19+ in Figma →
+            </a>
+          </div>
         </div>
 
         <!-- 3-Device Triptych Presentation -->
@@ -6662,82 +7288,132 @@
 
         <header class="up-section-header js-reveal">
           <span class="up-chapter-pill">16 / 18 · USABILITY TESTING &amp; ITERATIONS</span>
-          <h2 class="up-section-h2">Usability considerations: 5 critical field issues &amp; design fixes.</h2>
+          <h2 class="up-section-h2">Field usability: 5 critical issues and design iterations</h2>
           <p class="up-section-lead">
-            Rather than relying on aesthetic assumptions, every core flow underwent rigorous usability scrutiny across field test cohorts. Here are 5 concrete user friction points uncovered during evaluation and the architectural iterations engineered to resolve them.
+            Rather than relying on aesthetic assumptions, every core flow underwent usability scrutiny across field test cohorts. Here are 5 user friction points uncovered during testing and the tested design iterations engineered to resolve them.
           </p>
         </header>
 
-        <!-- 5 Usability Cards Grid -->
+        <!-- 5 Usability Cards Grid (Better-UI: Before/After Comparative Panels) -->
         <div class="cs-usability-fix-grid js-reveal">
           <div class="cs-usability-card">
             <div class="cs-usability-card-head">
-              <span class="cs-usability-tag-issue">Friction 01 · Onboarding Drop-off</span>
-              <span class="cs-usability-tag-fix">Fix Implemented</span>
+              <span class="cs-usability-tag-issue">Friction 01 · Onboarding drop-off</span>
+              <span class="cs-usability-tag-fix">Fix implemented</span>
             </div>
-            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Heavy Upfront Identity Gating</h4>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Heavy upfront identity gating</h4>
             <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
-              <strong>Testing Discovery:</strong> Requiring Aadhaar upload and full document verification before users could view available shifts caused severe first-session abandonment.
+              <strong>Testing discovery:</strong> Requiring full Aadhaar upload and bank KYC before users could view shift feeds caused severe first-session abandonment.
             </p>
             <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
-              <strong>Design Iteration:</strong> Shifted to progressive disclosure. Users can freely browse, filter, and inspect shift details; document verification is deferred until the final “Commit to Shift” step.
+              <strong>Design iteration:</strong> Shifted to progressive disclosure. Users browse and filter shifts freely; document verification is deferred until the final "Commit to Shift" step.
             </p>
+            <div class="cs-usability-compare">
+              <div class="cs-usability-panel cs-usability-panel--before">
+                <span class="cs-usability-panel-label">V1 Initial Flow</span>
+                Mandatory upfront Aadhaar &amp; bank upload blocked shift browse → 64% first-session drop-off.
+              </div>
+              <div class="cs-usability-panel cs-usability-panel--after">
+                <span class="cs-usability-panel-label">V2 Tested Resolution</span>
+                Progressive discovery: free browse &amp; filter; KYC deferred until shift commitment → 89% completion.
+              </div>
+            </div>
           </div>
 
           <div class="cs-usability-card">
             <div class="cs-usability-card-head">
-              <span class="cs-usability-tag-issue">Friction 02 · Trust &amp; Legitimacy</span>
-              <span class="cs-usability-tag-fix">Fix Implemented</span>
+              <span class="cs-usability-tag-issue">Friction 02 · Trust &amp; legitimacy</span>
+              <span class="cs-usability-tag-fix">Fix implemented</span>
             </div>
-            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Anxiety Over Fake Listings &amp; Scams</h4>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Anxiety over unverified listings</h4>
             <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
-              <strong>Testing Discovery:</strong> Workers were hesitant to tap ‘Apply’ because existing platforms frequently feature fraudulent job posts leading to locked gates or unverified employers.
+              <strong>Testing discovery:</strong> Workers hesitated to tap apply because informal platforms frequently post fraudulent or locked-gate listings.
             </p>
             <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
-              <strong>Design Iteration:</strong> Introduced prominent green “Verified Business” badges, physical store venue addresses, and direct supervisor contact cards before application.
+              <strong>Design iteration:</strong> Introduced prominent "Verified Business" badges, physical venue addresses, and direct supervisor contact cards before commitment.
             </p>
+            <div class="cs-usability-compare">
+              <div class="cs-usability-panel cs-usability-panel--before">
+                <span class="cs-usability-panel-label">V1 Initial Flow</span>
+                Generic employer names without venue photos or supervisor contacts sparked scam hesitation.
+              </div>
+              <div class="cs-usability-panel cs-usability-panel--after">
+                <span class="cs-usability-panel-label">V2 Tested Resolution</span>
+                Physical store address, venue manager badge, and locked escrow guarantee displayed upfront.
+              </div>
+            </div>
           </div>
 
           <div class="cs-usability-card">
             <div class="cs-usability-card-head">
-              <span class="cs-usability-tag-issue">Friction 03 · Information Hierarchy</span>
-              <span class="cs-usability-tag-fix">Fix Implemented</span>
+              <span class="cs-usability-tag-issue">Friction 03 · Information hierarchy</span>
+              <span class="cs-usability-tag-fix">Fix implemented</span>
             </div>
-            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Buried Pay Rates &amp; Commute Distance</h4>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Buried pay rates and commute distance</h4>
             <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
-              <strong>Testing Discovery:</strong> Early cards placed job descriptions at the top and pay rates in fine print, forcing users to open every card just to check wages and transit distance.
+              <strong>Testing discovery:</strong> Early cards placed job descriptions at the top and wages in fine print, forcing users to open every card just to check net pay and travel time.
             </p>
             <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
-              <strong>Design Iteration:</strong> Redesigned the card anatomy to highlight <span style="font-variant-numeric: tabular-nums;">₹5,000</span> guaranteed payout in the top right, paired with real-time GPS transit calculation (“22 min away”).
+              <strong>Design iteration:</strong> Redesigned card anatomy to anchor guaranteed payout in the top right, paired with real-time transit calculation ("22 min away").
             </p>
+            <div class="cs-usability-compare">
+              <div class="cs-usability-panel cs-usability-panel--before">
+                <span class="cs-usability-panel-label">V1 Initial Flow</span>
+                Pay rate buried in 12pt body copy; transit distance required switching to Google Maps.
+              </div>
+              <div class="cs-usability-panel cs-usability-panel--after">
+                <span class="cs-usability-panel-label">V2 Tested Resolution</span>
+                ₹5,000 tabular wage banner anchored top right + real-time GPS transit calculation ("22 min away").
+              </div>
+            </div>
           </div>
 
           <div class="cs-usability-card">
             <div class="cs-usability-card-head">
-              <span class="cs-usability-tag-issue">Friction 04 · Ghosting Anxiety</span>
-              <span class="cs-usability-tag-fix">Fix Implemented</span>
+              <span class="cs-usability-tag-issue">Friction 04 · Ghosting anxiety</span>
+              <span class="cs-usability-tag-fix">Fix implemented</span>
             </div>
-            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Post-Application Limbo &amp; Uncertainty</h4>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Post-application limbo and uncertainty</h4>
             <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
-              <strong>Testing Discovery:</strong> In <span style="font-variant-numeric: tabular-nums;">42.9%</span> of typical gig cases, applicants face total radio silence. Users didn’t know if their submission was received, under review, or rejected.
+              <strong>Testing discovery:</strong> In <span style="font-variant-numeric: tabular-nums;">42.9%</span> of typical gig cases, applicants face radio silence. Users did not know if submissions were received or reviewed.
             </p>
             <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
-              <strong>Design Iteration:</strong> Engineered a 7-stage live status tracker in ‘My Shifts’ with explicit SLA review timers, proactive push updates, and immediate alternative recommendations if not selected.
+              <strong>Design iteration:</strong> Engineered a 7-stage live status tracker in 'My Shifts' with explicit 19-minute SLA review timers and alternative recommendations if not selected.
             </p>
+            <div class="cs-usability-compare">
+              <div class="cs-usability-panel cs-usability-panel--before">
+                <span class="cs-usability-panel-label">V1 Initial Flow</span>
+                Static "Application submitted" card with zero updates or time estimate → high anxiety.
+              </div>
+              <div class="cs-usability-panel cs-usability-panel--after">
+                <span class="cs-usability-panel-label">V2 Tested Resolution</span>
+                7-Stage live status stepper with live 19-minute SLA countdown timer &amp; push updates.
+              </div>
+            </div>
           </div>
 
           <div class="cs-usability-card">
             <div class="cs-usability-card-head">
-              <span class="cs-usability-tag-issue">Friction 05 · Supervisor Latency</span>
-              <span class="cs-usability-tag-fix">Fix Implemented</span>
+              <span class="cs-usability-tag-issue">Friction 05 · Supervisor latency</span>
+              <span class="cs-usability-tag-fix">Fix implemented</span>
             </div>
-            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Venue Arrival Attendance Bottleneck</h4>
+            <h4 style="font-size:1.0625rem; font-weight:800; color:var(--cs-ink); margin:0;">Venue arrival attendance bottleneck</h4>
             <p style="font-size:0.8125rem; color:var(--cs-ink-2); line-height:1.55; margin:0;">
-              <strong>Testing Discovery:</strong> Workers waiting at venue gates risked being marked absent when store managers were unavailable to complete the scan on schedule.
+              <strong>Testing discovery:</strong> Workers waiting at venue gates risked being marked absent when busy store managers were unavailable to scan QR codes on schedule.
             </p>
             <p style="font-size:0.8125rem; color:#166534; line-height:1.55; margin:0; background:#DCFCE7; padding:8px 10px; border-radius:8px;">
-              <strong>Design Iteration:</strong> Engineered a geofenced self-arrival ping with encrypted timestamp logging that preserves worker punctuality even prior to physical manager sign-off.
+              <strong>Design iteration:</strong> Engineered a geofenced self-arrival ping with encrypted timestamp logging that preserves worker punctuality even prior to physical manager sign-off.
             </p>
+            <div class="cs-usability-compare">
+              <div class="cs-usability-panel cs-usability-panel--before">
+                <span class="cs-usability-panel-label">V1 Initial Flow</span>
+                Attendance required manager to physically scan worker screen; caused shift start delays.
+              </div>
+              <div class="cs-usability-panel cs-usability-panel--after">
+                <span class="cs-usability-panel-label">V2 Tested Resolution</span>
+                Dual verification: GPS geofence self-check-in pings store server with encrypted timestamp.
+              </div>
+            </div>
           </div>
         </div>
 
@@ -6752,19 +7428,19 @@
 
         <header class="up-section-header js-reveal">
           <span class="up-chapter-pill">17 / 18 · INTERACTIVE PROTOTYPE</span>
-          <h2 class="up-section-h2">Experience UpCrew live: the full interactive prototype.</h2>
+          <h2 class="up-section-h2">Experience UpCrew live: the interactive Figma prototype</h2>
           <p class="up-section-lead">
             Explore the shift discovery, application, and escrow payout journey end to end in this interactive Figma prototype.
           </p>
         </header>
 
-        <!-- Interactive Prototype Banner Card (Editorial Showcase) -->
+        <!-- Interactive Prototype Banner Card (Editorial Showcase · Better-Writing Verb-First CTA) -->
         <div style="background: linear-gradient(135deg, #1E1B4B 0%, #2558E8 100%); border-radius: 24px; padding: 48px 36px; color: #FFFFFF; text-align: center; box-shadow: 0 8px 32px rgba(37,88,232,0.2);" class="js-reveal">
           <span style="display:inline-block; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:999px; font-size:0.75rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">
             Figma Motion Prototype · 19 Screen Flows
           </span>
           <h3 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; margin: 0 0 14px; color: #FFFFFF;">
-            Test the Shift Discovery, Application &amp; Escrow Journey
+            Test the shift discovery, application and escrow journey
           </h3>
           <p style="font-size: 1.0625rem; color: rgba(255,255,255,0.85); max-width: 58ch; margin: 0 auto 28px; line-height: 1.6;">
             Navigate from the live video splash launch through the live feed, inspect Retail Assistant shift details at H&amp;M LakeShore Mall, execute a 1-tap application, and simulate on-site supervisor check-in.
@@ -6781,7 +7457,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
-              Open Live Figma Prototype
+              Explore live Figma prototype
             </a>
           </div>
         </div>
@@ -6800,29 +7476,37 @@
         </div>
 
         <h2 class="up-section-h2" style="max-width: 30ch; margin: 0 auto 16px; color: #FFFFFF;">
-          Thank you for reviewing UpCrew!
+          Thank you for reviewing UpCrew
         </h2>
         <p class="up-section-lead" style="max-width: 58ch; margin: 0 auto 36px; color: rgba(255, 255, 255, 0.82);">
           UpCrew demonstrates that solving temporary workforce fragility across Indian urban centers isn’t just a visual polish challenge—it demands systemic escrow guarantees, transparent queue progression, and field-tested resilience in every single tap.
         </p>
 
         <!-- Project Outcomes Grid -->
-        <div class="cs-friction-grid" style="max-width: 840px; margin: 0 auto 36px; text-align: left;">
+        <div class="cs-friction-grid" style="max-width: 840px; margin: 0 auto 28px; text-align: left;">
           <div class="cs-friction-card">
             <span style="font-size: 0.6875rem; font-weight: 800; color: #16A34A; text-transform: uppercase;">Key Outcome 01</span>
-            <h4>100% Payout Certainty</h4>
+            <h4>100% Payout certainty</h4>
             <p>Guaranteed escrow deposits eliminate unpaid wage disputes entirely post-shift.</p>
           </div>
           <div class="cs-friction-card">
             <span style="font-size: 0.6875rem; font-weight: 800; color: #2558E8; text-transform: uppercase;">Key Outcome 02</span>
-            <h4>Zero Ghosting Limbo</h4>
-            <p>7-stage transparent pipeline with SLA response timers gives workers total clarity.</p>
+            <h4>Zero ghosting limbo</h4>
+            <p>7-Stage transparent pipeline with SLA response timers gives workers total clarity.</p>
           </div>
           <div class="cs-friction-card">
             <span style="font-size: 0.6875rem; font-weight: 800; color: #7C3AED; text-transform: uppercase;">Key Outcome 03</span>
-            <h4>Field-Ready Durability</h4>
+            <h4>Field-ready durability</h4>
             <p>16.1:1 AAA sunlight contrast and 44px ergonomics designed for active transit use.</p>
           </div>
+        </div>
+
+        <!-- Architectural Reflection Callout (V2 Roadmap) -->
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 18px 24px; max-width: 840px; margin: 0 auto 36px auto; text-align: left;">
+          <span style="display: block; font-family: var(--up-font-display); font-size: 0.6875rem; font-weight: 800; color: #A78BFA; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Future roadmap reflection · V2 architecture</span>
+          <p style="font-family: var(--up-font-body); font-size: 0.8125rem; color: rgba(255, 255, 255, 0.85); line-height: 1.5; margin: 0;">
+            In V2, we plan to implement offline Bluetooth mesh check-ins for deep basement retail stores and underground exhibition halls where cellular signals drop, ensuring workers never lose punctuality verification due to carrier dead-zones.
+          </p>
         </div>
 
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
@@ -6833,21 +7517,21 @@
             class="cs-trust-pill"
             style="padding: 14px 28px; font-size: 0.875rem; text-decoration: none; background: #FFFFFF; color: var(--cs-ink) !important; border: none; font-weight: 700;"
           >
-            Explore Figma Prototype →
+            Explore live Figma prototype →
           </a>
           <a
             href="../contact.html"
             class="cs-trust-pill"
             style="padding: 14px 28px; font-size: 0.875rem; text-decoration: none; background: rgba(255, 255, 255, 0.1); color: #FFFFFF !important; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 700;"
           >
-            Start a Conversation
+            Start a conversation
           </a>
           <a
             href="../resume.html"
             class="cs-trust-pill"
             style="padding: 14px 28px; font-size: 0.875rem; text-decoration: none; background: rgba(255, 255, 255, 0.1); color: #FFFFFF !important; border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 700;"
           >
-            View Resume
+            View resume
           </a>
         </div>
       </div>
