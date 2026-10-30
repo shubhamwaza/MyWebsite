@@ -1,0 +1,6 @@
+⚡ Bolt: Pause cursor preview animation when idle
+
+💡 What: Updated the `initCursorPreview` function to pause the `requestAnimationFrame` loop when the cursor is idle (difference between current and target positions < 0.1).
+🎯 Why: Continuous `requestAnimationFrame` loops for UI effects keep the CPU/GPU busy and drain battery by updating styles every frame, even when the user is idle.
+📊 Impact: Reduces CPU and GPU usage by preventing unnecessary style updates at 60fps when the cursor is not moving.
+🔬 Measurement: Profile the application's CPU usage in the browser dev tools while the cursor is idle. The main thread should show significantly less activity.

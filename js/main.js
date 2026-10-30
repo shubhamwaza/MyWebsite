@@ -243,19 +243,34 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let isRunning = false;
 
   function loop() {
+    // ⚡ Bolt: Stop the requestAnimationFrame loop when idle to reduce CPU/GPU usage
+    if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      isRunning = false;
+      return;
+    }
+
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
     requestAnimationFrame(loop);
   }
-  loop();
+
+  function startLoop() {
+    if (!isRunning) {
+      isRunning = true;
+      requestAnimationFrame(loop);
+    }
+  }
+  startLoop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    startLoop();
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
