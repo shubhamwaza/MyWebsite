@@ -64,7 +64,7 @@
     function renderFilters() {
       const row = document.getElementById("filterRow");
       const cats = ["All", ...ALL_CATEGORIES];
-      row.innerHTML = cats.map(c => `<button class="filter-btn ${c === activeCategory ? "active" : ""}" data-cat="${c}">${c}</button>`).join("");
+      row.innerHTML = cats.map(c => `<button class="filter-btn ${c === activeCategory ? "active" : ""}" data-cat="${c}" aria-pressed="${c === activeCategory ? 'true' : 'false'}">${c}</button>`).join("");
       row.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", () => {
           activeCategory = btn.dataset.cat;
