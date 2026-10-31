@@ -243,15 +243,21 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let animationFrameId = null;
 
   function loop() {
+    // ⚡ Bolt: Stop perpetual rAF loop when preview is inactive
+    // Prevents unnecessary layout recalculations on every frame
+    if (!active) {
+      animationFrameId = null;
+      return;
+    }
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+    animationFrameId = requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
@@ -265,6 +271,15 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      // ⚡ Bolt: Resume loop only when active
+      if (!animationFrameId) {
+        // Initialize current position to target for immediate appearance
+        curX = targetX;
+        curY = targetY;
+        box.style.left = curX + "px";
+        box.style.top = curY + "px";
+        loop();
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
