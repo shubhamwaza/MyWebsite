@@ -181,9 +181,12 @@ function initReveal() {
 }
 
 function escapeHtml(str) {
+  // Cast to string to prevent Type Confusion XSS bypasses
+  const safeStr = String(str);
   const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  div.textContent = safeStr;
+  // textContent to innerHTML doesn't escape quotes, so we manually escape them to prevent Attribute XSS
+  return div.innerHTML.replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
