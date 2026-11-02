@@ -1,0 +1,3 @@
+## 2024-05-24 - Form Validation & Feedback
+**Learning:** Inline validation needs to clearly highlight the erroneous field using `aria-invalid` and a visual indicator. Additionally, when a user submits a form, simulating a network request with a loading state on the button improves perceived performance and provides necessary feedback before the success state appears.
+**Action:** Update the form submission logic to apply the `is-invalid` class and `aria-invalid="true"` to erroneous fields, clear these states upon retry, and introduce an artificial delay with a loading state on the submit button.
