@@ -1,0 +1,3 @@
+## 2024-03-24 - Accessibility improvements
+**Learning:** Added a hidden skip link "Skip to content" to all pages. To accomplish this, `id="main-content"` was added to `<main>` tags across all files, and custom main ids in `work/case-study.html` and `blog/post.html` were renamed along with their JavaScript references. A new `.skip-link` and `.sr-only` class have been added to the global `css/style.css` file to handle display when focused. The skip link anchor tag was added to `js/main.js` right before the main `<header>` nav element, which propagates to every page.
+**Action:** Consistently ensure a mechanism to skip navigation exists.

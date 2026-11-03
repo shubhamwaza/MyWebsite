@@ -13,7 +13,7 @@
 <body>
   <div id="nav-placeholder"></div>
 
-  <main id="postRoot" class="page-main"></main>
+  <main id="main-content" class="page-main"></main>
 
   <div id="footer-placeholder"></div>
 
@@ -33,7 +33,7 @@
       const params = new URLSearchParams(window.location.search);
       const slug = params.get("slug");
       const post = POSTS.find(p => p.slug === slug);
-      const root = document.getElementById("postRoot");
+      const root = document.getElementById("main-content");
 
       if (!post) {
         root.innerHTML = `
