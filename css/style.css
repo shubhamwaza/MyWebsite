@@ -1133,3 +1133,34 @@ textarea.field { resize: none; }
     gap: 40px;
   }
 }
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip Link (Accessibility) */
+.skip-link:focus {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  margin: 0;
+  clip: auto;
+  white-space: normal;
+  background: var(--accent);
+  color: var(--bg);
+  z-index: 1000;
+  border-radius: 8px;
+  font-weight: 600;
+}

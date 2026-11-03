@@ -44,6 +44,7 @@ function renderNav() {
   const prefix = getPathPrefix();
 
   el.innerHTML = `
+    <a href="#main-content" class="skip-link sr-only">Skip to content</a>
     <header class="site-nav" id="siteNav">
       <div class="container">
         <a href="${prefix}index.html" class="nav-logo" aria-label="Shubham Waza - Home" style="display:flex; align-items:center;">

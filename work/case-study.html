@@ -13,7 +13,7 @@
 <body>
   <div id="nav-placeholder"></div>
 
-  <main id="csRoot" class="page-main">
+  <main id="main-content" class="page-main">
     <!-- Populated by JS -->
   </main>
 
@@ -104,7 +104,7 @@
       const params = new URLSearchParams(window.location.search);
       const slug = params.get("slug");
       const project = PROJECTS.find(p => p.slug === slug);
-      const root = document.getElementById("csRoot");
+      const root = document.getElementById("main-content");
 
       if (!project) {
         root.innerHTML = `
