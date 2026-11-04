@@ -243,17 +243,24 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // Stop the requestAnimationFrame loop when preview is inactive and box has settled near target
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      rafId = null;
+      return;
+    }
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
 
   document.addEventListener("mousemove", (e) => {
+    if (!active) return; // Only track cursor position when the preview is active
     targetX = e.clientX;
     targetY = e.clientY;
   });
@@ -261,10 +268,27 @@ function initCursorPreview(itemSelector) {
   document.querySelectorAll(itemSelector).forEach(el => {
     const src = el.getAttribute("data-preview");
     if (!src) return;
-    el.addEventListener("mouseenter", () => {
+    el.addEventListener("mouseenter", (e) => {
       img.setAttribute("src", src);
+
+      targetX = e.clientX;
+      targetY = e.clientY;
+
+      // If loop wasn't active, immediately jump box to cursor position so it doesn't fly from top-left
+      if (!active) {
+        curX = targetX;
+        curY = targetY;
+        box.style.left = curX + "px";
+        box.style.top = curY + "px";
+      }
+
       box.classList.add("active");
       active = true;
+
+      // Start the requestAnimationFrame loop only when needed to save CPU on idle
+      if (!rafId) {
+        rafId = requestAnimationFrame(loop);
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
