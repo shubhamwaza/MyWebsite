@@ -180,10 +180,15 @@ function initReveal() {
   items.forEach(i => obs.observe(i));
 }
 
+// Security: Explicitly cast to string to prevent Type Confusion bypasses and
+// use regex to escape quotes which are vulnerable to Attribute XSS in DOM textContent conversions
 function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 // ===== Magnetic hover — nudges an element toward the cursor within its bounds =====
