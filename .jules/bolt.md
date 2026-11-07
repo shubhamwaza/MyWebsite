@@ -1,0 +1,3 @@
+## 2024-05-24 - Continuous requestAnimationFrame without pausing
+**Learning:** The cursor preview animation loop in `initCursorPreview` calls `requestAnimationFrame` continuously even when the cursor is idle. This unnecessarily consumes CPU/GPU resources and drains battery on laptops/mobile devices, which is a common performance anti-pattern in custom cursor implementations.
+**Action:** Always check the distance between the target and current positions in animation loops. If the distance is negligible, pause the `requestAnimationFrame` loop and only restart it when user input (like `mousemove`) occurs.
