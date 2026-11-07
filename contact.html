@@ -118,22 +118,38 @@
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
+        // Clear previous inline errors
+        const fields = [document.getElementById("name"), document.getElementById("email"), document.getElementById("message")];
+        fields.forEach(f => {
+          f.classList.remove("is-invalid");
+          f.removeAttribute("aria-invalid");
+          f.addEventListener("input", function clearErr() {
+            this.classList.remove("is-invalid");
+            this.removeAttribute("aria-invalid");
+            this.removeEventListener("input", clearErr);
+          });
+        });
+
+        function setInvalid(el, msg) {
+          showError(msg);
+          el.classList.add("is-invalid");
+          el.setAttribute("aria-invalid", "true");
+          el.focus();
+        }
+
         if (!name) {
-          showError("Please enter your name.");
-          document.getElementById("name").focus();
+          setInvalid(document.getElementById("name"), "Please enter your name.");
           return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email || !emailRegex.test(email)) {
-          showError("Please enter a valid email address.");
-          document.getElementById("email").focus();
+          setInvalid(document.getElementById("email"), "Please enter a valid email address.");
           return;
         }
 
         if (!message || message.length < 10) {
-          showError("Please enter a message of at least 10 characters.");
-          document.getElementById("message").focus();
+          setInvalid(document.getElementById("message"), "Please enter a message of at least 10 characters.");
           return;
         }
 
