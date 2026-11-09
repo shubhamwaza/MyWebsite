@@ -243,19 +243,31 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let rafId = null; // Performance: Track animation frame to allow pausing
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // Performance: Pause continuous loop when resting to save CPU/battery
+    if (!active && Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+      rafId = null;
+      return;
+    }
+
+    rafId = requestAnimationFrame(loop);
   }
-  loop();
+  rafId = requestAnimationFrame(loop);
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // Performance: Restart loop if it was paused
+    if (active && !rafId) {
+      rafId = requestAnimationFrame(loop);
+    }
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -265,10 +277,18 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      // Performance: Snap immediately to avoid flying from old position and ensure loop runs
+      if (!rafId) {
+        curX = targetX;
+        curY = targetY;
+        rafId = requestAnimationFrame(loop);
+      }
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
       active = false;
+      // Loop will naturally pause when distance < 0.1
+      if (!rafId) rafId = requestAnimationFrame(loop);
     });
   });
 }
