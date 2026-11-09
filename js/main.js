@@ -1,10 +1,10 @@
 // ===== Icons (inline SVG strings, no external deps) =====
-const ICON_ARROW = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
-const ICON_MENU = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>`;
-const ICON_CLOSE = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
-const ICON_CHECK = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-const ICON_DOWNLOAD = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
-const ICON_BACK = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`;
+const ICON_ARROW = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+const ICON_MENU = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>`;
+const ICON_CLOSE = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+const ICON_CHECK = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+const ICON_DOWNLOAD = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
+const ICON_BACK = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`;
 
 function getPathPrefix() {
   const p = window.location.pathname.toLowerCase();
@@ -43,14 +43,25 @@ function renderNav() {
   const active = currentPage();
   const prefix = getPathPrefix();
 
+  let mainId = "main-content";
+  const mainEl = document.querySelector("main");
+  if (mainEl) {
+    if (mainEl.id) {
+      mainId = mainEl.id;
+    } else {
+      mainEl.id = mainId;
+    }
+  }
+
   el.innerHTML = `
+    <a href="#${mainId}" class="skip-link">Skip to main content</a>
     <header class="site-nav" id="siteNav">
       <div class="container">
         <a href="${prefix}index.html" class="nav-logo" aria-label="Shubham Waza - Home" style="display:flex; align-items:center;">
           <span class="nav-mark">S.W.</span>Shubham Waza
         </a>
         <ul class="nav-links">
-          ${DESKTOP_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
+          ${DESKTOP_NAV_LINKS.map(l => { const isActive = l.href.toLowerCase() === active; return `<li><a href="${prefix}${l.href}" class="${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""}>${l.label}</a></li>`; }).join("")}
         </ul>
         <a href="${prefix}contact.html" class="btn btn-outline nav-cta magnetic">Let's Connect</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">${ICON_MENU}</button>
@@ -59,7 +70,7 @@ function renderNav() {
     <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile Navigation">
       <div class="container">
         <ul>
-          ${ALL_NAV_LINKS.map(l => `<li><a href="${prefix}${l.href}" class="${l.href.toLowerCase() === active ? "active" : ""}">${l.label}</a></li>`).join("")}
+          ${ALL_NAV_LINKS.map(l => { const isActive = l.href.toLowerCase() === active; return `<li><a href="${prefix}${l.href}" class="${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""}>${l.label}</a></li>`; }).join("")}
         </ul>
         <div style="padding: 24px 0 32px;">
           <a href="${prefix}contact.html" class="btn btn-solid" style="width:100%; justify-content:center;">Let's Connect →</a>
@@ -126,6 +137,7 @@ function renderFooter() {
   ];
 
   const currentYear = new Date().getFullYear();
+  const active = currentPage();
 
   el.innerHTML = `
     <footer class="site-footer">
@@ -138,7 +150,7 @@ function renderFooter() {
           <div>
             <p class="eyebrow" style="margin-bottom:12px; font-size:0.7rem;">Navigation</p>
             <ul class="footer-nav-list" style="display:flex; flex-direction:column; gap:8px;">
-              ${footerNav.map(n => `<li><a href="${prefix}${n.href}" class="muted" style="font-size:0.875rem;">${n.label}</a></li>`).join("")}
+              ${footerNav.map(n => { const isActive = n.href.toLowerCase() === active; return `<li><a href="${prefix}${n.href}" class="muted ${isActive ? "active" : ""}" style="font-size:0.875rem;" ${isActive ? 'aria-current="page"' : ""}>${n.label}</a></li>`; }).join("")}
             </ul>
           </div>
           <div>
