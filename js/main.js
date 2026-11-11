@@ -243,19 +243,35 @@ function initCursorPreview(itemSelector) {
 
   let targetX = 0, targetY = 0, curX = 0, curY = 0;
   let active = false;
+  let loopRunning = false;
 
   function loop() {
     curX += (targetX - curX) * 0.18;
     curY += (targetY - curY) * 0.18;
     box.style.left = curX + "px";
     box.style.top = curY + "px";
-    requestAnimationFrame(loop);
+
+    // ⚡ Bolt: Only loop while active or while catching up to target. Saves CPU/battery when inactive.
+    if (active || Math.abs(targetX - curX) > 0.1 || Math.abs(targetY - curY) > 0.1) {
+      requestAnimationFrame(loop);
+    } else {
+      loopRunning = false;
+    }
   }
-  loop();
+
+  function startLoop() {
+    if (!loopRunning) {
+      loopRunning = true;
+      loop();
+    }
+  }
+  startLoop();
 
   document.addEventListener("mousemove", (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    // ⚡ Bolt: Wake up the loop on any mouse movement to keep background coordinates updated
+    startLoop();
   });
 
   document.querySelectorAll(itemSelector).forEach(el => {
@@ -265,6 +281,8 @@ function initCursorPreview(itemSelector) {
       img.setAttribute("src", src);
       box.classList.add("active");
       active = true;
+      // ⚡ Bolt: Wake up the loop when entering a preview area
+      startLoop();
     });
     el.addEventListener("mouseleave", () => {
       box.classList.remove("active");
